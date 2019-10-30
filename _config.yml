@@ -32,6 +32,10 @@ facebook_username: scribd
 linkedin_username: scribd
 github_username:  scribd
 
+# Assets
+sass:
+    sass_dir: assets/_sass
+
 # Build settings
 plugins:
   - jekyll-feed

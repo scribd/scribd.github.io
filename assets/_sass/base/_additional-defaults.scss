@@ -1,0 +1,28 @@
+html {
+    scroll-behavior: smooth; // smooth anchor link scrolling
+}
+
+
+body {
+    overflow-x: hidden; // for animation transforms
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Global box-sizing
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+// Remove tap highlight on mobile
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
