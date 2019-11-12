@@ -1,18 +1,43 @@
-<header role="banner">
-  {%- assign default_paths = site.pages | map: "path" -%}
-  {%- assign page_paths = site.header_pages | default: default_paths -%}
-  <h2><a rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a></h2>
+<!-- Skip to button -->
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-  {%- if page_paths -%}
-    <nav>
-      <ul>
-        {%- for path in page_paths -%}
-          {%- assign my_page = site.pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-          <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
+<header class="nav" role="banner">
+    <nav class="nav__container container">
+
+        {%- assign default_paths = site.pages | map: "path" -%}
+        {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+        <!-- Logo -->
+        <h1 class="m-0">
+            <a rel="author" href="{{ "/" | relative_url }}">
+                {% include logo.html %}
+                <span class="visually-hidden">{{ site.title | escape }}</span>
+            </a>
+        </h1>
+
+        <!-- Mobile menu button -->
+        <button class="nav__menu-trigger" type="button" aria-label="Navigation Menu" aria-expanded="false">
+            <span class="hamburger">
+                <span class="hamburger__inner"></span>
+            </span>
+        </button>
+
+        <!-- Page List -->
+        {%- if page_paths -%}
+            <ul class="nav-list list--inline monospace">
+            {%- for path in page_paths -%}
+                {%- assign my_page = site.pages | where: "path", path | first -%}
+                {% assign class = nil %}
+                {% if page.url == my_page.url %}
+                    {% assign class = 'active' %}
+                {% endif %}
+                {%- if my_page.title -%}
+                <li class="nav-list__item">
+                    <a class="nav-list__link {{ class }}" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                </li>
+                {%- endif -%}
+            {%- endfor -%}
+            </ul>
+        {%- endif -%}
     </nav>
-  {%- endif -%}
 </header>

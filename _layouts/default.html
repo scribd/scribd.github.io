@@ -4,15 +4,13 @@
   {%- include head.html -%}
 
   <body>
-
     {%- include header.html -%}
 
-    <main aria-label="Content">
+    <main id="main-content" aria-label="Content">
         {{ content }}
     </main>
 
     {%- include footer.html -%}
-
+    {% include js.html %}
   </body>
-
 </html>

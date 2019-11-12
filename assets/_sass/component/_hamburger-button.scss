@@ -1,0 +1,55 @@
+////////////////////
+// Variables
+////////////////////
+
+$width: 20px;
+$height: 2px;
+
+////////////////////
+// Hamburger Button
+////////////////////
+
+.hamburger {
+    position: relative;
+    width: $width;
+}
+
+.hamburger:before,
+.hamburger:after,
+.hamburger__inner {
+    content: '';
+    position: absolute;
+    display: block;
+    right: 0;
+    width: $width - 3px;
+    height: $height;
+    background-color: $teal;
+    border-radius: $height;
+    transition: all 0.2s ease-in-out;
+}
+
+.hamburger:before,
+.hamburger:after {
+    width: 100%;
+    transform-origin: left;
+}
+
+.hamburger:before {
+    top: -7px;
+}
+
+.hamburger:after {
+    top: 7px;
+}
+
+.active .hamburger:before {
+    transform: translateX(3px) rotate(45deg);
+}
+
+.active .hamburger__inner {
+    opacity: 0;
+}
+
+.active .hamburger:after {
+    transform: translateX(3px) rotate(-45deg);
+}

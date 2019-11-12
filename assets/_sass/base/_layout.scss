@@ -1,0 +1,39 @@
+////////////////////
+// Layout Variables
+////////////////////
+
+// Container padding
+$cp-sm: 15px;
+$cp-md: 5%;
+$cp-lg: 75px;
+
+// Max site width
+$max-width: 1440px;
+
+// Breakpoints
+$bp-sm: 600px;
+$bp-md: 800px;
+$bp-lg: 1000px;
+$bp-xl: $max-width;
+
+////////////////////
+// Container
+////////////////////
+
+.container {
+    width: 100%;
+    max-width: $max-width;
+    margin: auto;
+    padding-left: $cp-sm;
+    padding-right: $cp-sm;
+
+    @media screen and (min-width: $bp-md) {
+        padding-left: $cp-md;
+        padding-right: $cp-md;
+    }
+
+    @media screen and (min-width: $bp-xl) {
+        padding-left: $cp-lg;
+        padding-right: $cp-lg;
+    }
+}

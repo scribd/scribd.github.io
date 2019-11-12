@@ -1,0 +1,140 @@
+////////////////////
+// Variables
+////////////////////
+
+$nav-height-sm: 60px;
+$nav-height-lg: 80px;
+$nav-zindex: 10;
+
+////////////////////
+// Navigation
+////////////////////
+
+.nav {
+    position: relative;
+    width: 100%;
+    background-color: $white;
+    border-bottom: 1px solid $slate-300;
+    z-index: $nav-zindex;
+}
+
+.nav__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: $nav-height-sm;
+    background-color: $white;
+
+    @media (min-width: $bp-md) {
+        height: $nav-height-lg;
+    }
+}
+
+.nav .logo {
+    @media(max-width: $bp-md) {
+        max-width: 105px;
+    }
+}
+
+.nav__menu-trigger {
+    @extend .btn-reset;
+    width: $nav-height-sm;
+    height: $nav-height-sm;
+    margin-right: -$cp-sm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+
+    @media (min-width: $bp-md) {
+        display: none;
+    }
+
+}
+
+.nav-list {
+    @media (max-width: $bp-md) {
+    position: absolute;
+    top: $nav-height-sm;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - #{$nav-height-sm});
+    padding: 20px $cp-sm;
+    background-color: $teal;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.2s;
+    transition-property: opacity, visibility, transform;
+    transition-timing-function: ease-in-out;
+    }
+}
+
+.menu-active .nav-list{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.nav-list__item {
+    border-bottom: 1px solid $teal-dark;
+
+    @media (min-width: $bp-md) {
+        border-bottom: none;
+    }
+
+    &:not(:last-of-type) {
+
+        @media (min-width: $bp-md) {
+            margin-right: 20px;
+        }
+
+        @media (min-width: $bp-lg) {
+            margin-right: 40px;
+        }
+    }
+}
+
+.nav-list__link {
+    display: block;
+    padding: 20px 10px;
+    color: $white;
+
+    @media (min-width: $bp-md) {
+        display: inline;
+        padding: 10px 0;
+        color: $slate-600;
+
+        &:hover,
+        &:focus,
+        &.active {
+            color: $teal;
+            text-decoration: underline;
+        }
+    }
+}
+
+////////////////////
+// Skip Nav Link
+////////////////////
+
+.skip-link {
+    position: absolute;
+    top: -$nav-height-lg;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: $white;
+    text-decoration: none;
+    background: $teal-dark;
+    transition: top .2s ease-in-out;
+    z-index: $nav-zindex + 1;
+
+    &:focus {
+        top: 0;
+    }
+}
