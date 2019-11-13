@@ -54,7 +54,7 @@
 .logo {
     vertical-align: middle;
     width: 100%;
-    max-width: 130px;
+    max-width: rem-calc(130px);
 }
 
 // Dark version of logo

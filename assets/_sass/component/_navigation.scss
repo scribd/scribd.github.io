@@ -2,8 +2,8 @@
 // Variables
 ////////////////////
 
-$nav-height-sm: 60px;
-$nav-height-lg: 80px;
+$nav-height-sm: rem-calc(60px);
+$nav-height-lg: rem-calc(80px);
 $nav-zindex: 10;
 
 ////////////////////
@@ -33,7 +33,7 @@ $nav-zindex: 10;
 
 .nav .logo {
     @media(max-width: $bp-md) {
-        max-width: 105px;
+        max-width: rem-calc(105px);
     }
 }
 
@@ -61,7 +61,7 @@ $nav-zindex: 10;
     bottom: 0;
     left: 0;
     height: calc(100vh - #{$nav-height-sm});
-    padding: 20px $cp-sm;
+    padding: rem-calc(20px) $cp-sm;
     background-color: $teal;
     display: flex;
     flex-direction: column;
@@ -90,23 +90,23 @@ $nav-zindex: 10;
     &:not(:last-of-type) {
 
         @media (min-width: $bp-md) {
-            margin-right: 20px;
+            margin-left: rem-calc(20px);
         }
 
         @media (min-width: $bp-lg) {
-            margin-right: 40px;
+            margin-left: rem-calc(40px);
         }
     }
 }
 
 .nav-list__link {
     display: block;
-    padding: 20px 10px;
+    padding: rem-calc(20px 10px);
     color: $white;
 
     @media (min-width: $bp-md) {
         display: inline;
-        padding: 10px 0;
+        padding: rem-calc(10px 0);
         color: $slate-600;
 
         &:hover,

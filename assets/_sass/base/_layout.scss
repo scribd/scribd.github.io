@@ -3,9 +3,9 @@
 ////////////////////
 
 // Container padding
-$cp-sm: 15px;
+$cp-sm: rem-calc(15px);
 $cp-md: 5%;
-$cp-lg: 75px;
+$cp-lg: rem-calc(75px);
 
 // Max site width
 $max-width: 1440px;

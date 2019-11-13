@@ -2,8 +2,8 @@
 // Variables
 ////////////////////
 
-$width: 20px;
-$height: 2px;
+$width: rem-calc(20px);
+$height: rem-calc(2px);
 
 ////////////////////
 // Hamburger Button
@@ -21,7 +21,7 @@ $height: 2px;
     position: absolute;
     display: block;
     right: 0;
-    width: $width - 3px;
+    width: $width - rem-calc(3px);
     height: $height;
     background-color: $teal;
     border-radius: $height;
@@ -35,15 +35,15 @@ $height: 2px;
 }
 
 .hamburger:before {
-    top: -7px;
+    top: rem-calc(-7px);
 }
 
 .hamburger:after {
-    top: 7px;
+    top: rem-calc(7px);
 }
 
 .active .hamburger:before {
-    transform: translateX(3px) rotate(45deg);
+    transform: translateX(rem-calc(3px)) rotate(45deg);
 }
 
 .active .hamburger__inner {
@@ -51,5 +51,5 @@ $height: 2px;
 }
 
 .active .hamburger:after {
-    transform: translateX(3px) rotate(-45deg);
+    transform: translateX(rem-calc(3px)) rotate(-45deg);
 }
