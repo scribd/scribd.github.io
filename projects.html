@@ -4,4 +4,16 @@ title: Projects
 permalink: /projects/
 ---
 
-This is an empty projects page.
+<ul>
+    {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
+    {% for repository in public_repositories %}
+    <li>
+        <h2>
+            <a href='{{ repository.html_url }}'>{{ repository.name }}</a>
+        </h2>
+        <p>{{ repository.description }}</p>
+        <p>{{ repository.language }}</p>
+        <p>{{ repository.license.spdx_id }}</p>
+    </li>
+    {% endfor %}
+</ul>

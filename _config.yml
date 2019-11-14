@@ -27,6 +27,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+# GitHub Metadata
+# Used for "improve this page" link
+branch: master
+
 twitter_username: scribd
 facebook_username: scribd
 linkedin_username: scribd
