@@ -46,22 +46,21 @@ $nav-zindex: 10;
     justify-content: center;
     align-items: center;
     outline: none;
+}
 
-    @media (min-width: $bp-md) {
-        display: none;
-    }
-
+// Prevent background page from scrolling when menu is active
+.menu-active {
+    overflow: hidden;
 }
 
 .nav-list {
     @media (max-width: $bp-md) {
-    position: absolute;
-    top: $nav-height-sm;
+    position: fixed;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    height: calc(100vh - #{$nav-height-sm});
-    padding: rem-calc(20px) $cp-sm;
+    padding: $nav-height-sm $cp-sm rem-calc(20px);
     background-color: $teal;
     display: flex;
     flex-direction: column;
@@ -71,23 +70,25 @@ $nav-zindex: 10;
     transition-duration: 0.2s;
     transition-property: opacity, visibility, transform;
     transition-timing-function: ease-in-out;
+    z-index: -1;
     }
 }
 
+// Show nav list when .menu-active class is toggled
 .menu-active .nav-list{
     opacity: 1;
     visibility: visible;
 }
 
-
 .nav-list__item {
+    display: inline;
     border-bottom: 1px solid $teal-dark;
 
     @media (min-width: $bp-md) {
         border-bottom: none;
     }
 
-    &:not(:last-of-type) {
+    &:not(:first-of-type) {
 
         @media (min-width: $bp-md) {
             margin-left: rem-calc(20px);
@@ -116,6 +117,25 @@ $nav-zindex: 10;
             text-decoration: underline;
         }
     }
+}
+
+// Mobile social media icons
+.nav-social-list {
+    margin-top: auto;
+    margin-bottom: rem-calc(15px);
+    border-bottom: 1px solid $teal-dark;
+}
+
+.nav-social-list__item {
+    display: inline-block;
+    padding: rem-calc(20px 8px 20px 0);
+}
+
+// Mobile github links
+.nav-github-link:not(:last-child) {
+    margin-right: rem-calc(12px);
+    padding-right: rem-calc(12px);
+    border-right: 1px solid $teal-dark;
 }
 
 ////////////////////

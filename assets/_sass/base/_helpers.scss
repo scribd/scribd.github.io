@@ -1,4 +1,26 @@
 ////////////////////
+// Color Modifiers
+////////////////////
+
+.text-white {color: $white}
+
+////////////////////
+// Font Size
+////////////////////
+
+.fs-md {
+    font-size: rem-calc(14px);
+}
+
+////////////////////
+// Links
+////////////////////
+
+.no-underline {
+    text-decoration: none;
+}
+
+////////////////////
 // List
 ////////////////////
 
@@ -25,6 +47,24 @@
 // Hide visually and from screen readers
 .hidden {
     display: none !important;
+}
+
+.hidden-sm {
+    @media (min-width: $bp-sm) {
+        display: none !important;
+    }
+}
+
+.hidden-md {
+    @media (min-width: $bp-md) {
+        display: none !important;
+    }
+}
+
+.hidden-lg {
+    @media (min-width: $bp-lg) {
+        display: none !important;
+    }
 }
 
 // Hide only visually, but have it available for screen readers:

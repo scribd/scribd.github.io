@@ -16,15 +16,16 @@
         </h1>
 
         <!-- Mobile menu button -->
-        <button class="nav__menu-trigger" type="button" aria-label="Navigation Menu" aria-expanded="false">
+        <button class="nav__menu-trigger hidden-md" type="button" aria-label="Navigation Menu" aria-expanded="false">
+            <span class="visually-hidden">Menu</span>
             <span class="hamburger">
                 <span class="hamburger__inner"></span>
             </span>
         </button>
 
-        <!-- Page List -->
+        <!-- Page list -->
         {%- if page_paths -%}
-            <ul class="nav-list list--inline monospace">
+            <ul class="nav-list list--plain monospace">
             {%- for path in page_paths -%}
                 {%- assign my_page = site.pages | where: "path", path | first -%}
                 {% assign class = nil %}
@@ -36,7 +37,28 @@
                     <a class="nav-list__link {{ class }}" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
                 </li>
                 {%- endif -%}
-            {%- endfor -%}
+                {%- endfor -%}
+
+                <!-- Social icons (mobile only) -->
+                <li class="nav-social-list hidden-md">
+                    <a class="nav-social-list__item text-white no-underline" href="https://www.twitter.com/{{ site.twitter_username| cgi_escape | escape }}">
+                        <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/social-icons.svg#twitter' | relative_url }}"></use></svg>
+                    </a>
+                    <a class="nav-social-list__item text-white no-underline" href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}">
+                        <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/social-icons.svg#facebook' | relative_url }}"></use></svg>
+                    </a>
+                    <a class="nav-social-list__item text-white no-underline" href="https://www.linkedin.com/company/{{ site.linkedin_username| cgi_escape | escape }}">
+                        <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/social-icons.svg#linkedin' | relative_url }}"></use></svg>
+                    </a>
+                    <a class="nav-social-list__item text-white no-underline" href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
+                        <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/social-icons.svg#github' | relative_url }}"></use></svg>
+                    </a>
+                </li>
+
+                <!-- Github links (mobile only) -->
+                <li class="hidden-md monospace fs-md">
+                    <a class="nav-github-link text-white" href="{{site.github.repository_url}}/edit/{{ site.branch }}/{{page.path}}">Improve this Page</a><a class="nav-github-link text-white" href="{{site.github.repository_url}}/commits/{{ site.branch }}/{{page.path}}">Page History</a>
+                </li>
             </ul>
         {%- endif -%}
     </nav>
