@@ -63,3 +63,15 @@
     .logo__wordmark { fill: $white; }
     .logo__subhead { fill: rgba($white, .70) }
 }
+
+////////////////////
+// Icons
+////////////////////
+
+.svg-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    vertical-align: text-bottom;
+}
