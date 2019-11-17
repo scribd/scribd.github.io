@@ -1,0 +1,144 @@
+////////////////////
+// Sticky Footer
+////////////////////
+
+// Make the footer stick to the bottom of pages
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main { flex: 1; }
+
+////////////////////
+// Footer
+////////////////////
+
+.footer {
+    background-color: $slate-700;
+}
+
+.footer__container {
+    padding-top: rem-calc(25px);
+    padding-bottom: rem-calc(25px);
+    text-align: center;
+
+    @media(min-width: $bp-md) {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 25% 1fr 25%;
+        padding-top: rem-calc(40px);
+        padding-bottom: rem-calc(40px);
+        text-align: left;
+    }
+}
+
+.footer .logo {
+    @media(max-width: $bp-md) {
+        margin-bottom: rem-calc(10px);
+        max-width: rem-calc(110px);
+    }
+}
+
+.footer-nav {
+    margin-bottom: rem-calc(10px);
+    text-align: center;
+    font-size: rem-calc(14px);
+
+    @media(min-width: $bp-md) {
+        margin-bottom: 0;
+    }
+
+    @media(min-width: $bp-md) {
+        font-size: rem-calc(16px);
+    }
+}
+
+.footer-nav__item {
+    display: inline-block;
+    padding: rem-calc(10px);
+
+    &:not(:first-child) {
+
+        @media(min-width: $bp-lg) {
+            margin-left: 4%;
+        }
+    }
+
+}
+
+.footer-link {
+    color: $slate-300;
+
+    &.active,
+    &:hover,
+    &:focus {
+        color: $white;
+        text-decoration: underline;
+    }
+}
+
+.footer-social-list {
+    @media(min-width: $bp-md) {
+        text-align: right;
+    }
+}
+
+.footer-social-list__item:not(:first-child) {
+    margin-left: rem-calc(10px);
+}
+
+// Secondary Footer
+.footer-secondary {
+    padding: rem-calc(20px 0);
+    background-color: $slate-800;
+}
+
+.footer-secondary__container {
+    text-align: center;
+
+    @media(min-width: $bp-md) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.open-source-nav {
+    display: inline-flex;
+    align-items: center;
+}
+
+.open-source-nav__item:not(:last-child) {
+    margin-right: 1em;
+    padding-right: 1em;
+    border-right: 1px solid $seafoam-light;
+}
+
+.footer-license {
+    margin: rem-calc(20px 0 0 0);
+    font-size: rem-calc(12px);
+    color: rgba($white, .5);
+
+    @media(min-width: $bp-md) {
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        margin: 0 0 0 rem-calc(10px);
+        max-width: 60%;
+        font-size: rem-calc(14px);
+        text-align: right;
+    }
+}
+
+.footer-license__img {
+    display: block;
+    margin: 0 auto rem-calc(10px) auto;
+
+    @media(min-width: $bp-md) {
+        flex: 0 0 auto;
+        display: inline-block;
+        margin: 0 0 0 rem-calc(15px);
+    }
+}
