@@ -41,3 +41,55 @@ $slate-300: #CCD4E8;
 $slate-200: #E9EDF8;
 $slate-100: #F8F9FD;
 $white: #fff;
+
+////////////////////
+// Color Themes
+////////////////////
+
+.theme-white {
+    --theme-primary-color: #{$white};
+    --theme-secondary-color: var(--theme-primary-color);
+    --theme-border-color: #{$slate-200};
+    --theme-accent-color: #{$teal};
+    --theme-text-color: #{$slate-800};
+}
+
+.theme-teal {
+    --theme-primary-color: #{$teal};
+    --theme-secondary-color: #{$teal-dark};
+    --theme-border-color: #{$teal};
+    --theme-accent-color: #{$white};
+    --theme-text-color: var(--theme-accent-color);
+}
+
+.theme-yellow {
+    --theme-primary-color: #{$yellow-light};
+    --theme-secondary-color: #{$yellow-dark};
+    --theme-border-color: #{$yellow-light};
+    --theme-accent-color: #{$slate-800};
+    --theme-text-color: var(--theme-accent-color);
+}
+
+.theme-cabernet {
+    --theme-primary-color: #{$cabernet-light};
+    --theme-secondary-color: #{$cabernet-dark};
+    --theme-border-color: #{$cabernet-light};
+    --theme-accent-color: #{$white};
+    --theme-text-color: var(--theme-accent-color);
+}
+
+.theme-midnight {
+    --theme-primary-color: #{$midnight-light};
+    --theme-secondary-color: #{$midnight-dark};
+    --theme-border-color: #{$midnight-light};
+    --theme-accent-color: #{$white};
+    --theme-text-color: var(--theme-accent-color);
+}
+
+.theme-slate {
+    --theme-primary-color: #{$slate-700};
+    --theme-secondary-color: #{$slate-800};
+    --theme-border-color: #{$slate-700};
+    --theme-accent-color: #{$white};
+    --theme-text-color: var(--theme-accent-color);
+}

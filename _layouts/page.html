@@ -1,14 +1,11 @@
 ---
 layout: default
 ---
+
+{% if page.hero %}
+    {% include hero.html %}
+{% endif %}
+
 <article>
-
-    <header>
-        <h1>{{ page.title | escape }}</h1>
-    </header>
-
-    <div>
-        {{ content }}
-    </div>
-
+    {{ content }}
 </article>

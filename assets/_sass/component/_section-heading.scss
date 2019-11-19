@@ -1,0 +1,28 @@
+////////////////////
+// Variables
+////////////////////
+
+$border-width: 2px;
+
+////////////////////
+// Section Heading
+////////////////////
+
+.section-heading {
+    display: inline-block;
+    margin: 0 0 1em 0;
+    @extend .monospace;
+    font-size: rem-calc(14px);
+    line-height: 1;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        margin-right: .5em;
+        width: $border-width;
+        height: 1em;
+        background-color: currentColor;
+        border-radius: $border-width;
+        vertical-align: top;
+    }
+}

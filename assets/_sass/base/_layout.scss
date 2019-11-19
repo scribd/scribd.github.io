@@ -27,13 +27,23 @@ $bp-xl: $max-width;
     padding-left: $cp-sm;
     padding-right: $cp-sm;
 
-    @media screen and (min-width: $bp-md) {
+    @media (min-width: $bp-md) {
         padding-left: $cp-md;
         padding-right: $cp-md;
     }
 
-    @media screen and (min-width: $bp-xl) {
+    @media (min-width: $bp-xl) {
         padding-left: $cp-lg;
         padding-right: $cp-lg;
+    }
+}
+
+////////////////////
+// Container
+////////////////////
+
+.container-offset {
+    @media (min-width: $bp-lg) {
+        padding-left: ($cp-md + 7%);
     }
 }

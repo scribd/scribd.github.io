@@ -10,11 +10,13 @@
 @import "base/colors";
 @import "base/normalize";
 @import "base/additional-defaults";
-@import "base/typography";
 @import "base/layout";
+@import "base/typography";
 @import "base/helpers";
 
 @import "component/buttons";
 @import "component/navigation";
 @import "component/hamburger-button";
 @import "component/footer";
+@import "component/hero";
+@import "component/section-heading";

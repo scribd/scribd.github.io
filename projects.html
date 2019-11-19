@@ -2,18 +2,27 @@
 layout: page
 title: Projects
 permalink: /projects/
+
+hero:
+  label: Our Projects
+  title: We work openly.
+  body: "We believe a rising tide lifts all boats. If we build something others can benefit from, we open source it. Knowledge isn't meant to be contained; it's meant to be shared."
 ---
 
-<ul>
-    {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
-    {% for repository in public_repositories %}
-    <li>
-        <h2>
-            <a href='{{ repository.html_url }}'>{{ repository.name }}</a>
-        </h2>
-        <p>{{ repository.description }}</p>
-        <p>{{ repository.language }}</p>
-        <p>{{ repository.license.spdx_id }}</p>
-    </li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h2>Open Source Projects</h2>
+
+    <ul>
+        {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
+        {% for repository in public_repositories %}
+        <li>
+            <h2>
+                <a href='{{ repository.html_url }}'>{{ repository.name }}</a>
+            </h2>
+            <p>{{ repository.description }}</p>
+            <p>{{ repository.language }}</p>
+            <p>{{ repository.license.spdx_id }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
