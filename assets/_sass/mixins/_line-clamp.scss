@@ -1,0 +1,12 @@
+// Limits a block of text to a certain number of lines
+// @include line-clamp(max-lines);
+
+@mixin line-clamp($lines: 2) {
+    // Use line-clamp if supported (will have a trailing ellipsis)
+    @supports (-webkit-line-clamp: 1) {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $lines;
+    }
+}

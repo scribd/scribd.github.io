@@ -88,6 +88,24 @@
 }
 
 ////////////////////
+// Truncation
+////////////////////
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clamp-2 {
+    @include line-clamp(2);
+}
+
+.clamp-3 {
+    @include line-clamp(3);
+}
+
+////////////////////
 // Logo
 ////////////////////
 
