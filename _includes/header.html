@@ -1,18 +1,17 @@
-<!-- Skip to button -->
-<a class="skip-link" href="#main-content">Skip to content</a>
-
 <header class="nav" role="banner">
+    <!-- Skip to button -->
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
     <nav class="nav__container container">
 
         {%- assign default_paths = site.pages | map: "path" -%}
         {%- assign page_paths = site.header_pages | default: default_paths -%}
 
         <!-- Logo -->
-        <h1 class="m-0">
-            <a rel="author" href="{{ "/" | relative_url }}">
-                {% include logo.html %}
-            </a>
-        </h1>
+        <a rel="author" href="{{ "/" | relative_url }}">
+            <h1 class="visually-hidden">{{ site.title }}</h1>
+            {% include logo.html %}
+        </a>
 
         <!-- Mobile menu button -->
         <button class="nav__menu-trigger hidden-md" type="button" aria-label="Navigation Menu" aria-expanded="false">

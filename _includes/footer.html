@@ -2,11 +2,10 @@
     <div class="footer__container container">
 
         <!-- Logo -->
-        <h2 class="m-0">
-            <a rel="author" href="{{ "/" | relative_url }}">
-                {% include logo.html color="dark" %}
-            </a>
-        </h2>
+        <a rel="author" href="{{ "/" | relative_url }}">
+            <h2 class="visually-hidden">{{ site.title }}></h2>
+            {% include logo.html color="dark" %}
+        </a>
 
         <!-- Page list -->
         {%- if page_paths -%}
