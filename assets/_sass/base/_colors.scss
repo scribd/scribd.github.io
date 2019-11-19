@@ -46,6 +46,8 @@ $white: #fff;
 // Color Themes
 ////////////////////
 
+// Brand Themes
+
 .theme-white {
     --theme-primary-color: #{$white};
     --theme-secondary-color: var(--theme-primary-color);
@@ -90,6 +92,32 @@ $white: #fff;
     --theme-primary-color: #{$slate-700};
     --theme-secondary-color: #{$slate-800};
     --theme-border-color: #{$slate-700};
+    --theme-accent-color: #{$white};
+    --theme-text-color: var(--theme-accent-color);
+}
+
+// Custom Themes
+
+.theme-rust {
+    --theme-primary-color: hsl(18, 84%, 28%);
+    --theme-secondary-color: hsl(18, 84%, 22%);
+    --theme-border-color: var(--theme-primary-color);
+    --theme-accent-color: #{$white};
+    --theme-text-color: var(--theme-accent-color);
+}
+
+.theme-royal {
+    --theme-primary-color: hsl(254, 100%, 28%);
+    --theme-secondary-color: hsl(254, 100%, 22%);
+    --theme-border-color: var(--theme-primary-color);
+    --theme-accent-color: #{$white};
+    --theme-text-color: var(--theme-accent-color);
+}
+
+.theme-grass {
+    --theme-primary-color: hsl(161, 100%, 20%);
+    --theme-secondary-color: hsl(161, 100%, 16%);
+    --theme-border-color: var(--theme-primary-color);
     --theme-accent-color: #{$white};
     --theme-text-color: var(--theme-accent-color);
 }

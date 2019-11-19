@@ -43,7 +43,11 @@ $bp-xl: $max-width;
 ////////////////////
 
 .container-offset {
-    @media (min-width: $bp-lg) {
+    @media (min-width: $bp-md) {
         padding-left: ($cp-md + 7%);
+    }
+
+    @media (min-width: $bp-xl) {
+        padding-left: rem-calc(175px);
     }
 }

@@ -1,0 +1,21 @@
+{% assign theme = nil %}
+
+{% if repository.language == "Go" %}
+    {% assign theme = 'teal' %}
+
+    {% elsif repository.language == "Swift" %}
+    {% assign theme = 'cabernet' %}
+
+    {% elsif repository.language == "JavaScript" %}
+    {% assign theme = 'slate' %}
+
+    {% elsif repository.language == "HTML" %}
+    {% assign theme = 'midnight' %}
+
+    {% elsif repository.language == "JSON" %}
+    {% assign theme = 'rust' %}
+
+    {% elsif repository.language == "Python" %}
+    {% assign theme = 'grass' %}
+
+{% endif %}

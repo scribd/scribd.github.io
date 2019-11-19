@@ -12,17 +12,46 @@ hero:
 <div class="container">
     <h2>Open Source Projects</h2>
 
-    <ul>
+    <ul class="card-grid">
         {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
         {% for repository in public_repositories %}
-        <li>
-            <h2>
-                <a href='{{ repository.html_url }}'>{{ repository.name }}</a>
-            </h2>
-            <p>{{ repository.description }}</p>
-            <p>{{ repository.language }}</p>
-            <p>{{ repository.license.spdx_id }}</p>
-        </li>
+
+            <!-- Assign theme colors based of off the project language -->
+            <!-- See include below for logic and color.scss for available themes -->
+            {% include project-color-logic.html %}
+
+            <li class="card theme-{{ theme | default: "white" }}">
+                <header class="card__header">
+
+                    <!-- Project title -->
+                    <h2 class="card__header-title m-0">
+                        <a class="card__header-link stretched-link" href='{{ repository.html_url }}'>{{ repository.name }}</a>
+                    </h2>
+
+                    <!-- Project metadata -->
+                    <ul class="list--inline fs-md monospace">
+                        {% if repository.language %}
+                            <li>
+                                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icons.svg#code' | relative_url }}"></use></svg><span class="visually-hidden">Language: </span>{{ repository.language }}
+                            </li>
+                        {% endif %}
+
+                        {% if repository.license.spdx_id %}
+                            <li>
+                                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icons.svg#license' | relative_url }}"></use></svg><span class="visually-hidden">License: </span>{{ repository.license.spdx_id }}
+                            </li>
+                        {% endif %}
+                    </ul>
+                </header>
+
+                <!-- Project description -->
+                <div class="card__body fs-md monospace">
+                    {% if repository.description %}
+                        <p class="m-0 clamp-3">{{ repository.description }}</p>
+                    {% endif %}
+                </div>
+            </li>
+
         {% endfor %}
     </ul>
 </div>
