@@ -50,7 +50,7 @@ ul {
     font-size: 1rem;
 
     @media (min-width: $bp-md) {
-        font-size: 18px;
+        font-size: rem-calc(18px);
     }
 }
 
@@ -66,7 +66,41 @@ h5,
 h6 {
     font-weight: 700;
     line-height: 1.25em;
-    margin: 0 0 0.6em 0;
+    margin: 0 0 0.3em 0;
+}
+
+h1,
+.h1 {
+    font-size: rem-calc(28px);
+    @media (min-width: $bp-md) { font-size: rem-calc(35px);}
+}
+
+h2,
+.h2 {
+    font-size: rem-calc(22px);
+    @media (min-width: $bp-md) { font-size: rem-calc(28px);}
+}
+
+h3,
+.h3 {
+    font-size: rem-calc(22px);
+    @media (min-width: $bp-md) { font-size: rem-calc(24px);}
+}
+
+h4,
+.h4 {
+    font-size: rem-calc(18px);
+    @media (min-width: $bp-md) { font-size: rem-calc(20px);}
+}
+
+h5,
+.h5 {
+    font-size: rem-calc(18px);
+}
+
+h6,
+.h6 {
+    font-size: rem-calc(16px);
 }
 
 ////////////////////
@@ -76,13 +110,15 @@ h6 {
 a {
     color: $teal;
     text-decoration: underline;
-    text-underline-offset: 2px;
     text-decoration-color: transparent;
+    text-underline-offset: .15em;
+    text-decoration-thickness: .1em;
     transition: 0.2s all ease-in-out;
     transition-property: color, text-decoration;
 }
 
 a:hover,
-a:focus {
+a:focus,
+a.active {
     text-decoration-color: currentColor;
 }
