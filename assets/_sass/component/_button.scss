@@ -1,0 +1,88 @@
+////////////////////
+// Variables
+////////////////////
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+////////////////////
+// Buttons
+////////////////////
+
+.btn {
+    @extend .btn-reset;
+    display: inline-block;
+    padding: .75em 1.5em;
+    text-align: center;
+    font-family: $monospace;
+    font-size: rem-calc(14px);
+    line-height: 1;
+    color: $white;
+    text-decoration: none;
+    border-radius: 1.5em;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-sm {
+   font-size: rem-calc(12px);
+}
+
+.btn-lg {
+   font-size: rem-calc(16px);
+}
+
+////////////////////
+// Colors
+////////////////////
+
+.btn-primary {
+    background-color: $teal;
+
+    &:hover,
+    &:focus {
+        background-color: $teal-dark;
+    }
+}
+
+.btn-secondary {
+    background-color: $slate-700;
+
+    &:hover,
+    &:focus {
+        background-color: $slate-800;
+    }
+}
+
+////////////////////
+// Icons
+////////////////////
+
+.btn .svg-icon {
+    margin-right: -.25em;
+    transition: transform 0.2s ease-in-out;
+}
+
+.sans-serif.btn .svg-icon {
+    margin-left: .25em;
+}
+
+.btn-icon-right:hover .svg-icon,
+.btn-icon-right:focus .svg-icon {
+    transform: translateX(2px);
+}
+
+.btn-icon-down:hover .svg-icon,
+.btn-icon-down:focus .svg-icon {
+    transform: translatey(2px);
+}
+
+.btn-icon-external:hover .svg-icon,
+.btn-icon-external:focus .svg-icon {
+    transform: translate(2px, -2px);
+}
