@@ -2,14 +2,53 @@
 // Color Modifiers
 ////////////////////
 
+// Grayscale
 .text-white { color: $white }
+.text-muted { color: darken($slate-600, 5%) }
+
+// Brand
+.text-teal { color: $teal }
+.text-cabernet { color: $cabernet }
+.text-plum { color: $plum }
 
 ////////////////////
 // Font Size
 ////////////////////
 
+.fs-sm {
+    font-size: rem-calc(12px);
+}
+
 .fs-md {
     font-size: rem-calc(14px);
+}
+
+.fs-lg {
+    font-size: rem-calc(18px);
+}
+
+////////////////////
+// Alingment
+////////////////////
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+////////////////////
+// Max-width
+////////////////////
+
+.text-length-xl {
+    max-width: rem-calc(875px);
+}
+
+.text-length-lg {
+    max-width: rem-calc(750px);
+}
+
+.text-length-md {
+    max-width: rem-calc(550px);
 }
 
 ////////////////////

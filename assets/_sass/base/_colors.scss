@@ -41,6 +41,7 @@ $slate-300: #CCD4E8;
 $slate-200: #E9EDF8;
 $slate-100: #F8F9FD;
 $white: #fff;
+$white-faded: rgba(#fff, .6);
 
 ////////////////////
 // Color Themes
@@ -60,8 +61,8 @@ $white: #fff;
     --theme-primary-color: #{$teal};
     --theme-secondary-color: #{$teal-dark};
     --theme-border-color: #{$teal};
-    --theme-accent-color: #{$white};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-accent-color: #{$white-faded};
+    --theme-text-color: #{$white};
 }
 
 .theme-yellow {
@@ -69,31 +70,31 @@ $white: #fff;
     --theme-secondary-color: #{$yellow-dark};
     --theme-border-color: #{$yellow-light};
     --theme-accent-color: #{$slate-800};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-text-color: #{$white};
 }
 
 .theme-cabernet {
     --theme-primary-color: #{$cabernet-light};
     --theme-secondary-color: #{$cabernet-dark};
     --theme-border-color: #{$cabernet-light};
-    --theme-accent-color: #{$white};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-accent-color: #{$white-faded};
+    --theme-text-color: #{$white};
 }
 
 .theme-midnight {
     --theme-primary-color: #{$midnight-light};
     --theme-secondary-color: #{$midnight-dark};
     --theme-border-color: #{$midnight-light};
-    --theme-accent-color: #{$white};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-accent-color: #{$white-faded};
+    --theme-text-color: #{$white};
 }
 
 .theme-slate {
     --theme-primary-color: #{$slate-700};
     --theme-secondary-color: #{$slate-800};
     --theme-border-color: #{$slate-700};
-    --theme-accent-color: #{$white};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-accent-color: #{$white-faded};
+    --theme-text-color: #{$white};
 }
 
 // Custom Themes
@@ -102,22 +103,30 @@ $white: #fff;
     --theme-primary-color: hsl(18, 84%, 28%);
     --theme-secondary-color: hsl(18, 84%, 22%);
     --theme-border-color: var(--theme-primary-color);
-    --theme-accent-color: #{$white};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-accent-color: #{$white-faded};
+    --theme-text-color: #{$white};
 }
 
 .theme-royal {
     --theme-primary-color: hsl(254, 100%, 28%);
     --theme-secondary-color: hsl(254, 100%, 22%);
     --theme-border-color: var(--theme-primary-color);
-    --theme-accent-color: #{$white};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-accent-color: #{$white-faded};
+    --theme-text-color: #{$white};
 }
 
 .theme-grass {
     --theme-primary-color: hsl(161, 100%, 20%);
     --theme-secondary-color: hsl(161, 100%, 16%);
     --theme-border-color: var(--theme-primary-color);
-    --theme-accent-color: #{$white};
-    --theme-text-color: var(--theme-accent-color);
+    --theme-accent-color: #{$white-faded};
+    --theme-text-color: #{$white};
+}
+
+////////////////////
+// Background Colors
+////////////////////
+
+.bg-slate-100 {
+    background-color: $slate-100;
 }

@@ -39,9 +39,10 @@ $bp-xl: $max-width;
 }
 
 ////////////////////
-// Container
+// Modifiers
 ////////////////////
 
+// Padding left offset
 .container-offset {
     @media (min-width: $bp-md) {
         padding-left: ($cp-md + 7%);
@@ -49,5 +50,23 @@ $bp-xl: $max-width;
 
     @media (min-width: $bp-xl) {
         padding-left: rem-calc(175px);
+    }
+}
+
+// Container with top and bottom padding
+// Useful for sections of content
+.section-container {
+    @extend .container;
+    padding-top: rem-calc(40px);
+    padding-bottom: rem-calc(40px);
+
+    @media (min-width: $bp-md) {
+        padding-top: $cp-md;
+        padding-bottom: $cp-md;
+    }
+
+    @media (min-width: $bp-xl) {
+        padding-top: $cp-lg;
+        padding-bottom: $cp-lg;
     }
 }
