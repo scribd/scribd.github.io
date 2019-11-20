@@ -1,0 +1,33 @@
+////////////////////
+// Text Block Grid
+////////////////////
+
+.text-block-grid {
+    display: grid;
+    grid-gap: rem-calc(20px 15px);
+    grid-template-columns: 1fr;
+    @extend .list--plain;
+
+    @media (min-width: $bp-md) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: $bp-lg) {
+        grid-gap: rem-calc(50px 25px);
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.text-block-grid__item {
+    padding: rem-calc(0 10px 15px 10px);
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $border-color;
+    }
+
+    @media (min-width: $bp-md) {
+        padding: 0 0 0 rem-calc(18px);
+        border-bottom: none !important;
+        border-left: 2px solid $border-color;
+    }
+}

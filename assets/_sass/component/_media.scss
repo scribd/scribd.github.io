@@ -1,0 +1,32 @@
+////////////////////
+// Media Object
+////////////////////
+
+.media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.media-body {
+    flex: 1;
+}
+
+////////////////////
+// Modifiers
+////////////////////
+
+// Center objects
+.media-centered {
+    align-items: center;
+}
+
+// Display media medium up
+.media-md-up {
+    display: block;
+    text-align: center;
+
+    @media (min-width: $bp-md) {
+        text-align: left;
+        display: flex;
+    }
+}

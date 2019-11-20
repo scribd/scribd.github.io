@@ -1,0 +1,27 @@
+////////////////////
+// Media Grid
+////////////////////
+
+.media-grid {
+    display: grid;
+    grid-gap: rem-calc(20px);
+    grid-template-columns: 1fr;
+    @extend .list--plain;
+
+    @media (min-width: $bp-md) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: $bp-lg) {
+        grid-gap: rem-calc(50px);
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.media-grid-large {
+    grid-template-columns: 1fr;
+
+    @media (min-width: $bp-lg) {
+        grid-template-columns: 1fr 1fr;
+    }
+}

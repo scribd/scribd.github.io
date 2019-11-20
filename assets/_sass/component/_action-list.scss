@@ -1,0 +1,53 @@
+////////////////////
+// Action List
+////////////////////
+
+.action-list {
+    @extend .list--plain;
+}
+
+////////////////////
+// Action Cell
+////////////////////
+
+.action-cell {
+    padding: rem-calc(12px 10px);
+    border-top: 1px solid $border-color;
+
+    &:last-of-type {
+        border-bottom: 1px solid $border-color;
+    }
+
+    @media (min-width: $bp-md) {
+        display: flex;
+        align-items: center;
+        padding: rem-calc(15px 0);
+    }
+}
+
+.action-cell__body {
+    position: relative;
+    flex: 1;
+}
+
+.action-cell__link {
+    @extend .link-text-color;
+}
+
+// Show external link icon only at small sizes
+.action-cell__link svg {
+    font-size: 85%;
+
+    @media (min-width: $bp-md) {
+        display: none;
+    }
+}
+
+// Hide buttons only at small sizes
+.action-cell .btn {
+    display: none;
+
+    @media (min-width: $bp-md) {
+        display: inline-block;
+    }
+}

@@ -13,13 +13,11 @@ $card-padding-lg: rem-calc(20px);
     display: grid;
     grid-gap: $card-padding-sm;
     grid-template-columns: 1fr;
-    margin-bottom: rem-calc(50px);
     @extend .list--plain;
 
     @media (min-width: $bp-sm) {
         grid-gap: $card-padding-lg;
         grid-template-columns: 1fr 1fr;
-        margin-bottom: rem-calc(75px);
     }
 
     @media (min-width: $bp-lg) {

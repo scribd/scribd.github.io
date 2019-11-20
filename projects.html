@@ -9,10 +9,10 @@ hero:
   body: "We believe a rising tide lifts all boats. If we build something others can benefit from, we open source it. Knowledge isn't meant to be contained; it's meant to be shared."
 ---
 
-<div class="container">
+<div class="section-container">
     <h2 class="mb-3">Open Source Projects</h2>
 
-    <ul class="card-grid">
+    <ul class="card-grid mb-3">
         {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
         {% for repository in public_repositories %}
 

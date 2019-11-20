@@ -1,29 +1,30 @@
 ////////////////////
+// Variables
+////////////////////
+
+:root {
+    --hero-margin: 60px;
+    --hero-overlap: -45px;
+
+    @media (min-width: $bp-lg) {
+        --hero-margin: 100px;
+        --hero-overlap: -75px;
+    }
+}
+
+////////////////////
 // Hero
 ////////////////////
 
 .hero {
     position: relative;
-    margin-bottom: rem-calc(40px);
-    padding-top: rem-calc(40px);
-    padding-bottom: rem-calc(40px);
+    // margin-bottom: var(--hero-margin);
+    padding: var(--hero-margin) 0;
     background-color: var(--theme-primary-color);
     background-image: linear-gradient(180deg, var(--theme-primary-color) 0%, var(--theme-secondary-color) 100%);
     border-bottom: 1px solid $slate-300;
     overflow: hidden;
     z-index: 2;
-
-    @media (min-width: $bp-md) {
-        margin-bottom: rem-calc(60px);
-        padding-top: rem-calc(60px);
-        padding-bottom: rem-calc(60px);
-    }
-
-    @media (min-width: $bp-lg) {
-        margin-bottom: rem-calc(80px);
-        padding-top: rem-calc(80px);
-        padding-bottom: rem-calc(80px);
-    }
 }
 
 .logo-texture {
@@ -63,7 +64,12 @@
     }
 }
 
-.hero__body {
-    max-width: 60ch;
-    @extend .body-lg;
+////////////////////
+// Hero Image Overlap
+////////////////////
+
+.hero-overlap {
+    position: relative;
+    margin-top: var(--hero-overlap);
+    z-index: 2;
 }
