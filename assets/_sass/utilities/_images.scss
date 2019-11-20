@@ -1,0 +1,28 @@
+////////////////////
+// Icons
+////////////////////
+
+.svg-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    vertical-align: -.125em;
+}
+
+////////////////////
+// Logo
+////////////////////
+
+.logo {
+    vertical-align: middle;
+    width: 100%;
+    max-width: rem-calc(130px);
+}
+
+// Dark version of logo
+.logo.dark {
+    .logo__icon { fill: $seafoam-light; }
+    .logo__wordmark { fill: $white; }
+    .logo__subhead { fill: rgba($white, .70) }
+}

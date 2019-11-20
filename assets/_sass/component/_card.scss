@@ -62,7 +62,7 @@ $card-padding-lg: rem-calc(20px);
     margin: -1px; // offset card border
     background-color: var(--theme-primary-color);
     border: 1px solid var(--theme-border-color);
-    border-radius: 6px 6px 0 0;
+    @extend .rounded-top;
 
     @media (min-width: $bp-lg) {
         display: flex;
@@ -84,7 +84,7 @@ $card-padding-lg: rem-calc(20px);
     width: 1.75em;
     text-align: center;
     background-color: var(--theme-secondary-color);
-    border-radius: 0 6px 0 6px;
+    border-radius: 0 $border-radius 0 $border-radius;
     visibility: hidden;
     opacity: 0;
     transition: opacity .2s ease;

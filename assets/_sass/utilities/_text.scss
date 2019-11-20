@@ -1,0 +1,51 @@
+////////////////////
+// Color Modifiers
+////////////////////
+
+.text-white { color: $white }
+
+////////////////////
+// Font Size
+////////////////////
+
+.fs-md {
+    font-size: rem-calc(14px);
+}
+
+////////////////////
+// Truncation
+////////////////////
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clamp-2 {
+    @include line-clamp(2);
+}
+
+.clamp-3 {
+    @include line-clamp(3);
+}
+
+////////////////////
+// List
+////////////////////
+
+.list--inline {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+        display: inline;
+    }
+}
+
+.list--plain {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

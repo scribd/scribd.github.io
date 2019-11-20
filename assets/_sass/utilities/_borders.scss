@@ -1,0 +1,19 @@
+////////////////////
+// Border Radius
+////////////////////
+
+$border-radius: 6px;
+
+.rounded {
+    border-radius: $border-radius;
+}
+
+.rounded-top {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+}
+
+.rounded-bottom {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+}
