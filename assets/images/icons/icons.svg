@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
-    <!-- code -->
-    <symbol id="code" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8.46153846,4 L14,7.15020946 L14,8.85058847 L8.46153846,12 L8.46153846,10.2206264 L12.3661538,8 L8.46153846,5.77378815 L8.46153846,4 Z M2,4 L7.53846154,7.15020946 L7.53846154,8.85058847 L2,12 L2,10.2206264 L5.90461538,8 L2,5.77378815 L2,4 Z" fill-rule="nonzero"/></symbol>
-
-    <!-- license -->
-    <symbol id="license" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path  d="M3.96825397,5.1875 L3.96825397,3.5 L11.968254,3.5 L11.968254,5.1875 L8.88888889,5.1875 L8.88888889,12.5 L7.11111111,12.5 L7.11111111,5.1875 L3.96825397,5.1875 Z M2.85714286,6.875 L5.71428571,10.25 L0,10.25 L2.85714286,6.875 Z M13.1428571,6.875 L16,10.25 L10.2857143,10.25 L13.1428571,6.875 Z" fill-rule="nonzero"/></symbol>
-
-</svg>
