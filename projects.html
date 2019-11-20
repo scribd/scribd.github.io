@@ -10,7 +10,7 @@ hero:
 ---
 
 <div class="container">
-    <h2>Open Source Projects</h2>
+    <h2 class="mb-3">Open Source Projects</h2>
 
     <ul class="card-grid">
         {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
