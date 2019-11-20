@@ -34,7 +34,6 @@ $card-padding-lg: rem-calc(20px);
 .card {
     position: relative;
     border: 1px solid $slate-300;
-    overflow: hidden;
     @extend .rounded;
     transition: all .2s ease;
     transition-property: border-color, box-shadow;
@@ -55,10 +54,22 @@ $card-padding-lg: rem-calc(20px);
     }
 }
 
+.card__body {
+    border-color: var(--theme-border-color);
+}
+
 .card__header {
-    width: 100%;
+    margin: -1px; // offset card border
     background-color: var(--theme-primary-color);
-    border-bottom: 1px solid $slate-300;
+    border: 1px solid var(--theme-border-color);
+    border-radius: 6px 6px 0 0;
+
+    @media (min-width: $bp-lg) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 6.7em; // accommodate two lines titles while being equal height
+    }
 }
 
 .card__header,
@@ -66,16 +77,35 @@ $card-padding-lg: rem-calc(20px);
     color: var(--theme-text-color);
 }
 
-.card__header-title {
-    padding-top: 1em;
-    font-size: rem-calc(18px);
+.card__external-indicator {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 1.75em;
+    text-align: center;
+    background-color: var(--theme-secondary-color);
+    border-radius: 0 6px 0 6px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
 
-    @media (min-width: $bp-md) {
+.card:hover .card__external-indicator {
+    visibility: visible;
+    opacity: 1;
+}
+
+.card__header-title {
+    margin-bottom: .1em;
+    font-size: rem-calc(18px);
+    line-height: 1.2;
+
+    @media (min-width: $bp-lg) {
         font-size: rem-calc(22px);
     }
 }
 
-.card__header .svg-icon {
+.card__header-list .svg-icon {
     margin-right: rem-calc(4px);
     opacity: .6;
 }
