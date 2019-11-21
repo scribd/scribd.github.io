@@ -1,0 +1,20 @@
+////////////////////
+// Filmstrip
+////////////////////
+
+.photo-grid {
+    display: grid;
+    grid-gap: rem-calc(10px);
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    max-width: 80vmax;
+
+    @media (min-width: 1200px) {
+        max-width: none;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.photo-grid img {
+    width: 100%;
+}
