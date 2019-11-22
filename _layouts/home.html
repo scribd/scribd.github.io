@@ -2,4 +2,12 @@
 layout: default
 ---
 
-This is an empty homepage.
+
+<section class="section-container">
+    <h2 id="featured-projects" class="section-heading pb-3">Featured Projects</h2>
+    {% include project-list.html limit="3" %}
+    <a href="{% link projects.html %}" class="mt-4 btn btn-secondary btn-icon-right">
+        All Projects
+        <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
+    </a>
+</section>

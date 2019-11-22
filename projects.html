@@ -11,54 +11,5 @@ hero:
 
 <div class="section-container">
     <h2 class="mb-3">Open Source Projects</h2>
-
-    <ul class="card-grid mb-3">
-        {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
-        {% for repository in public_repositories %}
-
-            <!-- Assign theme colors based of off the project language -->
-            <!-- See include below for logic and color.scss for available themes -->
-            {% include project-color-logic.html %}
-
-            <li class="card theme-{{ theme | default: "midnight" }}">
-                <header class="card__header">
-
-                    <!-- Project title -->
-                    <h2 class="card__header-title">
-                        <a class="card__header-link stretched-link" href='{{ repository.html_url }}'>
-                            {{ repository.name }}
-                        </a>
-                    </h2>
-
-                    <!-- Project metadata -->
-                    <ul class="card__header-list list--inline fs-md monospace">
-                        {% if repository.language %}
-                            <li>
-                                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#code' | relative_url }}"></use></svg><span class="visually-hidden">Language: </span>{{ repository.language }}
-                            </li>
-                        {% endif %}
-
-                        {% if repository.license.spdx_id %}
-                            <li>
-                                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#license' | relative_url }}"></use></svg><span class="visually-hidden">License: </span>{{ repository.license.spdx_id }}
-                            </li>
-                        {% endif %}
-                    </ul>
-
-                    <!-- External Link Indicator -->
-                    <div class="card__external-indicator">
-                        <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                    </div>
-                </header>
-
-                <!-- Project description -->
-                <div class="card__body fs-md monospace" aria-hidden="true">
-                    {% if repository.description %}
-                        <p class="m-0 clamp-3">{{ repository.description }}</p>
-                    {% endif %}
-                </div>
-            </li>
-
-        {% endfor %}
-    </ul>
+    {% include project-list.html %}
 </div>
