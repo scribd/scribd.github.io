@@ -29,12 +29,27 @@
 }
 
 ////////////////////
+// Font Weights
+////////////////////
+
+.fw-normal {
+    font-weight: normal !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+////////////////////
 // Alingment
 ////////////////////
 
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
+
+.float-right {float: right;}
+.float-left {float: left;}
 
 ////////////////////
 // Max-width

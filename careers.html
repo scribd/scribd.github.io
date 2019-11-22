@@ -294,160 +294,27 @@ hero:
         <h3 class="h2">We’re actively hiring for these roles.</h3>
     </hgroup>
 
+    {% for item in site.data.jobs %}
     <div class="m-auto text-length-xl mt-5 mb-5">
-        <h3 class="mb-3">Engineering</h3>
+        <h3 class="mb-3">{{ item.category }}  {% if item.jobs.size > 1 %}<span class="mt-1 fs-md fw-normal float-right text-muted monospace">{{ item.jobs.size }} Positions</span>{% endif %}</h3>
+
         <ul class="action-list">
+            {% for entry in item.jobs %}
             <li class="action-cell">
                 <div class="action-cell__body">
                     <h5>
-                        <a href="#" class="action-cell__link">
-                            Application Platform Engineer
+                        <a href="{{ entry.url }}" class="action-cell__link">
+                            {{ entry.title }}
                             <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
                         </a>
                     </h5>
-                    <p class="mb-0 fs-md text-muted monospace">Remote - AZ, CA, DC, FL, MO, NJ, NY, OH, OR, TX, WA</p>
+                    <p class="mb-0 fs-md text-muted monospace">{{ entry.location }}</p>
                 </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
+                <a href="{{ entry.url }}" class="btn btn-primary btn-icon-external">View Job
                     <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
                 </a>
             </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Data Engineer
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">Remote: US, Canada</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Data Platform Engineer
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">Remote - AZ, CA, DC, FL, MO, NJ, NY, OH, OR, TX, WA</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Junior IT Helpdesk
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">San Francisco, CA</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Mobile QA Engineer
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">San Francisco, CA</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Ruby Infrastructure Engineer
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">San Francisco OR Remote - AZ, CA, DC, FL, MO, NJ, NY, OH, OR, TX, WA</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Senior Android Engineer
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">San Francisco OR Remote - AZ, CA, DC, FL, MO, NJ, NY, OH, OR, TX, WA</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Senior Backend Engineer
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">Toronto, ON</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
+            {% endfor %}
         </ul>
-
-        <h3 class="mt-4 mb-3">Data Science</h3>
-        <ul class="action-list">
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Data Scientist
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">San Francisco, CA</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-            <li class="action-cell">
-                <div class="action-cell__body">
-                    <h5>
-                        <a href="#" class="action-cell__link">
-                            Data Scientist
-                            <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                        </a>
-                    </h5>
-                    <p class="mb-0 fs-md text-muted monospace">San Francisco, CA</p>
-                </div>
-                <a href="#" class="btn btn-primary btn-icon-external">View Job
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                </a>
-            </li>
-        </ul>
-
-        <div class="mt-5 pl-4 text-length-md body-lg border-left border-thick">
-            <h2>Don’t see your role?</h2>
-            <p>Please <a class="link-inline" href="mailto:jobs@scribd.com">send us your resumé<span class="visually-hidden"> (opens mail client)</span></a> anyway. We’re always looking for talented people to join the team. So, introduce yourself!</p>
-            <p>Resumés received by Scribd from search firms are considered unsolicited and will be kept as Scribd’s intellectual property or deleted as appropriate. Scribd is an equal opportunity employer.</p>
-        </div>
-
-    </div>
+    {% endfor %}
 </section>
