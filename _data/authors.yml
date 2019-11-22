@@ -1,0 +1,13 @@
+#
+# This data file contains all the authors for the blog, with their links,
+# description, etc
+---
+
+gwtrev:
+  name: George Treviranus
+  twitter: gwtrev
+  about: |
+    George is a front-end developer and digital designer living in Oakland,
+    California. By day, he’s a front-end software engineer at Scribd. Other
+    times, he can be found long boarding, playing video games, or napping.
+    Usually napping.
