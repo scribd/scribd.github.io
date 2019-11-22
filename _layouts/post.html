@@ -13,7 +13,7 @@ layout: default
             </time>
 
             {%- if page.author -%}
-            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ site.data.authors[page.author].name}}</span></span>
             {%- endif -%}
         </p>
     </header>
