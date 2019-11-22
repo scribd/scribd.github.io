@@ -1,0 +1,25 @@
+////////////////////
+// Section Split
+////////////////////
+
+.section-split {
+    display: grid;
+    grid-gap: rem-calc(15px);
+
+    @media (min-width: $bp-lg) {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+////////////////////
+// Modifers
+////////////////////
+
+.section-split-align-top {
+    align-items: flex-start;
+}
+
+.section-split-reverse {
+
+}

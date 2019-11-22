@@ -11,3 +11,55 @@ layout: default
         <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
     </a>
 </section>
+
+<section class="bg-slate-100 border-top border-thick">
+    <div class="section-container section-split">
+        <div class="section-split__item">
+            <h2 id="featured-jobs" class="section-heading text-plum pb-3">We’re Hiring</h2>
+            <h3 class="h2">Help us build our next project.</h3>
+            <p class="body-lg text-length-md">We're on a mission to change the way the world reads. That's an ambitious task, and we need ambitious people to get us there. See what positions are available and start your next chapter today.</p>
+            <a href="{% link careers.html %}#open-positions" class="mt-3 mb-3 btn btn-secondary btn-icon-right">
+                All Positions
+                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
+            </a>
+        </div>
+        <div class="section-split__item">
+
+            <ul class="card-grid card-grid-sm">
+                <li class="card theme-{{ theme | default: "midnight" }}">
+                    <div class="card__body">
+                        <h5 class="clamp-2">
+                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
+                        </h5>
+                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
+                    </div>
+                </li>
+                <li class="card theme-{{ theme | default: "midnight" }}">
+                    <div class="card__body">
+                        <h5 class="clamp-2">
+                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
+                        </h5>
+                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
+                    </div>
+                </li>
+                <li class="card theme-{{ theme | default: "midnight" }}">
+                    <div class="card__body">
+                        <h5 class="clamp-2">
+                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
+                        </h5>
+                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
+                    </div>
+                </li>
+                <li class="card theme-{{ theme | default: "midnight" }}">
+                    <div class="card__body">
+                        <h5 class="clamp-2">
+                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
+                        </h5>
+                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</section>

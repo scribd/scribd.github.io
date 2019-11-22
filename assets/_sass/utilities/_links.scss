@@ -18,6 +18,7 @@
 // Stretched Links
 ////////////////////
 
+// Use .relative utility class to contain link
 .stretched-link::after {
     content: '';
     position: absolute;
@@ -28,9 +29,4 @@
     z-index: 1;
     pointer-events: auto;
     background-color: rgba(0,0,0,0);
-}
-
-.stretched-link-secondary {
-    position: relative;
-    z-index: 2;
 }

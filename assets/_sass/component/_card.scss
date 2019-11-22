@@ -2,6 +2,10 @@
 // Variables
 ////////////////////
 
+:root {
+    --card-min-width: 325px;
+}
+
 $card-padding-sm: rem-calc(15px);
 $card-padding-lg: rem-calc(20px);
 
@@ -9,6 +13,7 @@ $card-padding-lg: rem-calc(20px);
 // Card Grid
 ////////////////////
 
+// Auto fit cards in columns bassed off card-min-width
 .card-grid {
     display: grid;
     grid-gap: $card-padding-sm;
@@ -16,13 +21,21 @@ $card-padding-lg: rem-calc(20px);
     @extend .list--plain;
 
     @media (min-width: $bp-sm) {
-        grid-gap: $card-padding-lg;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
     }
 
-    @media (min-width: $bp-lg) {
-        grid-template-columns: 1fr 1fr 1fr;
+    @media (min-width: 1200px) {
+        grid-gap: $card-padding-lg;
     }
+}
+
+////////////////////
+// Modifers
+////////////////////
+
+// smaller card min-width
+.card-grid-sm {
+    --card-min-width: 275px;
 }
 
 ////////////////////
@@ -31,6 +44,7 @@ $card-padding-lg: rem-calc(20px);
 
 .card {
     position: relative;
+    background-color: $white;
     border: 1px solid $slate-300;
     @extend .rounded;
     transition: all .2s ease;
