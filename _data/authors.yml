@@ -29,3 +29,13 @@ theo:
 stephane:
   name: Stephane Magne
   about: iOS Developer @ Scribd
+
+rtyler:
+  name: R Tyler Croy
+  twitter: agentdero
+  github: rtyler
+  blog: https://brokenco.de/
+  about: |
+    Tyler leads the Platform Engineering group, helping scale applications and
+    data for Scrbid. He is also a board member for the Jenkins project, and has
+    many thoughts about free and open source software.
