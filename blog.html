@@ -22,7 +22,15 @@ permalink: /blog/
         </h4>
 
         <!-- Post metadata -->
-        <span class="post-list__author"><span class="visually-hidden">Author:</span>{{ post.author }}</span><time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
+        <span class="post-list__author">
+            <span class="visually-hidden">Author:</span>
+            {%- if site.data.authors[post.author] -%}
+                {{ site.data.authors[post.author].name}}
+            {%- else -%}
+                {{ post.author }}
+            {%- endif -%}
+        </span>
+        <time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
           {%- assign date_format = site.date_format -%}
           {{ post.date | date: date_format }}</time>
 
