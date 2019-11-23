@@ -25,40 +25,31 @@ layout: default
         </div>
         <div class="section-split__item">
 
-            <ul class="card-grid card-grid-sm">
-                <li class="card theme-{{ theme | default: "midnight" }}">
-                    <div class="card__body">
-                        <h5 class="clamp-2">
-                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
-                        </h5>
-                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
-                    </div>
-                </li>
-                <li class="card theme-{{ theme | default: "midnight" }}">
-                    <div class="card__body">
-                        <h5 class="clamp-2">
-                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
-                        </h5>
-                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
-                    </div>
-                </li>
-                <li class="card theme-{{ theme | default: "midnight" }}">
-                    <div class="card__body">
-                        <h5 class="clamp-2">
-                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
-                        </h5>
-                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
-                    </div>
-                </li>
-                <li class="card theme-{{ theme | default: "midnight" }}">
-                    <div class="card__body">
-                        <h5 class="clamp-2">
-                            <a href="#" class="stretched-link link-text-color">Senior Web Developer Full stack, Front-end focused</a>
-                        </h5>
-                        <p class="m-0 fs-md monospace text-truncate">San Francisco, CA</p>
-                    </div>
-                </li>
+            <noscript>
+                <p>
+                We normally fill in the jobs here with JavaScript.
+                </p>
+                <p>
+                We think it's cool that you have disabled JavaScript to view this page,
+                but you might be missing out :)
+                </p>
+            </noscript>
+
+            <ul class="card-grid card-grid-sm" id="jobs">
             </ul>
+
+            <script type="text/javascript">
+            <!--
+                /*
+                 * Only attempt to load the jobs after the page has loaded and
+                 * our external script is present
+                 */
+                window.onload = () =>{
+                    // Six is about the right number of cards that will fit into this spot
+                    renderJobs(document.getElementById('jobs'), null, 6);
+                };
+            -->
+            </script>
 
         </div>
     </div>

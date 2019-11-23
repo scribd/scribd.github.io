@@ -18,9 +18,22 @@ layout: default
         </p>
     </header>
 
+    <ul class="card-grid card-grid-sm" id="jobs">
+    </ul>
+
     <div itemprop="articleBody">
         {{ content }}
     </div>
 
     <a href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+{%- if page.team and site.data.teams[page.team] -%}
+<script type="text/javascript">
+<!--
+    window.onload = () =>{
+        renderJobs(document.getElementById('jobs'), "{{ site.data.teams[page.team].lever }}", 3);
+    };
+-->
+</script>
+{%- endif -%}
