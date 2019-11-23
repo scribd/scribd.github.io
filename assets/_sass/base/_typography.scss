@@ -113,8 +113,10 @@ h6,
 // Links
 ////////////////////
 
+$link-color: $teal;
+
 a {
-    color: $teal;
+    color: $link-color;
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: .15em;
