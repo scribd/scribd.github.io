@@ -1,0 +1,13 @@
+#
+# This data file has some metadata about the teams and is a critical part of
+# plumbing jobs into team's blog posts
+---
+ios:
+  # the category in Lever
+  lever: 'iOS'
+
+android:
+  lever: 'Android'
+
+datascience:
+  lever: 'Data Science - San Francisco'
