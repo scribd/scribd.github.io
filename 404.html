@@ -21,7 +21,7 @@ title: 404 - Page Not Found
     <h1>404</h1>
     <h2 class="h4">Page Not Found :(</h2>
     <p class="body-lg text-muted">Sorry, the page you're looking for is missing or does not exist.</p>
-    <a href="{% link projects.html %}" class="mt-1 btn btn-lg btn-primary btn-icon-right">
+    <a href="{{ "/" | relative_url }}" class="mt-1 btn btn-lg btn-primary btn-icon-right">
         Go Home
         <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
     </a>
