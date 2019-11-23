@@ -27,6 +27,9 @@ github_username:  scribd
 sass:
     sass_dir: assets/_sass
 
+# Blog settings
+permalink: "/blog/:year/:title:output_ext"
+
 # Build settings
 plugins:
   - jekyll-feed
