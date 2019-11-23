@@ -4,40 +4,46 @@ title: Blog
 permalink: /blog/
 ---
 
-<section class="section-container">
+<div class="post-index">
 
-  <!-- Loop though posts -->
-  {%- if site.posts.size > 0 -%}
-    <ul class="post-list text-length-md">
+    <div class="post-index__header">
+        <!-- future category nav will live here -->
+    </div>
 
-      <!-- Post -->
-      {%- for post in site.posts -%}
-      <li class="post-list__item">
+    <section class="post-index__body">
+        <!-- Loop though posts -->
+        {%- if site.posts.size > 0 -%}
+        <ul class="post-list text-length-md">
 
-        <!-- Post title -->
-        <h4 class="post-list__heading">
-          <a href="{{ post.url | relative_url }}" class="link-text-color">
-            {{ post.title | escape }}
-          </a>
-        </h4>
+            <!-- Post -->
+            {%- for post in site.posts -%}
+            <li class="post-list__item">
 
-        <!-- Post metadata -->
-        <span class="post-list__author">
-            <span class="visually-hidden">Author:</span>
-            {%- if site.data.authors[post.author] -%}
-                {{ site.data.authors[post.author].name}}
-            {%- else -%}
-                {{ post.author }}
-            {%- endif -%}
-        </span>
-        <time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
-          {%- assign date_format = site.date_format -%}
-          {{ post.date | date: date_format }}</time>
+            <!-- Post title -->
+            <h4 class="post-list__heading">
+                <a href="{{ post.url | relative_url }}" class="link-text-color">
+                {{ post.title | escape }}
+                </a>
+            </h4>
 
-      </li>
-      {%- endfor -%}
+            <!-- Post metadata -->
+            <span class="post-list__author">
+                <span class="visually-hidden">Author:</span>
+                {%- if site.data.authors[post.author] -%}
+                    {{ site.data.authors[post.author].name}}
+                {%- else -%}
+                    {{ post.author }}
+                {%- endif -%}
+            </span>
+            <time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
+                {%- assign date_format = site.date_format -%}
+                {{ post.date | date: date_format }}</time>
 
-    </ul>
-  {%- endif -%}
+            </li>
+            {%- endfor -%}
 
-</section>
+        </ul>
+        {%- endif -%}
+    </section>
+
+</div>

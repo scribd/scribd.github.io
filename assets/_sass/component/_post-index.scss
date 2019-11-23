@@ -1,0 +1,22 @@
+.post-index {
+    @media (min-width: $bp-md) {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.post-index__header {
+    @extend .section-container;
+    display: none;
+
+    @media (min-width: $bp-md) {
+        display: block;
+        margin: 0;
+        background-image: linear-gradient(180deg, $slate-700 0%, $slate-800 100%);
+    }
+}
+
+.post-index__body {
+    @extend .section-container;
+    background-color: $white;
+}
