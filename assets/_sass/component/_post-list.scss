@@ -1,0 +1,40 @@
+////////////////////
+// Post List
+////////////////////
+
+.post-list {
+    @extend .list--plain;
+}
+
+.post-list__item {
+    padding: 15px 0;
+    border-bottom: 1px solid $border-color;
+
+    @media (min-width: $bp-md) {
+        padding-right: rem-calc(40px);
+    }
+}
+
+.post-list__heading {
+    margin-bottom: rem-calc(5px);
+}
+
+.post-list__date,
+.post-list__author {
+    font-size: rem-calc(14px);
+    line-height: 1;
+    @extend .monospace;
+    @extend .text-muted;
+}
+
+// Bullet before post date
+.post-list__date::before {
+    content: '';
+    display: inline-block;
+    margin: 0 .4em;
+    width: 4px;
+    height: 4px;
+    background-color: $slate-300;
+    border-radius: 100%;
+    vertical-align: middle;
+}

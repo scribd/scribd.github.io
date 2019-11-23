@@ -4,28 +4,32 @@ title: Blog
 permalink: /blog/
 ---
 
-  {%- if page.title -%}
-    <h1>{{ page.title }}</h1>
-  {%- endif -%}
+<section class="section-container">
 
+  <!-- Loop though posts -->
   {%- if site.posts.size > 0 -%}
-    <h2>{{ page.list_title | default: "Posts" }}</h2>
-    <ul>
+    <ul class="post-list text-length-md">
+
+      <!-- Post -->
       {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span>{{ post.date | date: date_format }}</span>
-        <h3>
-          <a href="{{ post.url | relative_url }}">
+      <li class="post-list__item">
+
+        <!-- Post title -->
+        <h4 class="post-list__heading">
+          <a href="{{ post.url | relative_url }}" class="link-text-color">
             {{ post.title | escape }}
           </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+        </h4>
+
+        <!-- Post metadata -->
+        <span class="post-list__author"><span class="visually-hidden">Author:</span>{{ post.author }}</span><time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
+          {%- assign date_format = site.date_format -%}
+          {{ post.date | date: date_format }}</time>
+
       </li>
       {%- endfor -%}
-    </ul>
 
-    <p>subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+    </ul>
   {%- endif -%}
+
+</section>

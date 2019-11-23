@@ -29,6 +29,7 @@ sass:
 
 # Blog settings
 permalink: "/blog/:year/:title:output_ext"
+date_format: "%B %-d, %Y"
 
 # Build settings
 plugins:
