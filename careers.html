@@ -223,59 +223,13 @@ hero:
     <p class="m-auto text-length-md body-lg">We continuously deploy code to a wide range of devices and servers. Here are a few of the languages and libraries we use to build Scribd.</p>
 
     <ul class="icon-grid mt-5">
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/android-icon.svg' | relative_url }}" alt="Andriod Icon">
-            <h5>Android</h5>
-            <p class="mb-0 fs-md text-muted monospace">Android app development and support</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/ansible-icon.svg' | relative_url }}" alt="Ansible Icon">
-            <h5>Ansible</h5>
-            <p class="mb-0 fs-md text-muted monospace">Provisioning servers & local development</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/apple-icon.svg' | relative_url }}" alt="iOS Icon">
-            <h5>iOS</h5>
-            <p class="mb-0 fs-md text-muted monospace">iOS app development</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/java-icon.svg' | relative_url }}" alt="Java Icon">
-            <h5>Java</h5>
-            <p class="mb-0 fs-md text-muted monospace">Android app development</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/swift-icon.svg' | relative_url }}" alt="Swift Icon">
-            <h5>Swift</h5>
-            <p class="mb-0 fs-md text-muted monospace">iOS app development</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/react-icon.svg' | relative_url }}" alt="React Icon">
-            <h5>React</h5>
-            <p class="mb-0 fs-md text-muted monospace">Web development / rapid prototyping</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/kubernetes-icon.svg' | relative_url }}" alt="Kubernetes Icon">
-            <h5>Kubernetes</h5>
-            <p class="mb-0 fs-md text-muted monospace">Container-orchestration system for application deployment</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/heroku-icon.svg' | relative_url }}" alt="Heroku Icon">
-            <h5>Heroku</h5>
-            <p class="mb-0 fs-md text-muted monospace">Cloud platform for Ruby on Rails environment</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2" src="{{ '/assets/images/icons/python-icon.svg' | relative_url }}" alt="Python Icon">
-            <h5>Python</h5>
-            <p class="mb-0 fs-md text-muted monospace">Data science visualization and tooling</p>
-        </li>
-        <li class="icon-grid__item">
-            <img class="mb-2"
-                srcset="{{ '/assets/images/icons/ruby-icon.png' | relative_url }},
-                        {{ '/assets/images/icons/ruby-icon@2x.png' | relative_url }} 2x"
-                   src="{{ '/assets/images/icons/ruby-icon.png' | relative_url }}" alt="Ruby Icon">
-            <h5>Ruby + Ruby on Rails</h5>
-            <p class="mb-0 fs-md text-muted monospace">Web development</p>
-        </li>
+        {% for item in site.data.tech %}
+            <li class="icon-grid__item">
+                <img class="mb-2" src="{{ item.logo }}" role="presentation" alt="">
+                <h5>{{ item.name }}</h5>
+                <p class="mb-0 fs-md text-muted monospace">{{ item.description }}</p>
+            </li>
+        {% endfor %}
     </ul>
 </section>
 

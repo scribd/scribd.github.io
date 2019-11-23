@@ -1,0 +1,40 @@
+
+- name: Ruby
+  logo: "/assets/images/icons/ruby-icon.png"
+  description: We deploy one of internet's most popular Rails application daily.
+
+- name: Golang
+  logo: "/assets/images/icons/go-icon.svg"
+  description: We build fast services and internal tools with Go.
+
+- name: Swift
+  logo: "/assets/images/icons/swift-icon.svg"
+  description: The best reading experience on iOS is primarily powered by Swift.
+
+- name: Kotlin
+  logo: "/assets/images/icons/kotlin-icon.svg"
+  description: The best reading experience on Android is powered by more and more Kotlin.
+
+- name: Terraform
+  logo: "/assets/images/icons/terraform-icon.svg"
+  description: Our cloud infrastructure is automatically provisioned with Terraform.
+
+- name: React
+  logo: "/assets/images/icons/react-icon.svg"
+  description: We're building newer and faster user experiences for the web with React.
+
+- name: Docker
+  logo: "/assets/images/icons/docker-icon.svg"
+  description: Stateless services are packaged and deployed with containers.
+
+- name: Spark
+  logo: "/assets/images/icons/spark-icon.svg"
+  description: Data science, batch and stream processing, and machine learning are powered by Apache Spark.
+
+- name: AWS
+  logo: "/assets/images/icons/aws-icon.svg"
+  description: We're growing into AWS with more and more auto-scaled and elastic workloads.
+
+- name: Chef
+  logo: "/assets/images/icons/chef-icon.svg"
+  description: Stateful servers are kept in line with Chef.
