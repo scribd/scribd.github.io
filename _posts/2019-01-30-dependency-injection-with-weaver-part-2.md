@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Dependency injection tutorial with Weaver on iOS (part 2)"
-author: theophane
+author: theo
 tags:
 - swift
 - weaver
