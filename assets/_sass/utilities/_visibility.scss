@@ -28,26 +28,20 @@
 
 // Hide at breakpoint size downward
 .hidden-sm-down {
-    display: none !important;
-
-    @media (min-width: $bp-md) {
-        display: inherit !important;
+    @media (max-width: $bp-sm - 1px) {
+        display: none !important;
     }
 }
 
 .hidden-md-down {
-    display: none !important;
-
-    @media (min-width: $bp-lg) {
-        display: inherit !important;
+    @media (max-width: $bp-md - 1px) {
+        display: none !important;
     }
 }
 
 .hidden-lg-down {
-    display: none !important;
-
-    @media (min-width: $bp-xl) {
-        display: inherit !important;
+    @media (max-width: $bp-md - 1px) {
+        display: none !important;
     }
 }
 
