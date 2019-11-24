@@ -129,10 +129,12 @@ Even though we didn’t arrive at a production ready model at the end, we learne
 
 [7] [http://forum.opennmt.net/t/save-validation-translations-at-each-epoch/286](http://forum.opennmt.net/t/save-validation-translations-at-each-epoch/286)
 
+---
+
 **Pass 1 model in Keras:**
 
-<iframe src="https://medium.com/media/62e2e97e44f48338642b98221074f20c" frameborder=0></iframe>
+<script src="https://gist.github.com/mrelich/36b5f37233026e828af6d63f6015554b.js"></script>
 
 **Pass 2 Config File**
 
-<iframe src="https://medium.com/media/f41901aac7168054260e585b015c1180" frameborder=0></iframe>
+<script src="https://gist.github.com/mrelich/6ad0ea3698f093833398073e5042e75d.js"></script>

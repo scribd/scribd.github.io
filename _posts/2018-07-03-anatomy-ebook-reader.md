@@ -53,7 +53,7 @@ A transparent border around the scrubber works best to solve this problem. This 
 
 If that’s not an option, you can always use a High Contrast specific CSS rule for adding a border when High Contrast is activated. But, the major caveat is that it only works with Internet Explorer.
 
-<iframe src="https://medium.com/media/09d6c22c9c449995cf76bdebd68ec1c9" frameborder=0></iframe>
+<script src="https://gist.github.com/wizzyfx/974ebfd2eeab40c314072714ed524290.js"></script>
 
 ## Providing Alternative Display Options
 
@@ -83,7 +83,7 @@ Although all participants were able to complete the task, 40% of them rated the 
 
 In order to provide a better screen reader experience, we used a [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) to notify users when a bookmark is added or removed. We also made sure the bookmark indicator remains visible at all times, and, that its different states are distinguishable in High Contrast mode.
 
-<iframe src="https://medium.com/media/fee08fa089bc99a5694c0b718ffe419b" frameborder=0></iframe>
+<script src="https://gist.github.com/wizzyfx/3cf1a08b42239754524bc5108cdf6f42.js"></script>
 
 ## Heading and Landmark Structure That Make Sense
 

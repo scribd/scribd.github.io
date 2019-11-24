@@ -22,7 +22,7 @@ In short, **Weaver is a lightweight Dependency Injection framework that is able 
 
 For example, the annotation // weaver: movieManager <- MovieManaging in the code below makes Weaver generate the protocol MoviesViewControllerDependencyResolver with a computed property movieManager so it can be used out of the box in the class implementation.
 
-<iframe src="https://medium.com/media/968b683c5124d636dc69967d9e78a3b6" frameborder=0></iframe>
+<script src="https://gist.github.com/trupin/c9f72645c001c754f759fadacb3edc37.js"></script>
 
 *Note: Of course, Weaver also generates the mechanic abstracted by this protocol but I won’t explain it here. For more information, I suggest cheking the project on [Github](https://github.com/scribd/Weaver).*
 
@@ -32,7 +32,8 @@ Pretty exciting right? Well I hope you are excited because I’m about to tell y
 
 ## Dependency Injection Containers.
 
-![[**Photo: **James Martin/CNET](https://www.cnet.com/pictures/amazons-automated-attendants-pictures/4/)](https://cdn-images-1.medium.com/max/2000/1*C0Dhdr0pkAs1ioFDRtfOFw.jpeg)*[**Photo: **James Martin/CNET](https://www.cnet.com/pictures/amazons-automated-attendants-pictures/4/)*
+![](https://cdn-images-1.medium.com/max/2000/1*C0Dhdr0pkAs1ioFDRtfOFw.jpeg)
+*[Photo: James Martin/CNET](https://www.cnet.com/pictures/amazons-automated-attendants-pictures/4/)*
 
 A Dependency Injection Container (or DI Container) is basically **an object able to instantiate, retain, and resolve other objects’ dependencies** for them.
 

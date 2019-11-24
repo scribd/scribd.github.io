@@ -51,7 +51,7 @@ So, for example, the input query “Power Systems Chomsky” should output “ti
 
 The final model architecture chosen uses an embedding input layer followed by two bidirectional LSTMs for the encoder and two for the decoder. The output is run through a softmax activation layer. The model is defined in keras below:
 
-<iframe src="https://medium.com/media/d486b131ffc63bfd7b65a58ad1309c02" frameborder=0></iframe>
+<script src="https://gist.github.com/mrelich/040de77224066db67469362d76899fff.js"></script>
 
 This model was exported to tensorflow so that we could easily incorporate it as part of our go microservice.
 
