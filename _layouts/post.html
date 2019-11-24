@@ -3,45 +3,27 @@ layout: default
 ---
 <article itemscope itemtype="http://schema.org/BlogPosting">
 
-    <header>
-        <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+    <!-- Post hero -->
+    {% include post-hero.html %}
 
-        <p>
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-            {{ page.date | date: date_format }}
-            </time>
+    <div class="section-container" itemprop="articleBody">
 
-            {%- if page.author -%}
-            • <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                <span itemprop="name">
-                    {%- if site.data.authors[page.author] -%}
-                        {{ site.data.authors[page.author].name}}
-                    {%- else -%}
-                        {{ page.author }}
-                    {%- endif -%}
-                </span>
-            </span>
-            {%- endif -%}
-        </p>
-    </header>
+        <!-- Post sidebar -->
+        {% include post-sidebar.html %}
 
-    <ul class="card-grid card-grid-sm" id="jobs">
-    </ul>
+        <div class="text-length-lg">
 
-    <div itemprop="articleBody">
-        {{ content }}
+            <!-- Post content  -->
+            <div class="post-content">
+                {{ content }}
+                <!-- Post separator line -->
+                <hr>
+            </div>
+
+            <!-- Related jobs -->
+            {% include related-jobs.html %}
+        </div>
     </div>
 
     <a href="{{ page.url | relative_url }}" hidden></a>
 </article>
-
-{%- if page.team and site.data.teams[page.team] -%}
-<script type="text/javascript">
-<!--
-    window.onload = () =>{
-        renderJobs(document.getElementById('jobs'), "{{ site.data.teams[page.team].lever }}", 3);
-    };
--->
-</script>
-{%- endif -%}

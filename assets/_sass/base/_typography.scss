@@ -49,14 +49,6 @@ ul {
     font-style: normal;
 }
 
-.body-lg {
-    font-size: 1rem;
-
-    @media (min-width: $bp-md) {
-        font-size: rem-calc(18px);
-    }
-}
-
 ////////////////////
 // Headings
 ////////////////////
@@ -69,7 +61,7 @@ h5,
 h6 {
     font-weight: 700;
     line-height: 1.25em;
-    margin: 0 0 0.3em 0;
+    margin: 0 0 .5em 0;
 }
 
 h1,

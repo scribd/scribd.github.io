@@ -1,0 +1,20 @@
+{%- if page.team and site.data.teams[page.team] -%}
+<section>
+
+    <h5 class="mb-3">Related Jobs
+        <a href="{% link careers.html %}#open-positions" class="float-right monospace fs-md fw-normal no-underline">
+            View All <span class="visually-hidden">Jobs</span>
+            <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
+        </a>
+    </h5>
+    <ul class="card-grid card-grid-sm" id="jobs"></ul>
+
+    <script type="text/javascript">
+    <!--
+        window.onload = () =>{
+            renderJobs(document.getElementById('jobs'), "{{ site.data.teams[page.team].lever }}", 3);
+        };
+    -->
+    </script>
+</section>
+{%- endif -%}

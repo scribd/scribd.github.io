@@ -97,7 +97,7 @@ function renderJobs(elem, team, randomLimit) {
       li.className = 'card theme-midnight';
       li.innerHTML = `
       <div class="card__body">
-          <h5 class="clamp-2">
+          <h5 class="mb-1 clamp-2">
               <a href="${job.hostedUrl}" target="_blank" class="stretched-link link-text-color">${job.text}</a>
           </h5>
           <p class="m-0 fs-md monospace text-truncate">${job.categories.location}</p>
@@ -120,4 +120,3 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-

@@ -28,6 +28,14 @@
     font-size: rem-calc(18px);
 }
 
+.body-lg {
+    font-size: 1rem;
+
+    @media (min-width: $bp-md) {
+        font-size: rem-calc(18px);
+    }
+}
+
 ////////////////////
 // Font Weights
 ////////////////////

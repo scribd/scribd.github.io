@@ -5,10 +5,12 @@
 :root {
     --hero-margin: 60px;
     --hero-overlap: -45px;
+    --hero-meta-padding: 15px;
 
     @media (min-width: $bp-lg) {
         --hero-margin: 100px;
         --hero-overlap: -75px;
+        --hero-meta-padding: 20px;
     }
 }
 
@@ -73,3 +75,48 @@
     margin-top: var(--hero-overlap);
     z-index: 2;
 }
+
+////////////////////
+// Hero Meta List
+////////////////////
+
+.hero__meta {
+    display: inline-grid;
+    grid-gap: var(--hero-meta-padding);
+    grid-template-columns: auto auto auto;
+    grid-template-areas:
+        "author author author"
+        "published category .";
+    margin: rem-calc(20px) 0 0 0;
+    font-size: rem-calc(14px);
+    @extend .list--plain;
+
+    @media (min-width: $bp-sm) {
+        font-size: rem-calc(16px);
+        grid-template-areas: "author published category";
+    }
+}
+
+.hero__meta-item {
+    @extend .monospace;
+}
+
+// Item Borders
+.hero__meta-item {
+
+    &:last-child {
+        padding-left: var(--hero-meta-padding);
+        border-left: 2px solid var(--theme-border-color);
+    }
+
+    @media (min-width: $bp-sm) {
+        &:not(:first-child) {
+            padding-left: var(--hero-meta-padding);
+            border-left: 2px solid var(--theme-border-color);
+        }
+    }
+}
+
+.hero__meta-item.author { grid-area: author }
+.hero__meta-item.published { grid-area: published }
+.hero__meta-item.category { grid-area: category }

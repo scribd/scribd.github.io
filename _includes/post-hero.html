@@ -1,0 +1,50 @@
+<section class="hero theme-{{ hero.theme | default: "midnight" }}">
+    <div class="hero__container container container-offset">
+
+        <header class="hero__header">
+
+            <!-- Post Title -->
+            <h1 class="hero__title" itemprop="name headline">{{ page.title | escape }}</h1>
+
+            <!-- Post Metadata -->
+            <ul class="hero__meta">
+
+                <!-- Post Author -->
+                {%- if page.author -%}
+                <li class="hero__meta-item author">
+                    <strong>Author</strong><br>
+                    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                        <span itemprop="name">
+                            {%- if site.data.authors[page.author] -%}
+                                {{ site.data.authors[page.author].name}}
+                            {%- else -%}
+                                {{ page.author }}
+                            {%- endif -%}
+                        </span>
+                    </span>
+                </li>
+                {%- endif -%}
+
+                <!-- Post Date -->
+                <li class="hero__meta-item published">
+                    <strong>Published</strong><br>
+                    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                        {%- assign date_format = site.date_format -%}
+                        {{ page.date | date: date_format }}
+                    </time>
+                </li>
+
+                {%- if page.team -%}
+                <!-- Team Info -->
+                <li class="hero__meta-item category">
+                    <strong>Category</strong><br>
+                    <span>{{ page.team }}</span>
+                </li>
+                {%- endif -%}
+
+            </ul>
+        </header>
+
+    </div>
+    {% include logo-texture.html %}
+</section>

@@ -21,10 +21,14 @@
 
 .post-list__date,
 .post-list__author {
-    font-size: rem-calc(14px);
+    font-size: rem-calc(13px);
     line-height: 1;
     @extend .monospace;
     @extend .text-muted;
+
+    @media (min-width: $bp-md) {
+        font-size: rem-calc(14px);
+    }
 }
 
 // Bullet before post date

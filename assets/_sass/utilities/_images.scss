@@ -26,3 +26,17 @@
     .logo__wordmark { fill: $white; }
     .logo__subhead { fill: rgba($white, .70) }
 }
+
+////////////////////
+// Shadows
+////////////////////
+
+$shadow-color: $slate-200;
+
+.shadow-sm {
+    box-shadow: .15em .15em 0 $shadow-color;
+}
+
+.shadow {
+    box-shadow: .5em .5em 0 $shadow-color;
+}

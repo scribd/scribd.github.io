@@ -1,10 +1,8 @@
-{% assign hero = page.hero %}
+ {% assign hero = page.hero %}
 <section class="hero theme-{{ hero.theme | default: "white" }}">
     <div class="hero__container container container-offset">
 
-        {% assign hero = page.hero %}
         <header class="hero__header">
-
             {% if hero.label %}
                 <h1 class="hero__section-heading">{{ hero.label }}</h1>
             {% endif %}

@@ -19,25 +19,25 @@ permalink: /blog/
             {%- for post in site.posts -%}
             <li class="post-list__item">
 
-            <!-- Post title -->
-            <h4 class="post-list__heading">
-                <a href="{{ post.url | relative_url }}" class="link-text-color">
-                {{ post.title | escape }}
-                </a>
-            </h4>
+                <!-- Post title -->
+                <h4 class="post-list__heading">
+                    <a href="{{ post.url | relative_url }}" class="link-text-color">
+                    {{ post.title | escape }}
+                    </a>
+                </h4>
 
-            <!-- Post metadata -->
-            <span class="post-list__author">
-                <span class="visually-hidden">Author:</span>
-                {%- if site.data.authors[post.author] -%}
-                    {{ site.data.authors[post.author].name}}
-                {%- else -%}
-                    {{ post.author }}
-                {%- endif -%}
-            </span>
-            <time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
-                {%- assign date_format = site.date_format -%}
-                {{ post.date | date: date_format }}</time>
+                <!-- Post metadata -->
+                <span class="post-list__author">
+                    <span class="visually-hidden">Author:</span>
+                    {%- if site.data.authors[post.author] -%}
+                        {{ site.data.authors[post.author].name}}
+                    {%- else -%}
+                        {{ post.author }}
+                    {%- endif -%}
+                </span><!--
+                --><time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
+                    {%- assign date_format = site.date_format -%}
+                    {{ post.date | date: date_format }}</time>
 
             </li>
             {%- endfor -%}
