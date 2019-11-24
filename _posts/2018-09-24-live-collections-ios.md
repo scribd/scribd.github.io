@@ -4,7 +4,7 @@ title:  "Get Animated with LiveCollections for iOS"
 author: stephane
 tags:
 - swift
-team: ios
+team: iOS
 ---
 
 A collection of books on Scribd

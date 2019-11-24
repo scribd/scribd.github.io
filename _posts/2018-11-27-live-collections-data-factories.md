@@ -4,7 +4,7 @@ title:  "LiveCollections Part 5: Data Factories, Non-Unique Data, and Advanced F
 author: stephane
 tags:
 - swift
-team: ios
+team: iOS
 ---
 
 The final signficiant feature to look at are Data Factories, which I’ll explain shortly, and after that I’ll run through a grab bag of additional features that I haven’t covered yet (because I just wasn’t good enough at anecdotally dropping them into previous examples).

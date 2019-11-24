@@ -4,7 +4,7 @@ title:  "LiveCollections Part 2: Single Section Views"
 author: stephane
 tags:
 - swift
-team: ios
+team: iOS
 ---
 
 Ok, let’s dive into actually using this thing.

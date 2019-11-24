@@ -3,7 +3,7 @@ layout: post
 title: "What Core Platform does at Scribd"
 author: rtyler
 tags:
-team: coreplatform
+team: Core Platform
 ---
 
 > **Editors note:** *This is a cross-post from Tyler's [personal blog](https://brokenco.de/2019/03/28/scribd-core-platform.html)*

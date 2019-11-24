@@ -4,7 +4,7 @@ title:  "Bootstrapping Your Way Through a Non-Random SEO Test"
 author: katg
 tags:
 - seo
-team: datascience
+team: Data Science
 ---
 
 Months ago, your friends convinced you to sign up for a half marathon. With three weeks to go, you haven’t even started training. In a growing panic, you turn to the internet for answers.

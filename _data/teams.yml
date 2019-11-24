@@ -2,12 +2,18 @@
 # This data file has some metadata about the teams and is a critical part of
 # plumbing jobs into team's blog posts
 ---
-ios:
+iOS:
   # the category in Lever
   lever: 'iOS'
 
-android:
+Android:
   lever: 'Android'
 
-datascience:
+Data Science:
   lever: 'Data Science - San Francisco'
+
+Core Platform:
+  lever: 'Core Platform'
+
+Web Development:
+  lever: 'Web Development'

@@ -4,7 +4,7 @@ title:  "LiveCollections Part 4: A Table of Carousels"
 author: stephane
 tags:
 - swift
-team: ios
+team: iOS
 ---
 
 This is a specific enough case that I felt it warranted its own section. If you’ve ever used a content driven app, like say for example Scribd, where you make a selection from a wide variety of exciting and personalized categories, then you’ve probably interacted with this structure before.

@@ -4,7 +4,7 @@ title:  "Search Query Parsing"
 author: mattr
 tags:
 - search
-team: datascience
+team: Data Science
 ---
 
 Scribd has a variety of content to offer and connecting our users with their desired content is a crucial aspect of our product. One of the main ways that users find content on Scribd is through search, and in this post I want to delve into an analysis we did regarding parsing out valuable information from a user’s query in order to better serve them relevant results, and also learn more about what they are searching for.

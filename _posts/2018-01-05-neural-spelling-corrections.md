@@ -3,7 +3,7 @@ layout: post
 title:  "Neural Spelling Corrections and the Importance of Accuracy"
 author: mattr
 tags:
-team: datascience
+team: Data Science
 ---
 
 Introduction

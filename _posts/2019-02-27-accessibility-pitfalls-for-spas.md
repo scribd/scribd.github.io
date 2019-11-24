@@ -6,7 +6,7 @@ tags:
 - react
 - accessibility
 - frontend
-team: web
+team: Web Development
 ---
 
 [//]: # TODO This snippet needs links which reference other blog posts

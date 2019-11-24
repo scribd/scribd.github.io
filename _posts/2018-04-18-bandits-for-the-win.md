@@ -3,7 +3,7 @@ layout: post
 title:  "Multi-armed bandits for the Win"
 author: dfeldman
 tags:
-team: datascience
+team: Data Science
 ---
 
 We love A/B testing at Scribd. What follows is a specific example to give you an inside look at the process from idea to implementation for an algorithm test.

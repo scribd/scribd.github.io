@@ -4,7 +4,7 @@ title: Calculating Customer Lifetime Revenue
 author: bclearly
 tags:
 - ltv
-team: datascience
+team: Data Science
 ---
 
 Why LTR? (Lifetime Revenue)

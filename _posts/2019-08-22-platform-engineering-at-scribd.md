@@ -4,7 +4,7 @@ title: Zooming out to Platform Engineering at Scribd
 author: rtyler
 tags:
 - dataeng
-team: coreplatform
+team: Core Platform
 ---
 
 > **Editors note:** *This is a cross-post from Tyler's [personal blog](https://brokenco.de/2019/08/22/platform-engineering-at-scribd.html)*

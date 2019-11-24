@@ -3,7 +3,7 @@ layout: post
 title:  "Scribd's A/B Test Framework"
 author: dfeldman
 tags:
-team: datascience
+team: Data Science
 ---
 
 What is A/B testing?

@@ -5,7 +5,7 @@ author: soorae
 tags:
 - webpack
 - react
-team: web
+team: Web Development
 ---
 
 How Scribd’s web team transitioned from a ten year old legacy code solution to a fully modern tech framework without starting from scratch.

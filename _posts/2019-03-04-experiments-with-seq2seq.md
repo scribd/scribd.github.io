@@ -5,7 +5,7 @@ author: siweiz
 tags:
 - machinelearning
 - deeplearning
-team: datascience
+team: Data Science
 ---
 
 How much data do you need to train a seq2seq model? Let’s say that you want to translate sentences from one language to another. You probably need a bigger dataset to translate longer sentences than if you wanted to translate shorter ones. How does the need for data grow as the sentence length increases?
