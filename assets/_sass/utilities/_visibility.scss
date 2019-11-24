@@ -7,21 +7,47 @@
     display: none !important;
 }
 
-.hidden-sm {
+// Hide at breakpoint size upward
+.hidden-sm-up {
     @media (min-width: $bp-sm) {
         display: none !important;
     }
 }
 
-.hidden-md {
+.hidden-md-up {
     @media (min-width: $bp-md) {
         display: none !important;
     }
 }
 
-.hidden-lg {
+.hidden-lg-up {
     @media (min-width: $bp-lg) {
         display: none !important;
+    }
+}
+
+// Hide at breakpoint size downward
+.hidden-sm-down {
+    display: none !important;
+
+    @media (min-width: $bp-md) {
+        display: inherit !important;
+    }
+}
+
+.hidden-md-down {
+    display: none !important;
+
+    @media (min-width: $bp-lg) {
+        display: inherit !important;
+    }
+}
+
+.hidden-lg-down {
+    display: none !important;
+
+    @media (min-width: $bp-xl) {
+        display: inherit !important;
     }
 }
 

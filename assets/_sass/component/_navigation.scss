@@ -32,7 +32,7 @@ $nav-zindex: 10;
 }
 
 .nav .logo {
-    @media(max-width: $bp-md) {
+    @media(max-width: $bp-md - 1px) {
         max-width: rem-calc(105px);
     }
 }
@@ -54,7 +54,7 @@ $nav-zindex: 10;
 }
 
 .nav-list {
-    @media (max-width: $bp-md) {
+    @media (max-width: $bp-md - 1px) {
     position: fixed;
     top: 0;
     right: 0;

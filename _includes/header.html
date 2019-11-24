@@ -14,7 +14,7 @@
         </a>
 
         <!-- Mobile menu button -->
-        <button class="nav__menu-trigger hidden-md" type="button" aria-label="Navigation Menu" aria-expanded="false">
+        <button class="nav__menu-trigger hidden-md-up" type="button" aria-label="Navigation Menu" aria-expanded="false">
             <span class="visually-hidden">Menu</span>
             <span class="hamburger">
                 <span class="hamburger__inner"></span>
@@ -35,7 +35,7 @@
             {% endfor %}
 
             <!-- Social icons (mobile only) -->
-            <li class="nav-social-list hidden-md">
+            <li class="nav-social-list hidden-md-up">
                 <a class="nav-social-list__item text-white no-underline" href="https://www.twitter.com/{{ site.twitter_username| cgi_escape | escape }}">
                     <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#twitter' | relative_url }}"></use></svg>
                     <span class="visually-hidden">Scribd on Twitter</span>
@@ -55,7 +55,7 @@
             </li>
 
             <!-- Github links (mobile only) -->
-            <li class="hidden-md monospace fs-md">
+            <li class="hidden-md-up monospace fs-md">
                 <a class="nav-github-link text-white" href="{{site.github.repository_url}}/edit/{{ site.branch }}/{{page.path}}">Improve this Page</a><a class="nav-github-link text-white" href="{{site.github.repository_url}}/commits/{{ site.branch }}/{{page.path}}">Page History</a>
             </li>
         </ul>
