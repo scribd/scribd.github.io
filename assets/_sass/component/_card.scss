@@ -44,6 +44,7 @@ $card-padding-lg: rem-calc(20px);
 
 .card {
     position: relative;
+    min-width: 0; // needed for text truncation
     background-color: $white;
     border: 1px solid $slate-300;
     @extend .rounded;
