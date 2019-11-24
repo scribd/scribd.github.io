@@ -1,8 +1,8 @@
 <div class="post__sidebar monospace">
     <!-- Tags -->
-    {%- if page.tags -%}
+    {%- if page.tags.size > 0 -%}
     <ul class="list--inline mb-2 pl-0">
-        <li><strong>Tags: </strong></li>
+        <li><strong>Tag {%- if page.tags.size > 1 -%}s{%- endif -%}: </strong></li>
         {% for tag in page.tags %}
         <li>{{ tag }}</li>
         {% endfor %}
