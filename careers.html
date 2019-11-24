@@ -104,46 +104,48 @@ hero:
     </ul>
 </section>
 
-<section class="section-container text-center">
-    <hgroup class="m-auto text-length-lg">
-        <h2 id="codebase" class="section-heading text-muted">Multi-Faceted Codebase</h2>
-        <h3 class="h2">Work with a variety of languages and libraries.</h3>
-    </hgroup>
-    <p class="m-auto text-length-md body-lg">We continuously deploy code to a wide range of devices and servers. Here are a few of the languages and libraries we use to build Scribd.</p>
+<section class="bg-slate-100">
+    <div class="section-container text-center">
+        <hgroup class="m-auto text-length-lg">
+            <h2 id="codebase" class="section-heading text-muted">Multi-Faceted Codebase</h2>
+            <h3 class="h2">Work with a variety of languages and libraries.</h3>
+        </hgroup>
+        <p class="m-auto text-length-md body-lg">We continuously deploy code to a wide range of devices and servers. Here are a few of the languages and libraries we use to build Scribd.</p>
 
-    <ul class="icon-grid mt-5">
-        {% for item in site.data.tech %}
-            <li class="icon-grid__item">
-                <img class="mb-2" src="{{ item.logo }}" role="presentation" alt="">
-                <h5>{{ item.name }}</h5>
-                <p class="mb-0 fs-md text-muted monospace">{{ item.description }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+        <ul class="icon-grid mt-5">
+            {% for item in site.data.tech %}
+                <li class="icon-grid__item">
+                    <img class="mb-2" src="{{ item.logo }}" role="presentation" alt="">
+                    <h5>{{ item.name }}</h5>
+                    <p class="mb-0 fs-md text-muted monospace">{{ item.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </section>
 
-<section class="bg-slate-100">
+<!-- <section class="bg-slate-100">
     <div class="section-container">
         <hgroup class="m-auto text-length-lg text-center">
             <h2 id="our-structure" class="section-heading text-teal">Our Structure</h2>
             <h3 class="h2">We like to divide and conquer in focused teams.</h3>
         </hgroup>
     </div>
-</section>
+</section> -->
 
 <section id="open-positions" class="section-container">
     <hgroup class="m-auto text-length-lg text-center">
         <h2 class="section-heading text-plum">Open Positions</h2>
-        <h3 class="h2">We’re actively hiring for these roles.</h3>
+        <h3 class="h2 mb-4">We’re actively hiring for these roles.</h3>
     </hgroup>
 
-    <noscript>
+    <noscript class="text-center">
         <p>
         We normally fill in the jobs here with JavaScript.
         </p>
         <p>
         We think it's cool that you have disabled JavaScript to view this page,
-        but you might be missing out :)
+        but you might be missing out 😀
         </p>
     </noscript>
 
@@ -161,11 +163,15 @@ hero:
             Object.keys(jobs).filter(t => jobs[t]).sort().forEach((team) => {
                 const positions = jobs[team];
 
+                const positionsCount = positions.length > 1 ? `${positions.length} Positions` : `${positions.length} Position`;
+
                 const teamDiv = document.createElement('div');
-                teamDiv.className = 'm-auto text-length-xl mt-5 mb-5';
+                teamDiv.className = 'm-auto text-length-xl pb-6';
 
                 teamDiv.innerHTML = `
-        <h3 class="mb-3">${team} <span class="mt-1 fs-md fw-normal float-right text-muted monospace">${positions.length}</span></h3>
+                    <h3 class="mb-3">${team}
+                        <span class="hidden-sm-down mt-1 fs-md fw-normal float-right text-muted monospace">${positionsCount}</span>
+                    </h3>
                 `;
 
                 const ul = document.createElement('ul');
@@ -176,15 +182,15 @@ hero:
                     li.className = 'action-cell'
                     li.innerHTML = `
                     <div class="action-cell__body">
-                        <h5>
+                        <h5 class="mb-1">
                             <a href="${job.hostedUrl}" target="_blank" class="action-cell__link">
                             ${job.text}
-                                <svg class="hidden-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
+                                <svg class="hidden-md-up fs-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
                             </a>
                         </h5>
-                        <p class="mb-0 fs-md text-muted monospace">${job.categories.location}</p>
+                        <p class="mb-0 fs-md text-truncate text-muted monospace">${job.categories.location}</p>
                     </div>
-                    <a href="${job.hostedUrl}" target="_blank" class="btn btn-primary btn-icon-external">View Job
+                    <a href="${job.hostedUrl}" target="_blank" class="hidden-md-down btn btn-primary btn-icon-external">View Job
                         <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
                     </a>
                     `;

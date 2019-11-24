@@ -11,7 +11,7 @@
 ////////////////////
 
 .action-cell {
-    padding: rem-calc(12px 10px);
+    padding: rem-calc(10px 0);
     border-top: 1px solid $border-color;
 
     &:last-of-type {
@@ -21,33 +21,20 @@
     @media (min-width: $bp-md) {
         display: flex;
         align-items: center;
-        padding: rem-calc(15px 0);
+        padding: rem-calc(12px 0);
     }
 }
 
 .action-cell__body {
     position: relative;
     flex: 1;
+    min-width: 0; // needed for text truncation
+
+    @media (min-width: $bp-md) {
+        padding-right: 1em;
+    }
 }
 
 .action-cell__link {
     @extend .link-text-color;
-}
-
-// Show external link icon only at small sizes
-.action-cell__link svg {
-    font-size: 85%;
-
-    @media (min-width: $bp-md) {
-        display: none;
-    }
-}
-
-// Hide buttons only at small sizes
-.action-cell .btn {
-    display: none;
-
-    @media (min-width: $bp-md) {
-        display: inline-block;
-    }
 }
