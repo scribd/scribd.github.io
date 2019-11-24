@@ -24,13 +24,13 @@ $xy-border: (
 
 @each $prop, $letter in (margin: m, padding: p) {
     .#{$letter}-#{0} {
-        #{$prop}: 0;
+        #{$prop}: 0 !important;
     }
 
     @each $direction, $d in $xy-border {
         @each $unit, $em in $spacers {
             .#{$letter}#{$d}-#{$unit} {
-                #{$prop}-#{$direction}: #{$em};
+                #{$prop}-#{$direction}: #{$em} !important;
             }
         }
     }
