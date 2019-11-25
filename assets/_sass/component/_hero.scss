@@ -20,7 +20,6 @@
 
 .hero {
     position: relative;
-    // margin-bottom: var(--hero-margin);
     padding: var(--hero-margin) 0;
     background-color: var(--theme-primary-color);
     background-image: linear-gradient(180deg, var(--theme-primary-color) 0%, var(--theme-secondary-color) 100%);
@@ -29,7 +28,7 @@
     z-index: 2;
 }
 
-.logo-texture {
+.hero .logo-texture {
     position: absolute;
     top: 0;
     left: 0;
@@ -87,7 +86,7 @@
     grid-template-areas:
         "author author author"
         "published category .";
-    margin: rem-calc(20px) 0 0 0;
+    margin: .5em 0 0 0;
     font-size: rem-calc(14px);
     @extend .list--plain;
 

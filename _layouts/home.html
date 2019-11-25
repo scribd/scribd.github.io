@@ -2,7 +2,10 @@
 layout: default
 ---
 
+<!-- Featured post hero -->
+{% include featured-post-hero.html %}
 
+<!-- Featured projects -->
 <section class="section-container">
     <h2 id="featured-projects" class="section-heading pb-3">Featured Projects</h2>
     {% include project-list.html limit="3" %}
@@ -12,7 +15,8 @@ layout: default
     </a>
 </section>
 
-<section class="bg-slate-100 border-top border-thick">
+<!-- Careers teaser -->
+<section class="bg-slate-100 border-top">
     <div class="section-container section-split">
         <div class="section-split__item">
             <h2 id="featured-jobs" class="section-heading text-plum pb-3">We’re Hiring</h2>

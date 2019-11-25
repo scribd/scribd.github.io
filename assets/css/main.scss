@@ -15,11 +15,11 @@
 @import "base/layout";
 @import "base/typography";
 
+@import "utilities/borders";
 @import "utilities/text";
 @import "utilities/links";
 @import "utilities/visibility";
 @import "utilities/spacing";
-@import "utilities/borders";
 @import "utilities/images";
 @import "utilities/position";
 
@@ -40,6 +40,7 @@
 @import "component/post-list";
 @import "component/post-index";
 @import "component/post-content";
+@import "component/featured-post-hero";
 
 // Import the syntax highlighting theme, see:
 // https://richleland.github.io/pygments-css/

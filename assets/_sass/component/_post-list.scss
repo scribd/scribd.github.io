@@ -7,16 +7,16 @@
 }
 
 .post-list__item {
-    padding: 15px 0;
+    padding: rem-calc(15px) 0;
     border-bottom: 1px solid $border-color;
 
     @media (min-width: $bp-md) {
-        padding-right: rem-calc(40px);
+        padding: rem-calc(20px 40px 20px 0);
     }
 }
 
 .post-list__heading {
-    margin-bottom: rem-calc(5px);
+    margin-bottom: rem-calc(2px);
 }
 
 .post-list__date,

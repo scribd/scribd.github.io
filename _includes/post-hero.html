@@ -26,6 +26,7 @@
                 {%- endif -%}
 
                 <!-- Post Date -->
+                {%- if page.date -%}
                 <li class="hero__meta-item published">
                     <strong>Published</strong><br>
                     <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -33,6 +34,7 @@
                         {{ page.date | date: date_format }}
                     </time>
                 </li>
+                {%- endif -%}
 
                 {%- if page.team -%}
                 <!-- Team Info -->

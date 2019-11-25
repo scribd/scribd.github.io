@@ -5,6 +5,7 @@ author: theo
 tags:
 - swift
 - weaver
+- featured-series
 team: iOS
 ---
 

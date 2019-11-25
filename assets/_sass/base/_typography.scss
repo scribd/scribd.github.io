@@ -44,7 +44,8 @@ body {
 // body text reset
 p,
 address,
-ul {
+ul,
+ol {
     margin: 0 0 1em 0;
     font-style: normal;
 }
@@ -62,6 +63,7 @@ h6 {
     font-weight: 700;
     line-height: 1.25em;
     margin: 0 0 .5em 0;
+    letter-spacing: -0.005em;
 }
 
 h1,

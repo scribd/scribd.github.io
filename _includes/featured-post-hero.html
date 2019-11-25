@@ -1,0 +1,101 @@
+ {% assign hero = page.hero %}
+<div class="feat-post">
+    <div class="container">
+        <div class="feat-post__container">
+
+            <section class="feat-post__primary relative">
+                <h1 class="section-heading text-teal">Featured Post</h1>
+
+                {% assign featured = site.tags.featured | sort: 'date' | reverse %}
+                {% for post in featured limit: 1 %}
+                <h2 class="hero__title">
+                    <a href="{{ post.url | relative_url }}" class="link-text-color">
+                        {{ post.title | escape }}
+                    </a>
+                </h2>
+
+                <ul class="hero__meta">
+                    <!-- Post Author -->
+                    {%- if post.author -%}
+                    <li class="hero__meta-item author">
+                        <strong>Author</strong><br>
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                            <span itemprop="name">
+                                {%- if site.data.authors[post.author] -%}
+                                    {{ site.data.authors[post.author].name}}
+                                {%- else -%}
+                                    {{ post.author }}
+                                {%- endif -%}
+                            </span>
+                        </span>
+                    </li>
+                    {%- endif -%}
+
+                    <!-- Post Date -->
+                    {%- if post.date -%}
+                    <li class="hero__meta-item published">
+                        <strong>Published</strong><br>
+                        <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+                            {%- assign date_format = site.date_format -%}
+                            {{ post.date | date: date_format }}
+                        </time>
+                    </li>
+                    {%- endif -%}
+
+                    {%- if post.team -%}
+                    <!-- Team Info -->
+                    <li class="hero__meta-item category">
+                        <strong>Category</strong><br>
+                        <span>{{ post.team }}</span>
+                    </li>
+                    {%- endif -%}
+                </ul>
+                {% endfor %}
+
+                <div class="feat-post__separator"></div>
+            </section>
+
+            <section class="feat-post__secondary">
+                <h3 class="section-heading mb-0 text-plum">Featured Series</h3>
+                <ul class="post-list text-length-sm">
+                    {% assign featured-series = site.tags.featured-series | sort: 'date' %}
+                    {% for post in featured-series limit: 2 %}
+                    <li class="post-list__item">
+
+                        <!-- Post title -->
+                        <h4 class="post-list__heading">
+                            <a href="{{ post.url | relative_url }}" class="link-text-color">
+                            {{ post.title | escape }}
+                            </a>
+                        </h4>
+
+                        <!-- Post metadata -->
+                        <span class="post-list__author">
+                            <span class="visually-hidden">Author:</span>
+                            {%- if site.data.authors[post.author] -%}
+                                {{ site.data.authors[post.author].name}}
+                            {%- else -%}
+                                {{ post.author }}
+                            {%- endif -%}
+                        </span><!--
+                        --><time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
+                            {%- assign date_format = site.date_format -%}
+                            {{ post.date | date: date_format }}</time>
+
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <!-- All posts button (if not on a blog page already) -->
+                {% unless page.url contains "blog" %}
+                <a href="{% link blog.html %}#all-posts" class="mt-4 btn btn-primary btn-icon-right">
+                    All Posts
+                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
+                </a>
+                {% endunless %}
+            </section>
+
+        </div>
+    </div>
+    {% include logo-texture-solid.html %}
+</div>
