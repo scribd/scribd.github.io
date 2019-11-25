@@ -6,6 +6,8 @@
 $cp-sm: rem-calc(15px);
 $cp-md: 5%;
 $cp-lg: rem-calc(75px);
+$cp-offset-lg: 12%;
+$cp-offset-xl: rem-calc(175px);
 
 // Max site width
 $max-width: 1440px;
@@ -44,12 +46,12 @@ $bp-xl: $max-width;
 
 // Padding left offset
 .container-offset {
-    @media (min-width: $bp-md) {
-        padding-left: ($cp-md + 7%);
+    @media (min-width: $bp-lg) {
+        padding-left: $cp-offset-lg;
     }
 
     @media (min-width: $bp-xl) {
-        padding-left: rem-calc(175px);
+        padding-left: $cp-offset-xl;
     }
 }
 

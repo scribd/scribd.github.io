@@ -1,19 +1,16 @@
-<div class="post__sidebar monospace">
+<div class="post-sidebar fs-md monospace">
     <!-- Tags -->
     {%- if page.tags.size > 0 -%}
-    <ul class="list--inline mb-2 pl-0">
-        <li><strong>Tag {%- if page.tags.size > 1 -%}s{%- endif -%}: </strong></li>
+    <ul class="post-sidebar__tag-list">
+        <li class="post-sidebar__tag-label fw-bold">Tag {%- if page.tags.size > 1 -%}s{%- endif -%}: </li>
         {% for tag in page.tags %}
-        <li>{{ tag }}</li>
+        <li class="post-sidebar__tags">{{ tag }}</li>
         {% endfor %}
     </ul>
     {%- endif -%}
 
     <!-- Sharing / RSS -->
-    <ul class="list--inline mb-4 pl-0">
-        <li>
-            <strong>Subscribe: </strong>
-        </li>
+    <ul class="post-sidebar__sharing-list list--inline">
         <li>
             <a class="no-underline" href="{{ "/feed.xml" | relative_url }}">
                 <svg class="svg-icon" aria-label="Subscribe via RSS"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#rss' | relative_url }}"></use></svg>
