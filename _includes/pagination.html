@@ -1,0 +1,53 @@
+{% if paginator.total_pages > 1 %}
+<nav aria-label="pagination">
+    <ul class="pagination">
+
+        <!-- Previous arrow -->
+        {% if paginator.previous_page %}
+        <li class="pagination__item">
+            <a class="older-posts" href="{{ paginator.previous_page_path | relative_url }}">
+               <span class="visually-hidden">Previous Page</span>
+               <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-left' | relative_url }}"></use></svg>
+            </a>
+        </li>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+        {% assign class = nil %}
+        {% assign aria = nil %}
+        {% if page == paginator.page %}
+            {% assign class = 'current' %}
+            {% assign aria = 'aria-current="page"' %}
+        {% endif %}
+
+        <li class="pagination__item">
+
+            <!-- Page 1 -->
+            {% if page == 1 %}
+            <a class="pagination__link {{ class }}"  href="{{ paginator.previous_page_path | relative_url }}" {{ aria }}>
+                <span class="visually-hidden">Page </span>{{ page }}
+            </a>
+
+            <!-- Page 2, 3, 4, etc -->
+            {% else %}
+            <a class="pagination__link {{ class }}" href="{{ site.paginate_path | relative_url | replace: ':num', page }}" {{ aria }}>
+                <span class="visually-hidden">Page </span>{{ page }}
+            </a>
+
+            {% endif %}
+        </li>
+        {% endfor %}
+
+        <!-- Next arrow -->
+        {% if paginator.next_page %}
+        <li class="pagination__item">
+            <a class="older-posts" href="{{ paginator.next_page_path | relative_url }}">
+               <span class="visually-hidden">Next Page</span>
+               <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
+            </a>
+        </li>
+        {% endif %}
+
+    </ul>
+</nav>
+{% endif %}

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Blog
-permalink: /blog/
 ---
 
 <!-- Featured post hero -->
@@ -19,7 +18,7 @@ permalink: /blog/
         <ul class="post-list text-length-md">
 
             <!-- Post -->
-            {%- for post in site.posts -%}
+            {%- for post in paginator.posts -%}
             <li class="post-list__item">
 
                 <!-- Post title -->
@@ -47,6 +46,9 @@ permalink: /blog/
 
         </ul>
         {%- endif -%}
+
+        <!-- pagination -->
+        {% include pagination.html %}
     </section>
 
 </div>

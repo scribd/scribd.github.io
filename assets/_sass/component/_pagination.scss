@@ -1,0 +1,38 @@
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: rem-calc(30px);
+    @extend .list--plain;
+    @extend .monospace;
+}
+
+.pagination__item {
+    margin: rem-calc(0 5px 5px 0);
+}
+
+.pagination a {
+    display: inline-block;
+    padding: rem-calc(4px);
+    min-width: rem-calc(36px);
+    background-color: $white;
+    border: 2px solid transparent;
+    border-radius: $border-radius;
+    text-align: center;
+    font-size: rem-calc(16px);
+    color: $slate-600;
+    transition: .2s all ease-in-out;
+    transition-property: color, background-color, border-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &.current {
+        border-color: $teal;
+    }
+
+    &.current {
+        font-weight: 700;
+        border-color: $slate-200;
+    }
+
+}
