@@ -15,5 +15,8 @@ Data Science:
 Core Platform:
   lever: 'Core Platform'
 
+Core Infrastructure:
+  lever: 'Core Infrastructure'
+
 Web Development:
   lever: 'Web Development'
