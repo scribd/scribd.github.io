@@ -18,6 +18,7 @@ $card-padding-lg: rem-calc(20px);
     display: grid;
     grid-gap: $card-padding-sm;
     grid-template-columns: 1fr;
+    padding: 0 !important;
     @extend .list--plain;
 
     @media (min-width: $bp-sm) {
@@ -27,6 +28,11 @@ $card-padding-lg: rem-calc(20px);
     @media (min-width: 1200px) {
         grid-gap: $card-padding-lg;
     }
+}
+
+// Add top margin if grids are nested
+.card-grid + .card-grid {
+    margin-top: $card-padding-sm;
 }
 
 ////////////////////
@@ -121,4 +127,13 @@ $card-padding-lg: rem-calc(20px);
 .card__header-list .svg-icon {
     margin-right: rem-calc(4px);
     opacity: .6;
+}
+
+.card a {
+    text-decoration-color: transparent;
+
+    &:hover,
+    &:focus {
+        text-decoration-color: currentColor;
+    }
 }
