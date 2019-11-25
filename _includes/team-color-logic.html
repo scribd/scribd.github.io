@@ -1,0 +1,18 @@
+{% assign theme = nil %}
+
+{% if page.team == "Core Platform" %}
+    {% assign theme = 'teal' %}
+
+    {% elsif page.team == "iOS" %}
+    {% assign theme = 'cabernet' %}
+
+    {% elsif page.team == "Android" %}
+    {% assign theme = 'grass' %}
+
+    {% elsif page.team == "Data Science" %}
+    {% assign theme = 'slate' %}
+
+    {% elsif page.team == "Web Development" %}
+    {% assign theme = 'yellow' %}
+
+{% endif %}

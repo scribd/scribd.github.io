@@ -67,10 +67,10 @@ $white-faded: rgba(#fff, .6);
 
 .theme-yellow {
     --theme-primary-color: #{$yellow-light};
-    --theme-secondary-color: #{$yellow-dark};
-    --theme-border-color: #{$yellow-light};
+    --theme-secondary-color: #{$yellow};
+    --theme-border-color: #{$yellow-dark};
     --theme-accent-color: #{$slate-800};
-    --theme-text-color: #{$white};
+    --theme-text-color: #{$slate-800};
 }
 
 .theme-cabernet {

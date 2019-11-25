@@ -8,18 +8,39 @@
 
     @media (min-width: $bp-sm) {
         font-size: rem-calc(18px);
-        line-height: 1.7;
     }
 
     @media (min-width: $bp-lg) {
         font-size: rem-calc(20px);
+        line-height: 1.6;
     }
+}
+
+// Headings
+// Add extra margin to all headings
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    margin: 1.75em 0 .75em 0;
+}
+
+// Body
+// Add extra margin to body text
+p,
+ul,
+ol {
+    margin: 0 0 1.25em 0;
+    font-style: normal;
 }
 
 // Links
 // Make sure all links have visible underlines
 .post-content a {
     @extend.link-inline;
+    word-wrap: break-word; // make sure really long links wrap
 }
 
 // Unordered list
@@ -38,7 +59,7 @@
 
 // Blockquote
 .post-content blockquote {
-    margin: 0 0 2em 0;
+    margin: 1.5em 0 2em 0;
     padding: 1.25em;
     font-size: .85em;
     line-height: 1.7;
@@ -58,7 +79,7 @@
 
 .post-content img {
     display: block;
-    margin: 0 auto 1.5em auto;
+    margin: 1.5em auto;
     border: 1px solid $border-color;
     @extend .shadow;
     @extend .rounded;

@@ -1,4 +1,8 @@
-<section class="hero theme-{{ hero.theme | default: "midnight" }}">
+<!-- Assign theme colors based of the project team -->
+<!-- See include below for logic and color.scss for available themes -->
+{% include team-color-logic.html %}
+
+<section class="hero theme-{{ theme | default: "midnight" }}">
     <div class="hero__container container container-offset">
 
         <header class="hero__header">
