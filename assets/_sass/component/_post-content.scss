@@ -5,6 +5,9 @@
 // Bump of base font size for a comfortable reading experience
 .post-content {
     font-size: 1rem;
+    // make sure really long words and links wrap
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 
     @media (min-width: $bp-sm) {
         font-size: rem-calc(18px);
@@ -40,7 +43,6 @@ ol {
 // Make sure all links have visible underlines
 .post-content a {
     @extend.link-inline;
-    word-wrap: break-word; // make sure really long links wrap
 }
 
 // Unordered list
