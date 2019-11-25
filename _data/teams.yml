@@ -20,3 +20,13 @@ Core Infrastructure:
 
 Web Development:
   lever: 'Web Development'
+  about: |
+    Web team at Scribd is responsible for core business metrics such as user
+    acquisition, SEO, on-boarding and core product experience. We collaborate with
+    Product Managers, Design Engineers, Data Scientists, QA and Project Managers in
+    cross-functional teams to build an amazing product. We conduct many experiments
+    (A/B tests) to understand our hypotheses and user behavior. Each and every
+    experiment is very valuable, regardless of the outcome, as we get to learn the
+    impact of our product development on the users. The scale of these experiments
+    is also fairly large with 100+ million documents, 300+ million visitors every
+    month (and growing) and 1.2 million (and growing) paid subscribers.
