@@ -1,0 +1,63 @@
+////////////////////
+// Post Sidebar
+////////////////////
+
+.post-sidebar {
+    display: grid;
+    grid-gap: rem-calc(20px);
+    grid-template-columns: 1fr auto;
+    align-items: flex-end;
+    margin: rem-calc(-20px 0 20px 0);
+    padding-bottom: rem-calc(20px);
+    border-bottom: 1px solid $border-color;
+
+    @media (min-width: $post-bp) {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border-bottom: none;
+    }
+}
+
+// Tag list
+.post-sidebar__tag-list {
+    @extend .list--inline;
+}
+
+// Tag list label
+.post-sidebar__tag-label {
+    @media (min-width: $post-bp) {
+        display: block !important;
+        margin-bottom: rem-calc(5px);
+    }
+}
+
+// Add comma between tags
+.post-sidebar__tags:not(:last-child)::after {
+    content: ', ';
+}
+
+
+// Action list top divider border
+.post-sidebar__action-list::before {
+    @media (min-width: $post-bp) {
+        content: '';
+        display: block;
+        margin: rem-calc(15px) 0;
+        width: 100px;
+        height: 2px;
+        background-color: $slate-200;
+    }
+}
+
+// Action links
+.post-sidebar__action-link {
+    display: inline-block;
+    padding: rem-calc(0 2px);
+    @extend .no-underline;
+
+    &:hover,
+    &:focus {
+        color: $teal-dark;
+    }
+}
