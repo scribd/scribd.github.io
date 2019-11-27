@@ -1,0 +1,129 @@
+:toc:
+:toclevels: 3
+
+= Contributing to tech.scrbid.com
+
+toc::[]
+
+== Getting Started
+
+To contribute to this repository you will
+link:https://guides.github.com/activities/forking/[fork this repository],
+push changes to a branch in your fork, and then
+link:https://help.github.com/articles/creating-a-pull-request-from-a-fork/[create as a pull request]
+from that branch to the `master` branch of this repository.
+Forking only needs to be done once, after which you can push changes to your fork
+using the GitHub website file editor or from a local clone, as described below.
+
+
+[[forking]]
+=== Creating a fork
+
+Creating a fork, aka link:https://guides.github.com/activities/forking/[forking],
+makes a personal copy of another repository.
+Any changes you make in your fork of the repository will not show up on the website
+until they are merged (via pull request) to the `master` branch of this repository.
+If you are unfamiliar with how to create a fork or how forks work, see the
+link:link:https://guides.github.com/activities/forking/[GitHub tutorial on forking].
+
+=== Using GitHub to edit files
+
+GitHub makes it easy to add, edit, or delete individual files via their website's
+link:https://help.github.com/articles/editing-files-in-your-repository/[File Editor].
+This has the advantage of using the file editor is that GitHub will automatically fork (if needed),
+push the changes to a branch, and open a pull request for you.
+It also means you don't need to have a local clone of your fork.
+The disadvantage is that you can't verify you changes locally before creating the PR,
+it only works on one file at a time, and your changes are lost if you close or navigate away from the page.
+
+=== Using a local clone
+
+We generally recommend making changes in a
+link:https://help.github.com/articles/cloning-a-repository-from-github/[local clone] of your fork.
+This requires some additional tools and storage on your local machine,
+and you will need a bit more technical knowledge of how to use those tools.
+However, this will allow you work on multiple files as part of a single set of changes.
+You'll save your changes in a local branch and then <<building, build and review>> them locally.
+When they are ready you will push your changes to your your fork and submit a pull request from there.
+
+== Building
+
+This project uses Ruby and link:https://jekyllrb.com/[Jekyll] to statically
+generate the site.
+
+
+You will need a Ruby environment set up in order to build and run the site locally.
+
+[source,bash]
+---
+$ bundle install
+----
+
+TO run the site locally execute:
+
+[source, bash]
+----
+$ bundle exec jekyll serve
+----
+
+
+== Editing content
+
+Blog posts can be found in the `_posts` directory and are created as Markdown
+files. Each file corresponds to a blog post. The filenames should be the format
+of `YYYY-MM-DD-url-title.md`.
+
+
+In that file you need to enter some meta-data in the following format:
+
+.2019-01-01-hello-world.md
+[source,yaml]
+----
+---
+layout: post
+title: "Hello World!"
+tags:
+- timetravel
+team: iOS
+author: yourgithubname
+---
+----
+
+This section is referred to as the
+link:https://jekyllrb.com/docs/frontmatter/[front matter]. The `layout`
+attribute tells the rendering engine to use the "post" layout.
+`title` will be the displayed title of the post.
+
+`tags` are descriptive terms for this post.
+They can be used to search for all posts for a specific or area,
+such as "tutorials" or "plugins".
+Tags must contain only numbers and lower-case letters.
+Tags must not contain spaces.
+Tags should be short, generally one or two words.
+Tags containing multiple words should squash all the words together,
+as in "continuousdelivery" or "jenkinsworld2017".
+Dashes are allowed but should be avoided unless describing a topic that contains
+dashes, such as a plugin name that contains dashes.
+To see tags people have used before:
+
+
+The `team` tag should correspond to one of the keys in `_data/teams.yml`. This
+will ensure that the post is categorized properly.
+
+The `author` attribute will map your
+GitHub name to author information, if this is your first time adding a blog
+post, please also create an entry in `_data/authors.yml` with your author metadata.
+
+Once you have everything ready, you may
+link:https://help.github.com/articles/creating-a-pull-request/[create a pull
+request] containing your additions.
+
+
+[[reviewing]]
+== Reviewing changes
+
+Some tips:
+
+* Pull requests are open to public, and any GitHub user can review changes and provide feedback.
+  If you are interested to review changes, please just do so (and thanks in advance!). 
+  No special permissions needed
