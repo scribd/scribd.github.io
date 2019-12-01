@@ -187,7 +187,7 @@ hero:
                         </h5>
                         <p class="mb-0 fs-md text-truncate text-muted monospace">${job.categories.location}</p>
                     </div>
-                    <a href="${job.hostedUrl}" target="_blank" class="hidden-md-down btn btn-primary btn-icon-external">View Job
+                    <a href="${job.hostedUrl}" target="_blank" class="hidden-md-down btn btn-primary btn-icon-external" tabindex="-1" aria-hidden="true">View Job
                         <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
                     </a>
                     `;
