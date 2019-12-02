@@ -3,6 +3,8 @@ layout: post
 title:  "Multi-armed bandits for the Win"
 author: dfeldman
 tags:
+- testing
+- data
 team: Data Science
 ---
 

@@ -3,6 +3,8 @@ layout: post
 title:  "Neural Spelling Corrections and the Importance of Accuracy"
 author: mattr
 tags:
+- seq2seq
+- data
 team: Data Science
 ---
 

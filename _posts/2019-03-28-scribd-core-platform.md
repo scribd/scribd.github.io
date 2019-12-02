@@ -3,6 +3,7 @@ layout: post
 title: "What Core Platform does at Scribd"
 author: rtyler
 tags:
+- scribd
 team: Core Platform
 ---
 

@@ -4,6 +4,8 @@ title:  "Get Animated with LiveCollections for iOS"
 author: stephane
 tags:
 - swift
+- live-collections
+- lc-series
 team: iOS
 ---
 

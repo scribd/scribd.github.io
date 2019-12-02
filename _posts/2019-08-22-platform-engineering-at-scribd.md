@@ -3,7 +3,9 @@ layout: post
 title: Zooming out to Platform Engineering at Scribd
 author: rtyler
 tags:
+- scribd
 - dataeng
+- data
 team: Core Platform
 ---
 

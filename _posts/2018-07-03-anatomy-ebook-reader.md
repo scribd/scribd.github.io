@@ -3,6 +3,8 @@ layout: post
 title:  "Anatomy of an Accessible eBook Reader for the Web"
 author: ugi
 tags:
+- accessibility
+- design
 team: Web Development
 ---
 

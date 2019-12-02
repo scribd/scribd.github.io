@@ -4,6 +4,8 @@ title:  "LiveCollections Part 4: A Table of Carousels"
 author: stephane
 tags:
 - swift
+- live-collections
+- lc-series
 team: iOS
 ---
 
