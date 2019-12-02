@@ -1,0 +1,95 @@
+////////////////////
+// Related Posts
+////////////////////
+
+.related-posts {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.related-posts__wrapper {
+    @media (min-width: $post-bp) {
+        display: grid;
+        grid-template-columns: 320px 1fr 5%;
+    }
+}
+
+.related-posts__title {
+    margin-bottom: 0;
+    line-height: 1;
+    @extend .monospace;
+
+    @media (min-width: $bp-md) {
+        font-size: rem-calc(40px);
+    }
+
+    @media (min-width: $post-bp) {
+        font-size: rem-calc(56px);
+    }
+}
+
+////////////////////
+// Post List Tweaks
+////////////////////
+
+.related-posts .post-list {
+    @media (min-width: $bp-md) {
+        display: grid;
+        grid-gap: 0 5%;
+        grid-template-columns: 1fr 1fr;
+        align-self: center;
+    }
+}
+
+.related-posts .post-list__item {
+    padding-right: 0;
+
+    @media (max-width: $bp-md) {
+        &:first-of-type {
+            margin-top: rem-calc(15px);
+            border-top: 1px solid $border-color;
+        }
+
+        &:last-of-type {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    @media (min-width: $bp-md) {
+        &:nth-of-type(3),
+        &:nth-of-type(4) {
+            border-bottom: none;
+        }
+    }
+}
+
+////////////////////
+// Arrows
+////////////////////
+
+.related-posts__arrow {
+    position: absolute;
+    color: $slate-200;
+    z-index: -1;
+    @extend .hidden-md-down;
+
+    &:nth-of-type(1) {
+        top: -.35em;
+        left: .5em;
+        font-size: 30vmin;
+    }
+
+    &:nth-of-type(2) {
+        bottom: -.35em;
+        left: -.35em;
+        font-size: 34vmin;;
+    }
+
+    &:nth-of-type(3) {
+        bottom: 0;
+        right: -.25em;
+        font-size: 24vmin;;
+    }
+}
