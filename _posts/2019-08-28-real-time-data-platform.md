@@ -5,7 +5,7 @@ author: rtyler
 tags:
 - kafka
 - aws
-- featured
+- data
 team: Core Platform
 ---
 

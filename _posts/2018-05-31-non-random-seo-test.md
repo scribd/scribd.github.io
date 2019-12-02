@@ -4,6 +4,8 @@ title:  "Bootstrapping Your Way Through a Non-Random SEO Test"
 author: katg
 tags:
 - seo
+- testing
+- data
 team: Data Science
 ---
 

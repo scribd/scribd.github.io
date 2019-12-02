@@ -3,7 +3,8 @@ layout: post
 title: Calculating Customer Lifetime Revenue
 author: bclearly
 tags:
-- ltv
+- ltr
+- data
 team: Data Science
 ---
 

@@ -4,6 +4,8 @@ title:  "LiveCollections Part 3: Multi-Section Views"
 author: stephane
 tags:
 - swift
+- live-collections
+- lc-series
 team: iOS
 ---
 

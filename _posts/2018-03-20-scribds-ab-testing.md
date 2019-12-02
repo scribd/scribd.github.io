@@ -3,6 +3,8 @@ layout: post
 title:  "Scribd's A/B Test Framework"
 author: dfeldman
 tags:
+- testing
+- data
 team: Data Science
 ---
 

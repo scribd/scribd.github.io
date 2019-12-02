@@ -5,7 +5,8 @@ author: theo
 tags:
 - swift
 - weaver
-- featured-series
+- dependency injection
+- di-series
 team: iOS
 ---
 

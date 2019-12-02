@@ -4,7 +4,8 @@ title:  'Experiments with Seq2seq: Data Dependency'
 author: siweiz
 tags:
 - machinelearning
-- deeplearning
+- seq2seq
+- data
 team: Data Science
 ---
 
