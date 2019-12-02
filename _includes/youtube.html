@@ -1,0 +1,9 @@
+{% comment %}
+    Include YouTube videos inside your post like so:
+    {% include youtube.html id="oHg5SJYRHA0" aspect="4x3" %}
+    Note, the aspect ratio is optional (defaults to 16x9).
+{% endcomment %}
+
+<div class="embed-responsive aspect-ratio-{{ include.aspect | default: "16x9" }}">
+    <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{ include.id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

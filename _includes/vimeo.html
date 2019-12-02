@@ -1,0 +1,9 @@
+{% comment %}
+    Include Vimeo videos inside your post like so:
+    {% include vimeo.html id="142316610" aspect="16x9" %}
+    Note, the aspect ratio is optional (defaults to 16x9).
+{% endcomment %}
+
+<div class="embed-responsive aspect-ratio-{{ include.aspect | default: "16x9" }}">
+    <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/{{ include.id }}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
