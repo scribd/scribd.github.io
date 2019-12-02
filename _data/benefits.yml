@@ -1,0 +1,26 @@
+- name: Catered Meals
+  description: "We bring in breakfast, lunch, and dinner and have endless supply of snacks and treats."
+
+- name: Matching 401(K)
+  description: "You’ll have the option to contribute to a matching 401(k)."
+
+- name: Full Health + Dental
+  description: "We offer comprehensive health, dental, and vision plans — at no cost to you!"
+
+- name: Paid Parental Leave
+  description: "100% pay for the first 6 weeks of leave for the birth, adoption, or foster placement of a child."
+
+- name: Visa Sonsorship
+  description: "Looking to move to the U.S.? We’ll sponsor your visa to help you get settled."
+
+- name: PTO + Holiday Week
+  description: "In addition to our generous PTO policy, we always take a full week off in December."
+
+- name: Professional Development
+  description: "We love to send employees to conferences like WWDC, Droidcon, RubyConf, and RailsConf."
+
+- name: Gym Membership
+  description: "Fully paid gym membership to the fantastic new facility in our San Francisco headquarters."
+
+- name: Wellness Benefit
+  description: "$50 per month in wellness allowance for activities including yoga, fitness classes, exercise, or pilates."
