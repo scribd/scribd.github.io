@@ -65,42 +65,12 @@ hero:
     </hgroup>
 
     <ul class="text-block-grid mt-5">
-      <li class="text-block-grid__item">
-        <h5>Catered Meals</h5>
-        <p class="mb-0 text-muted">We bring in breakfast, lunch, and dinner and have endless supply of snacks and treats.</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>Matching 401(K)</h5>
-        <p class="mb-0 text-muted">You’ll have the option to contribute to a matching 401(k).</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>Full Health + Dental</h5>
-        <p class="mb-0 text-muted">We offer comprehensive health, dental, and vision plans — at no cost to you!</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>Paid Parental Leave</h5>
-        <p class="mb-0 text-muted">100% pay for the first 6 weeks of leave for the birth, adoption, or foster placement of a child.</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>Visa Sonsorship</h5>
-        <p class="mb-0 text-muted">Looking to move to the U.S.? We’ll sponsor your visa to help you get settled.</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>PTO + Holiday Week</h5>
-        <p class="mb-0 text-muted">In addition to our generous PTO policy, we always take a full week off in December.</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>Professional Development</h5>
-        <p class="mb-0 text-muted">We love to send employees to conferences like WWDC, Droidcon, RubyConf, and RailsConf.</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>Gym Membership</h5>
-        <p class="mb-0 text-muted">Fully paid gym membership to the fantastic new facility in our San Francisco headquarters.</p>
-      </li>
-      <li class="text-block-grid__item">
-        <h5>Wellness Benefit</h5>
-        <p class="mb-0 text-muted">$50 per month in wellness allowance for activities including yoga, fitness classes, exercise, or pilates.</p>
-      </li>
+        {% for item in site.data.benefits %}
+            <li class="text-block-grid__item">
+                <h5>{{ item.name }}</h5>
+                <p class="mb-0 text-muted">{{ item.description }}</p>
+            </li>
+        {% endfor %}
     </ul>
 </section>
 
