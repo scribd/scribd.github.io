@@ -10,13 +10,15 @@ team: Core Platform
 ---
 
 Nobody likes to be woken up in the middle of the night, but if you've got to do
-it, make sure you pick the right person. Scribd has long used
+it, make sure you pick the right person to solve the problem. Scribd has long used
 [PagerDuty](https://pagerduty.com) for managing on-call rotations, but only
 within the "Core Infrastructure" team. All production incidents were routed to
-a single group of infrastructure engineers. Clearly not a good idea. To help
+a single group of infrastructure engineers rather than developers who were
+committing code to the service. Clearly not a good idea. To help
 with our migration to AWS, we recognized the need to move to a more
-_distributed_ model of incident response, and the Core Platform team ended up
-being a suitable test subject.
+_distributed_ model of incident response, with developers taking on more
+responsibility. We needed to try something different and the Core Platform team
+ended up being a suitable test subject for our experiments.
 
 
 The idea of transitioning from "nobody is on-call" to "everybody is on-call"
