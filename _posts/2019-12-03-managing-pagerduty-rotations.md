@@ -32,10 +32,10 @@ the "night shift."
 ## Trying it out
 
 Getting everyone on board with the day/night shifts was the easy part,
-implementing the shifts in PagerDuty turned out far more difficult. TO begin, I created the
-`Core-Platform` schedule, adding all of the team members. The schedule
-was built using Pagerduty's "Restrict On-Call Times" in order to restrict the
-schedule's activation, limiting it to 7:00-17:00 PST. 
+implementing the shifts in PagerDuty turned out far more difficult. To begin, I
+created the `Core-Platform` schedule, adding all of the team members. The
+schedule was built using Pagerduty's "Restrict On-Call Times" in order to
+restrict the schedule's activation, limiting it to 7:00-17:00 PST.
 
 Next I created an "Escalation Policy" with Core Platform as the first level,
 and then configuring the existing Core Infrastructure primary schedule as the
@@ -48,12 +48,13 @@ resolve the incident.
 ## Bumpy roads
 
 Having wired the settings together for Core Platform's services as a prototype,
-I shared the work with a developer we were working with from PagerDuty, it went
-_okay_. I explained the desired end-goal, and walked through what I expected to
+I shared my progress with a developer from PagerDuty; it went
+_okay_. I explained the desired end-goal, and we walked through what I expected to
 happen. Considering our settings, he explained that what would _actually_
-happen was:
+happen:
 
-* During the day, Core Platform developers
+* During the day, Core Platform developers would be notified when incidents
+  happened.
 * Outside of the day shift, there would **always** be a 30 minute delay, dead
   air, before anybody would be notified. After that 30 minute delay, the Core
   Infrastructure team would receive the alert.
@@ -63,20 +64,22 @@ Definitely not ideal.
 
 ## Hack-arounds
 
-The PagerDuty and I switched gears and tried to find ways in which we could
-arrive at something as close as possible to our desired end-state. We figured
-out a couple options:
+The PagerDuty developer and I switched gears and tried to find ways in which we
+could arrive at something as close as possible to our desired end-state. We
+figured out a couple options:
 
 
-1. In the Core-Platform Schedule, Add a Secondary Layer built with the members of the Core-Infra Team
-    * We would get the desired effect of skipping the Core-Platform
-Developers when outside of business hours.
-    * This option would also put the management of part of Core-Infra Team's
-rotation in Core-Platform's hands, including managing overrides. 
-1. In the Core-Platform Escalation Policy, add the Core-Infra Schedule to the first notification in addition to Core-Platform
-    * This would require policy for Core-Infra to manually follow of only
-      picking up the escalation outside of business hours, with know way to
-      know if they should pick up or not.
+1. In the `Core-Platform` Schedule, add a Secondary Layer built with the
+   members of the `Core-Infra` Team
+    * We would get the desired effect of skipping Core Platform developers when outside of business hours.
+    * This option would also put the management of part of Core
+      Infrastructure's rotation into Core Platform's hands, including the
+      management of explicit overrides.
+1. In the `Core-Platform` Escalation Policy, add the `Core-Infra` Schedule to
+   the first notification in addition to the existing `Core-Platform` Schedule.
+    * This would require documented policy for engineers in Core Infrastructure
+      to only respond to incidents outside of the day shift, with no automamted
+      way for them to know whether they can ignore an alert until they receive it.
 1. Create duplicated Services for day time vs night time, with different
    Escalation Policies to rout to different groups. Then with event rules,
    route alerts to the different services based on time of day.
@@ -84,7 +87,7 @@ rotation in Core-Platform's hands, including managing overrides.
       ever needed to change anything we'd have to change it on ALL services
       running this style of escalations.
 1. Keep the baked-in delayed response for night shift alerts.
-    * Obviously not a good choice for situations where every minute counts! 
+    * Obviously not a good choice for situations where every minute counts!
 1. Switch the Core Platform schedule to 24/7 by removing the restriction.
     * Pushes developers into new and uncomfortable positions of being on-call
       all the time, making team based escalations less appealing for adoption
