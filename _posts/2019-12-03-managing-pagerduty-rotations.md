@@ -105,7 +105,7 @@ solutions (people) as quickly as possible. When we discussed the various
 options with the entire team, the only clear path forward was to adopt the last
 option: switch to a 24/7 schedule for the developers on Core Platform. We
 shared the entire process, and conclusion  with our friends at PagerDuty. I hope that we
-see a feature in the future which allows Schedules to be built from both users
+see a feature which allows Schedules to be built from both users
 _and_ other Schedules in the future. That level of composition would give us
 the flexibility to accomplish our _ideal_ end-state for developer incident
 response.
