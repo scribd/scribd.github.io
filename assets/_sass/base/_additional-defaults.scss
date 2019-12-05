@@ -1,5 +1,10 @@
-html {
-    scroll-behavior: smooth; // smooth anchor link scrolling
+// Smooth anchor scrolling unless .no-smooth-scroll is present
+html:not(.no-smooth-scroll) {
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto; // turn off if user prefers reduced motion
+    }
 }
 
 body {
