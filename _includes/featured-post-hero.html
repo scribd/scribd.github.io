@@ -1,5 +1,5 @@
  {% assign hero = page.hero %}
-<div class="feat-post">
+<div class="feat-post theme-white">
     <div class="container">
         <div class="feat-post__container">
 
@@ -15,19 +15,31 @@
                 </h2>
 
                 <ul class="hero__meta">
+
                     <!-- Post Author -->
                     {%- if post.author -%}
-                    <li class="hero__meta-item author">
-                        <strong>Author</strong><br>
-                        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <span itemprop="name">
-                                {%- if site.data.authors[post.author] -%}
-                                    {{ site.data.authors[post.author].name}}
-                                {%- else -%}
-                                    {{ post.author }}
-                                {%- endif -%}
+                    <li class="hero__meta-item author media">
+
+                        <!-- Author Avatar -->
+                        {%- if site.data.authors[post.author].github -%}
+                            <img class="hero__meta-avatar"
+                                srcset="https://github.com/{{ site.data.authors[post.author].github}}.png?size=48,
+                                        https://github.com/{{ site.data.authors[post.author].github}}.png?size=96 2x"
+                                src="https://github.com/{{ site.data.authors[post.author].github}}.png?size=48" role="presentation" alt="">
+                        {%- endif -%}
+
+                        <div class="media-body">
+                            <strong>Author</strong><br>
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <span itemprop="name">
+                                    {%- if site.data.authors[post.author] -%}
+                                        {{ site.data.authors[post.author].name}}
+                                    {%- else -%}
+                                        {{ post.author }}
+                                    {%- endif -%}
+                                </span>
                             </span>
-                        </span>
+                        </div>
                     </li>
                     {%- endif -%}
 

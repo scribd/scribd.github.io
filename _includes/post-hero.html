@@ -15,17 +15,28 @@
 
                 <!-- Post Author -->
                 {%- if page.author -%}
-                <li class="hero__meta-item author">
-                    <strong>Author</strong><br>
-                    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                        <span itemprop="name">
-                            {%- if site.data.authors[page.author] -%}
-                                {{ site.data.authors[page.author].name}}
-                            {%- else -%}
-                                {{ page.author }}
-                            {%- endif -%}
+                <li class="hero__meta-item author media">
+
+                    <!-- Author Avatar -->
+                    {%- if site.data.authors[page.author].github -%}
+                        <img class="hero__meta-avatar"
+                            srcset="https://github.com/{{ site.data.authors[page.author].github}}.png?size=48,
+                                    https://github.com/{{ site.data.authors[page.author].github}}.png?size=96 2x"
+                            src="https://github.com/{{ site.data.authors[page.author].github}}.png?size=48" role="presentation" alt="">
+                    {%- endif -%}
+
+                    <div class="media-body">
+                        <strong>Author</strong><br>
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                            <span itemprop="name">
+                                {%- if site.data.authors[page.author] -%}
+                                    {{ site.data.authors[page.author].name}}
+                                {%- else -%}
+                                    {{ page.author }}
+                                {%- endif -%}
+                            </span>
                         </span>
-                    </span>
+                    </div>
                 </li>
                 {%- endif -%}
 
