@@ -1,0 +1,16 @@
+---
+layout: post-index
+title: page.team
+---
+
+<ul class="post-list text-length-lg">
+
+    <!-- Loop though posts -->
+    {% for post in site.posts %}
+    {% capture team %}{{post.team}}{% endcapture %}
+    {% if team == page.team %}
+        {% include post-list-item.html %}
+    {% endif %}
+    {% endfor %}
+
+</ul>

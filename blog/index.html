@@ -1,32 +1,15 @@
 ---
-layout: default
+layout: post-index
 title: Blog
 ---
 
-<!-- Featured post hero -->
-{% include featured-post-hero.html %}
+{%- if site.posts.size > 0 -%}
+<ul class="post-list text-length-lg">
 
-<div class="post-index">
+    <!-- Loop though posts -->
+    {%- for post in paginator.posts -%}
+        {% include post-list-item.html %}
+    {%- endfor -%}
 
-    <div class="post-index__header">
-        <!-- future category nav will live here -->
-    </div>
-
-    <section id="all-posts" class="post-index__body">
-        <!-- Loop though posts -->
-        {%- if site.posts.size > 0 -%}
-        <ul class="post-list text-length-md">
-
-            <!-- Post -->
-            {%- for post in paginator.posts -%}
-                {% include post-list-item.html %}
-            {%- endfor -%}
-
-        </ul>
-        {%- endif -%}
-
-        <!-- pagination -->
-        {% include pagination.html %}
-    </section>
-
-</div>
+</ul>
+{%- endif -%}
