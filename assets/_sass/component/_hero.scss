@@ -86,6 +86,7 @@
     grid-template-areas:
         "author author author"
         "published category .";
+    align-items: center;
     margin: .5em 0 0 0;
     font-size: rem-calc(14px);
     @extend .list--plain;
@@ -119,3 +120,14 @@
 .hero__meta-item.author { grid-area: author }
 .hero__meta-item.published { grid-area: published }
 .hero__meta-item.category { grid-area: category }
+
+.hero__meta-avatar {
+    border-radius: 100%;
+    max-width: 35px;
+    margin-right: rem-calc(10px);
+
+    @media (min-width: $bp-sm) {
+        max-width: 48px;
+        margin-right: rem-calc(15px);
+    }
+}
