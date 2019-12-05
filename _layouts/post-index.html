@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<!-- Featured post hero -->
+{% include featured-post-hero.html %}
+
+<div class="post-index" id="{{ site.post-id | remove: "#" }}">
+
+    <!-- Post catagory nav -->
+    <nav class="post-index__nav text-white" aria-label="Blog Categories">
+
+        <ul class="post-index__nav-list list--plain">
+
+            {% unless page.url contains "category" %}
+                {% assign class = 'active' %}
+            {% endunless %}
+
+            <!-- Blog home -->
+            <li class="post-index__nav-list-item {{ class }}">
+                <a class="post-index__nav-link" href="{% link blog/index.html %}{{ site.post-id }}">Latest</a>
+            </li>
+
+            <!-- Catagory loop -->
+            {% for category in site.category %}
+            {% assign class = nil %}
+            {% if page.url contains category.url or page.url contains category.title or page.url == "/blog/index.html" %}
+                {% assign class = 'active' %}
+            {% endif %}
+
+            <li class="post-index__nav-list-item {{ class }}">
+                <a class="post-index__nav-link" href="{{ category.url }}{{ site.post-id }}">{{ category.team }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </nav>
+
+    <section class="post-index__body">
+
+        <!-- Post catagory title -->
+        <div class="pb-2 border-bottom text-length-lg">
+            {% assign catagory-title = 'Latest' %}
+            {% if page.team %}
+                {% assign catagory-title = page.team %}
+            {% endif %}
+            <h1 class="section-heading text-teal">{{catagory-title}} Posts</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="text-length-lg">
+            {{ content }}
+        </div>
+
+        <!-- Pagination -->
+        {% include pagination.html %}
+    </section>
+
+</div>

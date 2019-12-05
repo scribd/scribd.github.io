@@ -1,22 +1,113 @@
+////////////////////
+// Variables
+////////////////////
+
+$index-nav-gradient-sm: linear-gradient(180deg, $slate-700 0%, $slate-800 100%);
+$index-nav-gradient-lg: linear-gradient(180deg, $slate-700 0px, $slate-800 800px);
+
+////////////////////
+// Layout
+////////////////////
+
 .post-index {
     @media (min-width: $bp-md) {
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+        "header body";
+    }
+
+    @media (min-width: $bp-xl) {
+        grid-template-columns: 1fr minmax(auto, ($max-width * .25)) minmax(0, ($max-width * .75)) 1fr;
+        grid-template-areas:
+        ". header body .";
+        // Hack to fake header gradient bleed off the left side
+        background-image: $index-nav-gradient-lg;
+        background-repeat: no-repeat;
+        background-size: 50% 100%;
     }
 }
 
-.post-index__header {
+.post-index__nav,
+.post-index__body {
+    margin: 0;
     @extend .section-container;
-    display: none;
-
-    @media (min-width: $bp-md) {
-        display: block;
-        margin: 0;
-        background-image: linear-gradient(180deg, $slate-700 0%, $slate-800 100%);
-    }
+}
+.post-index__nav {
+    grid-area: header;
 }
 
 .post-index__body {
-    @extend .section-container;
+    grid-area: body;
     background-color: $white;
+
+    @media (min-width: $bp-md) {
+        min-height: 85vh;
+    }
+}
+
+////////////////////
+// Navigation Styles
+////////////////////
+
+.post-index__nav {
+    background-image: $index-nav-gradient-lg;
+
+    // Mobile only tweaks
+    @media (max-width: $bp-md - 1px) {
+        padding-top: rem-calc(20px);
+        padding-bottom: rem-calc(15px);
+        background-image: $index-nav-gradient-sm;
+    }
+}
+
+.post-index__nav-list {
+    display: grid;
+    grid-gap: 0 rem-calc(10px);
+    grid-template-columns: 1fr 1fr;
+    margin-left: 1em;
+    font-size: rem-calc(14px);
+    color: rgba($white, .75);
+    @extend .monospace;
+
+    @media (min-width: $bp-md) {
+        display: block;
+        margin-left: 0;
+        font-size: rem-calc(18px);
+    }
+}
+
+.post-index__nav-list-item {
+    margin: 0 0 .5em 0;
+}
+
+// Active link styles
+.post-index__nav-list .active {
+    position: relative;
+    color: $white;
+
+    // Indicator Dot
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -.65em;
+        transform: translate(-50%, -50%);
+        width: 5px;
+        height: 5px;
+        background-color: $teal;
+        border-radius: 100%;
+        z-index: 2;
+    }
+}
+
+// Link styles
+.post-index__nav-link {
+    @extend .link-text-color;
+
+    &:hover,
+    &:focus {
+        color: $white;
+    }
 }

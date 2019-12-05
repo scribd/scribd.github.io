@@ -69,7 +69,7 @@
 
                 <!-- All posts button (if not on a blog page already) -->
                 {% unless page.url contains "blog" %}
-                <a href="{% link blog/index.html %}#all-posts" class="mt-4 btn btn-primary btn-icon-right">
+                <a href="{% link blog/index.html %}{{ site.post-id }}" class="mt-4 btn btn-primary btn-icon-right">
                     All Posts
                     <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
                 </a>

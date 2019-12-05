@@ -5,7 +5,7 @@
         <!-- Previous arrow -->
         {% if paginator.previous_page %}
         <li class="pagination__item">
-            <a class="older-posts" href="{{ paginator.previous_page_path | relative_url }}">
+            <a class="pagination__link" href="{{ paginator.previous_page_path | relative_url }}{{ site.post-id }}">
                <span class="visually-hidden">Previous Page</span>
                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-left' | relative_url }}"></use></svg>
             </a>
@@ -24,13 +24,13 @@
 
             <!-- Page 1 -->
             {% if page == 1 %}
-            <a class="pagination__link {{ class }}"  href="{{ paginator.previous_page_path | relative_url }}" {{ aria }}>
+            <a class="pagination__link {{ class }}"  href="{{ paginator.previous_page_path | relative_url }}{{ site.post-id }}" {{ aria }}>
                 <span class="visually-hidden">Page </span>{{ page }}
             </a>
 
             <!-- Page 2, 3, 4, etc -->
             {% else %}
-            <a class="pagination__link {{ class }}" href="{{ site.paginate_path | relative_url | replace: ':num', page }}" {{ aria }}>
+            <a class="pagination__link {{ class }}" href="{{ site.paginate_path | relative_url | replace: ':num', page }}{{ site.post-id }}" {{ aria }}>
                 <span class="visually-hidden">Page </span>{{ page }}
             </a>
 
@@ -41,7 +41,7 @@
         <!-- Next arrow -->
         {% if paginator.next_page %}
         <li class="pagination__item">
-            <a class="older-posts" href="{{ paginator.next_page_path | relative_url }}">
+            <a class="pagination__link" href="{{ paginator.next_page_path | relative_url }}{{ site.post-id }}">
                <span class="visually-hidden">Next Page</span>
                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
             </a>
