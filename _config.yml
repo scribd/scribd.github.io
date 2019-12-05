@@ -32,6 +32,7 @@ permalink: "/blog/:year/:title:output_ext"
 date_format: "%B %-d, %Y"
 paginate: 12
 paginate_path: "/blog/page:num/"
+post-id: "#posts"
 
 # Build settings
 plugins:
