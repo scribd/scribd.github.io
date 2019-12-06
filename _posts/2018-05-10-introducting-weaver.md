@@ -11,7 +11,7 @@ team: iOS
 
 A few months ago, I started developing a framework named [Weaver](https://github.com/scribd/Weaver) with one idea in mind; improve how we do Dependency Injection in our iOS application at [Scribd](https://www.scribd.com).
 
-**[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)** basically means *“giving an object its instance variables”** ¹. *It seems like it’s not such a big deal, but as soon as a project gets bigger, it gets tricky. Initializers become too complex, passing down dependencies through several layers becomes time consuming and just figuring out where to get a dependency from can be hard enough to give up and finally use a singleton.
+**[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)** basically means **“giving an object its instance variables”** ¹. *It seems like it’s not such a big deal, but as soon as a project gets bigger, it gets tricky. Initializers become too complex, passing down dependencies through several layers becomes time consuming and just figuring out where to get a dependency from can be hard enough to give up and finally use a singleton.
 
 However, **Dependency Injection is a fundamental aspect of software architecture, and there is no good reason not to do it properly**. In this article, I’ll discuss how Weaver makes it easy.
 
