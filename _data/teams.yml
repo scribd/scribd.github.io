@@ -18,6 +18,9 @@ Core Platform:
 Core Infrastructure:
   lever: 'Core Infrastructure'
 
+Payments:
+  lever: 'Payments'
+
 Web Development:
   lever: 'Web Development'
   about: |
