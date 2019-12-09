@@ -10,7 +10,7 @@ team: Payments
 ---
 
 As we build [the largest library in the world](/blog/2019/building-the-library.html), we need more manpower, and more
-importantly more **womanpower**. As we make plans to scale our product and make way
+importantly: more **womanpower**. As we make plans to scale our product and make way
 to scale our users, we need a way to scale our engineering teams as well. We
 are actively looking to expand our teams at all our offices and particularly in
 Toronto. Between the University of Toronto and Waterloo, we discovered long ago
@@ -31,8 +31,7 @@ went straight into the talks!
 
 First up  was **Paige Stone** (Software Engineer, Notifications) who presented "Green Field projects
 and how I learnt to love Migrations."  She talked about the importance of
-evaluating and determining whether solution involves re-iterating through
-existing code or building something from scratch. She also shared some
+evaluating and determining whether the solution should be to re-iterate through existing code or build something from scratch. She also shared some
 nitty-gritty details on the re-write of our marketing integration to integrate
 with [Iterable](https://iterable.com/), and the different trade-offs that we
 made in the process.
