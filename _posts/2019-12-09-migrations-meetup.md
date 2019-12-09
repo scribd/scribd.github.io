@@ -5,6 +5,7 @@ author: harinii
 tags:
 - meetup
 - toronto
+- featured
 team: Payments
 ---
 
