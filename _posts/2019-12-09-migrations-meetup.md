@@ -23,7 +23,7 @@ about a wide range of topics. The
 [event](https://www.meetup.com/Women-Who-Code-Toronto/events/266758297/) was
 organized by our SF based recruiter Lucas and our HR partner in Toronto office,
 Tammy who took care of every detail for the event to be successful. There were
-about 50+ attendees to the event, mostly women. We event started off with
+about 50+ attendees to the event, mostly women. The event started off with
 Katerina welcoming the
 guests and giving a brief overview of what we're building at Scribd, and then
 went straight into the talks!
