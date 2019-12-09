@@ -26,7 +26,7 @@ Tammy who took care of every detail for the event to be successful. There were
 about 50+ attendees to the event, mostly women. The event started off with
 Katerina welcoming the
 guests and giving a brief overview of what we're building at Scribd, and then
-went straight into the talks!
+went straight into the talks ([PDF of slides](/files/2019-12-WWC-Toronto.pdf)).
 
 
 First up  was **Paige Stone** (Software Engineer, Notifications) who presented "Green Field projects
