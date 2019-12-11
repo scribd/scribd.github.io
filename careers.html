@@ -94,28 +94,37 @@ hero:
     </div>
 </section>
 
-<!-- <section class="bg-slate-100">
-    <div class="section-container">
-        <hgroup class="m-auto text-length-lg text-center">
-            <h2 id="our-structure" class="section-heading text-teal">Our Structure</h2>
-            <h3 class="h2">We like to divide and conquer in focused teams.</h3>
-        </hgroup>
-    </div>
-</section> -->
-
-<section id="open-positions" class="section-container">
+<section class="section-container">
     <hgroup class="m-auto text-length-lg text-center">
-        <h2 class="section-heading text-plum">Open Positions</h2>
-        <h3 class="h2 mb-4">We’re actively hiring for these roles.</h3>
+        <h2 id="our-structure" class="section-heading text-teal">Our Structure</h2>
+        <h3 class="h2 mb-4">We divide and conquer in focused teams.</h3>
     </hgroup>
 
-    <noscript>
-        <div class="text-center monospace fs-md text-muted">
-            <p>We normally display jobs here with JavaScript.</p>
-            <p>We think it's cool that you have disabled JavaScript to view this page, but you might be missing out :)</p>
-        </div>
-    </noscript>
+    <div class="m-auto text-length-xl" data-aria-accordion data-multi data-transition data-default="none">
+        {% for item in site.data.team-structure %}
+            <h3 class="h5" data-aria-accordion-heading>{{ item.team }}</h3>
+            <div data-aria-accordion-panel>
+                <p class="text-length-md">{{ item.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
 
+</section>
+
+<section class="bg-slate-100">
+    <div id="open-positions" class="section-container">
+        <hgroup class="m-auto text-length-lg text-center">
+            <h2 class="section-heading text-plum">Open Positions</h2>
+            <h3 class="h2 mb-4">We’re actively hiring for these roles.</h3>
+        </hgroup>
+
+        <noscript>
+            <div class="text-center monospace fs-md text-muted">
+                <p>We normally display jobs here with JavaScript.</p>
+                <p>We think it's cool that you have disabled JavaScript to view this page, but you might be missing out :)</p>
+            </div>
+        </noscript>
+    </div>
 </section>
 
 <script type="text/javascript">
