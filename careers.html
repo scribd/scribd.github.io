@@ -102,7 +102,7 @@ hero:
 
     <div class="m-auto text-length-xl" data-aria-accordion data-multi data-transition data-default="none">
         {% for item in site.data.team-structure %}
-            <h3 class="h5" data-aria-accordion-heading>{{ item.team }}</h3>
+            <h3 id="team-{{ item.team | replace: ' ', '-' | downcase }}" class="h5" data-aria-accordion-heading>{{ item.team }}</h3>
             <div data-aria-accordion-panel>
                 <p class="text-length-md">{{ item.description }}</p>
             </div>
