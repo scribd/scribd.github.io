@@ -1,0 +1,153 @@
+////////////////////////
+// Variables
+////////////////////////
+
+.accordion {
+    --ac-padding-y: #{rem-calc(15px)};
+
+    @media (min-width: $bp-md) {
+        --ac-padding-y: #{rem-calc(20px)};
+    }
+}
+
+$ac-trigger-animation-duration: .2s;
+$ac-panel-animation-duration: .4s;
+$ac-animation-easing: ease-in-out;
+
+$ac-border-width: 1px;
+$ac-border-color: $border-color;
+
+$ac-text: $slate-800;
+$ac-text-hover: $teal;
+$ac-icon-color: rgba($slate-800, .4);
+
+$ac-background: $white;
+$ac-background-hover: $ac-background;
+
+////////////////////////
+// Accordion
+////////////////////////
+
+// Accordion container element
+.accordion {
+    list-style: none;
+    border-bottom: $ac-border-width solid $ac-border-color;
+}
+
+.accordion > li {
+    margin: 0;
+}
+
+// Add zero-width space. needed to ensure Safari + VO respect list semantics.
+// Set the before content to position absolute to negate any visible space
+// the before content could add to the document.
+.accordion > li:before {
+	content: "\200B";
+	position: absolute;
+}
+
+// Accordion Heading
+.accordion__heading {
+    margin: -$ac-border-width 0 0 0;
+    border: $ac-border-width solid;
+    border-color: $ac-border-color transparent transparent transparent;
+}
+
+.accordion__trigger {
+    position: relative;
+    margin: 0;
+    padding: var(--ac-padding-y) 0;
+    width: 100%;
+    color: $ac-text;
+    font-size: inherit;
+    line-height: 1;
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    -webkit-appearance: none;
+    background-color: $ac-background;
+    transition: color $ac-trigger-animation-duration $ac-animation-easing;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.accordion__trigger:after {
+    content: '';
+    position: absolute;
+    top: -.2em;
+    right: 1em;
+    bottom: 0;
+    margin: auto;
+    width: 0.55em;
+    height: 0.55em;
+    color: $ac-icon-color;
+    border-style: solid;
+    border-width: 0.1em 0.1em 0 0;
+    transform: rotate(135deg);
+    transform-origin: center center;
+    transition: transform $ac-trigger-animation-duration $ac-animation-easing;
+    transition-property: transform, color;
+}
+
+.accordion__trigger:hover:after,
+body.user-is-tabbing .accordion__trigger:focus:after,
+.accordion__trigger[aria-expanded="true"]:after {
+    color: $ac-text-hover;
+}
+
+.accordion__trigger[aria-expanded="true"]:after {
+    transform: rotate(-45deg);
+}
+
+.accordion__trigger:hover,
+body.user-is-tabbing .accordion__trigger:focus {
+    background-color: $ac-background-hover;
+    color: $ac-text-hover;
+}
+
+// Hide outline for non-keyboard users (see js)
+body:not(.user-is-tabbing) .accordion__trigger {
+    outline: none;
+}
+
+.accordion__trigger[aria-disabled="true"]:hover {
+    background-color: $ac-background-hover;
+    color: $ac-text-hover;
+    cursor: not-allowed;
+}
+
+.accordion__trigger[aria-disabled="true"]:focus {
+    background-color: $ac-background-hover;
+}
+
+.accordion__panel {
+    background-color: inherit;
+    max-height: 0vh;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.accordion__panel[aria-hidden="false"] {
+    max-height: 100vh;
+    opacity: 1;
+    overflow: auto;
+    padding-bottom: calc(var(--ac-padding-y) + .5rem);
+    visibility: visible;
+}
+
+.accordion__panel--transition {
+    transition: all $ac-panel-animation-duration $ac-animation-easing;
+}
+
+.accordion__panel > :last-child {
+    margin-bottom: 0;
+}
+
+.accordion__trigger[aria-expanded="true"] {
+    background-color: $ac-background-hover;
+    color: $ac-text-hover;
+}
