@@ -1,7 +1,7 @@
 :toc:
 :toclevels: 3
 
-= Contributing to tech.scrbid.com
+= Contributing to tech.scribd.com
 
 toc::[]
 
