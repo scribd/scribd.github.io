@@ -25,7 +25,7 @@ weren't using it to its potential.  Part of the "Kafka avoidance" syndrome that
 existed, stemmed from the operational difficulties of _just_ running the thing.
 It was almost like we were afraid to touch Kafka for fear it might fall over.
 Another part of that avoidance grew out of the functionality not matching
-developers' expectations developer expectations.  When we first adopted Kafka,
+developers' expectations.  When we first adopted Kafka,
 ours was an on-premise deloyment of version **0.10**. Developers used it for a
 few projects, unexpected things occasionally happened that were difficult to
 "fix" and we started avoiding it for new projects.
@@ -96,7 +96,7 @@ quality data in real-time.
 ### Vendor Evaluation
 
 Determining the vendor for the future of your streaming data platform is no
-light-hearted decision! For each vendor, we went created the topics and ACLs necessary
+light-hearted decision! For each vendor, we created the topics and ACLs necessary
 to support our prototype pipeline, and then we ran the prototype
 workload against a cluster created on each vendor's platform.
 
