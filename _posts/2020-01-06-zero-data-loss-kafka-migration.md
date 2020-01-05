@@ -18,7 +18,7 @@ any downtime, and zero data loss. When we were first planning the migration, we
 joked that we wanted to avoid a single moment where we would try to swap Kafka
 all at once, like Indiana Jones tried in [Raiders of the Lost
 Ark](https://www.youtube.com/watch?v=0gU35Tgtlmg). In this post, I will share
-more aobut our Kafka migration to AWS MSK, and how we tried to avoid "Indiana
+more about our Kafka migration to AWS MSK, and how we tried to avoid "Indiana
 Jones moments."
 
 
@@ -78,7 +78,7 @@ key-performance indicators (KPIs) of the producer application.
 
 With the test write phase completed, we could finally start the _actual_
 migration of data. Although we had done end-to-end testing in our development
-environment, the gradual rolover of production was still essential. Therefore
+environment, the gradual rollover of production was still essential. Therefore
 we continued with the next three phases:
 
 1. Double-writes
