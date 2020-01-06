@@ -100,7 +100,7 @@ function renderJobs(elem, team, randomLimit) {
           <h5 class="mt-0 mb-1 clamp-2">
               <a href="${job.hostedUrl}" target="_blank" class="stretched-link link-text-color">${job.text}</a>
           </h5>
-          <p class="m-0 fs-md monospace text-truncate">${job.categories.location}</p>
+          <p class="m-0 fs-md monospace text-truncate">${job.categories.location || ''}</p>
       </div>
 `;
       elem.appendChild(li);
