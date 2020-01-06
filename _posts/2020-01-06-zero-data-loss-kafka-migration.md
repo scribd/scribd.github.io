@@ -11,7 +11,7 @@ team: Core Platform
 ---
 
 Migrating streams from one Kafka cluster to another can be challenging, even
-more so when the migration is between two major versions, entitwo different
+more so when the migration is between two major versions, two different
 platforms, and from one datacenter to another. We managed to [migrate Kafka to
 the Cloud](/blog/2019/migrating-kafka-to-aws.html) on **hard mode**, without
 any downtime, and zero data loss. When we were first planning the migration, we
