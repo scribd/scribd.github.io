@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Moderning a decades old data pipeline"
+title: "Teaching an old DAG new tricks"
 author: qphou
 tags:
 - airflow
