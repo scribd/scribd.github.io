@@ -22,7 +22,7 @@ around the time when everybody else was building their own orchestration tools,
 such as Pinterest's [Pinball](https://github.com/pinterest/pinball), Spotify's
 [Luigi](https://github.com/spotify/luigi), or AirBnB's
 [Airflow](https://airflow.apache.org/). These tools all perform the same
-basic function: process and execute a directed-acyclic-graph (DAG) of "worK",
+basic function: process and execute a directed-acyclic-graph (DAG) of "work",
 typically associated with a ETL data pipelines.
 
 Today, we have 1500+ tasks and 14 DAGs, with the majority of tasks globbed
