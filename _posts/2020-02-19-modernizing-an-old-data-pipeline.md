@@ -36,7 +36,7 @@ to where it is today. However, it has been in maintenance mode for some time.
 As a result, it's struggling to meet the needs of Scribd's fast growing
 engineering team,. Since [Scribd is moving more and more into the
 cloud](/blog/2019/migrating-kafka-to-aws.html),
-decided that now is a good time for us to step back and redesign the system for the
+we decided that now is a good time for us to step back and redesign the system for the
 future.
 
 We need a modernized workflow orchestration system to help drastically improve
@@ -63,7 +63,7 @@ reduce coupling and speed up development cycles.
 **Ownership:** Today, we have dedicated engineers keeping eyes on nightly runs to
 notify workflow owners if anything goes wrong. The web UI doesn't some of the
 common maintenance actions like killing a running tasks. This, combined with
-lack of builtin monitoring and alerting support within the orchestration
+lack of built-in monitoring and alerting support within the orchestration
 system, means even if workflow owners want to take full ownership of their
 tasks, there is no easy way to accomplish it. We need to flip this around and
 empower workflow owners to take care of their own tasks end to end. This is the
@@ -83,9 +83,9 @@ new system.
 
 **Cloud native:** As we migrate its infrastructure from a datacenter to the cloud, the
 new system will need to be able to run smoothly in the cloud and integrate
-nicely with various SASS offerings like Datadog, Pagerduty and Sentry.
+nicely with various software-as-a-service offerings like Datadog, Pagerduty and Sentry.
 
-We basically Had two options: retrofit Datapipe or
+We basically had two options: retrofit Datapipe or
 pick a well maintained open source project as the building block. After lots of
 prototyping and careful evaluation, we decided to adopt [Apache Airflow](https://airflow.apache.org).
 
@@ -108,7 +108,7 @@ Each one of the above items warrants a blog post of its own. We will be sharing
 what we have learned in more detail throughout this series of blog posts.
 
 At Scribd, we embrace open source and try to contribute back to the community
-as much as we can. Since start of this internal project, we have contributed
+as much as we can. Since the start of this internal project, we have contributed
 [more than 20 patches
 upstream](https://github.com/apache/airflow/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3Ahouqp)
 to Airflow including EKS support, Pagerduty hooks, many bug fixes and
