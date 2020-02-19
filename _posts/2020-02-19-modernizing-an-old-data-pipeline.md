@@ -12,8 +12,8 @@ team: Core Platform
 
 Our massive data pipeline has helped us process enormous amounts of information
 over the past decade, all to help us help our users discover, read, and learn.
-In this blog series, I will share how we're upgrading our data pipeline to
-give internal customers faster, and more reliable results.
+In this blog series, I will share how we're upgrading the pipeline to
+give internal customers faster and more reliable results.
 
 The data pipeline is currently managed using a home grown workflow
 orchestration system written in Ruby called "Datapipe." The first commit of our
@@ -61,7 +61,7 @@ still growing. By building tooling to support multi-repo setup, we hope to
 reduce coupling and speed up development cycles.
 
 **Ownership:** Today, we have dedicated engineers keeping eyes on nightly runs to
-notify workflow owners if anything goes wrong. The web UI doesn't some of the
+notify workflow owners if anything goes wrong. The web UI doesn't support some of the
 common maintenance actions like killing a running tasks. This, combined with
 lack of built-in monitoring and alerting support within the orchestration
 system, means even if workflow owners want to take full ownership of their
