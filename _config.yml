@@ -7,6 +7,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tech.scribd.com" # the base hostname & protocol for your site, e.g. http://example.com
 google_analytics: 'UA-443684-30'
+featured_series: 'airflow-series'
 
 # GitHub Metadata
 # Used for "improve this page" link
