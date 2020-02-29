@@ -6,6 +6,7 @@ tags:
 - airflow
 - spark
 - featured
+- airflow-series
 - datapipe
 team: Core Platform
 ---

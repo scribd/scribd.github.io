@@ -5,6 +5,7 @@ author: qphou
 tags:
 - airflow
 - featured
+- airflow-series
 - datapipe
 team: Core Platform
 ---
