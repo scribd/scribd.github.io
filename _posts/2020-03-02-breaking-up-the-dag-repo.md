@@ -48,7 +48,7 @@ Each of these approaches comes with its own set of trade-offs.
   operations point of view, considering that Airflow only requires read access.
 * Pulling DAGs requires some deployment or other coordination to ensure that the
   local filesystem has been populated with the appropriate changes before
-  starting Aifrlow.
+  starting Airflow.
 
 We decided to go with the "pull" model with AWS S3 as our "DAG source of
 truth." S3 provides a highly available and easily managed location for our DAG
