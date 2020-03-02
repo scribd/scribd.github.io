@@ -12,7 +12,7 @@ team: Core Platform
 
 
 Creating a monorepo to store
-[DAGs}(https://airflow.apache.org/docs/stable/concepts.html#dags) is simple,
+[DAGs](https://airflow.apache.org/docs/stable/concepts.html#dags) is simple,
 easy to get started with, but unlikely to scale as DAGs and the number of
 developers working with them grows. In the Core Platform team, we're [bringing massive pre-existing DAGs
 into Airflow](/blog/2020/modernizing-an-old-data-pipeline.html) and want to
