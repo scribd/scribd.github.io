@@ -100,6 +100,23 @@ With the above policy applied via the `aws_ecr_repository_policy` resource to
 our production ECRs, developers across the company can now access our
 containers in their CodeBuild, ECS, EKS, and other AWS-based resources without
 problem!
+```terraform
+data "aws_iam_policy_document" "ecr_access" {
+  source_json   = data.aws_iam_policy_document.ecr_readonly_access.json
+  # The ecr_full_access policy is another policy document resource with more
+  # ARNs for roles and resources which can push to ECR
+  override_json = data.aws_iam_policy_document.ecr_full_access.json
+}
+
+resource "aws_ecr_repository_policy" "ecr" {
+  repository = aws_ecr_repository.some_ecr.name
+  policy     = data.aws_iam_policy_document.ecr_access.json
+}
+```
+
+**Note:** _Our Terraform snippets have been adapted from [this great Cloud Posse
+module](https://github.com/cloudposse/terraform-aws-ecr)_.
+
 
 
 The great thing about migrating to AWS in 2020, is that just about all simple
