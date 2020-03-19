@@ -11,12 +11,11 @@ team: Core Platform
 author: rtyler
 ---
 
-
-IAM is a very powerful tool, it can also be very complex to use effectively. In
-our migration into AWS, a number of Scribd developers have had varying levels
-of success in climbing Mount IAM. For some use-cases, where a resource needs to
-be accessed across an AWS Account boundary, the steeper learning curve has
-proven far too challenging for some, myself included.
+IAM is a **very** powerful tool. It can also be very complex, and difficult to
+use effectively. In our migration into AWS a number of Scribd developers have
+had varying levels of success in climbing Mount IAM. For some use-cases where a
+resource needs to be accessed across an AWS Account boundary, the steeper
+learning curve has proven far too challenging for some, myself included.
 
 We heavily rely on an AWS Organization and a hierarchy of AWS Accounts
 to help us separate billing and provide a hard-separation between some
@@ -57,7 +56,7 @@ cquinn* | https://aws.amazon.com/blogs/security/control-access-to-aws-resources-
 cquinn* | Cheer up, I’m sure it works in YAML.
 ```
 
-Thankfully, [Corey](twitter.com/QuinnyPig/) was 100% correct, the
+Thankfully, [Corey](https://twitter.com/QuinnyPig/) was 100% correct, the
 `AWS:PrincipalOrgID` condition in the IAM policy document would allow the exact
 type of quasi-global read-only access I was after. Below is a snippet of
 Terraform which defines the policy:
@@ -100,6 +99,7 @@ With the above policy applied via the `aws_ecr_repository_policy` resource to
 our production ECRs, developers across the company can now access our
 containers in their CodeBuild, ECS, EKS, and other AWS-based resources without
 problem!
+
 ```terraform
 data "aws_iam_policy_document" "ecr_access" {
   source_json   = data.aws_iam_policy_document.ecr_readonly_access.json
