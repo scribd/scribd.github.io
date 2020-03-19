@@ -123,3 +123,12 @@ The great thing about migrating to AWS in 2020, is that just about all simple
 challenges have already been figured out, and if you have a partner like
 The Duckbill Group, it's very easy to avoid over-engineering and unnecessary
 complex solutions!
+
+---
+
+**Update:** My colleague [Fotos](https://github.com/fotos) shared in an
+internal channel that  `AWS:PrincipalOrgID` works only for AWS services that
+support [resource based
+policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html)
+such as S3, ECR, etc, but not ELBs.
+
