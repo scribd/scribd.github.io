@@ -56,7 +56,7 @@ store, but in order to support our desired multi-repo approach DAGs, we needed
 to build our own tooling to coordinate synchronizing the local DAG store with
 S3 objects from the multiple DAG repositories.
 
-The tool we build, [objinsync](https://github.com/scribd/objinsync) [^1], is a
+The tool we built, [objinsync](https://github.com/scribd/objinsync) [^1], is a
 stateless DAG sync daemon, which is deployed as a sidecar container. From
 Airflow’s point of view, the DAG folder is just a magical local folder that
 always contains the up to date DAG definitions assembled from multiple Git
@@ -106,12 +106,12 @@ environment variables injected by the CI/CD system.
 Our airflow clusters are orchestrated using both ECS fargate and EKS. ECS is
 used to run Airflow web server and scheduler while EKS is what’s powering
 Airflow’s Kubernetes executor. Due to differences in different Airflow
-components, we need to run `objinsync` binary in two container orchestration
+components, we need to run the `objinsync` binary in two container orchestration
 platforms with slightly different setups.
 
 For daemon Airflow components like web server and scheduler, we run
 `objinsync` in a continuous sync mode where it pulls incremental updates from
-S3 to local filesystem every 5 seconds. This is implemented using sidecar
+S3 to local filesystem every 5 seconds. This is implemented usingt the sidecar
 container pattern. The DAG folder is mounted as a shared volume between the
 Airflow web/scheduler container and objinsync container. The sidecar
 objinsync container is setup to run the following command:
@@ -157,7 +157,7 @@ primitives from the Go runtime for better performance.
 Engineering is all about making the right trade-offs. I won’t claim what we have
 is the perfect solution for everyone, but I do believe it strikes a good
 balance between productivity, operability, and availability. If you have any
-question regarding the setup, I am available in Airflow’s
+questions regarding the setup, I am available in Airflow’s
 [#airflow-creative](https://apache-airflow.slack.com/messages/airflow-creative)
 slack channel under the handle "QP." If you are not already part of the Airflow
 Slack community, you can get access via
