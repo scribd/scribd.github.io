@@ -5,6 +5,7 @@ tags:
 - remote
 - featured
 author: alexjb
+team: Technical Project Management
 ---
 
 Scribd has had some remote teams for almost a decade but only recently have we
