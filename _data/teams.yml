@@ -26,6 +26,9 @@ Core Infrastructure:
 Payments:
   lever: 'Payments'
 
+Technical Project Management:
+  lever: 'Project Management'
+
 Web Development:
   lever: 'Web Development'
   about: |
