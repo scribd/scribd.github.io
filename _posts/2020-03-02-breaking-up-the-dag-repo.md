@@ -111,7 +111,7 @@ platforms with slightly different setups.
 
 For daemon Airflow components like web server and scheduler, we run
 `objinsync` in a continuous sync mode where it pulls incremental updates from
-S3 to local filesystem every 5 seconds. This is implemented usingt the sidecar
+S3 to local filesystem every 5 seconds. This is implemented using the sidecar
 container pattern. The DAG folder is mounted as a shared volume between the
 Airflow web/scheduler container and objinsync container. The sidecar
 objinsync container is setup to run the following command:
