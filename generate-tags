@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+import glob
+import os
+import re
+
+post_dir = '_posts/'
+tag_dir = 'tag/'
+
+total_tags = []
+for filename in glob.glob(post_dir + '*.md'):
+    matcher = r'^tags:$'
+    with open(filename, 'r') as fd:
+        tagged_line = False
+        for line in fd.xreadlines():
+            if tagged_line:
+                if line.startswith('---'):
+                    tagged_line = False
+                elif not line.startswith('-'):
+                    tagged_line = False
+                else:
+                    total_tags.append(line[1:].strip())
+            if re.match(matcher, line):
+                tagged_line = True
+
+total_tags = set(total_tags)
+
+for tag in glob.glob(tag_dir + '*.md'):
+    os.remove(tag)
+
+if not os.path.exists(tag_dir):
+    os.makedirs(tag_dir)
+
+for tag in total_tags:
+    td = os.path.sep.join([tag_dir, tag])
+    if not os.path.exists(td):
+        os.makedirs(td)
+    with open(os.path.sep.join([td, 'index.md']), 'w+') as fd:
+        fd.write('---\nlayout: tag_page\ntitle: \"Tag: ' + tag + '\"\ntag: ' + tag + '\nrobots: noindex\n---\n')
+print("Tags generated, count", total_tags.__len__())

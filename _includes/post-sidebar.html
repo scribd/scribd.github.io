@@ -4,7 +4,7 @@
     <ul class="post-sidebar__tag-list">
         <li class="post-sidebar__tag-label fw-bold">Tag {%- if page.tags.size > 1 -%}s{%- endif -%}: </li>
         {% for tag in page.tags %}
-        <li class="post-sidebar__tags">{{ tag }}</li>
+        <li class="post-sidebar__tags"><a href="/tag/{{ tag }}/">{{ tag }}</a></li>
         {% endfor %}
     </ul>
     {%- endif -%}
