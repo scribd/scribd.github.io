@@ -1,0 +1,10 @@
+---
+layout: post-index
+title: page.tag
+---
+
+<ul class="post-list text-length-lg">
+    {% for post in site.tags[page.tag] %}
+        {% include post-list-item.html %}
+    {% endfor %}
+</ul>

@@ -2,8 +2,10 @@
 layout: default
 ---
 
-<!-- Featured post hero -->
-{% include featured-post-hero.html %}
+{% unless page.url contains 'tag' %}
+    <!-- Featured post hero -->
+    {% include featured-post-hero.html %}
+{% endunless %}
 
 <div class="post-index" id="{{ site.post-id | remove: "#" }}">
 
