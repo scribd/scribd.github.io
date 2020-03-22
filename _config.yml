@@ -12,6 +12,7 @@ featured_series: 'airflow-series'
 # GitHub Metadata
 # Used for "improve this page" link
 branch: master
+repository: 'https://github.com/scribd/scribd.github.io'
 
 markdown: kramdown
 highlighter: rouge
