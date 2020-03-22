@@ -1,5 +1,5 @@
 <ul class="card-grid">
-    {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: 'stargazers_count' | reverse %}
+    {% assign public_repositories = site.github.public_repositories | where:'archived', false | where:'fork', false | where_exp: 'repo', "repo.name != 'scribd.github.io'" | sort: 'pushed_at' | reverse %}
 
     <!-- Assign an optional limit to be passed through  -->
     {% for repository in public_repositories limit: {{include.limit}} %}
