@@ -101,7 +101,7 @@ For many of our new streaming pipelines, a Kafka topic is the first data sink in
 The next application in the pipeline reads the topic as a streaming source, performs some transformations 
 and sinks to a [Databricks Delta Lake table](https://databricks.com/product/delta-lake-on-databricks).
 
-![Streaming Pipeline](/post-images/2020-03-kafka-series/kakfa-player-flow.png)
+![Streaming Pipeline](/post-images/2020-03-kafka-series/kafka-player-flow.png)
 
 Sometimes, the work effort on each side of the topic is significant. In one of our recent projects,
 we had to implement a new Docker image, provision a number of new AWS cloud resources, and do a 
