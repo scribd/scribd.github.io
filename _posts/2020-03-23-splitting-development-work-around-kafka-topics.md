@@ -3,6 +3,7 @@ layout: post
 title: "Splitting Development Work Around Kafka Topics"
 author: christianw
 tags:
+- featured
 - kafka
 - msk-series
 team: Core Platform
