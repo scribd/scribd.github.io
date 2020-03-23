@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Guidelines and expecations for working remotely"
+title: "Guidelines and expectations for working remotely"
 tags:
 - remote
 - featured
