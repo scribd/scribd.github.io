@@ -1,6 +1,9 @@
 - title: Blog
   url: "/blog/"
 
+- title: RSS
+  url: "/feed.xml"
+
 - title: Projects
   url: "/projects/"
 
