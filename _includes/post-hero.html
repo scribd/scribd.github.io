@@ -40,6 +40,26 @@
                 </li>
                 {%- endif -%}
 
+                {%- if page.authors -%}
+                <li class="hero__meta-item author media">
+                    <div class="media-body">
+                          <strong>Author</strong><br>
+                    {%- for author in page.authors -%}
+                          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                              <span itemprop="name">
+                                  {%- if site.data.authors[author] -%}
+                                      {{ site.data.authors[author].name}}
+                                  {%- else -%}
+                                      {{ author }}
+                                  {%- endif -%}
+                                  {% if forloop.last %}{% else %},{% endif %}
+                              </span>
+                          </span>
+                    {%- endfor -%}
+                    </div>
+                </li>
+                {%- endif -%}
+
                 <!-- Post Date -->
                 {%- if page.date -%}
                 <li class="hero__meta-item published">
