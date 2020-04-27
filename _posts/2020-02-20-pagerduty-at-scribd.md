@@ -4,6 +4,7 @@ title:  "A testimonial for using PagerDuty at Scribd"
 author: rtyler
 tags:
 - pagerduty
+- monitoring
 - oncall
 - incident response
 team: Core Platform

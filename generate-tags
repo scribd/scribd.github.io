@@ -12,7 +12,7 @@ for filename in glob.glob(post_dir + '*.md'):
     matcher = r'^tags:$'
     with open(filename, 'r') as fd:
         tagged_line = False
-        for line in fd.xreadlines():
+        for line in fd:
             if tagged_line:
                 if line.startswith('---'):
                     tagged_line = False

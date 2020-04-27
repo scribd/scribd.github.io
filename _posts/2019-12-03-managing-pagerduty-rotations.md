@@ -5,6 +5,7 @@ author: hamiltonh
 tags:
 - oncall
 - pagerduty
+- monitoring
 - incident response
 team: Core Platform
 ---
