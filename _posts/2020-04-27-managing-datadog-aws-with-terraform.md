@@ -26,13 +26,13 @@ made available in Datadog, alongside all of our other metrics and dashboards.
 Despite the integration's power and convenience, its setup process is actually
 quite involved. As outlined in [Datadog's
 documentation](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=allpermissions),
-there are *18 manual steps** required, including:
+there are *18 manual steps* required, including:
 
 - finding the right AWS account ID
 - creating the right IAM policy
 - copy pasting the right AWS resource ID into Datadog UI
 
-If you have more than a few AWS accounts like we do, you may prefer to automate this! In our case, that means using [Terraform](https://terraform.io)
+If you have more than a few AWS accounts like we do, you may prefer to automate this! In our case, that means using [Terraform](https://terraform.io).
 
 In this blog post, we would like to share how Scribd uses Terraform to automate
 our Datadog and AWS integration across the organization.
