@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How Scribd manages Datadog’s AWS integration using Terraform"
+title: "Using Terraform to integrate Datadog and AWS"
 authors:
 - jimp
 - qphou
@@ -11,22 +11,28 @@ tags:
 team: Core Infrastructure
 ---
 
-Datadog comes with a builtin AWS
+We love metrics but hate manual processes. When we adopted
+[Datadog](https://datadoghq.com)'s builtin AWS
 [integration](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=allpermissions)
-to ship CloudWatch metrics to your Datadog account. Once enabled, the
-integration will automatically synchronize whitelisted CloudWatch metrics into
-your Datadog account.
+we couldn't wait to get AWS CloudWatch metrics into Datadog, but first we needed to automate
+the [numerous manual steps
+required](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=allpermissions)
+to set it up. Datadog's AWS integration is quite powerful, once
+enabled it will automatically synchronize specified CloudWatch metrics into a
+Datadog account. Basically, anything available within CloudWatch, can be easily
+made available in Datadog, alongside all of our other metrics and dashboards.
 
-While this integration is powerful and convenient to use, it’s setup process is
-actually quite involved. As outlined in [Datadog's documentation](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=allpermissions), there are 18
-manual steps required, including:
+
+Despite the integration's power and convenience, its setup process is actually
+quite involved. As outlined in [Datadog's
+documentation](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=allpermissions),
+there are *18 manual steps** required, including:
 
 - finding the right AWS account ID
 - creating the right IAM policy
 - copy pasting the right AWS resource ID into Datadog UI
-- etc.
 
-If you have more than a few AWS accounts, you may prefer to use Terraform.
+If you have more than a few AWS accounts like we do, you may prefer to automate this! In our case, that means using [Terraform](https://terraform.io)
 
 In this blog post, we would like to share how Scribd uses Terraform to automate
 our Datadog and AWS integration across the organization.
@@ -50,21 +56,21 @@ module "datadog" {
 
 The benefit from an AWS Account maintainer point of view is that using the
 module is a convenient way to inherit centralized best practice. For module
-maintainers, any change to the datadog integration module can be released using
+maintainers, any change to the Datadog integration module can be released using
 a [standard Terraform module release process](https://www.terraform.io/docs/registry/modules/publish.html).
 
 
-# Cloudwatch log synchronization
+# CloudWatch log synchronization
 
 Initially, the module only sets up the base integration. As adoption increased, more
 features were added to the module by various teams. One of these features is
-automation for setting up log ingestion for cloudwatch.
+automation for setting up log ingestion for CloudWatch.
 
 Like setting up the official AWS integration app, the [instructions for log
 synchronization](https://docs.datadoghq.com/integrations/amazon_web_services/?tab=allpermissions#log-collection)
 are a bit overwhelming.
 
-However, using the terraform-aws-datadog module, we can enable the feature with a single parameter:
+However, using the `terraform-aws-datadog` module, we can enable the feature with a single parameter:
 
 ```terraform
 module "datadog" {
@@ -76,9 +82,9 @@ module "datadog" {
 }
 ```
 
-That’s it, Terraform will automatically create the datadog serverless function
-and triggers for specified log groups to forward all cloudwatch logs into
-Datadog. After running terraform apply, you should be able to see logs showing
+That’s it! Terraform will automatically create the Datadog serverless function
+and triggers for specified log groups to forward all CloudWatch logs into
+Datadog. After running `terraform apply`, you should be able to see logs showing
 up in Datadog within minutes.
 
 
@@ -91,7 +97,7 @@ more features to the module as we migrate Scribd’s infrastructure into AWS.
 Metrics ingested through the official AWS integration are delayed by couple
 minutes, which is not ideal to use as signals for monitoring critical systems.
 There are opportunities to enable real time metrics synchronization by
-automating datadog agent setup.
+automating Datadog agent setup.
 
 The [datadog-serverless-functions
 repo](https://github.com/DataDog/datadog-serverless-functions/tree/master/aws)
