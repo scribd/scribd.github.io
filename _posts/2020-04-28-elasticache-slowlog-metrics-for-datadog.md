@@ -46,9 +46,9 @@ page](https://github.com/scribd/elasticache-slowlog-to-datadog/releases). To
 deploy directly to AWS from the console, upload the “Full zip distribution” and
 supply the [required
 parameters](https://github.com/scribd/elasticache-slowlog-to-datadog#parameters).
-I’d recommend using our Terraform wrapper, however.
+I’d recommend using our Terraform module, however.
 
-## The Terraform wrapper
+## The Terraform Module
 
 The second part of the equation is the Terraform module:
 [terraform-elasticache-slowlog-to-datadog](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog)
@@ -62,8 +62,8 @@ S3](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#specifyin
 However, I like the approach of maintaining a separate repository and build
 pipeline, as this works around Terraform’s [intentionally limited build
 functionality](https://github.com/hashicorp/terraform/issues/8344#issuecomment-361014199).
-In essence, the terraform wrapper merely [consumes the
-elasticache-slowlog-to-datadog
+The terraform module consumes the
+[elasticache-slowlog-to-datadog
 artifact](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/blob/master/main.tf#L97).
 
 ## Usage
