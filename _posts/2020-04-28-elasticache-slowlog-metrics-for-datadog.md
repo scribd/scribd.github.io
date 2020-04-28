@@ -11,15 +11,16 @@ tags:
 team: Core Infrastructure
 ---
 
-All managed services will have trade-offs, when we adopted AWS ElastiCache we
-could no longer use Datadog's excellent excellent [Redis
+All managed services will have trade-offs. When Scribd adopted AWS ElastiCache we
+could no longer use Datadog's excellent [Redis
 integration](https://docs.datadoghq.com/integrations/redisdb/)
-and some killer metrics we couldn't live without.
+and lost some killer metrics we couldn't live without.
 We deployed the [AWS ElastiCache
-integration](https://docs.datadoghq.com/integrations/amazon_elasticache/#overview).
-for Datadog which returned some of the desired metrics back to our dashbards
-with one notable exception: "slowlog" metrics. The Redis
-[`SLOWLOG`](https://redis.io/commands/slowlog) is used to help identify queries
+integration](https://docs.datadoghq.com/integrations/amazon_elasticache/#overview)
+for Datadog which returned the desired metrics back to our dashbards
+with one notable exception: "slowlog" metrics.
+
+The Redis [`SLOWLOG`](https://redis.io/commands/slowlog) is used to help identify queries
 which are taking too long to execute. We use the slowlog metrics provided by the
 Datadog Redis integration alert us when a Redis server's behavior starts to go
 south, a key indicator of looming user-impactful production issues.
@@ -46,9 +47,9 @@ page](https://github.com/scribd/elasticache-slowlog-to-datadog/releases). To
 deploy directly to AWS from the console, upload the “Full zip distribution” and
 supply the [required
 parameters](https://github.com/scribd/elasticache-slowlog-to-datadog#parameters).
-I’d recommend using our Terraform wrapper, however.
+I’d recommend using our Terraform module, however.
 
-## The Terraform wrapper
+## The Terraform Module
 
 The second part of the equation is the Terraform module:
 [terraform-elasticache-slowlog-to-datadog](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog)
@@ -62,8 +63,8 @@ S3](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#specifyin
 However, I like the approach of maintaining a separate repository and build
 pipeline, as this works around Terraform’s [intentionally limited build
 functionality](https://github.com/hashicorp/terraform/issues/8344#issuecomment-361014199).
-In essence, the terraform wrapper merely [consumes the
-elasticache-slowlog-to-datadog
+The terraform module consumes the
+[elasticache-slowlog-to-datadog
 artifact](https://github.com/scribd/terraform-elasticache-slowlog-to-datadog/blob/master/main.tf#L97).
 
 ## Usage
