@@ -11,15 +11,16 @@ tags:
 team: Core Infrastructure
 ---
 
-All managed services will have trade-offs, when we adopted AWS ElastiCache we
-could no longer use Datadog's excellent excellent [Redis
+All managed services will have trade-offs. When Scribd adopted AWS ElastiCache we
+could no longer use Datadog's excellent [Redis
 integration](https://docs.datadoghq.com/integrations/redisdb/)
-and some killer metrics we couldn't live without.
+and lost some killer metrics we couldn't live without.
 We deployed the [AWS ElastiCache
-integration](https://docs.datadoghq.com/integrations/amazon_elasticache/#overview).
-for Datadog which returned some of the desired metrics back to our dashbards
-with one notable exception: "slowlog" metrics. The Redis
-[`SLOWLOG`](https://redis.io/commands/slowlog) is used to help identify queries
+integration](https://docs.datadoghq.com/integrations/amazon_elasticache/#overview)
+for Datadog which returned the desired metrics back to our dashbards
+with one notable exception: "slowlog" metrics.
+
+The Redis [`SLOWLOG`](https://redis.io/commands/slowlog) is used to help identify queries
 which are taking too long to execute. We use the slowlog metrics provided by the
 Datadog Redis integration alert us when a Redis server's behavior starts to go
 south, a key indicator of looming user-impactful production issues.
