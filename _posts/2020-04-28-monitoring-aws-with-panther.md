@@ -1,33 +1,32 @@
 ---
 layout: post
 title: "Using Panther to monitor AWS infrastructure"
-authors:
-- paha
 tags:
 - monitoring
 team: Security Engineering
+author: paha
 ---
 
-Before widespread cloud usage, it was uncommon for one person to be present for the entire datacenter development lifecycle. Very few people knew how to design and build a datacenter from scratch while ensuring appropriate security configuration settings were set, on top of rigging up monitoring. It was even more uncommon for non-sysadmins to have any involvement in data center infrastructure construction or ongoing refinement. The cloud is very different. It only takes seconds to create an entire infrastructure from a template. And even devs are doing it!
+Before widespread cloud usage, it was uncommon for one person to be present for the entire datacenter development lifecycle. Very few people knew how to design and build a datacenter from scratch while ensuring appropriate security configuration settings were set, on top of rigging up monitoring. It was even more uncommon for non-sysadmins to have any involvement in data center infrastructure construction or ongoing refinement. The cloud is very different. It only takes seconds to create an entire infrastructure from a template. And even developers are doing it!
 
-The monitoring challenges for such a scenario are significant. There aren't necessarily "more" monitoring datapoints, but the speed with which infra can be created tends to result in infrastructure getting way out over its skis with respect to monitoring. Furthermore, since many barriers to entry for doing stupid things have been lowered to the point of non-existence, monitoring is the last great hope of maintaining control over a cloud environment. While access controls can still provide some guardrails, the flexibility that all engineers need to do their jobs requires that they have the ability to do "dangerous" things that they've never had to do before. The true definition of "full stack" has expanded.
+The monitoring challenges for such a scenario are significant. There aren't necessarily "more" monitoring data points, but the speed with which infrastructure can be created tends to result in infrastructure getting way out over its skis with respect to monitoring. Furthermore, since many barriers to entry for doing stupid things have been lowered to the point of non-existence, monitoring is the last great hope of maintaining control over a cloud environment. While access controls can still provide some guardrails, the flexibility that all engineers need to do their jobs requires that they have the ability to do "dangerous" things that they've never had to do before. The true definition of "full stack" has expanded.
 
 # We're moving!
 
 Scribd is in the midst of migrating our entire infrastructure from a legacy data center to AWS. Things are moving fast. We've given developer teams nearly complete access to their own AWS accounts. We've labeled these accounts "development environments" and haven't created any cross-connections between them and production system accounts, but developers still have a lot of power, much more than they had in the legacy environment.
 
-The AWS cloud has a few important saving graces to manage the new chaos, for which there isn't really an analogue in traditional data centers: universal event logging in a standard format for all resources, and highly granular permissions settings in a consistent format. Universal event logging in legacy centers was usually an asymptote that mortal sysadmins and security engineers could never actually reach. This was due to the inability to get complete data off of a device, inability to properly parse the data that could be exported, or a combination of both. AWS CloudTrail solves both problems.
+The AWS cloud has a few important saving graces to manage the new chaos, for which there isn't really an analogue in traditional data centers: universal event logging in a standard format for all resources, and highly granular permissions settings in a consistent format. Universal event logging in legacy centers was usually an asymptote that mortal sysadmins and security engineers could never actually reach. This was due to the inability to get complete data off of a device, inability to properly parse the data that could be exported, or a combination of both. [AWS CloudTrail](https://docs.aws.amazon.com/cloudtrail/) solves both problems.
 
-It was also very difficult to precisely define user permissions for infrastructure work in legacy environments. At Scribd, this resulted in a small cadre of sysadmins having root access to everything and no one else having access to anything. With AWS IAM, the Instance Metadata Service (IMDS), or some combination of the two, access permissions can be easily set in a consistent format for any type of infrastructure resource.
+It was also very difficult to precisely define user permissions for infrastructure work in legacy environments. At Scribd, this resulted in a small cadre of sysadmins having root access to everything and no one else having access to anything. With [AWS IAM](https://docs.aws.amazon.com/iam/), the [Instance Metadata Service (IMDS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html), or some combination of the two, access permissions can be easily set in a consistent format for any type of infrastructure resource.
 
 # A new solution to an old problem
 
 Unfortunately, native AWS services can't fully take advantage of the power that its event logging and permissions settings provide. Scribd needed a monitoring solution that could keep up with our expanding infra, alerting us when certain events occurred or when permissions were set inappropriately.
 
-We recently deployed the [Panther](https://www.runpanther.io) monitoring system in several AWS accounts. Right out of the box, it enables us to see certain near-real-time changes in these accounts, such as changes in security groups, using AWS EventBridge as a base. It also performs a daily configuration check for a defined set of configuration options, such as S3 buckets' public writeability and the existence of MFA on root IAM user accounts. We currently have alerts for events and policy failures sent to a dedicated Slack channel. There is also a historical CloudTrail search functionality that makes hunting for events easy. The newest feature allows pivoting across multiple log sources. In other words, "correlations". That's what a SIEM is built for.
+We recently deployed the [Panther](https://www.runpanther.io) monitoring system in several AWS accounts. Right out of the box, it enables us to see certain near-real-time changes in these accounts, such as changes in security groups, using [AWS EventBridge](https://docs.aws.amazon.com/eventbridge/) as a base. It also performs a daily configuration check for a defined set of configuration options, such as S3 buckets' public writeability and the existence of MFA on root IAM user accounts. We currently have alerts for events and policy failures sent to a dedicated Slack channel. There is also a historical CloudTrail search functionality that makes hunting for events easy. The newest feature allows pivoting across multiple log sources. In other words, "correlations". That's what a [SIEM](https://en.wikipedia.org/wiki/Security_information_and_event_management) is built for.
 
 The other major power of Panther is extensibility. We can write custom "rules" (for events) and "policies" (for configurations) in Python.
- This policy checks for resources in monitored accounts that exist outside designed AWS regions: 
+ This policy checks for resources in monitored accounts that exist outside designed AWS regions:
 
 ```python
 APPROVED_REGIONS = {
