@@ -3,6 +3,8 @@ layout: post
 title: "Using Panther to monitor AWS infrastructure"
 tags:
 - monitoring
+- aws
+- featured
 team: Security Engineering
 author: paha
 ---
