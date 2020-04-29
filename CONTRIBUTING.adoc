@@ -95,9 +95,10 @@ attribute tells the rendering engine to use the "post" layout.
 `title` will be the displayed title of the post.
 
 `tags` are descriptive terms for this post. You can make up new tags,
-but check the generated `tag` directory to see `tags` other posters have already
-used.
-They can be used to search for all posts for a specific or area,
+but check the `tag` directory to see tags other posters have already
+used. If you use new tags, run the `generate-tags` script to populate
+the `tag` directory with the appropriate files.
+Tags can be used to search for all posts for a specific or area,
 such as "tutorials" or "plugins".
 Tags must contain only numbers and lower-case letters.
 Tags must not contain spaces.
