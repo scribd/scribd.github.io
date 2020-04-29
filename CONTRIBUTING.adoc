@@ -94,7 +94,9 @@ link:https://jekyllrb.com/docs/frontmatter/[front matter]. The `layout`
 attribute tells the rendering engine to use the "post" layout.
 `title` will be the displayed title of the post.
 
-`tags` are descriptive terms for this post.
+`tags` are descriptive terms for this post. You can make up new tags,
+but check the generated `tag` directory to see `tags` other posters have already
+used.
 They can be used to search for all posts for a specific or area,
 such as "tutorials" or "plugins".
 Tags must contain only numbers and lower-case letters.
@@ -104,8 +106,6 @@ Tags containing multiple words should squash all the words together,
 as in "continuousdelivery" or "jenkinsworld2017".
 Dashes are allowed but should be avoided unless describing a topic that contains
 dashes, such as a plugin name that contains dashes.
-To see tags people have used before:
-
 
 The `team` tag should correspond to one of the keys in `_data/teams.yml`. This
 will ensure that the post is categorized properly.
@@ -113,6 +113,10 @@ will ensure that the post is categorized properly.
 The `author` attribute will map your
 GitHub name to author information, if this is your first time adding a blog
 post, please also create an entry in `_data/authors.yml` with your author metadata.
+
+If this is your team's first contribution to the blog, add a file for your 
+team to the `_category` directory. This causes a quick link to all of your
+team's posts to appear in the bottom left frame of the blog home page.
 
 Once you have everything ready, you may
 link:https://help.github.com/articles/creating-a-pull-request/[create a pull
