@@ -34,7 +34,9 @@ Rust._)
 rsyslog is one of those tools that seems to have existed since the dawn of
 time. It is incredibly common to find in logging infrastructure since it routes
 just about any log from any thing, to any where. Our first iteration of the
-aforementioned `rsyslog-kafka` service relied on it because of its ubiquity. We had a proble that looked like routing logs from one thing (Fastly) to another thing (Kafka), and that's basically what `rsyslogd` does!
+aforementioned `rsyslog-kafka` service relied on it because of its ubiquity. We
+had a problem that looked like routing logs from one thing (Fastly) to another
+thing (Kafka), and that's basically what `rsyslogd` does!
 
 This flexibility comes at a price. When explaining to colleagues what rsyslog
 _really_ is, I would describe it as "an old C-based scripting engine that just
