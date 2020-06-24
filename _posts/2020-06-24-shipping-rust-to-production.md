@@ -10,18 +10,20 @@ team: Core Platform
 author: rtyler
 ---
 
-When we set our goals at the beginning of the year "deploy Rust to production"
-was not among them, yet here we are. Our pattern of deploying small services in containers
-allowed us to easily bring Rust into production, replacing a difficult to
-manage service in the process. In January, the Core Platform team started working on a
-project called "View Analytics". The effort was primarily to replace an aging
-system which was literally referred to as "old analytics." As part of the View
-Analytics design we needed to provide an entry point for [Fastly](https://fastly.com) to relay access logs as  syslog
-formatted messages which could then be written into [Apache Kafka](https://kafka.apache.org), driving the entire
-View Analytics data pipeline. Our initial rollout shipped an [rsyslog](https://www.rsyslog.com)-based solution
-for the “rsyslog-kafka” service.. Using rsyslogd worked fairly well, but had a
-couple of significant downsides. Last month, we deployed its replacement: a
-custom open source daemon written in Rust: [hotdog](https://github.com/reiseburo/hotdog) 🌭.
+Deploying small services in containers allowed us to easily replace a production service
+with a weekend project written in Rust.
+
+The Core Platform team maintains a project to provide an entry point for
+[Fastly](https://fastly.com) access logs to be written into
+[Apache Kafka](https://kafka.apache.org).
+
+Our initial rollout of "View Analytics" used [rsyslogd](https://www.rsyslog.com) for the ingestion service,
+“rsyslog-kafka.” Using rsyslogd worked fairly well, but had a couple of significant
+downsides.
+
+Last month, we open sourced and deployed "rsyslog-kafka"'s replacement: a daemon
+that provides better metrics, JMESPath rules, and RFC compliant message parsing:
+[hotdog](https://github.com/reiseburo/hotdog) 🌭.
 
 
 (**Note:**  _This specific use-case was well suited to Rust. That does not mean
@@ -38,16 +40,13 @@ aforementioned `rsyslog-kafka` service relied on it because of its ubiquity. We
 had a problem that looked like routing logs from one thing (Fastly) to another
 thing (Kafka), and that's basically what `rsyslogd` does!
 
-This flexibility comes at a price. When explaining to colleagues what rsyslog
+However, when explaining to colleagues what rsyslog
 _really_ is, I would describe it as "an old C-based scripting engine that just
 happens to forward logs." If they didn't believe me, I would send them the
 documentation to
 [Rainerscript](https://rsyslog.readthedocs.io/en/latest/rainerscript/), named
-after [Rainer Gerhards](https://en.wikipedia.org/wiki/Rainer_Gerhards) the
-author of `rsyslog`. Accepting this "zen of rsyslog" makes it slightly
-easier to understand and work with the rsyslog configuration syntax.
-That said, I still find it incredibly difficult to work with, and even harder
-to test.
+after [Rainer Gerhards](https://en.wikipedia.org/wiki/Rainer_Gerhards), the
+author of `rsyslog`. I find it incredibly difficult to work with, and even harder to test.
 
 In our pipeline, we needed to bring JSON formatted messages from Fastly and
 route them to the appropriate topics, using the approximate format of:
@@ -63,28 +62,27 @@ route them to the appropriate topics, using the approximate format of:
 }
 ```
 
-JSON parsing in rsyslog is feasible, but not easy. To make matters worse, there
-was no way to handle JSON keys which use the dollar-sign `$`, because the
+JSON parsing in rsyslog is feasible, but not easy. For example, there
+is no way to handle JSON keys which use the dollar-sign `$`, because the
 scripting interpreter treats `$` characters as variable references. The
-original version of our rsyslog-kafka gateway that went into production ended
-up using regular expressions to fish out the topic we needed for routing!
+original version of our rsyslog-kafka gateway that went into production
+uses regular expressions to fish out the topic!
 
 Unfortunately, the daemon also does not emit metrics or statistics natively in
 a format we could easily get into Datadog. The only way to get the statistics
-we needed out of the daemon would be to ingest statistics written out to a file through a sidecar
+we needed would be to ingest statistics written out to a file through a sidecar
 container and report those into Datadog. This would have required building a
 custom daemon to parse the rsyslogd stats output which seemed like a lot of
-work without a lot of benefit.
+work for a little bit of benefit.
 
-This all left us with very little understanding of how a service which was
-difficult to configure and test would actually run in production.
+We didn't know how this difficult and untestable service would actually run in production.
 
 
 ## Makin' hotdogs
 
 Bored one weekend with nothing to do, I asked myself “how hard could getting syslog into Kafka be?” As it turned out: _not that hard_.
 
-I continued to improve the [daemon](https://github.com/reiseburo/hotdog) over a number of
+I continued to improve [hotdog](https://github.com/reiseburo/hotdog) over a number of
 weeks until I had feature parity with our rsyslogd use-case, and then some!
 
 *  RFC 5424/3164 syslog-formatted message parsing
