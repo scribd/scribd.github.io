@@ -18,7 +18,7 @@ project called "View Analytics". The effort was primarily to replace an aging
 system which was literally referred to as "old analytics." As part of the View
 Analytics design we needed to provide an entry point for [Fastly](https://fastly.com) to relay access logs as  syslog
 formatted messages which could then be written into [Apache Kafka](https://kafka.apache.org), driving the entire
-View Analytics data pipeline. Our initial rollout shipped an [rsyslog](https://rsyslog.com)-based solution
+View Analytics data pipeline. Our initial rollout shipped an [rsyslog](https://www.rsyslog.com)-based solution
 for the “rsyslog-kafka” service.. Using rsyslogd worked fairly well, but had a
 couple of significant downsides. Last month, we deployed its replacement: a
 custom open source daemon written in Rust: [hotdog](https://github.com/reiseburo/hotdog) 🌭.
