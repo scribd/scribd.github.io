@@ -130,9 +130,17 @@ support statsd out of the box, we made a one-line change adding the new metric
 and our visibility went up almost immediately!
 
 
+The syslog-to-Kafka gateway was a critical piece of the overall View Analytics
+data pipeline, but having such a system available has already paid dividends. A
+number of other internal projects have taken advantage of the ability to route
+syslog traffic into Kafka.
+
 ---
+
 
 Scribd has a number of services deployed in production using Ruby, Golang,
 Python, Java, and now a little bit of Rust too. As far as weekend hacks go,
-[hotdog](https://github.com/reiseburo/hotdog) worked out quite well, if you have thousands of log entries per second that you need to get into Kafka, give it a try!
+[hotdog](https://github.com/reiseburo/hotdog) worked out quite well, if you
+have thousands of log entries per second that you need to get into Kafka, give
+it a try!
 
