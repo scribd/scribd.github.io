@@ -62,14 +62,14 @@ immediately noticed potential problems.
 
 ### Data Consistency
 
-S3 is _eventually consistent_. If you put an object `bucket/foo.gz`, you can
+S3 is _eventually consistent_. If you create an object `bucket/foo.gz`, you can
 retrieve `bucket/foo.gz` immediately, but other clients issuing list or
 metadata commands may see `foo.gz` appear at different times. In a system where
 one job is writing data into a bucket and another is reading data out of that
 bucket, **consistency** becomes a major concern. Many organizations solve this
 by deploying
 [S3Guard](https://hadoop.apache.org/docs/r3.1.1/hadoop-aws/tools/hadoop-aws/s3guard.html)
-which helps address the problem. Delta Lake provides us with **transactions**
+which helps address the problem. Delta Lake provides us with **ACID transactions**
 that make the entire data consistency question moot.
 
 > What I wrote to storage is exactly what the other job will read
@@ -112,8 +112,8 @@ Some things to keep in mind:
 
 * Multiple streams can _append_ to the same table concurrently, *but* if there
   are any non-append writers (e.g. [merge writers](https://docs.delta.io/latest/delta-update.html)) then no other
-  writers should run concurrently with the non-append writer.
-* When there if there are any non-append writers, an optimize cannot run externally. In essence it **must** be executed inline in a streaming job when the merge writer is not running, i.e. periodically within a `foreachBatch`
+  writers should run concurrently with the non-append writer. There are some distinctions here depending on whether the jobs are running in a Databricks runtime or not, and whether those jobs are running in the same workspace. Generally speaking it's best to only use append-only tables as streaming sources.
+* When there are any non-append writers, an optimize cannot run externally. In essence it should be executed inline in a streaming job when the merge writer is not running, i.e. periodically within a `foreachBatch`. Locking features only available in the Databricks runtime may allow for concurrent upsert writers, but your mileage may vary!
 * [Checkpoints](https://spark.apache.org/docs/latest/streaming-programming-guide.html#checkpointing) must be managed *carefully*. each checkpoint location should belong exclusively to a single write stream. restarts of the job must always use the same checkpoint location. do not reference the same checkpoint location from multiple write streams as they will overwrite each others checkpoints (very bad).
 
 
@@ -122,7 +122,7 @@ Some things to keep in mind:
 Building further upon the foundation laid by transactions, Delta Lake provides
 an `OPTIMIZE` command, which helps prevent the small files problem entirely.
 
-In the streaming context, it is highly unlikely that event datawill come in
+In the streaming context, it is highly unlikely that event data will come in
 perfectly even-sized batches that can be written to storage. At a high level,
 when the optimize command is run it will:
 
