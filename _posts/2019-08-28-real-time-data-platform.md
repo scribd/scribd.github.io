@@ -6,6 +6,7 @@ tags:
 - kafka
 - aws
 - data
+- real-time
 team: Core Platform
 ---
 
