@@ -10,21 +10,18 @@ team: Core Platform
 author: rtyler
 ---
 
-Deploying small services in containers allowed us to easily replace a production service
-with a weekend project written in Rust.
-
-The Core Platform team maintains a project to provide an entry point for
-[Fastly](https://fastly.com) access logs to be written into
-[Apache Kafka](https://kafka.apache.org).
-
-Our initial rollout of "View Analytics" used [rsyslogd](https://www.rsyslog.com) for the ingestion service,
-“rsyslog-kafka.” Using rsyslogd worked fairly well, but had a couple of significant
-downsides.
-
-Last month, we open sourced and deployed "rsyslog-kafka"'s replacement: a daemon
-that provides better metrics, JMESPath rules, and RFC compliant message parsing:
-[hotdog](https://github.com/reiseburo/hotdog) 🌭.
-
+When we set our goals at the beginning of the year "deploy Rust to production"
+was not among them, yet here we are. Our pattern of deploying small services in containers
+allowed us to easily bring Rust into production, replacing a difficult to
+manage service in the process. In January, the Core Platform team started working on a
+project called "View Analytics". The effort was primarily to replace an aging
+system which was literally referred to as "old analytics." As part of the View
+Analytics design we needed to provide an entry point for [Fastly](https://fastly.com) to relay access logs as  syslog
+formatted messages which could then be written into [Apache Kafka](https://kafka.apache.org), driving the entire
+View Analytics data pipeline. Our initial rollout shipped an [rsyslog](https://www.rsyslog.com)-based solution
+for the “rsyslog-kafka” service.. Using rsyslogd worked fairly well, but had a
+couple of significant downsides. Last month, we deployed its replacement: a
+custom open source daemon written in Rust: [hotdog](https://github.com/reiseburo/hotdog) 🌭.
 
 (**Note:**  _This specific use-case was well suited to Rust. That does not mean
 that anything else we do at Scribd should or will necessarily be written in
