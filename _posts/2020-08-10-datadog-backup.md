@@ -12,7 +12,6 @@ authors:
 
 ---
 
-# Datadog Backup
 
 What would happen if someone accidentally deleted a dashboard or important
 monitor in Datadog? How would we know that it had changed? All of our monitoring
@@ -85,4 +84,3 @@ Some areas to further expand the gem are:
 
 If you find this Gem useful, and would like to expand on it, [contributions are
 welcome](https://github.com/scribd/datadog_backup)! 
-
