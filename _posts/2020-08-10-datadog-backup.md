@@ -26,7 +26,7 @@ Therefore, as we evaluated existing tools, we looked for the ability to coexist
 with Datadog’s native user interface. 
 
 Finding none that exactly fit our needs, we wrote [Datadog
-Backup](https://github.com/scribd/datadog_backup), an open source Ruby Gem.
+Backup](https://github.com/scribd/datadog_backup), an open source Ruby gem.
 Datadog Backup focuses on the ability to perform global backups and bulk editing
 without impeding the free use of the Datadog User Interface.
 
