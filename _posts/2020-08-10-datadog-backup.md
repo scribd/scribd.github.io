@@ -83,4 +83,9 @@ Some areas to further expand the gem are:
 -   Backup of metadata
 
 If you find this Gem useful, and would like to expand on it, [contributions are
-welcome](https://github.com/scribd/datadog_backup)! 
+welcome](https://github.com/scribd/datadog_backup)! Find out more about what the
+Core Infrastructure team is up to by [reading more of our
+posts](https://tech.scribd.com/blog/category/core-infrastructure#posts).
+If shipping metrics and managing cloudy things is up your alley, you just might
+be the kind of person who'd love to work here, so [click
+here](https://www.scribd.com/about/engineering) to review our open positions!
