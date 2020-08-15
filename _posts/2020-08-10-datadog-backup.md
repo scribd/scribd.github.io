@@ -51,6 +51,7 @@ modifies the repository locally, then runs the command in “restore” mode.
 
 
 ### Running the tool
+![demo](https://github.com/scribd/datadog_backup/raw/434268667359500ee3739b1fb3cb595a46ae43a8/images/demo.gif)
 
 ```
 gem install datadog_backup
