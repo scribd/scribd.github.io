@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "My first week at Scribd engineering"
+title: "My first week in Scribd engineering"
 tags:
 - featured
 team: Core Infrastructure
