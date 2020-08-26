@@ -4,7 +4,7 @@ title: "My first week in Scribd engineering"
 tags:
 - featured
 team: Core Infrastructure
-author: zherner
+author: jasond
 ---
 
 
