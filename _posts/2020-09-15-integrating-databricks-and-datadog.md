@@ -63,7 +63,7 @@ EOF
       DD_AGENT_MAJOR_VERSION=7 \
       DD_API_KEY=${DATADOG_API_KEY} \
       DD_HOST_TAGS="[\"env:${ENVIRONMENT}\", \"spark_app:${APP_NAME}\"]" \
-      bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/7.20.0-rc.10/cmd/agent/install_script.sh)"
+      bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/7.22.0/cmd/agent/install_script.sh)"
 
 
   cat << EOF >> /etc/datadog-agent/datadog.yaml
