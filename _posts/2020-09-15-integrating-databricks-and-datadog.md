@@ -29,7 +29,7 @@ When creating the cluster in Databricks, we use the following init script-based
 configuration to set up the Datadog agent. It also likely possible to set this
 up via [customized containers with Databricks Container
 Services](https://docs.databricks.com/clusters/custom-containers.html) but the
-`databricks` runtime images don't get updated as frequently enough for our
+`databricks` runtime images don't get updated as frequently as required for our
 purposes.
 
 * Add cluster init script to setup datadog below
