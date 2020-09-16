@@ -25,21 +25,8 @@ infrastructure.
 
 ## Configuring the Databricks cluster
 
-When creating the cluster in Databricks, we use the following init script-based
-configuration to set up the Datadog agent. It also likely possible to set this
-up via [customized containers with Databricks Container
-Services](https://docs.databricks.com/clusters/custom-containers.html) but the
-`databricks` runtime images don't get updated as frequently as required for our
-purposes.
-
-* Add cluster init script to setup datadog below
-* Set following environment variables for the cluster:
-  * `ENVIRONMENT=development/staging/production`
-  * `APP_NAME=your_spark_app_name`
-  * `DATADOG_API_KEY=KEY`
-
-All your Datadog metrics will be automatically tagged with `env` and `spark_app` tags.
-
+When creating a cluster in Databricks, we setup and configure the Datadog
+agent with the following init script on the driver node:
 
 ```bash
 #!/bin/bash
@@ -50,11 +37,12 @@ All your Datadog metrics will be automatically tagged with `env` and `spark_app`
 #   * ENVIRONMENT
 #   * APP_NAME
 
-echo "Setting up metrics for spark applicatin: ${APP_NAME}"
 echo "Running on the driver? $DB_IS_DRIVER"
-echo "Driver ip: $DB_DRIVER_IP"
 
 if [[ $DB_IS_DRIVER = "TRUE" ]]; then
+  echo "Setting up metrics for spark applicatin: ${APP_NAME}"
+  echo "Driver ip: $DB_DRIVER_IP"
+
   cat << EOF >> /home/ubuntu/databricks/spark/conf/metrics.properties
 *.sink.statsd.host=${DB_DRIVER_IP}
 EOF
@@ -64,7 +52,6 @@ EOF
       DD_API_KEY=${DATADOG_API_KEY} \
       DD_HOST_TAGS="[\"env:${ENVIRONMENT}\", \"spark_app:${APP_NAME}\"]" \
       bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/7.22.0/cmd/agent/install_script.sh)"
-
 
   cat << EOF >> /etc/datadog-agent/datadog.yaml
 use_dogstatsd: true
@@ -84,25 +71,31 @@ EOF
 fi
 ```
 
-Once the cluster has been launched with the appropriate Datadog agent support,
-we must then integrate a Statsd client into the Spark app itself.
+The cluster also needs to be launched with the following environment variables
+in order to configure the integration:
 
-### Instrumenting Spark
+  * `ENVIRONMENT=development/staging/production`
+  * `APP_NAME=your_spark_app_name`
+  * `DATADOG_API_KEY=KEY`
 
-Integrating Statsd in Spark is _very_ simple, but for consistency we use a
-variant of the `Datadog` class listed below. Additionally, for Spark Streaming applications,
-the `Datadog` class also comes with a helper method that you can use to forward
-all the streaming progress metrics into Datadog:
 
-```scala
-datadog.collectStreamsMetrics
-```
+Once the cluster has been fully configured with the above init script, you can
+then send metrics to Datadog from Spark through the statsd port exposed by the
+agent. All your Datadog metrics will be automatically tagged with `env` and
+`spark_app` tags.
 
-By invoking this method, all streaming progress metrics will be tagged with `spark_app` and `label_name`
-tags. We use these streaming metrics to understand stream lag, issues with our
-batch sizes, and a number of other actionable metrics.
+In practice, you can setup all of this using DCS ([customized containers with
+        Databricks
+Container Services](https://docs.databricks.com/clusters/custom-containers.html)) as well.
+But we decided against it in the end because we ran into many issues with DCS
+including out of date base images and lack of support for builtin cluster
+metrics.
 
-And that’s it for the application setup!
+
+### Sending custom metrics from Spark
+
+Integrating Statsd with Spark is _very_ simple. To reduce boilerplate, we built
+an internal helper utility that wraps `timgroup.statsd` library:
 
 
 ```scala
@@ -116,17 +109,6 @@ import scala.collection.JavaConverters._
  *
  * NOTE: this package relies on datadog agent to be installed and configured
  * properly on the driver node.
- *
- * == Example ==
- * implicit val spark = SparkSession.builder().getOrCreate()
- * val datadog = new Datadog(AppName)
- * // automatically forward spark streaming metrics to datadog
- * datadog.collectStreamsMetrics
- *
- * // you can use `datadog.statsdcli()` to create statsd clients from both driver
- * // and executors to emit custom emtrics
- * val statsd = datadog.statsdcli()
- * statsd.count(s"${AppName}.foo_counter", 100)
  */
 class Datadog(val appName: String)(implicit spark: SparkSession) extends Serializable {
   val driverHost: String = spark.sparkContext.getConf
@@ -165,9 +147,49 @@ class Datadog(val appName: String)(implicit spark: SparkSession) extends Seriali
 }
 ```
 
-**Note:** : There is a known issue for Spark applications that exits
-immediately after an metric has been emitted. We still have some work to do in
-order to properly flush metrics before the application exits.
+To initializing the helper class takes two lines of code:
+
+```scala
+implicit val spark = SparkSession.builder().getOrCreate()
+val datadog = new Datadog(AppName)
+```
+
+Then you can use `datadog.statsdcli()` to create statsd clients from within
+both **driver** and **executors** to emit custom emtrics:
+
+
+```scala
+val statsd = datadog.statsdcli()
+statsd.count(s"${AppName}.foo_counter", 100)
+```
+
+**Note:** : Datadog agent flushes metrics on a [preset
+interval](https://docs.datadoghq.com/developers/dogstatsd/data_aggregation/#how-is-aggregation-performed-with-the-dogstatsd-server)
+that can be configured from the init script. By default, it's 10 seconds. This
+means if your Spark application, running in a job cluster, exits immediately
+after a metric has been sent to Datadog agent, the agent won't have enough time
+to forward that metric to Datadog before the Databricks cluster shuts down. To
+address this issue, you need to put a manual sleep at the end of the Spark
+application so Datadog agent has enough time to flush the newly ingested
+metrics.
+
+
+### Instrumenting Spark streaming app
+
+User of the Datadog helper class can also push all Spark streaming progress
+metrics to Datadog with one line of code:
+
+```scala
+datadog.collectStreamsMetrics
+```
+
+This method sets up a streaming query listener to collect streaming progress
+metrics and send them to the Datadog agent. All streaming progress metrics will
+be tagged with `spark_app` and `query_name` tags. We use these streaming
+metrics to monitor streaming lag, issues with our batch sizes, and a number
+of other actionable metrics.
+
+And that’s it for the application setup!
 
 ---
 
