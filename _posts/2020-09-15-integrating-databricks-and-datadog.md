@@ -195,4 +195,7 @@ And that’s it for the application setup!
 
 In the future a more "native" integration between Databricks and Datadog would
 be nice, but these two code snippets have helped bridge a crucial
-instrumentation and monitoring gap with our production Spark workloads. Hopefully you find them useful!
+instrumentation and monitoring gap with our Spark workloads.  On the Core
+Platform and Data Engineering teams we continue to invest in Spark and would
+love your help building out our reliable and high-performance data platform,
+[come join us!](/careers/#open-positions)
