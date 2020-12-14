@@ -11,7 +11,7 @@ featured_series: 'airflow-series'
 
 # GitHub Metadata
 # Used for "improve this page" link
-branch: master
+branch: main
 
 markdown: kramdown
 highlighter: rouge
