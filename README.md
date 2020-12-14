@@ -15,5 +15,3 @@ The types of content published should generally be technology oriented, but
 discussions about organization culture, collaboration, and process are welcome
 so long as they pass the bar of: "would this be interesting to somebody we
 would want to work with us?"
-
-
