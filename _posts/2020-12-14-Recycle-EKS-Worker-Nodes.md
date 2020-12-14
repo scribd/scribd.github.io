@@ -63,10 +63,10 @@ based on events.
 ## Design
 
 1. Create a [Step Function](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/step-function.json) that will consist of 4 Lambdas. This step function will handle the transfer of inputs across the Lambda functions.
-2. The [first Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/Lambdas/putNodesToStandby.py) takes an instance id as an input, to put it in standby state. Using autoscaling api to automatically add a new instance to the group while putting the old instance to standby state. The old instance will get into "Standby" state only when the new instance is in fully "Inservice" state
-3. Taint this "Standby" node in EKS using K8S API in [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/Lambdas/taintNodes.py) to prevent new pods from getting scheduled into this node
-4. Periodically use K8S API check for status of “stateful” pods on that node based on the label selector provided. Another [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/Lambdas/checkNodesForRunningPods.py) will do that
-5. Once all stateful pods have completed on the node, i.e number of running pod reached 0, shut down that standby instance using AWS SDK via [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/Lambdas/detachAndTerminateNode.py).
+2. The [first Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/lambdas/putNodesToStandby.py) takes an instance id as an input, to put it in standby state. Using autoscaling api to automatically add a new instance to the group while putting the old instance to standby state. The old instance will get into "Standby" state only when the new instance is in fully "Inservice" state
+3. Taint this "Standby" node in EKS using K8S API in [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/lambdas/taintNodes.py) to prevent new pods from getting scheduled into this node
+4. Periodically use K8S API check for status of “stateful” pods on that node based on the label selector provided. Another [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/lambdas/checkNodesForRunningPods.py) will do that
+5. Once all stateful pods have completed on the node, i.e number of running pod reached 0, shut down that standby instance using AWS SDK via [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/lambdas/detachAndTerminateNode.py).
 6. We are not terminating the node, only shutting it down, just in case. In future releases, we will be start terminating the nodes
 
 ## Sample Execution
