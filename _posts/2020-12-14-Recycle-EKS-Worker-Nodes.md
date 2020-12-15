@@ -67,7 +67,7 @@ based on events.
 3. Taint this "Standby" node in EKS using K8S API in [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/lambdas/taintNodes.py) to prevent new pods from getting scheduled into this node
 4. Periodically use K8S API check for status of “stateful” pods on that node based on the label selector provided. Another [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/lambdas/checkNodesForRunningPods.py) will do that
 5. Once all stateful pods have completed on the node, i.e number of running pod reached 0, shut down that standby instance using AWS SDK via [Lambda](https://github.com/scribd/terraform-aws-recycle-eks/blob/main/lambdas/detachAndTerminateNode.py).
-6. We are not terminating the node, only shutting it down, just in case. In future releases, we will be start terminating the nodes
+6. We are not terminating the node, only shutting it down, just in case. In future releases, we will start terminating the nodes
 
 ## Sample Execution
 
@@ -76,11 +76,11 @@ based on events.
 
 ## Future Enhancements
 
-1. Right now, in the first Lambda we are putting a 300 sec sleep just to ensure that the new node is in *IN* Service mode before putting the old node to StandBy mode. We have to ensure this programatically rather than an arbitrary 300 sec sleep
-2. Refactor the code to use as a common module for getting the access token.
+1. First Lambda sleeps for arbitrary 300 seconds to ensure that the new node is in *IN* Service mode before putting the old node to StandBy mode. Ensure this programatically instead of sleeping.
+2. Use a common module for getting the access token.
 3. Better logging and exception handling
 4. Make use of namespace input while selecting the pods. Currently it checks for pods in all namespaces.
-5. Find a terraform way to edit configmap/aws-auth, this step is still manual to make this module work.
+5. Module doesn't work without manual edit of `configmap/aws-auth`. Find a terraform way to edit it.
 
 ---
 
