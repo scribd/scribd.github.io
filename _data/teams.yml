@@ -47,7 +47,3 @@ Security Engineering:
 
 Internal Tools:
   lever: 'Internal Tools'
-  about: |
-    Internal Tools is responsible for a variety of Scribd tooling such as the development framework,
-    end-to-end testing framework, background job processing, configuration management, Ruby and Rails upgrades,
-    and continuous integration and delivery pipelines.
