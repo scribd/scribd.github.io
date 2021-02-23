@@ -55,10 +55,11 @@
 
 - team: Core Infrastructure
   description: |
-    The Infrastructure team’s mission is to provide a high quality low-level
-    infrastructure shared between all engineering efforts. Rather than focusing
-    on supporting any individual application – including scribd.git – this team
-    focuses on infrastructure used by all, or nearly all projects at Scribd.
+    The Infrastructure team's mission is to provide secure and reliable cloud
+    infrastructure shared between all engineering efforts with a focus on efficient
+    automation and self-service. Our vision is an integrated set of standardized
+    solutions that empower service ownership by facilitating and promoting DevOps
+    practices within Scribd.
 
 - team: Security Engineering
   description: |
