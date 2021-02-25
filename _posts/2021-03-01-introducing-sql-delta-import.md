@@ -56,7 +56,7 @@ spark-submit /
 ```
 
 #### 3. `--num-mappers` just not good enough to control parallelism when working with a database
-`sqooop` uses map-reduce under the hood. We can specify `--num-mappers` parameter that controls how many 
+`sqoop` uses map-reduce under the hood. We can specify `--num-mappers` parameter that controls how many 
 mappers will be used to import data. Small number of mappers can result in large volume 
 of data per import and long running transactions. Large number of mappers will result in many connections 
 to database potentially overloading it especially when there are a lot of `sqoop` jobs running in parallel.
