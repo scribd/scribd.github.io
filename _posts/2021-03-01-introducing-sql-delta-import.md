@@ -41,7 +41,7 @@ Yes we could have ran our sqoop jobs on EMR clusters but we wanted to run everyt
 avoid additional technology footprint. But even if we drop that restriction...
  
 #### 2. `sqoop` does not support writing data directly to Delta Lake
-`scoop` can only import data as text or parquet. Writing to delta directly allows us to 
+`sqoop` can only import data as text or parquet. Writing to delta directly allows us to 
 optimize data storage for best performance on reads by just adding a couple of configuration options
 
 ```shell script
