@@ -26,7 +26,7 @@ Importing data into a Delta Lake table is as easy as
 
 ```shell script
 spark-submit /
---class "com.scribd.importer.spark.ImportRunner" sql-delta-import_2.12-0.2.1-SNAPSHOT.jar /
+--class "io.delta.connectors.spark.JDBC.ImportRunner" sql-delta-import_2.12-0.2.1-SNAPSHOT.jar /
 --jdbc-url jdbc:mysql://hostName:port/database /
 --source source.table
 --destination destination.table
@@ -49,7 +49,7 @@ optimize data storage for best performance on reads by just adding a couple of c
 spark-submit /
 --conf spark.databricks.delta.optimizeWrite.enabled=true /
 --conf spark.databricks.delta.autoCompact.enabled=true /
---class "com.scribd.importer.spark.ImportRunner" sql-delta-import_2.12-0.2.1-SNAPSHOT.jar /
+--class "io.delta.connectors.spark.JDBC.ImportRunner" sql-delta-import_2.12-0.2.1-SNAPSHOT.jar /
 --jdbc-url jdbc:mysql://hostName:port/database /
 --source source.table
 --destination destination.table
@@ -72,7 +72,7 @@ concurrency thus allowing you to tune those parameters independently
 spark-submit --num-executors 15 --executor-cores 4 /
 --conf spark.databricks.delta.optimizeWrite.enabled=true /
 --conf spark.databricks.delta.autoCompact.enabled=true /
---class "com.scribd.importer.spark.ImportRunner" sql-delta-import_2.12-0.2.1-SNAPSHOT.jar /
+--class "io.delta.connectors.spark.JDBC.ImportRunner" sql-delta-import_2.12-0.2.1-SNAPSHOT.jar /
 --jdbc-url jdbc:mysql://hostName:port/database /
 --source source.table
 --destination destination.table
