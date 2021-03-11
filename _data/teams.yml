@@ -3,22 +3,19 @@
 # plumbing jobs into team's blog posts
 ---
 iOS:
-  # the category in Lever
-  lever: 'iOS'
+  lever: 'Mobile'
 
 Android:
-  lever: 'Android'
+  lever: 'Mobile'
 
 Data Science:
-  lever: 'Data Science - San Francisco'
+  lever: 'Data Science'
 
 Core Platform:
   lever: 'Core Platform'
 
 Data Engineering:
-  # No clue why these jobs are grouped with Core Platform in Lever, but not
-  # really important to fix at the moment
-  lever: 'Core Platform'
+  lever: 'Data Engineering'
 
 Core Infrastructure:
   lever: 'Core Infrastructure'

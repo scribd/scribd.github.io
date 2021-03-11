@@ -13,6 +13,8 @@
     <!--
         window.onload = () =>{
             renderJobs(document.getElementById('jobs'), "{{ site.data.teams[page.team].lever }}", 4);
+            // Always include some Engineering jobs if we have any general ones
+            renderJobs(document.getElementById('jobs'), "{{ site.data.teams['Engineering'].lever }}", 2);
         };
     -->
     </script>
