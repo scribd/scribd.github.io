@@ -43,7 +43,7 @@ function fetchJobs() {
        * departments
        */
       departments
-        .filter(d => ['Engineering', 'Data Science', 'Design'].includes(d.title))
+        .filter(d => ['Engineering', 'Data Science', 'Design', 'Business Analytics', 'Product'].includes(d.title))
         .forEach((department) => {
           department.postings.forEach((posting) => {
             const team = posting.categories.team;
