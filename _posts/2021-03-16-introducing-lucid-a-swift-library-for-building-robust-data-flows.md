@@ -12,7 +12,7 @@ team: iOS Engineering
 
 Lucid is a Swift library which provides a series of convenient tools for building robust data layers for applications.
 
-We built it at Scribd with three main ideas in mind:
+We built it with three main ideas in mind:
 
 - **Declarative**: Lucid makes it easy to declare complex data models and provides the tools to use it with plain Swift code.
 - **Modularity**: Use the technologies which suits your data flow the best. Lucid gives you the infrastructure to seamlessly integrate the stack you want to use.
@@ -75,4 +75,8 @@ If you like Lucid, you might like other open source projects we developed at Scr
 
 ### Can I contribute?
 
-You are more than welcome to contribute to Lucid. You can open a PR or file tickets on [Github](https://github.com/scribd/Lucid). Please refer to our [contributions guidelines](https://github.com/scribd/Lucid/blob/master/CONTRIBUTING.md) before doing so.
+You are more than welcome to contribute to Lucid. You can open a PR or file issues on [Github](https://github.com/scribd/Lucid). Please refer to our [contributions guidelines](https://github.com/scribd/Lucid/blob/master/CONTRIBUTING.md) before doing so.
+
+
+If you're interested in building great mobile applications with us check out our
+[careers page](/careers/#open-positions)!
