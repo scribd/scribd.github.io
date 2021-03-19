@@ -5,6 +5,7 @@ author: nakulpathak3
 tags:
 - aws
 - deploys
+- featured
 team: Internal Tools
 ---
 
