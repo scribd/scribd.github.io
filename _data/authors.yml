@@ -125,3 +125,10 @@ ajhofmann:
 trupin:
   name: Theo Rupin
   github: trupin
+
+div:
+  name: Div Dasani
+  github: divdasani
+  about: |
+    Div is a Machine Learning Engineer on the Recommendations team, working on personalized
+    recommendations and online faceted search.
