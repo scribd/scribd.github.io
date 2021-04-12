@@ -6,6 +6,7 @@ tags:
 - machinelearning
 - real-time
 - search
+- featured
 team: Recommendations
 ---
 
