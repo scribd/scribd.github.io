@@ -31,8 +31,7 @@ At Scribd we decided to pair Airflow with OKTA. Earlier we were using LDAP for a
 ## Airflow Configuration
 
 ### conf/webserver_config.py
-
-    ```
+    
     AUTH_TYPE = AUTH_OAUTH
     OAUTH_PROVIDERS = [
     {'name': 'okta', 'icon': 'fa-circle-o',
@@ -49,8 +48,6 @@ At Scribd we decided to pair Airflow with OKTA. Earlier we were using LDAP for a
         }
         }
     ]
-
-    ```
 
 ### Special Steps:
 
