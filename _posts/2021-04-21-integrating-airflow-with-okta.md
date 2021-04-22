@@ -19,7 +19,7 @@ At Scribd we decided to pair Airflow with OKTA. Earlier we were using LDAP for a
 
 ## OKTA Setup
 
-![Sample OKTA Setup](/post-images/Sample-OKTA-Setup/Sample-OKTA-Setup.png)
+![Sample OKTA Setup](/post-images/2021-04-okta-airflow/Sample-OKTA-Setup.png)
 <font size="3"><center><i>Sample OKTA Setup </i></center></font>
 
 1. Create an OIDC Web application. Give it a name and leave the values under the “Configure OpenID Connect” section empty.
