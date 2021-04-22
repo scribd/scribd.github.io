@@ -4,17 +4,13 @@
 
 // Bump of base font size for a comfortable reading experience
 .post-content {
-    font-size: 1rem;
+    // actually 17.875px
+    font-size: rem-calc(22px);
     // make sure really long words and links wrap
     word-wrap: break-word;
     overflow-wrap: break-word;
 
-    @media (min-width: $bp-sm) {
-        font-size: rem-calc(18px);
-    }
-
     @media (min-width: $bp-lg) {
-        font-size: rem-calc(20px);
         line-height: 1.6;
     }
 }

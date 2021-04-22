@@ -15,3 +15,17 @@ The types of content published should generally be technology oriented, but
 discussions about organization culture, collaboration, and process are welcome
 so long as they pass the bar of: "would this be interesting to somebody we
 would want to work with us?"
+
+# Local build
+
+```
+brew install ruby@2.7
+echo 'export PATH="/usr/local/opt/ruby@2.7/bin:$PATH"' >> "$HOME/.bash_profile"
+source "$HOME/.bash_profile"
+
+sudo gem install jekyll bundler
+bundle install
+
+bundle exec jekyll serve --livereload # for auto-updading
+open http://localhost:4000
+```
