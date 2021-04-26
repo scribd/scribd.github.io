@@ -22,7 +22,7 @@ At Scribd we use Airflow as a scheduler for most of our batch workloads, this bl
    `flask-appbuilder~=3.1,>=3.1.1`, so we might need to use a fork to get this
    integration going.
 1. `sqlalchemy>=1.3.18, <1.4.0`
-1. [ ] `authlib==0.15.3`
+1. `authlib==0.15.3`
 
 ## Okta Setup
 
