@@ -62,8 +62,7 @@ with Okta from the earlier LDAP setup.
 
 
 1. We started with Flask-AppBuilder 3.2.1, however it had a bug that needs to
-   be fixed, we raised a [PR](https://github.com/dpgaspar/Flask-AppBuilder/pull/1589) for Flask-AppBuilder:
-   fix: load user info for oktaCLOSED  to resolve that issue. That PR got
+   be fixed, we raised a [PR for Flask-AppBuilder](https://github.com/dpgaspar/Flask-AppBuilder/pull/1589) to resolve that issue. That PR got
    merged and now we can use the new release, Flask-AppBuilder 3.2.2
 
 2. As we were migrating from LDAP, we will already have user info populated,
