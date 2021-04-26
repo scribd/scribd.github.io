@@ -14,15 +14,16 @@ At Scribd we use Airflow as a scheduler for most of our batch workloads, this bl
 
 
 ## Prerequisite:
-1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled.
+This section will describe the minimum setup that will require to enable this integration,
+1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled. Without this feature enabled in OKTA we will not be able to integrate Airflow with OKTA
 1. [Flask-AppBuilder
    3.2.2](https://github.com/dpgaspar/Flask-AppBuilder/tree/v3.2.2). Official
    Airflow repo has a
    [constraint](https://github.com/apache/airflow/blob/master/setup.cfg#L97) on
    `flask-appbuilder~=3.1,>=3.1.1`, so we might need to use a fork to get this
-   integration going.
-1. `sqlalchemy>=1.3.18, <1.4.0`
-1. `authlib==0.15.3`
+   integration going. 
+1. `sqlalchemy>=1.3.18, <1.4.0` --> This is because of some python dependency for Flask-AppBuilder
+1. `authlib==0.15.3` --> authlib needs to installed along with Airflow to enable flask-appbuilder integration with Okta via OIDC
 
 ## Okta Setup
 
