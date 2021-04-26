@@ -18,8 +18,7 @@ Of course Airflow does support LDAP and at Scribd we started using LDAP with Air
 but as the organisation grow and more and more user started using Airflow, 
 it became imperative that we integrate Airflow with our SSO provider that is Okta. 
 
-Sadly there is a lack of resources on how to implement airflow with Okta specifically. We are going to use Flask app builder along with some additional packages to integrate it via Okta.
-
+Sadly there is a lack of resources on how to implement airflow with Okta specifically. 
 This write up will describe the journey of integrating Airflow with Okta from the earlier LDAP setup.
 
 
@@ -27,6 +26,7 @@ This write up will describe the journey of integrating Airflow with Okta from th
 This section will describe the minimum setup that will require to enable this integration. 
 1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled. Without this feature enabled in OKTA we will not be able to integrate Airflow with Okta
 
+We are going to use Flask app builder along with some additional packages to integrate it via Okta.
 In Scribd we use a custom build docker image for Airflow, we install the following libraries in that docker image to make Airflow integration work with Okta
 1. [Flask-AppBuilder
    3.2.2](https://github.com/dpgaspar/Flask-AppBuilder/tree/v3.2.2). Official
