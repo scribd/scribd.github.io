@@ -69,6 +69,8 @@ In Scribd we use a custom build docker image for Airflow, we install the followi
         }
     ]
 
+A special thanks to Greg Reznik for handling everything relared to Okta configuration
+
 ### Special Steps
 
 1. We started with Flask-AppBuilder 3.2.1, however it had a bug that needs to
