@@ -10,9 +10,7 @@ team: Core Platform
 ---
 
 
-At Scribd we decided to pair Airflow with Okta. Earlier we were using LDAP for
-authentication. This write up will describe the journey of integrating Airflow
-with Okta from the earlier LDAP setup.
+At Scribd we use Airflow as a scheduler for most of our batch workloads, this blog is not about Airflow so we are not getting into why Airflow. This is about one of the biggest challenge that we faced while using Airflow and finally conquer. That is how to do authentication and authorisation for Airflow. Of course Airflow does support LDAP and at Scribd we started using LDAP with Airflow initially, but as the organisation grow and more and more user started using Airflow, it became imperative that we integrate Airflow with our SSO provider that is OKTA. This write up will describe the journey of integrating Airflow with Okta from the earlier LDAP setup.
 
 
 ## Prerequisite:
