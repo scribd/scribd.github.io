@@ -10,18 +10,23 @@ team: Core Platform
 ---
 
 
-At Scribd we use Airflow as a scheduler for most of our batch workloads, this blog is not about Airflow so we are not getting into why Airflow. This is about one of the biggest challenge that we faced while using Airflow and finally conquer. That is how to do authentication and authorisation for Airflow. Of course Airflow does support LDAP and at Scribd we started using LDAP with Airflow initially, but as the organisation grow and more and more user started using Airflow, it became imperative that we integrate Airflow with our SSO provider that is OKTA. This write up will describe the journey of integrating Airflow with Okta from the earlier LDAP setup.
+At Scribd we use Airflow as a scheduler for most of our batch workloads, this blog is not about Airflow so we are not getting into why Airflow. This is about one of the biggest challenge that we faced while using Airflow and finally conquer. That is how to do authentication and authorisation for Airflow. Of course Airflow does support LDAP and at Scribd we started using LDAP with Airflow initially, but as the organisation grow and more and more user started using Airflow, it became imperative that we integrate Airflow with our SSO provider that is OKTA. 
+
+Sadly there is a lack of resources on how to implement airflow with OKTA specifically. We are going to use Flask app builder along with some additional packages to integrate it via OKTA.
+
+This write up will describe the journey of integrating Airflow with Okta from the earlier LDAP setup.
 
 
-## Prerequisite:
-This section will describe the minimum setup that will require to enable this integration,
+## Prerequisite
+This section will describe the minimum setup that will require to enable this integration. 
 1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled. Without this feature enabled in OKTA we will not be able to integrate Airflow with OKTA
+
+In Scribd we use a custom build docker image for Airflow, we install the following libraries in that docker image to make Airflow integration work with Okta
 1. [Flask-AppBuilder
    3.2.2](https://github.com/dpgaspar/Flask-AppBuilder/tree/v3.2.2). Official
    Airflow repo has a
    [constraint](https://github.com/apache/airflow/blob/master/setup.cfg#L97) on
-   `flask-appbuilder~=3.1,>=3.1.1`, so we might need to use a fork to get this
-   integration going. 
+   `flask-appbuilder~=3.1,>=3.1.1`, so adding this additionally to the docker image helps us bypass that constraint
 1. `sqlalchemy>=1.3.18, <1.4.0` --> This is because of some python dependency for Flask-AppBuilder
 1. `authlib==0.15.3` --> authlib needs to installed along with Airflow to enable flask-appbuilder integration with Okta via OIDC
 
@@ -57,7 +62,7 @@ This section will describe the minimum setup that will require to enable this in
         }
     ]
 
-### Special Steps:
+### Special Steps
 
 
 1. We started with Flask-AppBuilder 3.2.1, however it had a bug that needs to
@@ -82,10 +87,23 @@ This section will describe the minimum setup that will require to enable this in
      airflow users add-role -r Admin -u okta_00u1046sqzJprt1hZ4x6
     ```
 
-## Known Issue:
+## Known Issue
 
 1. Currently in the audit log, any action triggered on Airflow has Okta user id. Airflow needs to be patched to write out audit log entries with human readable user identifiers instead.
 
+## Final Stage
+
+Once the setup is complete, you will find the similar tiles on your okta dashboard,
+
+![Sample Okta Tiles](/post-images/2021-04-okta-airflow/okta-tiles.png)
+<font size="3"><center><i>Sample Okta Tiles </i></center></font>
+
+Once you select the tiles, it should redirect you to the below page
+
+![Sample Okta Login Page](/post-images/2021-04-okta-airflow/airflow-login.png)
+<font size="3"><center><i>Okta Login Page </i></center></font>
+
+Hope this doc will help you setting it up, This journey was a bit tricky for us but we finally make it happen and we do hope that this doc will help a lot of folks to integrate Airflow with OKTA successfully.
 ---
 
 Within Scribd's Platform Engineering group we have a *lot* more services than
