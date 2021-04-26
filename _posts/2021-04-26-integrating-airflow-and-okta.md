@@ -10,16 +10,22 @@ team: Core Platform
 ---
 
 
-At Scribd we use Airflow as a scheduler for most of our batch workloads, this blog is not about Airflow so we are not getting into why Airflow. This is about one of the biggest challenge that we faced while using Airflow and finally conquer. That is how to do authentication and authorisation for Airflow. Of course Airflow does support LDAP and at Scribd we started using LDAP with Airflow initially, but as the organisation grow and more and more user started using Airflow, it became imperative that we integrate Airflow with our SSO provider that is OKTA. 
+At Scribd we use Airflow as a scheduler for most of our batch workloads, 
+this blog is not about Airflow so we are not getting into why Airflow. 
+This is about one of the biggest challenge that we faced while using Airflow and finally conquer. 
+That is how to do authentication and authorisation for Airflow. 
+Of course Airflow does support LDAP and at Scribd we started using LDAP with Airflow initially, 
+but as the organisation grow and more and more user started using Airflow, 
+it became imperative that we integrate Airflow with our SSO provider that is Okta. 
 
-Sadly there is a lack of resources on how to implement airflow with OKTA specifically. We are going to use Flask app builder along with some additional packages to integrate it via OKTA.
+Sadly there is a lack of resources on how to implement airflow with Okta specifically. We are going to use Flask app builder along with some additional packages to integrate it via Okta.
 
 This write up will describe the journey of integrating Airflow with Okta from the earlier LDAP setup.
 
 
 ## Prerequisite
 This section will describe the minimum setup that will require to enable this integration. 
-1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled. Without this feature enabled in OKTA we will not be able to integrate Airflow with OKTA
+1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled. Without this feature enabled in OKTA we will not be able to integrate Airflow with Okta
 
 In Scribd we use a custom build docker image for Airflow, we install the following libraries in that docker image to make Airflow integration work with Okta
 1. [Flask-AppBuilder
@@ -64,10 +70,8 @@ In Scribd we use a custom build docker image for Airflow, we install the followi
 
 ### Special Steps
 
-
 1. We started with Flask-AppBuilder 3.2.1, however it had a bug that needs to
-   be fixed, we raised a [PR for Flask-AppBuilder](https://github.com/dpgaspar/Flask-AppBuilder/pull/1589) to resolve that issue. That PR got
-   merged and now we can use the new release, Flask-AppBuilder 3.2.2
+   be fixed, we raised a [PR for Flask-AppBuilder](https://github.com/dpgaspar/Flask-AppBuilder/pull/1589) to resolve that issue. That PR got merged and now we can use the new release, Flask-AppBuilder 3.2.2
 
 2. As we were migrating from LDAP, we will already have user info populated,
    however Okta generates a new user id something like
@@ -82,7 +86,9 @@ In Scribd we use a custom build docker image for Airflow, we install the followi
     [SQL: INSERT INTO ab_user (first_name, last_name, username, password, active, email, last_login, login_count, fail_login_count, created_on, changed_on, created_by_fk, changed_by_fk) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
     [2021-03-19 16:32:28,560] {manager.py:1321} ERROR - Error creating a new OAuth user okta_00u1046sqzJprt1hZ4x6
     ```
-3. Because we have deleted all the existing user and role, once the users logged in for the first time, especially for the first admin user we did the following from the airflow cli. This will create the first admin user after that if needed we can propagate other user and roles from the Airflow web console from this admin user account.
+3. Because we have deleted all the existing user and role, once the users logged in for the first time,
+   especially for the first admin user we did the following from the airflow cli. 
+   This will create the first admin user after that if needed we can propagate other user and roles from the Airflow web console from this admin user account.
     ```
      airflow users add-role -r Admin -u okta_00u1046sqzJprt1hZ4x6
     ```
@@ -103,7 +109,7 @@ Once you select the tiles, it should redirect you to the below page
 ![Sample Okta Login Page](/post-images/2021-04-okta-airflow/airflow-login.png)
 <font size="3"><center><i>Okta Login Page </i></center></font>
 
-Hope this doc will help you setting it up, This journey was a bit tricky for us but we finally make it happen and we do hope that this doc will help a lot of folks to integrate Airflow with OKTA successfully.
+Hope this doc will help you setting it up, This journey was a bit tricky for us but we finally make it happen and we do hope that this doc will help a lot of folks to integrate Airflow with Okta successfully.
 
 ---
 
