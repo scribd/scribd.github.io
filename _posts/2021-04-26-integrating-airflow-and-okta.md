@@ -104,6 +104,7 @@ Once you select the tiles, it should redirect you to the below page
 <font size="3"><center><i>Okta Login Page </i></center></font>
 
 Hope this doc will help you setting it up, This journey was a bit tricky for us but we finally make it happen and we do hope that this doc will help a lot of folks to integrate Airflow with OKTA successfully.
+
 ---
 
 Within Scribd's Platform Engineering group we have a *lot* more services than
