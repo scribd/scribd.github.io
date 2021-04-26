@@ -24,7 +24,8 @@ This write up will describe the journey of integrating Airflow with Okta from th
 
 ## Prerequisite
 This section will describe the minimum setup that will require to enable this integration. 
-1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled. Without this feature enabled in OKTA we will not be able to integrate Airflow with Okta
+1. Okta with [API Access Management](https://developer.okta.com/docs/concepts/api-access-management/) enabled. 
+Without this feature enabled in OKTA we will not be able to integrate Airflow with Okta
 
 We are going to use Flask app builder along with some additional packages to integrate it via Okta.
 In Scribd we use a custom build docker image for Airflow, we install the following libraries in that docker image to make Airflow integration work with Okta
@@ -109,7 +110,7 @@ Once you select the tiles, it should redirect you to the below page
 ![Sample Okta Login Page](/post-images/2021-04-okta-airflow/airflow-login.png)
 <font size="3"><center><i>Okta Login Page </i></center></font>
 
-Hope this doc will help you setting it up, This journey was a bit tricky for us but we finally make it happen and we do hope that this doc will help a lot of folks to integrate Airflow with Okta successfully.
+Hope this doc will help you integrating Okta with Airflow, This journey was a bit tricky one for us but we finally make it happen and we do hope that this doc will help a lot of folks to integrate Airflow with Okta successfully.
 
 ---
 
