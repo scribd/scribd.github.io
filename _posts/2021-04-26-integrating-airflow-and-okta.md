@@ -78,7 +78,7 @@ A special thanks to Greg Reznik for handling everything related to Okta configur
 
 2. As we were migrating from LDAP, we will already have user info populated,
    however Okta generates a new user id something like
-   this`okta_00u1046sqzJprt1hZ4x6`, but as the email id corresponding to that
+   this `okta_00u1046sqzJprt1hZ4x6`, but as the email id corresponding to that
    user id is already present we got the below error. To prevent this we logged
    into the underlying database for Airflow and cleaned up the ab_user and
    ab_user_role table and let Okta integration recreate the user during first
