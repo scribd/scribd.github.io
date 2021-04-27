@@ -69,7 +69,7 @@ In Scribd we use a custom build docker image for Airflow, we install the followi
         }
     ]
 
-A special thanks to Greg Reznik for handling everything relared to Okta configuration
+A special thanks to Greg Reznik for handling everything related to Okta configuration
 
 ### Special Steps
 
