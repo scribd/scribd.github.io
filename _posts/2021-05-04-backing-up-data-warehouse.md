@@ -25,7 +25,7 @@ parquet file and the corresponding `DeltaLog`.
 
 When the task of having a workable backup of all those delta lake files fell
 into my lap, I decided to look some of the age old concepts of backup in a new
-perspective. THe concerns I consdiered were:
+perspective. The concerns I consdiered were:
 
   1. What am I protecting against? How much I need to protect?
   1. Can I survive with loosing some data during restore and do I have the option of rebuilding them again from that point of time recovery?
@@ -61,7 +61,7 @@ Once we decided to use  [AWS S3 batch operation](https://docs.aws.amazon.com/Ama
 **Pros**:
 
 * Simple setup, we can terraform it easily
-* Much efficient operation compare to generating our list as that list object APIonly returns 1000 rows per call that means we have to keep iterating till we get the full list.
+* Much more efficient operation compare to generating our list as that list object API only returns 1000 rows per call that means we have to keep iterating till we get the full list.
 
 **Cons**:
 
@@ -71,7 +71,7 @@ Once we decided to use  [AWS S3 batch operation](https://docs.aws.amazon.com/Ama
 To overcome the downsides, we decided to run the backup at a later date, e.g. for a backup of March 31st we based that off a manifest generated on April 2nd. This manifest would certainly have all data up until March 31st and some of April 1st's files as well.
 
 Once we have settled on this model, the rest of the work was similar to any
-other backup process.  We also set up the Source and the Destination to have
+other backup process. We also set up the Source and the Destination to have
 protective boundaries so that we don't accidentally propogate any deletes to
 the backups.
 
@@ -82,7 +82,7 @@ backed up data set in completely separate bucket in a different AWS account
 with stringent access controls in place. With the new account it was much easier to
 control the access level from the beginning rather than controlling access in
 an already existing account where people already have certain degree of access
-and hard to modify that access levels. In the new account we ensured only a few handful of people nothing will actually have
+and hard to modify that access levels. In the new account we ensured only a few handful of people will actually have
 access to backed up data, further reducing chances of any manual error.
 
 ### Backup Process
