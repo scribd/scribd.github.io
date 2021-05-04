@@ -45,15 +45,14 @@ You can use [AWS S3 batch operation](https://docs.aws.amazon.com/AmazonS3/latest
 
 Once we decided to use  [AWS S3 batch operation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-examples-xcopy.html), the next biggest challenge was how to generate the inventory list that will feed the AWS S3 batch operation. We decided to use [AWS S3 inventory](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html) to generate the inventory list. There are some challenges associated with that as well.
 
-  1. *Pros*
+  1. Pros
 
     - Simple setup, we can terraform it easily
     - Much efficient operation compare to generating our list as that list object api only returns 1000 rows per call that means we have to keep iterating till we get the full list.
 
-  1. *Cons*
+  1. Cons
 
     - We do not control when it can be run, it will generate a report on a daily basis but the timings is not in our hand.
-
     - It runs in an eventually consistent model, i.e. All of your objects might not appear in each inventory list. The inventory list provides eventual consistency for PUTs for both new objects and overwrites, and DELETEs. Inventory lists are a rolling snapshot of bucket items, which are eventually consistent (that is, the list might not include recently added or deleted objects)
 
 To overcome the Cons we can run the backup at a later date , e.g for a backup of 31st mar we can run it based on 2nd April Manifest. This manifest should have all of till 31st march and some of 1st April files.
