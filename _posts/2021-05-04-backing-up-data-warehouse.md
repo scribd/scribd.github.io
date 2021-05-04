@@ -25,7 +25,7 @@ parquet file and the corresponding `DeltaLog`.
 
 When the task of having a workable backup of all those delta lake files fell
 into my lap, I decided to look some of the age old concepts of backup in a new
-perspective. The concerns I consdiered were:
+perspective. The concerns I considered were:
 
   1. What am I protecting against? How much I need to protect?
   1. Can I survive with loosing some data during restore and do I have the option of rebuilding them again from that point of time recovery?
