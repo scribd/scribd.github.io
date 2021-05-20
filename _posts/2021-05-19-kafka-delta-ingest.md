@@ -47,7 +47,7 @@ footprint.
 
 ## In depth
 
-There is bit of an impedance mismatch between Kafka streams and data warehouse
+There is a bit of an impedance mismatch between Kafka streams and data warehouse
 file structure. [Parquet is a columnar
 format](https://parquet.apache.org/documentation/latest/), and each Parquet
 file (in fact each row group within a file) in a Delta Lake table should
@@ -178,7 +178,7 @@ Another big contribution would be support for running periodically
 rather than continuously (24x7). I suspect a lot of folks have situations
 where Kafka is used as a buffer between data warehouse writes that
 occur periodically throughout the day. We have several low-volume topics that
-are not a good fit for 24x7 streaming because they only produce a one or two
+are not a good fit for 24x7 streaming because they only produce one or two
 messages per second. Having a 24x7 process buffer these topics in memory would
 be very awkward. It would make a lot more sense to let these buffer in Kafka
 and launch a periodic cron-style job to do the ETL a few times a day. This is
@@ -192,5 +192,4 @@ Any write-oriented improvement accepted in delta-rs is Clikely to benefit
 kafka-delta-ingest.
 
 
-Kafka Delta Ingest has a bridge future ahead and I hope you'll join us!
-
+Kafka Delta Ingest has a bright future ahead and I hope you'll join us!
