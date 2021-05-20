@@ -13,7 +13,7 @@ This scenario is likely fairly relatable to a lot of folks:
 
 * I'm using Kafka to ingest data from my application that I want to analyze later.
 * I want my Kafka data to land in my data warehouse and be queryable pretty soon after ingestion, but I'm fine with some seconds or minutes worth of latency before data lands in my warehouse and becomes queryable.
-* I haven't found a blog post or O`Reilly book excerpt yet that makes me feel super confident about my current approach for moving my Kafka streams into my data warehouse. Things I've tried so far _work_ but either cost a lot, are really complicated to setup and maintain, or both.
+* I haven't found a blog post or O'Reilly book excerpt yet that makes me feel super confident about my current approach for moving my Kafka streams into my data warehouse. Things I've tried so far _work_ but either cost a lot, are really complicated to setup and maintain, or both.
 
 
 Scribd is in exactly this position. We use Spark Structured Streaming jobs running in Databricks to write data ingested on Kafka topics into Delta Lake tables. Our monthly AWS bill keeps reminding us that there _should_ be a better solution for this common ETL need.
