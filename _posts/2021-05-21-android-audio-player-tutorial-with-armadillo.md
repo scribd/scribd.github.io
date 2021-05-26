@@ -9,6 +9,8 @@ author: NathanSass
 team: Android
 ---
 
+![Armadillo Image](https://i.ibb.co/LzTK79B/armadillo.jpg)
+
 In this tutorial, we are going to explore how to build an audio player in an Android app using Armadillo. We are going to do that by discussing what goes into designing an effective audio player as well as some best practices for handling audio in an app.
 
 ## What is Armadillo?
