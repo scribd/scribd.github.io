@@ -12,7 +12,7 @@ team: Android
 
 Armadillo is the fully featured audio player library Scribd uses to play and
 download all of its audiobooks and podcasts, which is [now open
-source](https://github.com/scribd/armadillo-and). It specializes in playing HLS
+source](https://github.com/scribd/armadillo). It specializes in playing HLS
 or MP3 content that is broken down into chapters or tracks. It leverages
 Google’s Exoplayer library for its audio engine. Exoplayer wraps a variety of
 low level audio and video apis but has few opinions of its own for actually
@@ -87,7 +87,7 @@ That’s all you need to get started!
 
 ## Next Steps:
 
-For a more complex example, please see the [TestApp](https://github.com/scribd/armadillo-and/tree/main/TestApp) included in the library. If
+For a more complex example, please see the [TestApp](https://github.com/scribd/armadillo/tree/main/TestApp) included in the library. If
 you have any problems, don’t be afraid to open up an issue [on
-GitHub](https://github.com/scribd/armadillo-and).
+GitHub](https://github.com/scribd/armadillo).
 
