@@ -14,7 +14,7 @@ Armadillo is the fully featured audio player library Scribd uses to play and
 download all of its audiobooks and podcasts, which is [now open
 source](https://github.com/scribd/armadillo). It specializes in playing HLS
 or MP3 content that is broken down into chapters or tracks. It leverages
-Google’s Exoplayer library for its audio engine. Exoplayer wraps a variety of
+[Google’s Exoplayer](https://github.com/google/ExoPlayer/) library for its audio engine. Exoplayer wraps a variety of
 low level audio and video apis but has few opinions of its own for actually
 using audio in an Android app.
 
@@ -37,8 +37,8 @@ required for a high quality audio player.
 
 - Support for HLS and MP3 audio
 - Exoplayer for downloading and playback
-- MediaBrowserService so the app can be played in the background, browsed by other apps, and integrated with Android Auto.
-- MediaSession to support commands from media controllers, ex. a bluetooth headset.
+- [MediaBrowserService](https://developer.android.com/reference/android/service/media/MediaBrowserService) so the app can be played in the background, browsed by other apps, and integrated with Android Auto.
+- [MediaSession](https://developer.android.com/reference/android/media/session/MediaSession) to support commands from media controllers, ex. a bluetooth headset.
 
 ## Getting Started:
 
