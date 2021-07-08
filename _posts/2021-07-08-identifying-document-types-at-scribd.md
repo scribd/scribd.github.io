@@ -5,7 +5,7 @@ tags:
 - machinelearning
 - data
 team: Data Science
-author: jramkiss
+author: jonathanr
 ---
 
 
@@ -30,7 +30,7 @@ Our approach to this challenge was twofold. Firstly, talking to subject matter e
 <cetner> 
   <figure>
       <img width="996" alt="Map of the document corpus, built from user-interaction embeddings" src="https://user-images.githubusercontent.com/9146894/124963194-8534b800-dfed-11eb-81e1-c68cf6e4498c.png">
-      <figcaption> Figure 2: Map of the document corpus built from user-interaction embeddings </figcaption>
+      <figcaption> Figure 1: Map of the document corpus built from user-interaction embeddings. More on this method in a future post. </figcaption>
   </figure>
 </cetner> 
 
@@ -49,8 +49,8 @@ Before the model training started, we faced an interesting data gathering proble
 
 <cetner>
   <figure>
-      <img width="996" alt="3 pages from the same document" src="https://user-images.githubusercontent.com/9146894/124964050-8adecd80-dfee-11eb-83fb-a3afbde1fc14.png">
-    <figcaption> Fig 3: 3 pages from the same document. </figcaption>
+      <img width="996" alt="Three pages from the same document" src="https://user-images.githubusercontent.com/9146894/124964050-8adecd80-dfee-11eb-83fb-a3afbde1fc14.png">
+    <figcaption> Figure 2: Three different pages from the same document to demonstrate why we can't take the document label and assign it to each page. </figcaption>
   </figure>
 </cetner>
 
@@ -63,7 +63,7 @@ To circumvent this challenge, we took an active learning approach to data gather
 <cetner>
   <figure>
       <img width="662" alt="Example of possible sheet music misclassification from wrong inductive bias" src="https://user-images.githubusercontent.com/9146894/124964644-40118580-dfef-11eb-8d24-d6e0a6460ca9.png">
-    <figcaption> Fig 4: Example of possible sheet music misclassification due to wrong inductive biases. </figcaption>
+    <figcaption> Figure 3: Example of possible sheet music misclassification due to wrong inductive biases. </figcaption>
   </figure>
 </cetner>
 
@@ -79,8 +79,8 @@ We found SqueezeNet, a relatively established lightweight architecture, to be th
 
 <cetner>
   <figure>
-      <img width="450" alt="Figure 5: SqueezeNet architectures taken from the paper. Left: SqueezeNet; Middle: SqueezeNet with simple bypass; Right: SqueezeNet with complex bypass." src="https://user-images.githubusercontent.com/9146894/124964923-91217980-dfef-11eb-9553-13bf296ced10.png">
-    <figcaption> Figure 5: SqueezeNet architectures taken from the paper. Left: SqueezeNet; Middle: SqueezeNet with simple bypass; Right: SqueezeNet with complex bypass. </figcaption>
+      <img width="450" alt="Figure 4: SqueezeNet architectures taken from the paper. Left: SqueezeNet; Middle: SqueezeNet with simple bypass; Right: SqueezeNet with complex bypass." src="https://user-images.githubusercontent.com/9146894/124964923-91217980-dfef-11eb-9553-13bf296ced10.png">
+    <figcaption> Figure 4: SqueezeNet architectures taken from the paper. Left: SqueezeNet; Middle: SqueezeNet with simple bypass; Right: SqueezeNet with complex bypass. </figcaption>
   </figure>
 </cetner> 
 
@@ -103,11 +103,10 @@ While there are different ways of dealing with this, our approach involved two s
 
 ### Where do we go from here?
 
-
 <cetner>
   <figure>
-      <img width="529" alt="Figure 6: Diagram of the overall document understanding system. The red box is what we talked about in this post" src="https://user-images.githubusercontent.com/9146894/124965219-da71c900-dfef-11eb-9d12-4bf9a9772f4c.png">
-    <figcaption> Figure 6: Diagram of the overall document understanding system. The red box is what we talked about in this post </figcaption>
+      <img width="400" alt="Figure 5: Diagram of the overall document understanding system. The red box is what we talked about in this post" src="https://user-images.githubusercontent.com/9146894/124965219-da71c900-dfef-11eb-9d12-4bf9a9772f4c.png">
+    <figcaption> Figure 5: Diagram of the overall document understanding system. The red box is what we talked about in this post </figcaption>
   </figure>
 </cetner> 
 
