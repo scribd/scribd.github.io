@@ -5,7 +5,7 @@ author: dfeldman
 tags:
 - testing
 - data
-team: Data Science
+team: Applied Research
 ---
 
 We love A/B testing at Scribd. What follows is a specific example to give you an inside look at the process from idea to implementation for an algorithm test.

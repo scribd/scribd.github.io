@@ -5,7 +5,7 @@ author: dfeldman
 tags:
 - testing
 - data
-team: Data Science
+team: Applied Research
 ---
 
 What is A/B testing?
