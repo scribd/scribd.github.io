@@ -136,4 +136,13 @@ div:
 gregr:
   name: Greg Reznik
   github: imfromthebay
+  
+  
+jonathanr:
+  name: Jonathan Ramkissoon
+  twitter: _JRamkissoon
+  github: jramkiss
+  blog: https://jramkiss.github.io/
+  about: |
+    Jonathan is a data scientist on the Applied Research team building machine learning models to understand and connect our content.
 
