@@ -10,7 +10,22 @@ author: jonathanr
 ---
 
 
-[User-uploaded documents](https://www.scribd.com/docs) have been a core component of Scribd’s business from the very beginning. Users can upload and share documents, analogous to YouTube and videos. Consequently, our document corpus has become much larger and more diverse over the years. Understanding what we have in the document corpus unlocks many opportunities for discovery and recommendations. Over the past year, one of the missions of the Applied Research team has been to build a system to extract key document meta-data with the goal of enriching downstream discovery systems. Our approach combines semantic understanding with user behaviour in a multi-component machine learning system. This is part 1 in a series of blog posts explaining the challenges faced by the team and solutions explored while building this system. This post presents the limitations, challenges and solutions encountered when developing a model to classify arbitrary user-uploaded documents.
+User-uploaded documents have been a core component of Scribd’s business from
+the very beginning, understanding what is _actually_ in the document corpus
+unlocks exciting new opportunities for discovery and recommendation.
+With Scribd anybody can [upload and share
+documents](https://www.scribd.com/docs), analogous to YouTube and videos. Over
+the years, our document corpus has become larger and more diverse which has
+made understanding it an ever-increasing challenge.
+Over the past year one of the missions of the Applied Research team has been to
+extract key document metadata to enrich
+downstream discovery systems. Our approach combines semantic understanding with
+user behaviour in a multi-component machine learning system.
+
+This is part 1 in a series of blog posts explaining the challenges and
+solutions explored while building this system.  This post presents the
+limitations, challenges, and solutions encountered when developing a model to
+classify arbitrary user-uploaded documents.
 
 
 ## Initial Constraints
