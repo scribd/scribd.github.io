@@ -119,7 +119,10 @@ While there are different ways of dealing with this, our approach involved two s
 </figure>
 
 
-Now that we have a model to filter documents based on visual cues, we can build dedicated information extraction models for each document type – sheet music, text-heavy, comics, tables. This is exactly how we proceed from here, and we start with extracting information from text-heavy documents. Part 2 in this series will dive deeper into the challenges and solutions our team encountered while building these models.
+Now that we have a model to filter documents based on visual cues, we can build dedicated information extraction models for each document type – sheet music, text-heavy, comics, tables. This is exactly how we proceed from here, and we start with extracting information from text-heavy documents.
+
+Part 2 in this series will dive deeper into the challenges and solutions our
+team encountered while building these models. If you're interested to learn more about the problems Applied Research is solving or the systems which are built around those solutions, check out [our open positions!](/careers/#open-positions)
 
 
 ## References
