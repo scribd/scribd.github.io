@@ -70,19 +70,19 @@ Figure 2: Excerpt from John Stuart Mill’s Wikipedia page (left) and Top 5 Name
 
 To address this counting problem, let’s introduce a few abstractions:
 
-Named Entity refers to a unique person, place or organization. Because of their uniqueness, we can represent them with a unique identifier (ID). 
+`Named Entity` refers to a unique person, place or organization. Because of their uniqueness, we can represent them with a unique identifier (ID). 
 
-Named Entity Alias (or simply Alias), is one of possibly many names associated with a particular entity.
+`Named Entity Alias` (or simply Alias), is one of possibly many names associated with a particular entity.
 
-Canonical Alias is the preferred name for an entity.
+`Canonical Alias` is the preferred name for an entity.
 
-Named Entity Mention (or simply Mention), refers to each occurrence in a text that a Named Entity was referred to, regardless of which Alias was used.
+`Named Entity Mention` (or simply `Mention`), refers to each occurrence in a text that a Named Entity was referred to, regardless of which Alias was used.
 
-Knowledge Base is a collection of entities, allowing us to query for ID, canonical name, aliases and other information that might be relevant for the task at hand. One example is Wikidata.
+`Knowledge Base` is a collection of entities, allowing us to query for ID, canonical name, aliases and other information that might be relevant for the task at hand. One example is [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page).
 
 The first step to solve the counting problem is to normalize the names a document uses to refer to a named entity. Using our abstractions, this means we want to find all the mentions in a document, and use its alias to find the named entity it belongs to. Then, replace it with either the canonical name or the named entity ID - this distinction will become clearer later on.
 
-Entity Normalization
+### Entity Normalization
 
 Given a set of aliases that appear in a document, we developed heuristics (e.g. common tokens, initials) to identify which subset of aliases refer to the same named entity. This allowed us to limit our search space when comparing aliases.
 
@@ -150,9 +150,9 @@ Linking to a Knowledge Base
 
 Given that many keyphrases and entities mentioned in a document are notable, they are likely present in a knowledge base. This allows us to leverage extra information present in the knowledge base to improve the normalization step as well as downstream tasks.
 
-Entity Linking assists normalization by providing information that an alias matches a named entity, which otherwise wouldn’t match a heuristic (e.g. “Honest Abe” versus “Abraham Lincoln”). Furthermore, information in a knowledge base can be used to embed linked entities and keyphrases in the same space as text.
+Entity Linking assists normalization by providing information that an alias matches a named entity, which otherwise wouldn’t match a heuristic (e.g. “Honest Abe” versus “Abraham Lincoln”). Furthermore, [information in a knowledge base can be used to embed linked entities and keyphrases in the same space as text](https://arxiv.org/abs/1601.01343).
 
-Being able to embed entities in the same space as text is useful, as this unlocks the ability to compare possible matching named entity IDs with the context in which they’re mentioned, and make a decision on whether an alias we’re considering might be one of the entities in the knowledge base (in which case we will use IDs), or whether the alias doesn’t match any entity in the knowledge base, in which case we fall back to using the assumed canonical alias. 
+Being able to embed entities in the same space as text is useful, as this unlocks the ability to [compare possible matching named entity IDs with the context in which they’re mentioned](https://arxiv.org/abs/1911.03814), and make a decision on whether an alias we’re considering might be one of the entities in the knowledge base (in which case we will use IDs), or whether the alias doesn’t match any entity in the knowledge base, in which case we fall back to using the assumed canonical alias. 
 
 At Scribd we make use of Entity Linking to not only improve the Entity Normalization step, but also to take advantage of entity and keyphrase embeddings as supplemental features.
 
@@ -168,7 +168,7 @@ Take advantage of relevant information in knowledge bases
 
 This has enabled some interesting projects: 
 
-In one of them, we built a graph of documents along with their related keyphrases and entities. Embedding documents, keyphrases and entities in the same space allowed us to discover documents by analogy. For example, take The Count of Monte Cristo by Alexandre Dumas, a 19th century French novel about revenge. If we add to its embedding the embedding of science_fiction, it leads us to a collection of science fiction novels by Jules Verne (another 19th century French author), such as 20,000 Leagues Under the Sea and Journey to the Center of the Earth.
+In one of them, we built a graph of documents along with their related keyphrases and entities. Embedding documents, keyphrases and entities in the same space allowed us to discover documents by analogy. For example, take `The Count of Monte Cristo` by Alexandre Dumas, a 19th century French novel about revenge. If we add to its embedding the embedding of science_fiction, it leads us to a collection of science fiction novels by Jules Verne (another 19th century French author), such as `20,000 Leagues Under the Sea` and `Journey to the Center of the Earth`.
 
 Keyphrase extractions have also been useful in adding explainability to document clusters. By extracting the most common keyphrases of a cluster, we can derive a common theme for the cluster’s content:
 
