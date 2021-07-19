@@ -8,7 +8,7 @@ tags:
 team: Applied Research
 authors:
 - antoniam
-- rafael
+- rafaelp
 ---
 This is part 2 in a series of blog posts describing a multi-component machine learning system we built to extract metadata from our documents in order to enrich downstream discovery models. In this post, we present the challenges and limitations we faced and the solutions we came up with when building information extraction NLP models for our text-heavy documents.
 
