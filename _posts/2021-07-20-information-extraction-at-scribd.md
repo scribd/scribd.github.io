@@ -14,9 +14,7 @@ This is part 2 in a series of blog posts describing a multi-component machine le
 
 As mentioned in part 1, we now have a way of identifying text-heavy documents. Having done that, we want to build dedicated models to deepen our semantic understanding of them. We do this by extracting key phrases and entities. 
 
-![flowchart image description](https://user-images.githubusercontent.com/11147367/126206943-9deabf5f-6add-4a01-9e20-5ed8f9e10069.png)
-
-Figure 1: Diagram of our multi-component machine learning system.
+![flowchart image description](https://user-images.githubusercontent.com/11147367/126206943-9deabf5f-6add-4a01-9e20-5ed8f9e10069.png) Figure 1: Diagram of our multi-component machine learning system.
 
 Key phrases are phrases that represent major themes/topics, whereas entities are proper nouns such as people, places and organizations. For example, when a user uploads a document about the Manhattan project, we will first detect it is text-heavy, then extract key phrases and entities. Potential key phrases would be “atomic bomb” and “nuclear weapons” and potential entities would be “Robert Oppenheimer” and “Los Alamos”.
 
@@ -64,9 +62,7 @@ Named Entity Extraction systems identify instances of named entities in a text, 
 
 Naively counting named entities through exact string matches surfaces an interesting problem: a single entity may go by many names or aliases, which means string frequency is an unreliable measurement of importance. In the example given in Figure 2, we know that “MIll”, “John Stuart Mill” and “Stuart Mill” all refer to the same person. This means that Mill is even more central to the document than the table indicates, since he is referred to a total of 8 times instead of 5.
 
-![wiki image description](https://user-images.githubusercontent.com/11147367/126206932-a5612459-e597-4340-a379-d62da58a29dc.png)
-
-Figure 2: Excerpt from John Stuart Mill’s Wikipedia page (left) and Top 5 Named Entity counts of the first few paragraphs (right).
+![wiki image description](https://user-images.githubusercontent.com/11147367/126206932-a5612459-e597-4340-a379-d62da58a29dc.png) Figure 2: Excerpt from John Stuart Mill’s Wikipedia page (left) and Top 5 Named Entity counts of the first few paragraphs (right).
 
 To address this counting problem, let’s introduce a few abstractions:
 
@@ -177,13 +173,11 @@ In one of them, we built a graph of documents along with their related keyphrase
 
 Keyphrase extractions have also been useful in adding explainability to document clusters. By extracting the most common keyphrases of a cluster, we can derive a common theme for the cluster’s content:
 
-![topics image description](https://user-images.githubusercontent.com/11147367/126206921-31cea5fb-989c-4468-bb0e-508935f20636.png)
-
-Figure 3: Top keyphrases in a document cluster. The keywords imply that the documents therein are related to dentistry & healthcare, which was confirmed by manually inspecting the documents.
+![topics image description](https://user-images.githubusercontent.com/11147367/126206921-31cea5fb-989c-4468-bb0e-508935f20636.png) Figure 3: Top keyphrases in a document cluster. The keywords imply that the documents therein are related to dentistry & healthcare, which was confirmed by manually inspecting the documents.
 
 In yet another project, we leveraged precomputed knowledge base embeddings to represent a document in space through a composition of the entities and keyphrases it contains. These features allowed us to understand the documents uploaded by our users and improve the content discovery on the platform. 
 
-To see how we use the information extracted to classify documents into a taxonomy, make sure to check out part 3: `Categorizing user-uploaded documents`
+To see how we use the information extracted to classify documents into a taxonomy, make sure to check out part 3: `Categorizing user-uploaded documents` (coming soon).
 
 If you're interested to learn more about the problems Applied Research is solving or the systems which are built around those solutions, check out [our open positions!](/careers/#open-positions)
 
