@@ -109,39 +109,39 @@ Table 1: Top 5 occurring aliases in the first few paragraphs of John Stuart Mill
 
 Comparing entities with each other using exact token matching as a heuristic would solve this:
 
-Merges
-
-Comparison Left
-
-Comparison Right
-
-Result
-
-Mill
-
-John Stuart Mill
-
-(Mill, John Stuart Mill)
-
-(Mill, John Stuart Mill)
-
-Robert Grosvenor
-
--
-
-(Mill, John Stuart Mill)
-
-William Henry Smith
-
--
-
-(Mill, John Stuart Mill)
-
-Stuart Mill
-
-(Mill, John Stuart Mill, Stuart Mill)
-
-[ the remaining comparisons do not yield merges and were omitted ]
+<table>
+  <tr>
+    <th colspan='3' >Merges</th>
+  </tr>
+  <tr>
+    <td><b>Comparison Left</b></td>
+    <td><b>Comparison Right</b></td>
+    <td><b>Result</b></td>
+  </tr>
+  <tr>
+    <td><b>Mill</b></td>
+    <td>John Stuart <b>Mill</td>
+    <td>(Mill, John Stuart Mill)</td>
+  </tr>
+  <tr>
+    <td>(Mill, John Stuart Mill)</td>
+    <td>Robert Grosvenor</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>(Mill, John Stuart Mill)</td>
+    <td>William Henry Smith</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>(<b>Mill</b>, John <b>Stuart Mill</b>)</td>
+    <td><b>Stuart Mill</b></td>
+    <td>(Mill, John Stuart Mill, Stuart Mill)</td>
+  </tr>
+  <tr>
+    <td colspan='3' >[ the remaining comparisons do not yield merges and were omitted ]</td>
+  </tr>
+</table>
 
 Table 2: Pairwise alias comparisons and resulting merges. Matches highlighted in bold.
 
@@ -151,7 +151,7 @@ One edge case is when an alias might refer to more than one entity: e.g. the ali
 
 When an entity is not present in a knowledge base, we cannot use Named Entity Linking to disambiguate. In this case, our solution uses a fallback method that assigns the ambiguous mention (Potter) to the closest occurring unambiguous mention that matches the heuristics (e.g. Harry). 
 
-Linking to a Knowledge Base
+## Linking to a Knowledge Base
 
 Given that many keyphrases and entities mentioned in a document are notable, they are likely present in a knowledge base. This allows us to leverage extra information present in the knowledge base to improve the normalization step as well as downstream tasks.
 
@@ -161,15 +161,15 @@ Being able to embed entities in the same space as text is useful, as this unlock
 
 At Scribd we make use of Entity Linking to not only improve the Entity Normalization step, but also to take advantage of entity and keyphrase embeddings as supplemental features.
 
-Discussion
+## Discussion
 
 Putting all of this together, we can:
 
-Link documents to keyphrases and entities
+1. Link documents to keyphrases and entities
 
-Find the relative importance of each in a document.
+1. Find the relative importance of each in a document
 
-Take advantage of relevant information in knowledge bases
+1. Take advantage of relevant information in knowledge bases
 
 This has enabled some interesting projects: 
 
