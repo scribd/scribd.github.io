@@ -91,62 +91,20 @@ Given a set of aliases that appear in a document, we developed heuristics (e.g. 
 
 Using our previous example to illustrate this method, we start by assuming the canonical alias is the longest alias in a text for a given entity, and attempt to merge aliases together by evaluating which aliases match the heuristics we developed. 
 
-<table>
-  <thead>
-      <tr>
-          <th colspan=5>Entities’ Aliases Mentioned in the Document</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td>Mill</td>
-        <td>John Stuart Mill</td>
-        <td>Robert Grosvenor</td>
-        <td>William Henry Smith</td>
-        <td>Stuart Mill</td>
-     </tr>
-  </tbody>
-</table>
-
-Table 1: Top 5 occurring aliases in the first few paragraphs of John Stuart Mill’s Wikipedia page, some referring to the same person.
+<figure>
+    <img width="662" alt="Table 1: Top 5 occurring aliases in the first few paragraphs of John Stuart Mill’s Wikipedia page, some referring to the same person.
+" src="https://user-images.githubusercontent.com/11147367/126228221-7b9c6062-5ba3-4734-ae7f-49b00244792d.png">
+  <figcaption> Table 1: Top 5 occurring aliases in the first few paragraphs of John Stuart Mill’s Wikipedia page, some referring to the same person.
+ </figcaption>
+</figure>
 
 Comparing entities with each other using exact token matching as a heuristic would solve this:
 
-<table>
-  <tr>
-    <th colspan='3' >Merges</th>
-  </tr>
-  <tr>
-    <td><b>Comparison Left</b></td>
-    <td><b>Comparison Right</b></td>
-    <td><b>Result</b></td>
-  </tr>
-  <tr>
-    <td><b>Mill</b></td>
-    <td>John Stuart <b>Mill</td>
-    <td>(Mill, John Stuart Mill)</td>
-  </tr>
-  <tr>
-    <td>(Mill, John Stuart Mill)</td>
-    <td>Robert Grosvenor</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>(Mill, John Stuart Mill)</td>
-    <td>William Henry Smith</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>(<b>Mill</b>, John <b>Stuart Mill</b>)</td>
-    <td><b>Stuart Mill</b></td>
-    <td>(Mill, John Stuart Mill, Stuart Mill)</td>
-  </tr>
-  <tr>
-    <td colspan='3' >[ the remaining comparisons do not yield merges and were omitted ]</td>
-  </tr>
-</table>
-
-Table 2: Pairwise alias comparisons and resulting merges. Matches highlighted in bold.
+<figure>
+    <img width="662" alt="Table 2: Pairwise alias comparisons and resulting merges. Matches highlighted in bold." src="https://user-images.githubusercontent.com/11147367/126228205-d657fd20-3bc1-408a-b8e6-70a40fb74ade.png">
+  <figcaption> Table 2: Pairwise alias comparisons and resulting merges. Matches highlighted in bold.
+ </figcaption>
+</figure>
 
 By replacing all mentions with its corresponding canonical alias, we are able to find the correct named entity counts.
 
