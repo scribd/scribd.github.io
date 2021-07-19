@@ -12,18 +12,18 @@ authors:
 ---
 This is part 2 in a series of blog posts describing a multi-component machine learning system we built to extract metadata from our documents in order to enrich downstream discovery models. In this post, we present the challenges and limitations we faced and the solutions we came up with when building information extraction NLP models for our text-heavy documents.
 
-As mentioned in [part 1](https://tech.scribd.com/blog/2021/identifying-document-types.html), we now have a way of identifying text-heavy documents. Having done that, we want to build dedicated models to deepen our semantic understanding of them. We do this by extracting key phrases and entities. 
+As mentioned in [part 1](/blog/2021/identifying-document-types.html), we now have a way of identifying text-heavy documents. Having done that, we want to build dedicated models to deepen our semantic understanding of them. We do this by extracting keyphrases and entities. 
 
 <figure>
     <img width="662" alt="Figure 1: Diagram of our multi-component machine learning system. " src="https://user-images.githubusercontent.com/11147367/126206943-9deabf5f-6add-4a01-9e20-5ed8f9e10069.png">
   <figcaption> Figure 1: Diagram of our multi-component machine learning system. </figcaption>
 </figure>
 
-Key phrases are phrases that represent major themes/topics, whereas entities are proper nouns such as people, places and organizations. For example, when a user uploads a document about the Manhattan project, we will first detect it is text-heavy, then extract key phrases and entities. Potential key phrases would be “atomic bomb” and “nuclear weapons” and potential entities would be “Robert Oppenheimer” and “Los Alamos”.
+Keyphrases are phrases that represent major themes/topics, whereas entities are proper nouns such as people, places and organizations. For example, when a user uploads a document about the Manhattan project, we will first detect it is text-heavy, then extract keyphrases and entities. Potential keyphrases would be “atomic bomb” and “nuclear weapons” and potential entities would be “Robert Oppenheimer” and “Los Alamos”.
 
 As keyphrase extraction brings out the general topics discussed in a document, it helps put a cap on the amount of information kept per document, resulting in a somewhat uniform representation of documents irrespective of their original size. Entity extraction, on the other hand, identifies elements in a text that aren’t necessarily reflected by keyphrases only. We found the combination of keyphrase and entity extraction to provide a rich semantic description of each document. 
 
-The rest of this post will explain how we approached key phrase and entity extraction, and how we identified whether a subset of these keyphrases and entities are present in a knowledge base (also known as linking), and introduce how we use them to categorize documents.
+The rest of this post will explain how we approached keyphrase and entity extraction, and how we identified whether a subset of these keyphrases and entities are present in a knowledge base (also known as linking), and introduce how we use them to categorize documents.
 
 ## Keyphrase Extraction
 
@@ -31,7 +31,7 @@ Typically a keyphrase extraction system operates in two steps as indicated in th
 
 - Using heuristics to extract a list of words/phrases that serve as candidate keyphrases, such as part-of-speech language patterns, stopwords filtering, and n-grams with Wikipedia article titles
 
-- Determining which of these candidate keyphrases are most likely to be key phrases, using one of the two approaches:
+- Determining which of these candidate keyphrases are most likely to be keyphrases, using one of the two approaches:
 
   - Supervised approaches such as binary classification of candidates (useful/not useful), structural features based on positional encoding, etc.
 
@@ -39,21 +39,21 @@ Typically a keyphrase extraction system operates in two steps as indicated in th
 
 Training a decent supervised model to be able to extract keyphrases across a wide variety of topics would require a large amount of training data, and might generalize very poorly. For this reason, we decided to take the unsupervised approach.
 
-Our implementation of key phrase extraction is optimized for speed without sacrificing key phrase quality much. We employ both a statistical method and language specific rules to identify them efficiently.
+Our implementation of keyphrase extraction is optimized for speed without sacrificing keyphrase quality much. We employ both a statistical method and language specific rules to identify them efficiently.
 
 We simply start by filtering out stopwords and extracting the n-grams with a base n (bigrams in our case, n=2). This step is fast and straightforward and results in an initial set of candidate n-grams. 
 
-Limiting the results to a single n-gram class, however, results in split key phrases, which makes linking them to a knowledge base a challenging task. For that, we attempt to agglomerate lower order n-grams into potentially longer key phrases, as long as they occur at a predetermined minimum frequency as compared to the shorter n_gram, based on the following a pattern: 
+Limiting the results to a single n-gram class, however, results in split keyphrases, which makes linking them to a knowledge base a challenging task. For that, we attempt to agglomerate lower order n-grams into potentially longer keyphrases, as long as they occur at a predetermined minimum frequency as compared to the shorter n_gram, based on the following a pattern: 
 
 `A sequence of nouns (NN) possibly interleaved with either Coordinating Conjunctions (CC) or Prepositions and Subordinating Conjunctions (IN).`
 
 Here are a few examples:
 
-Assuming the minimum frequency of agglomeration is 0.5, that means we would only replace the bigram `world (NN) health (NN)` by `world (NN) health (NN) organization (NN)` as long as `world health organization` occurs at least 50% as much as `world health` occurs. 
+- Assuming the minimum frequency of agglomeration is 0.5, that means we would only replace the bigram `world (NN) health (NN)` by `world (NN) health (NN) organization (NN)` as long as `world health organization` occurs at least 50% as much as `world health` occurs. 
 
-Replace `Human (NNP) Development (NNP)` with `Center(NNP) for (IN) Global (NNP) Development (NNP)` only if the latter occurs at least a predetermined percentage of time as compared to the former.
+- Replace `Human (NNP) Development (NNP)` with `Center(NNP) for (IN) Global (NNP) Development (NNP)` only if the latter occurs at least a predetermined percentage of time as compared to the former.
 
-This method results in more coherent and complete key phrases that could be linked more accurately to a knowledge base entry.
+This method results in more coherent and complete keyphrases that could be linked more accurately to a knowledge base entry.
 
 Finally we use the count of occurrences of the candidate keyphrase as a proxy to its importance. This method is reliable for longer documents, as the repetition of a keyphrase tends to reliably indicate its centrality to the document’s topic. 
 
@@ -73,15 +73,15 @@ Naively counting named entities through exact string matches surfaces an interes
 
 To address this counting problem, let’s introduce a few abstractions:
 
-`Named Entity` refers to a unique person, place or organization. Because of their uniqueness, we can represent them with a unique identifier (ID). 
+- `Named Entity` refers to a unique person, place or organization. Because of their uniqueness, we can represent them with a unique identifier (ID). 
 
-`Named Entity Alias` (or simply Alias), is one of possibly many names associated with a particular entity.
+- `Named Entity Alias` (or simply Alias), is one of possibly many names associated with a particular entity.
 
-`Canonical Alias` is the preferred name for an entity.
+- `Canonical Alias` is the preferred name for an entity.
 
-`Named Entity Mention` (or simply `Mention`), refers to each occurrence in a text that a Named Entity was referred to, regardless of which Alias was used.
+- `Named Entity Mention` (or simply `Mention`), refers to each occurrence in a text that a Named Entity was referred to, regardless of which Alias was used.
 
-`Knowledge Base` is a collection of entities, allowing us to query for ID, canonical name, aliases and other information that might be relevant for the task at hand. One example is [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page).
+- `Knowledge Base` is a collection of entities, allowing us to query for ID, canonical name, aliases and other information that might be relevant for the task at hand. One example is [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page).
 
 The first step to solve the counting problem is to normalize the names a document uses to refer to a named entity. Using our abstractions, this means we want to find all the mentions in a document, and use its alias to find the named entity it belongs to. Then, replace it with either the canonical name or the named entity ID - this distinction will become clearer later on.
 
@@ -134,7 +134,7 @@ Putting all of this together, we can:
 
 This has enabled some interesting projects: 
 
-In one of them, we built a graph of documents along with their related keyphrases and entities. Embedding documents, keyphrases and entities in the same space allowed us to discover documents by analogy. For example, take `The Count of Monte Cristo` by Alexandre Dumas, a 19th century French novel about revenge. If we add to its embedding the embedding of science_fiction, it leads us to a collection of science fiction novels by Jules Verne (another 19th century French author), such as `20,000 Leagues Under the Sea` and `Journey to the Center of the Earth`.
+In one of them, we built a graph of documents along with their related keyphrases and entities. Embedding documents, keyphrases and entities in the same space allowed us to discover documents by analogy. For example, take `The Count of Monte Cristo` by Alexandre Dumas, a 19th century French novel about revenge. If we add to its embedding the embedding of `science_fiction`, it leads us to a collection of science fiction novels by Jules Verne (another 19th century French author), such as `20,000 Leagues Under the Sea` and `Journey to the Center of the Earth`.
 
 Keyphrase extractions have also been useful in adding explainability to document clusters. By extracting the most common keyphrases of a cluster, we can derive a common theme for the cluster’s content:
 
@@ -146,7 +146,7 @@ Keyphrase extractions have also been useful in adding explainability to document
 
 In yet another project, we leveraged precomputed knowledge base embeddings to represent a document in space through a composition of the entities and keyphrases it contains. These features allowed us to understand the documents uploaded by our users and improve the content discovery on the platform. 
 
-To see how we use the information extracted to classify documents into a taxonomy, make sure to check out part 3: `Categorizing user-uploaded documents` (coming soon).
+To see how we use the information extracted to classify documents into a taxonomy, make sure to check out part 3 (coming soon): `Categorizing user-uploaded documents`
 
 If you're interested to learn more about the problems Applied Research is solving or the systems which are built around those solutions, check out [our open positions!](/careers/#open-positions)
 
