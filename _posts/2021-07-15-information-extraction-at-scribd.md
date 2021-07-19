@@ -12,7 +12,7 @@ authors:
 ---
 This is part 2 in a series of blog posts describing a multi-component machine learning system we built to extract metadata from our documents in order to enrich downstream discovery models. In this post, we present the challenges and limitations we faced and the solutions we came up with when building information extraction NLP models for our text-heavy documents.
 
-As mentioned in part 1, we now have a way of identifying text-heavy documents. Having done that, we want to build dedicated models to deepen our semantic understanding of them. We do this by extracting key phrases and entities. 
+As mentioned in [part 1](https://tech.scribd.com/blog/2021/identifying-document-types.html), we now have a way of identifying text-heavy documents. Having done that, we want to build dedicated models to deepen our semantic understanding of them. We do this by extracting key phrases and entities. 
 
 <figure>
     <img width="662" alt="Figure 1: Diagram of our multi-component machine learning system. " src="https://user-images.githubusercontent.com/11147367/126206943-9deabf5f-6add-4a01-9e20-5ed8f9e10069.png">
