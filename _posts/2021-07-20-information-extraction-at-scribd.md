@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Identifying Document Types at Scribd"
+title: "Information Extraction at Scribd"
 tags:
 - machinelearning
 - data
