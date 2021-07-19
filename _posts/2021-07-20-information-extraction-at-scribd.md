@@ -88,17 +88,22 @@ Given a set of aliases that appear in a document, we developed heuristics (e.g. 
 
 Using our previous example to illustrate this method, we start by assuming the canonical alias is the longest alias in a text for a given entity, and attempt to merge aliases together by evaluating which aliases match the heuristics we developed. 
 
-Entities’ Aliases Mentioned in the Document
-
-Mill
-
-John Stuart Mill
-
-Robert Grosvenor
-
-William Henry Smith
-
-Stuart Mill
+<table>
+  <thead>
+      <tr>
+          <th colspan=5>Entities’ Aliases Mentioned in the Document</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>Mill</td>
+        <td>John Stuart Mill</td>
+        <td>Robert Grosvenor</td>
+        <td>William Henry Smith</td>
+        <td>Stuart Mill</td>
+     </tr>
+  </tbody>
+</table>
 
 Table 1: Top 5 occurring aliases in the first few paragraphs of John Stuart Mill’s Wikipedia page, some referring to the same person.
 
@@ -178,9 +183,9 @@ Figure 3: Top keyphrases in a document cluster. The keywords imply that the docu
 
 In yet another project, we leveraged precomputed knowledge base embeddings to represent a document in space through a composition of the entities and keyphrases it contains. These features allowed us to understand the documents uploaded by our users and improve the content discovery on the platform. 
 
-To see how we use the information extracted to classify documents into a taxonomy, make sure to check out part 3: !
+To see how we use the information extracted to classify documents into a taxonomy, make sure to check out part 3: `Categorizing user-uploaded documents`
 
-
+If you're interested to learn more about the problems Applied Research is solving or the systems which are built around those solutions, check out [our open positions!](/careers/#open-positions)
 
 
 
