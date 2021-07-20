@@ -8,16 +8,17 @@ tags:
 team: Applied Research
 authors:
 - antoniam
+- rafaelp
 ---
 
 Extracting metadata from our documents is an important part of our discovery
 and recommendation pipeline, but discerning useful and relevant details
 from text-heavy user-uploaded documents can be challenging. This is
 part 2 in a series of blog posts describing a multi-component machine learning
-system we built to extract metadata from our documents in order to enrich
-downstream discovery models. In this post, we present the challenges and
-limitations we faced and the solutions we came up with when building
-information extraction NLP models for our text-heavy documents.
+system the Applied Research team built to extract metadata from our documents in order to
+to enrich downstream discovery models. In this post, we present the challenges and
+limitations the team faced when building information extraction NLP models for Scribd's 
+text-heavy documents and how they were solved.
 
 As mentioned in [part 1](/blog/2021/identifying-document-types.html), we now have a way of identifying text-heavy documents. Having done that, we want to build dedicated models to deepen our semantic understanding of them. We do this by extracting keyphrases and entities.
 
@@ -141,7 +142,7 @@ Putting all of this together, we can:
 
 This has enabled some interesting projects:
 
-In one of them, we built a graph of documents along with their related keyphrases and entities. Embedding documents, keyphrases and entities in the same space allowed us to discover documents by analogy. For example, take `The Count of Monte Cristo` by Alexandre Dumas, a 19th century French novel about revenge. If we add to its embedding the embedding of `science_fiction`, it leads us to a collection of science fiction novels by Jules Verne (another 19th century French author), such as `20,000 Leagues Under the Sea` and `Journey to the Center of the Earth`.
+In one of them, the Applied Research team built a graph of documents along with their related keyphrases and entities. Embedding documents, keyphrases and entities in the same space allowed us to discover documents by analogy. For example, take `The Count of Monte Cristo` by Alexandre Dumas, a 19th century French novel about revenge. If we add to its embedding the embedding of `science_fiction`, it leads us to a collection of science fiction novels by Jules Verne (another 19th century French author), such as `20,000 Leagues Under the Sea` and `Journey to the Center of the Earth`.
 
 Keyphrase extractions have also been useful in adding clarity to document clusters. By extracting the most common keyphrases of a cluster, we can derive a common theme for the cluster’s content:
 
@@ -151,15 +152,13 @@ Keyphrase extractions have also been useful in adding clarity to document cluste
   <figcaption> Figure 3: Top keyphrases in a document cluster. The keywords imply that the documents therein are related to dentistry & healthcare, which was confirmed by manually inspecting the documents. </figcaption>
 </figure>
 
-In yet another project, we leveraged precomputed knowledge base embeddings to represent a document in space through a composition of the entities and keyphrases it contains. These features allowed us to understand the documents uploaded by our users and improve the content discovery on the platform.
+In yet another project, the team leveraged precomputed knowledge base embeddings to represent a document in space through a composition of the entities and keyphrases it contains. These features allowed us to understand the documents uploaded by our users and improve the content discovery on the platform.
 
 To see how we use the information extracted to classify documents into a
 taxonomy, make sure to check out part 3 which will be coming soon:
 *Categorizing user-uploaded documents*.
 
-This post was written in collaboration with my colleague [Rafael
-Lacerda](https://blog.lacerda.ch) on the Applied Research team. If you're
-interested to learn more about the problems Applied Research is solving, or the
-systems which are built around those solutions, check out [our open
-positions!](/careers/#open-positions)
+If you're interested to learn more about the problems Applied Research
+is solving, or the systems which are built around those solutions,
+check out [our open positions!](/careers/#open-positions)
 
