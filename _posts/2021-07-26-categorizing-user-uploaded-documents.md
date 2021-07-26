@@ -13,7 +13,7 @@ Scribd offers a variety of content types to our users. It has not only premium e
 
 ## Building the taxonomy
 
-The unified taxonomy is a tree-structure with two layers that was designed by combining our Subject Matter Experts' (SME) knowledge of the book industry subject headings (BISAC categories) and data-driven insights. We used user-reading patterns to find topics that could help enrich our unified taxonomy.  
+The unified taxonomy is a tree-structure with two layers that was designed by combining our Subject Matter Experts' (SME) knowledge of the book industry subject headings ([BISAC](https://bisg.org/page/BISACEdition) categories) and data-driven insights. We used user-reading patterns to find topics that could help enrich our unified taxonomy.  
 
 ### Data-Driven Insights
 
@@ -23,13 +23,13 @@ Users have been interacting with Scribd content for more than 10 years, building
 
 Figure 1: Schematic representation of our approach: reading sequences are used to create vector representations for user uploaded documents. The vector dimension shown is merely illustrative. 
 
-For this work we focused only on user uploaded documents and on one type of interaction (reading for a minimum amount of time). The embeddings dimensions (and other hyperparamenters) were chosen to optimize the hit-ratio@20 (Caselles-Dupré, et al 2018) increasing how semantically tight the embeddings are. 
+For this work we focused only on user uploaded documents and on one type of interaction (reading for a minimum amount of time). The embeddings dimensions (and other hyperparamenters) were chosen to optimize the hit-ratio@20 ([Caselles-Dupré, et al 2018](https://arxiv.org/abs/1804.04212)) increasing how semantically tight the embeddings are. 
 
 Now that we have the embeddings we would like to use them to find groups of documents with similar subjects and topics. Finding these groups will help us identify categories that should be added to the taxonomy. 
 
-Dimensionality reduction allows for dense clusters of documents to be found more efficiently and accurately in the reduced space in comparison to the original high-dimensional space of our embeddings. We reduced the dimension of the embeddings using the t-SNE algorithm. t-SNE has a non-linear approach that can capture the smaller relationships between the points, as well as the global structure of the data. We used an implementation of t-SNE (Fast Fourier Transform accelerated Interpolation-based t-SNE” - FIt-SNE) that is flexible and does not sacrifice accuracy for speed. 
+Dimensionality reduction allows for dense clusters of documents to be found more efficiently and accurately in the reduced space in comparison to the original high-dimensional space of our embeddings. We reduced the dimension of the embeddings using the [t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) algorithm. t-SNE has a non-linear approach that can capture the smaller relationships between the points, as well as the global structure of the data. We used an implementation of t-SNE (Fast Fourier Transform accelerated Interpolation-based t-SNE” - [FIt-SNE](https://github.com/KlugerLab/FIt-SNE)) that is flexible and does not sacrifice accuracy for speed. 
 
-Finally, we grouped the user-uploaded docs by clustering the reduced embeddings using HDBSCAN. HDBSCAN separates data points into clusters based on the density distribution and can take general structure into account. It also has a feature to detect outliers (or noise), which are points that are too far from the nearest detected cluster to belong to it, and lack the density to form their own cluster.
+Finally, we grouped the user-uploaded docs by clustering the reduced embeddings using [HDBSCAN](https://arxiv.org/pdf/1709.04545.pdf). HDBSCAN separates data points into clusters based on the density distribution and can take general structure into account. It also has a feature to detect outliers (or noise), which are points that are too far from the nearest detected cluster to belong to it, and lack the density to form their own cluster.
 
 Figure 2 shows the 2D representation of the user-uploaded documents and their groups. The first thing we noticed and is highlighted in this figure is that the major groups are usually represented by language. Not surprisingly users tend to read content mostly on one single language. 
 
@@ -51,7 +51,7 @@ After we got the clusters and subclusters shown in Figure 3, an inspection of th
 
 Figure 4: Diagram of Scribd’s multi-component pipeline. Categorization is one of the downstream tasks highlighted in the diagram.  
 
-Now that we have the taxonomy, it is time to place the documents into categories. Our approach leverages the extracted key phrases and entities discussed in part II of the series. Figure 5 illustrates how our model works: we trained a supervised model to place documents identified as text-heavy (see part I) into categories using key phrases, entities and the text. 
+Now that we have the taxonomy, it is time to place the documents into categories. Our approach leverages the extracted key phrases and entities discussed in [part II](https://tech.scribd.com/blog/2021/information-extraction-at-scribd.html) of the series. Figure 5 illustrates how our model works: we trained a supervised model to place documents identified as text-heavy (see [part I](https://tech.scribd.com/blog/2021/identifying-document-types.html)) into categories using key phrases, entities and the text. 
 
 ![image](https://user-images.githubusercontent.com/37147739/127041352-d40f9d45-7766-410d-90ce-116b23929be3.png)
 
@@ -79,7 +79,7 @@ As explained above, in general, each subcluster shown in figure 3 is semanticall
 
 One way to associate topics to the subclusters would require Subject Matter Experts to manually inspect the documents in each subcluster and come up with the most important topics for each of them. However, this approach is not only time consuming, and thus not scalable with new iterations of the model and a likely increasing number of clusters. It is very important to try and make this a more automatic and flexible process. 
 
-We experimented with a very promising  two-step approach to automatically assign topics to subclusters. In this approach, we leverage the extracted information from the text described in part II and zero-shot topic classification (more info here):
+We experimented with a very promising  two-step approach to automatically assign topics to subclusters. In this approach, we leverage the extracted information from the text described in [part II](https://tech.scribd.com/blog/2021/information-extraction-at-scribd.html) and zero-shot topic classification (more info [here](https://arxiv.org/abs/1909.00161)):
 
 Step 1 - Find the subclusters' most representative key phrases by clustering their documents' extracted info.
 
@@ -103,7 +103,7 @@ Two important takeaways from this journey of categorizing documents were:
 
 **High quality labeled data** - We found that clean and consistently labelled data was much more important to the model than hyperparameter tuning. However, getting enough documents that fit the categories in our diverse corpus was a challenge. Several techniques were used to improve model performance on unseen data. Among them, active learning proved to be an important way to collect additional training samples and to guarantee the required granularity in the training set. 
 
-**Annotation alignment**  -  High quality data and model performance are both connected to the annotation process (see more here). When multiple annotators are involved in the data collection and evaluation, alignment on the definition of each category is crucial for an accurate training and evaluation of the model. This is even more essential in text classification, since associating categories/topics to a text can be a very subjective task, specially when we are dealing with a single-label categorization problem.
+**Annotation alignment**  -  High quality data and model performance are both connected to the annotation process (see more [here](https://www.youtube.com/watch?v=06-AZXmwHjo)). When multiple annotators are involved in the data collection and evaluation, alignment on the definition of each category is crucial for an accurate training and evaluation of the model. This is even more essential in text classification, since associating categories/topics to a text can be a very subjective task, specially when we are dealing with a single-label categorization problem.
 
 This project was an important milestone in understanding our user-uploaded documents: Classifying documents has enabled users to browse documents by category from our unified taxonomy. Additionally, we now have the power of understanding the categories that each user is interested in and interacts with. Combining the user interests with business metrics could help drive innovative and unexpected product decisions as well as enrich discoverability and recommendations. 
 
@@ -119,4 +119,4 @@ Using a data driven approach to build the taxonomy answers these questions and g
 
 Now that we understand more our user-uploaded content in English and that we have a consistent pipeline to give labels to these documents, we can extend this approach to other languages
 
-This work and post were done in collaboration with my colleague Antonia Mouawad on the Applied Research team. If you're interested to learn more about the problems Applied Research is solving, or the systems which are built around those solutions, check out our open positions.
+This work and post were done in collaboration with my colleague [Antonia Mouawad](https://ca.linkedin.com/in/antoniamouawad) on the Applied Research team. If you're interested to learn more about the problems Applied Research is solving, or the systems which are built around those solutions, check out our open positions.
