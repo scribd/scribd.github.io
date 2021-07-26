@@ -155,8 +155,7 @@ Keyphrase extractions have also been useful in adding clarity to document cluste
 In yet another project, the team leveraged precomputed knowledge base embeddings to represent a document in space through a composition of the entities and keyphrases it contains. These features allowed us to understand the documents uploaded by our users and improve the content discovery on the platform.
 
 To see how we use the information extracted to classify documents into a
-taxonomy, make sure to check out part 3 which will be coming soon:
-*Categorizing user-uploaded documents*.
+taxonomy, make sure to check out [part 3](/blog/2021/categorizing-user-uploaded-documents.html).
 
 If you're interested to learn more about the problems Applied Research
 is solving, or the systems which are built around those solutions,
