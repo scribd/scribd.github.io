@@ -19,9 +19,10 @@ The unified taxonomy is a tree-structure with two layers that was designed by co
 
 Users have been interacting with Scribd content for more than 10 years, building reading patterns throughout time. We leveraged these reading patterns to create dense vector representations of documents similarly to word2vec in text. 
 
-![image](https://user-images.githubusercontent.com/37147739/127040318-ba998c66-5751-4efd-8c92-a078b642aa2e.png)
-
-Figure 1: Schematic representation of our approach: reading sequences are used to create vector representations for user uploaded documents. The vector dimension shown is merely illustrative. 
+<figure>
+    <img width="662" alt="Schematic representation of our approach: reading sequences are used to create vector representations for user uploaded documents. The vector dimension shown is merely illustrative." src="https://user-images.githubusercontent.com/37147739/127040318-ba998c66-5751-4efd-8c92-a078b642aa2e.png">
+  <figcaption> Figure 1: Schematic representation of our approach: reading sequences are used to create vector representations for user uploaded documents. The vector dimension shown is merely illustrative. </figcaption>
+</figure>
 
 For this work we focused only on user uploaded documents and on one type of interaction (reading for a minimum amount of time). The embeddings dimensions (and other hyperparamenters) were chosen to optimize the hit-ratio@20 ([Caselles-Dupré, et al 2018](https://arxiv.org/abs/1804.04212)) increasing how semantically tight the embeddings are. 
 
@@ -33,29 +34,33 @@ Finally, we grouped the user-uploaded docs by clustering the reduced embeddings 
 
 Figure 2 shows the 2D representation of the user-uploaded documents and their groups. The first thing we noticed and is highlighted in this figure is that the major groups are usually represented by language. Not surprisingly users tend to read content mostly on one single language. 
 
-![image](https://user-images.githubusercontent.com/37147739/127041136-9ee4f09d-5215-4624-b02f-bc11b82b4cdb.png)
-
-Figure 2: Initial 2D representation of the embeddings using t-SNE and HDBSCAN. Each colored group represents a cluster found by HDBSCAN. Spread grey points were identified as noise.
+<figure>
+    <img width="662" alt="Figure 2: Initial 2D representation of the embeddings using t-SNE and HDBSCAN. Each colored group represents a cluster found by HDBSCAN. Spread grey points were identified as noise." src="https://user-images.githubusercontent.com/37147739/127041136-9ee4f09d-5215-4624-b02f-bc11b82b4cdb.png">
+  <figcaption> Figure 2: Initial 2D representation of the embeddings using t-SNE and HDBSCAN. Each colored group represents a cluster found by HDBSCAN. Spread grey points were identified as noise. </figcaption>
+</figure>
 
 We developed a technique to further split the groups above in smaller clusters that are semantically tighter. The final clusters can be seen in Figure 3. 
 
-![image](https://user-images.githubusercontent.com/37147739/127041180-4fd2e8f6-3f31-439b-91dd-ead4749ad68e.png)
-
-Figure 3: Final 2D representation of the embeddings after further splitting of each cluster. Each colored group represents a subcluster found by HDBSCAN for a particular cluster. Spread grey points were identified as noise.
+<figure>
+    <img width="662" alt="Figure 3: Final 2D representation of the embeddings after further splitting of each cluster. Each colored group represents a subcluster found by HDBSCAN for a particular cluster. Spread grey points were identified as noise." src="https://user-images.githubusercontent.com/37147739/127041180-4fd2e8f6-3f31-439b-91dd-ead4749ad68e.png">
+  <figcaption> Figure 3: Final 2D representation of the embeddings after further splitting of each cluster. Each colored group represents a subcluster found by HDBSCAN for a particular cluster. Spread grey points were identified as noise. </figcaption>
+</figure>
 
 After we got the clusters and subclusters shown in Figure 3, an inspection of the English subclusters was performed in order to identify their major subjects and themes. This investigation led to the incorporation of additional categories into the taxonomy, such as Philippine law, Study aids & test prep, and Teaching methods & materials, making the taxonomy broader across different content types and the browsing to this content more straightforward.
 
 ## Placing documents into categories
 
-![image](https://user-images.githubusercontent.com/37147739/127041306-c60b3453-e2e0-4f50-b283-6584c2ab0c5a.png)
-
-Figure 4: Diagram of Scribd’s multi-component pipeline. Categorization is one of the downstream tasks highlighted in the diagram.  
+<figure>
+    <img width="552" alt="Figure 4: Diagram of Scribd’s multi-component pipeline. Categorization is one of the downstream tasks highlighted in the diagram." src="https://user-images.githubusercontent.com/37147739/127041306-c60b3453-e2e0-4f50-b283-6584c2ab0c5a.png">
+  <figcaption> Figure 4: Diagram of Scribd’s multi-component pipeline. Categorization is one of the downstream tasks highlighted in the diagram. </figcaption>
+</figure>
 
 Now that we have the taxonomy, it is time to place the documents into categories. Our approach leverages the extracted key phrases and entities discussed in [part II](https://tech.scribd.com/blog/2021/information-extraction-at-scribd.html) of the series. Figure 5 illustrates how our model works: we trained a supervised model to place documents identified as text-heavy (see [part I](https://tech.scribd.com/blog/2021/identifying-document-types.html)) into categories using key phrases, entities and the text. 
 
-![image](https://user-images.githubusercontent.com/37147739/127041352-d40f9d45-7766-410d-90ce-116b23929be3.png)
-
-Figure 5: Model architecture to categorize docs.
+<figure>
+    <img width="662" alt="Figure 5: Model architecture to categorize docs." src="https://user-images.githubusercontent.com/37147739/127041352-d40f9d45-7766-410d-90ce-116b23929be3.png">
+  <figcaption> Figure 5: Model architecture to categorize docs. </figcaption>
+</figure>
 
 ### Additional insights from data
 
@@ -63,9 +68,10 @@ In the first iteration of the model, we had a dataset for training collected by 
 
 We applied a technique sometimes referred to as active learning to supplement our training set with the missing examples. Following this technique (Figure 6), the model is applied to a random sample of documents and the results analyzed by our SMEs. 
 
-![image](https://user-images.githubusercontent.com/37147739/127041436-010ca99d-ce71-4d25-9dad-afaed4a427eb.png)
-
-Figure 6: Active Learning Process used to improve model performance. 
+<figure>
+    <img width="662" alt="Figure 6: Active Learning Process used to improve model performance." src="https://user-images.githubusercontent.com/37147739/127041436-010ca99d-ce71-4d25-9dad-afaed4a427eb.png">
+  <figcaption> Figure 6: Active Learning Process used to improve model performance. </figcaption>
+</figure>
 
 This iterative process had two outcomes: improved the categories performance by re-training the model with a large variety of training example and the addition of a new category after we identified that a good fraction of documents fitted this particular category, 
 
@@ -83,17 +89,17 @@ We experimented with a very promising  two-step approach to automatically assign
 
 Step 1 - Find the subclusters' most representative key phrases by clustering their documents' extracted info.
 
-![image](https://user-images.githubusercontent.com/37147739/127041536-95fb49e9-feea-4700-9699-f2aac5371746.png)
-
-Figure 7: Illustration of Step 1. 
+<figure>
+    <img width="662" alt="Figure 7: Illustration of Step 1." src="https://user-images.githubusercontent.com/37147739/127041536-95fb49e9-feea-4700-9699-f2aac5371746.png">
+  <figcaption> Figure 7: Illustration of Step 1. </figcaption>
+</figure>
 
 Step 2 - Use the result of step 1 and zero-shot topic classification to find the highest ranking topics for each subcluster. 
 
-![image](https://user-images.githubusercontent.com/37147739/127041581-262f65a9-8077-4aa2-924d-f01ad5d1654a.png)
-
-Figure 8: Illustration of Step 2. The bar plot with the highest ranking topics is the result of this approach for a subcluster that contains essays about several literary works. 
-
- 
+<figure>
+    <img width="662" alt="Figure 8: Illustration of Step 2. The bar plot with the highest ranking topics is the result of this approach for a subcluster that contains essays about several literary works." src="https://user-images.githubusercontent.com/37147739/127041581-262f65a9-8077-4aa2-924d-f01ad5d1654a.png">
+  <figcaption> Figure 8: Illustration of Step 2. The bar plot with the highest ranking topics is the result of this approach for a subcluster that contains essays about several literary works. </figcaption>
+</figure>
 
 As it can be seen in figure 8, a cluster composed of literary works' essays has as the highest ranking topic literary criticism showing the potential of this approach for automatically giving names to user interaction clusters. 
 
@@ -119,4 +125,4 @@ Using a data driven approach to build the taxonomy answers these questions and g
 
 Now that we understand more our user-uploaded content in English and that we have a consistent pipeline to give labels to these documents, we can extend this approach to other languages
 
-This work and post were done in collaboration with my colleague [Antonia Mouawad](https://ca.linkedin.com/in/antoniamouawad) on the Applied Research team. If you're interested to learn more about the problems Applied Research is solving, or the systems which are built around those solutions, check out our open positions.
+This work and post were done in collaboration with my colleague [Antonia Mouawad](https://ca.linkedin.com/in/antoniamouawad) on the Applied Research team. If you're interested to learn more about the problems Applied Research is solving, or the systems which are built around those solutions, check out [our open positions](/careers/#open-positions).
