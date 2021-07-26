@@ -55,7 +55,7 @@ After we got the clusters and subclusters shown in Figure 3, an inspection of th
   <figcaption> Figure 4: Diagram of Scribd’s multi-component pipeline. Categorization is one of the downstream tasks highlighted in the diagram. </figcaption>
 </figure>
 
-Now that we have the taxonomy, it is time to place the documents into categories. Our approach leverages the extracted key phrases and entities discussed in [part II](https://tech.scribd.com/blog/2021/information-extraction-at-scribd.html) of the series. Figure 5 illustrates how our model works: we trained a supervised model to place documents identified as text-heavy (see [part I](https://tech.scribd.com/blog/2021/identifying-document-types.html)) into categories using key phrases, entities and the text. 
+Now that we have the taxonomy, it is time to place the documents into categories. Our approach leverages the extracted key phrases and entities discussed in [part II](/blog/2021/information-extraction-at-scribd.html) of the series. Figure 5 illustrates how our model works: we trained a supervised model to place documents identified as text-heavy (see [part I](/blog/2021/identifying-document-types.html)) into categories using key phrases, entities and the text. 
 
 <figure>
     <img width="662" alt="Figure 5: Model architecture to categorize docs." src="https://user-images.githubusercontent.com/37147739/127041352-d40f9d45-7766-410d-90ce-116b23929be3.png">
@@ -85,7 +85,7 @@ As explained above, in general, each subcluster shown in figure 3 is semanticall
 
 One way to associate topics to the subclusters would require Subject Matter Experts to manually inspect the documents in each subcluster and come up with the most important topics for each of them. However, this approach is not only time consuming, and thus not scalable with new iterations of the model and a likely increasing number of clusters. It is very important to try and make this a more automatic and flexible process. 
 
-We experimented with a very promising  two-step approach to automatically assign topics to subclusters. In this approach, we leverage the extracted information from the text described in [part II](https://tech.scribd.com/blog/2021/information-extraction-at-scribd.html) and zero-shot topic classification (more info [here](https://arxiv.org/abs/1909.00161)):
+We experimented with a very promising  two-step approach to automatically assign topics to subclusters. In this approach, we leverage the extracted information from the text described in [part II](/blog/2021/information-extraction-at-scribd.html) and zero-shot topic classification (more info [here](https://arxiv.org/abs/1909.00161)):
 
 Step 1 - Find the subclusters' most representative key phrases by clustering their documents' extracted info.
 
