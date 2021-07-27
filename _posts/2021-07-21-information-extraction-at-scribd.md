@@ -15,8 +15,7 @@ Extracting metadata from our documents is an important part of our discovery
 and recommendation pipeline, but discerning useful and relevant details
 from text-heavy user-uploaded documents can be challenging. This is
 part 2 in a series of blog posts describing a multi-component machine learning
-system the Applied Research team built to extract metadata from our documents in order to
-to enrich downstream discovery models. In this post, we present the challenges and
+system the Applied Research team built to extract metadata from our documents in order to enrich downstream discovery models. In this post, we present the challenges and
 limitations the team faced when building information extraction NLP models for Scribd's 
 text-heavy documents and how they were solved.
 
