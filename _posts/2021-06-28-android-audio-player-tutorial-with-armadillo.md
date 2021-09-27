@@ -18,8 +18,7 @@ or MP3 content that is broken down into chapters or tracks. It leverages
 low level audio and video apis but has few opinions of its own for actually
 using audio in an Android app.
 
-![Armadillo Image](https://i.ibb.co/LzTK79B/armadillo.jpg)
-<sup>Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](http://www.flaticon.com/) <sub>
+![Armadillo Image](https://raw.githubusercontent.com/scribd/armadillo/main/armadillo.webp)
 
 The leap required from Exoplayer to audio player
 is enormous both in terms of the amount of code needed as well as the amount of
