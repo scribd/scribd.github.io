@@ -26,9 +26,9 @@
     about titles in our library by analyzing content and user behavior and
     building predictive models.
 
-- team: Data Science
+- team: Applied Research
   description: |
-    The Data Science team drives decisions by creating insights into the product
+    The Applied Research team drives decisions by creating insights into the product
     and improve the user experience with machine learning.
 
 - team: Core Platform
@@ -75,7 +75,7 @@
 - team: iOS
   description: |
     The iOS team's mission is to deliver a performant, stable and feature-rich
-    Android application.
+    iOS application.
 
 - team: Web Development
   description: |

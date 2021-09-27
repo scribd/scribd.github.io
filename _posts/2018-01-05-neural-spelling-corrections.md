@@ -5,7 +5,7 @@ author: mattr
 tags:
 - seq2seq
 - data
-team: Data Science
+team: Applied Research
 ---
 
 Introduction

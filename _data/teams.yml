@@ -8,6 +8,9 @@ iOS:
 Android:
   lever: 'Mobile'
 
+Applied Research:
+  lever: 'Data Science'
+
 Data Science:
   lever: 'Data Science'
 

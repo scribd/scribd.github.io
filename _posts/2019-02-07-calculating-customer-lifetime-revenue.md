@@ -5,7 +5,7 @@ author: bclearly
 tags:
 - ltr
 - data
-team: Data Science
+team: Applied Research
 ---
 
 Why LTR? (Lifetime Revenue)

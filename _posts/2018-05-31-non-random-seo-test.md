@@ -6,7 +6,7 @@ tags:
 - seo
 - testing
 - data
-team: Data Science
+team: Applied Research
 ---
 
 Months ago, your friends convinced you to sign up for a half marathon. With three weeks to go, you haven’t even started training. In a growing panic, you turn to the internet for answers.
