@@ -91,3 +91,8 @@
   description: |
     The Web QA team strives for a defect-free Scribd website known for
     its reliability.
+
+- team: Service Foundations
+  description: |
+    The Service Foudations team provides reliable, high-quality, scalable service foundations 
+    that teams can leverage to easily build, deploy and monitor self-owned, distributed services.
