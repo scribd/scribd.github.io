@@ -1,4 +1,4 @@
-----
+---
 layout: post
 title: "Accelerating Looker with Databricks SQL Serverless"
 tags:
@@ -7,7 +7,7 @@ tags:
 - featured
 team: Core Platform
 author: hamiltonh
-----
+---
 
 We recently migrated Looker to a Databricks SQL Serverless, improving our
 infrastructure cost and reducing the footprint of infrastructure we need to
