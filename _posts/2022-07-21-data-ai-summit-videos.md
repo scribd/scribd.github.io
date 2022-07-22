@@ -26,8 +26,8 @@ work he has done developing
 [![Streaming Data into Delta Lake with Rust and Kafka](https://img.youtube.com/vi/do4jsxeKfd4/hqdefault.jpg)](https://www.youtube.com/watch?v=do4jsxeKfd4&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=195)
 * [QP Hou](https://github.com/houqp), Scribd Emeritus, presented on
 his foundational work to ensure correctness within delta-rs during his session:
-**[Ensuring Correct Distributed Writes to Delta Lake in Rust with Formal
-Verification](https://www.youtube.com/watch?v=ABoCnrVWCKY&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=112)
+[![Ensuring Correct Distributed Writes to Delta Lake in Rust with Formal
+Verification](https://img.youtube.com/vi/ABoCnrVWCKY/hqdefault.jpg)](https://www.youtube.com/watch?v=ABoCnrVWCKY&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=112)
 * [R Tyler Croy](https://github.com/rtyler) co-presented with Gavin
 Edgley from Databricks on the cost analysis work Scribd has done to efficiently
 grow our data platform with **[Doubling the size of the data lake without doubling the
