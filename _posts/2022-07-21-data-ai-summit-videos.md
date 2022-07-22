@@ -23,8 +23,7 @@ since been posted to YouTube along with _hundreds_ of other talks.
 * [Christian Williams](https://github.com/xianwill) shared some of the
 work he has done developing
 [kafka-delta-ingest](https://github.com/scribd/kafka-delta-ingest) in his talk:
-**[Streaming Data into Delta Lake with Rust and
-Kafka](https://www.youtube.com/watch?v=do4jsxeKfd4&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=195)
+[![Streaming Data into Delta Lake with Rust and Kafka](https://img.youtube.com/vi/do4jsxeKfd4/hqdefault.jpg)](https://www.youtube.com/watch?v=do4jsxeKfd4&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=195)
 * [QP Hou](https://github.com/houqp), Scribd Emeritus, presented on
 his foundational work to ensure correctness within delta-rs during his session:
 **[Ensuring Correct Distributed Writes to Delta Lake in Rust with Formal
