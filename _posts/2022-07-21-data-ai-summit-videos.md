@@ -30,9 +30,8 @@ his foundational work to ensure correctness within delta-rs during his session:
 Verification](https://img.youtube.com/vi/ABoCnrVWCKY/hqdefault.jpg)](https://www.youtube.com/watch?v=ABoCnrVWCKY&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=112)
 * [R Tyler Croy](https://github.com/rtyler) co-presented with Gavin
 Edgley from Databricks on the cost analysis work Scribd has done to efficiently
-grow our data platform with **[Doubling the size of the data lake without doubling the
-cost](
-https://www.youtube.com/watch?v=9QDRD0PzqCE&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=122)
+grow our data platform with:
+[![Doubling the size of the data lake without doubling the cost](https://img.youtube.com/vi/9QDRD0PzqCE/hqdefault.jpg)](https://www.youtube.com/watch?v=9QDRD0PzqCE&list=PLTPXxbhUt-YVWi_cf2UUDc9VZFLoRgu0l&index=122)
 
 Members of the Scribd team participated in a panel to discuss the past,
 present, and future of Delta Lake on the expo floor. We also took advantage of
