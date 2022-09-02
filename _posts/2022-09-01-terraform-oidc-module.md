@@ -19,7 +19,7 @@ Terraform has resource aws_iam_openid_connect_provider available starting from A
 - **access ECR  with write permissions**
 - **access some AWS service with some specific permissions set**
 
-[The following diagram gives an overview of how GitHub's OIDC provider integrates with your workflows and cloud provider:] (https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#getting-started-with-oidc)
+[The following diagram gives an overview of how GitHub's OIDC provider integrates with your workflows and cloud provider:](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#getting-started-with-oidc)
 ![img.png](https://docs.github.com/assets/cb-63262/images/help/images/oidc-architecture.png)
 
 Based on our work in GitHub and AWS using Terraform we created Terraform module what helps us access AWS from GitHub actions https://github.com/scribd/terraform-oidc-module It cover our needs and even more it can attach any of your IAM policies what you pass as a parameter into module.
