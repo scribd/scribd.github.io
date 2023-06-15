@@ -32,7 +32,7 @@ And Jenkins pipeline for building Airflow docker image and apply Terraform to re
 
 We decided to upgrade because of released features and fixed bugs obviously, but the most valuable thing we wanted is multiple Schedulers because our Fargate instance came close to it's max available resources, and we suffered from constant high CPU utilization.
 
-This caused MySQL upgrade because multiple Schedulers doesn't work with 5.7 which doesn't have that locking functionality we need...
+This caused MySQL upgrade because multiple Schedulers don't work with MySQL 5.7 which doesn't support SKIP LOCKED or NOWAIT SQL clauses.
 
 With all the rest we decided that this is a good idea to also bump Python version from `3.7` to `3.10` (which, as you already may understand, wasn't)
 
