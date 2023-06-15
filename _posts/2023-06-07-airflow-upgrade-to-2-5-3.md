@@ -64,7 +64,7 @@ Issues we knew about and/or caught during the testing were:
 - some of `timetable` functions also changed, and we had to find new ways to do what we did before merging (like `dag.timetable.infer_data_interval(your_execution_date).end` became `dag.timetable.infer_manual_data_interval(run_after=exec_dt).start`)
 - `node:12.22.6` Docker image we used for building npm (`airflow/www/static/dist`) was too old for the new and shiny Airflow (switched to the `node:16.0.0`)
 - `TriggerRuleDep` changed, and our custom rules that were using/overriding `_get_dep_statuses` and `_evaluate_trigger_rule` also started to fail
-- Okta integration started to fail because of new Flask AppBuilder (simply adding `server_metadata_url` to existing configuration solved the issue)
+- [Okta integration](https://tech.scribd.com/blog/2021/integrating-airflow-and-okta.html) started to fail because of new Flask AppBuilder (simply adding `server_metadata_url` to existing configuration solved the issue)
 - some Airflow configuration params (like `AIRFLOW__CORE__SQL_ALCHEMY_CONN` -> `AIRFLOW__DATABASE__SQL_ALCHEMY_CONN`) were changes
 - `AwsLambdaHook` changed to `LambdaHook` in the `AWS` provider. `function_name` parameter was moved from the `AwsLambdaHook.init()` function to the `invoke_lambda` function (put it closer to the execution)
 - BaseOperator's `task_concurrency` parameter changed to `max_active_tis_per_dag`
