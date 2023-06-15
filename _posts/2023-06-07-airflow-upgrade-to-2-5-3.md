@@ -17,28 +17,28 @@ Main parts of our Airflow infrastructure:
 - Old but gold Airflow `2.2.0`
     - Our private fork with custom changes that we didn't upstream yet
     - Airflow Image based on `python3.7` Docker image stored in AWS ECR (Elastic Container Registry)
-      - We are installing Airflow in `--editable` mode each time to apply our custom changes
+      - We install Airflow in `--editable` mode each time to apply our custom changes
     - Scheduler and Web Server running on AWS ECS Fargate (Elastic Container Service)
     - Terraform for configuring ECS tasks and Airflow params
     - Kubernetes Executor on AWS EKS `1.24` (Elastic Kubernetes Service)
-- Airflow backend - MySQL `5.7` on RDS (Relational Database Service)
-![](/post-images/2023-06-07-airflow-upgrade-to-2-5-3/airflow_highlevel_architecture.png)
-<font size="3"><center><i>Databricks cluster configuration parameters</i></center></font>
+- Airflow backend - MySQL `5.7` on AWS RDS (Relational Database Service)
+![](/post-images/2023-06-07-airflow-upgrade-to-2-5-3/airflow-highlevel-architecture.png)
+<font size="3"><center><i>High-level architecture of our Airflow infrastructure</i></center></font>
 
 Also, we have a couple of our own Airflow plugins like custom operators, hooks and _Self-Service Backfill UI_ (you can learn more about this in our [Airflow Summit 2021 slides](https://airflowsummit.org/slides/2021/e5_6-ModernizeAirflow-Scribd.pdf)). 
-And Jenkins pipeline for building Airflow docker image and apply Terraform to restart ECS tasks with new configurations and Airflow image.
+Jenkins pipeline for building Airflow Docker image and apply Terraform to restart ECS tasks with new configurations and Airflow image.
 
 ### Why?
 
-We decided to upgrade because of released features and fixed bugs obviously, but the most valuable thing we wanted is multiple Schedulers because our Fargate instance came close to it's max available resources, and we suffered from constant high CPU utilization.
+We decided to upgrade because of released features and fixed bugs obviously, but the most valuable thing we desired is multiple Schedulers because our Fargate instance came close to it's max available resources, and we suffered from constant high CPU utilization.
 
-This caused MySQL upgrade because multiple Schedulers don't work with MySQL 5.7 which doesn't support SKIP LOCKED or NOWAIT SQL clauses.
+This caused MySQL upgrade because multiple Schedulers don't work with MySQL 5.7 which doesn't support `SKIP LOCKED` or `NOWAIT` SQL clauses.
 
-With all the rest we decided that this is a good idea to also bump Python version from `3.7` to `3.10` (which, as you already may understand, wasn't)
+With all the rest we decided that this is a good idea (which, as you may guess, wasn't) to also bump Python version from `3.7` to `3.10`
 
 ### As promised - the journey!
 
-Before everything we read all release notes started from 2.2.0 to 2.5.3 simply to understand what we should be waiting for. Created a list of possible issues we can face with. We thought we prepared and fearlessly made first move.
+Before everything we went through all [Release Notes](https://airflow.apache.org/docs/apache-airflow/stable/release_notes.html) started from 2.2.0 to 2.5.3 simply to understand what we should be waiting for. Created a list of possible issues we can face with. We thought we prepared and fearlessly made a first move.
 
 #### Database upgrade
 
@@ -47,15 +47,16 @@ Beforehand of the Airflow upgrade we decided to bump our MySQL version from `5.7
 #### Testing - yes / no / maybe so?
 From time to time it's good to test everything before upgrading it on Production - in order to test all integrations we created separate terraform module that takes our development env like ECS tasks for Scheduler and Webserver, Database from a snapshot and creates all infrastructure that Airflow needs right beside Dev without any intersections with it, so we could test everything without fear of breaking things. But, the main beauty of this is in quick recreation - ~5 minutes to redeploy it from the scratch in case something went irreparably wrong. Also, separately, we've been testing some parts locally using Breeze and our own custom Airflow image build.
 
-After plain testing integrations and parts a next step was the performance testing step. We didn't enable multi-scheduler feature and wanted to see how it works. Spoiler - it works almost the same so far. A bit more intensively uses cores and memory now but the issue we had before is gone now. The issue was that old Scheduler was using 100% of CPUs from time to time and only restarting it helped (big long spike on the screenshot).
+After testing integrations and parts our next step was the `performance testing` step. We didn't enable multi-scheduler feature and wanted to see how it works just with a single Scheduler and compare results. Spoiler - it works almost the same so far. A bit more intensively uses cores and memory now (because we made few additional configurations) but the issue we had before is gone. The issue was that old Scheduler was using 100% of CPUs from time to time and only restarting it helped (big long spike on the screenshot).
 For performance testing we have created autogenerated DAG with more than 1000 dummy PythonOperators (this is an approximate number of tasks in our main DAG). Those operators have random `sleep` to test concurrency and things.
 ![](/post-images/2023-06-07-airflow-upgrade-to-2-5-3/ecs-performance-metrics.png)
-<font size="3"><center><i>Databricks cluster configuration parameters</i></center></font>
+<font size="3"><center><i>AWS ECS performance metrics</i></center></font>
 
-#### Updating code base
+#### Updating the code base
 We started from merging `2.5-stable` into our main fork branch. After all merge conflicts were resolved (the easiest part of the upgrade I'd say) we started testing...
 
 This wasn't exactly what you can call a smooth upgrade - switching to the new Airflow version caused a lot of errors in our plugins and services that are heavily rely on the Airflow core/providers code.
+But, we did expected bigger part of the issues because we did went through Airflow Release Notes.
 
 Issues we knew about and/or caught during the testing were:
 - in our custom DAGs dump code - internal structure of the DAG class slightly changed (like `_BaseOperator__init_kwargs`, `TaskGroup`, `ParamsDict`, etc.), and it caused compilation errors
@@ -65,7 +66,9 @@ Issues we knew about and/or caught during the testing were:
 - `node:12.22.6` Docker image we used for building npm (`airflow/www/static/dist`) was too old for the new and shiny Airflow (switched to the `node:16.0.0`)
 - `TriggerRuleDep` changed, and our custom rules that were using/overriding `_get_dep_statuses` and `_evaluate_trigger_rule` also started to fail
 - [Okta integration](https://tech.scribd.com/blog/2021/integrating-airflow-and-okta.html) started to fail because of new Flask AppBuilder (simply adding `server_metadata_url` to existing configuration solved the issue)
-- some Airflow configuration params (like `AIRFLOW__CORE__SQL_ALCHEMY_CONN` -> `AIRFLOW__DATABASE__SQL_ALCHEMY_CONN`) were changes
+- some Airflow configuration params were changed:
+  - `AIRFLOW__CORE__SQL_ALCHEMY_CONN` -> `AIRFLOW__DATABASE__SQL_ALCHEMY_CONN`
+  - Airflow config section `kubernetes` renamed to `kubernetes_executor` and all related environment variables configurations started with `AIRFLOW__KUBERNETES__...` changed accordingly to `AIRFLOW__KUBERNETES_EXECUTOR__...`
 - `AwsLambdaHook` changed to `LambdaHook` in the `AWS` provider. `function_name` parameter was moved from the `AwsLambdaHook.init()` function to the `invoke_lambda` function (put it closer to the execution)
 - BaseOperator's `task_concurrency` parameter changed to `max_active_tis_per_dag`
 - `ResultProxy` and `RowProxy` classes from `sqlalchemy.engine.result` changed their names to the `Result` and `Row`
