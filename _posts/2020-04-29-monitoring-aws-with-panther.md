@@ -5,9 +5,12 @@ tags:
 - monitoring
 - aws
 - featured
+- archived
 team: Security Engineering
 author: paha
 ---
+
+***NOTE***: *Scribd’s security infrastructure has since evolved away from using Panther*
 
 Before widespread cloud usage, it was uncommon for one person to be present for the entire datacenter development lifecycle. Very few people knew how to design and build a datacenter from scratch while ensuring appropriate security configuration settings were set, on top of rigging up monitoring. It was even more uncommon for non-sysadmins to have any involvement in data center infrastructure construction or ongoing refinement. The cloud is very different. It only takes seconds to create an entire infrastructure from a template. And even developers are doing it!
 
