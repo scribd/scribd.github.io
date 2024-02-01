@@ -27,7 +27,7 @@ The idea behind technical debt is to highlight the consequences of prioritizing 
 
 ### Technical Debt in Machine Learning
 
-Originally a software engineering concept, Technical debt is also relevant to Machine Learning Systems infact the landmark[https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems](google paper)suggest that ML systems have the propensity to easily gain this technical debt.
+Originally a software engineering concept, Technical debt is also relevant to Machine Learning Systems infact the landmark [https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems](google paper)suggest that ML systems have the propensity to easily gain this technical debt.
 
 > Machine learning offers a fantastically powerful toolkit for building useful complex prediction systems quickly. This paper argues it is dangerous to think of these quick wins as coming for free. Using the software engineering framework of technical debt , we ﬁnd it is common to incur massive ongoing maintenance costs in real-world ML systems
 > 
