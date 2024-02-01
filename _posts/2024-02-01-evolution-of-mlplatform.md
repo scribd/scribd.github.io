@@ -11,17 +11,6 @@ tags:
 
 Technical Debt is not unique to Software Engineering and is a concept applicable to production Machine Learning (ML) at scale. Machine Learning Platforms (ML Platforms) have the potential to be a key component to achieving production ML at scale without large technical debt, yet ML Platforms are not often well understood. This document outlines the key concepts and paradigm shifts that led to the conceptualization of ML Platforms and how ML Platforms can act as a key to unlocking Development Velocity without Technical debt.
 
-*   1 [Technical Debt and development velocity defined](#Technical-Debt-and-development-velocity-defined)
-    *   1.1 [Development Velocity](#Development-Velocity)
-    *   1.2 [Technical Debt](#Technical-Debt)
-    *   1.3 [Technical Debt in Machine Learning](#Technical-Debt-in-Machine-Learning)
-*   2 [The Evolution Of ML Platforms](#The-Evolution-Of-ML-Platforms)
-    *   2.1 [DevOps -- The paradigm shift that led the way](#DevOps----The-paradigm-shift-that-led-the-way)
-    *   2.2 [Platforms -- Reducing Cognitive Load](#Platforms----Reducing-Cognitive-Load)
-    *   2.3 [ML Ops -- Reducing technical debt of machine learning](#ML-Ops----Reducing-technical-debt-of-machine-learning)
-*   3 [The Rise of Machine Learning Platform](#The-Rise-of-Machine-Learning-Platform)
-    *   3.1 [Benefits to the Organization](#Benefits-to-the-Organization)
-*   4 [References](#References)
 
 Technical Debt and development velocity defined
 -----------------------------------------------
