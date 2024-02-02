@@ -2,7 +2,7 @@
 layout: post 
 title: "The Evolution of the Machine Learning Platform" 
 team: Machine Learning Platform 
-author: bshaw
+author: benshaw
 tags: 
 - ml
 - mlops
