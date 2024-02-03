@@ -9,7 +9,7 @@ tags:
 - ml-platform-series
 ---
 
-Technical Debt is not unique to Software Engineering and is a concept applicable to production Machine Learning (ML) at scale. Machine Learning Platforms (ML Platforms) have the potential to be a key component to achieving production ML at scale without large technical debt, yet ML Platforms are not often well understood. This document outlines the key concepts and paradigm shifts that led to the conceptualization of ML Platforms and how ML Platforms can act as a key to unlocking Development Velocity without Technical debt.
+Machine Learning Platforms (ML Platforms) have the potential to be a key component to achieving production ML at scale without large technical debt, yet ML Platforms are not often well understood. This document outlines the key concepts and paradigm shifts that led to the conceptualization of ML Platforms in an effort to increase an understanding of these and how they can best be applied to bring value.
 
 
 Technical Debt and development velocity defined
@@ -81,7 +81,7 @@ Platforms emerged as a strategic solution, delicately abstracting unnecessary de
 
 ### ML Ops -- Reducing technical debt of machine learning
 
-The ability of ML systems to rapidly accumulate technical debt has given rise to the concept of MLOps, a methodology that takes inspiration from and incorporates best practices of the DevOps , tailoring them to address the distinctive challenges and workflows inherent in machine learning and controlling technical debt. MLOps seamlessly applies the established principles of DevOps to the intricate landscape of machine learning, recognizing that merely a fraction of real-world ML systems comprises the actual ML code. Serving as a crucial bridge between development and the ongoing intricacies of maintaining ML systems.
+The ability of ML systems to rapidly accumulate technical debt has given rise to the concept of MLOps, a methodology that takes inspiration from and incorporates best practices of the DevOps , tailoring them to address the distinctive challenges and workflows inherent in machine learning in an effort to control technical debt. MLOps applies the established principles of DevOps to machine learning, recognizing that merely a fraction of real-world ML systems comprises the actual ML code. Serving as a crucial bridge between development and the ongoing intricacies of maintaining ML systems.
 
 Some examples of concepts of DevOps applied to ML (aka ML Ops) are:
 
@@ -111,16 +111,16 @@ Some examples of concepts of DevOps applied to ML (aka ML Ops) are:
     
     *   Utilize collaboration tools for effective communication and information sharing among team members.
         
-    *   Feature Store provides a platform for discovering, re using and collaborating on ML features
+    *   Feature Store's provides a platform for discovering, re using and collaborating on ML features
         
-    *   Model Database provides platform for discovering, re using and collaborating on ML Models
+    *   Model Database's provide a platform for discovering, re using and collaborating on ML Models
         
 5.  **Version Control:**
     
-    *   Applying version control to experiments, machine learning models and features provides
+    *   Applying version control to experiments, machine learning models and features provides better change management and auditing of these ML artifacts
         
 
-MLOps is a methodology that provides a collection of concepts and workflows designed to promote efficiency, collaboration, and sustainability of the ML Lifecycle. MLOps plays a pivotal role in ensuring the efficiency, reliability, and scalability of machine learning implementations over time.
+MLOps is a methodology that provides a collection of concepts and workflows designed to promote efficiency, collaboration, and sustainability of the ML Lifecycle. Correctly applied MLOps can play a pivotal role in ensuring the efficiency, reliability, and scalability of machine learning implementations over time.
 
 The Rise of Machine Learning Platform
 -------------------------------------
