@@ -4,10 +4,9 @@ title: "The Evolution of the Machine Learning Platform"
 team: Machine Learning Platform 
 author: bshaw
 tags: 
-- ml
 - mlops
-- devops
-- platform
+- featured
+- ml-platform-series
 ---
 
 Technical Debt is not unique to Software Engineering and is a concept applicable to production Machine Learning (ML) at scale. Machine Learning Platforms (ML Platforms) have the potential to be a key component to achieving production ML at scale without large technical debt, yet ML Platforms are not often well understood. This document outlines the key concepts and paradigm shifts that led to the conceptualization of ML Platforms and how ML Platforms can act as a key to unlocking Development Velocity without Technical debt.
