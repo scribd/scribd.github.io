@@ -9,7 +9,7 @@ tags:
 - ml-platform-series
 ---
 
-Machine Learning Platforms (ML Platforms) have the potential to be a key component to achieving production ML at scale without large technical debt, yet ML Platforms are not often well understood. This document outlines the key concepts and paradigm shifts that led to the conceptualization of ML Platforms in an effort to increase an understanding of these and how they can best be applied to bring value.
+Machine Learning Platforms (ML Platforms) have the potential to be a key component in achieving production ML at scale without large technical debt, yet ML Platforms are not often understood. This document outlines the key concepts and paradigm shifts that led to the conceptualization of ML Platforms in an effort to increase an understanding of these platforms and how they can best be applied.
 
 
 Technical Debt and development velocity defined
