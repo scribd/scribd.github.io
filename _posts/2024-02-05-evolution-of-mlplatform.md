@@ -30,7 +30,7 @@ The idea behind technical debt is to highlight the consequences of prioritizing 
 Originally a software engineering concept, Technical debt is also relevant to Machine Learning Systems infact the landmark google paper suggest that ML systems have the propensity to easily gain this technical debt.
 
 > Machine learning offers a fantastically powerful toolkit for building useful complex prediction systems quickly. This paper argues it is dangerous to think of these quick wins as coming for free. Using the software engineering framework of technical debt , we ﬁnd it is common to incur massive ongoing maintenance costs in real-world ML systems
-> 
+> /todo fix link
 > [https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
 
 > As the machine learning (ML) community continues to accumulate years of experience with livesystems, a wide-spread and uncomfortable trend has emerged: developing and deploying ML sys-tems is relatively fast and cheap, but maintaining them over time is difﬁcult and expensive
@@ -82,7 +82,15 @@ Platforms emerged as a strategic solution, delicately abstracting unnecessary de
 ### ML Ops -- Reducing technical debt of machine learning
 
 The ability of ML systems to rapidly accumulate technical debt has given rise to the concept of MLOps, a methodology that takes inspiration from and incorporates best practices of the DevOps , tailoring them to address the distinctive challenges and workflows inherent in machine learning in an effort to control technical debt. MLOps applies the established principles of DevOps to machine learning, recognizing that merely a fraction of real-world ML systems comprises the actual ML code. Serving as a crucial bridge between development and the ongoing intricacies of maintaining ML systems.
+MLOps is a methodology that provides a collection of concepts and workflows designed to promote efficiency, collaboration, and sustainability of the ML Lifecycle. Correctly applied MLOps can play a pivotal role in ensuring the efficiency, reliability, and scalability of machine learning implementations over time.
 
+The Rise of Machine Learning Platform
+-------------------------------------
+
+The paradigm shifts of DevOps, MLOps and Platform Thinking led to the emergence of Machine Learning platforms. ML platforms are the application of MLOps concepts and workflows and provide a curated developer experience for Machine Learning developers throughout the entire ML lifecycle. These platforms address the challenges of cognitive load, technical debt, quality and developer velocity and increase efficiency, collaboration, and sustainability. As the ML team grows, the benefits amplify, creating a multiplier effect that allows organizations to scale whilst maintaining quality.
+
+### Scribd's ML Platform -- MLOps in Action
+/todo
 Some examples of concepts of DevOps applied to ML (aka ML Ops) are:
 
 1.  **Automation:**
@@ -119,13 +127,6 @@ Some examples of concepts of DevOps applied to ML (aka ML Ops) are:
     
     *   Applying version control to experiments, machine learning models and features provides better change management and auditing of these ML artifacts
         
-
-MLOps is a methodology that provides a collection of concepts and workflows designed to promote efficiency, collaboration, and sustainability of the ML Lifecycle. Correctly applied MLOps can play a pivotal role in ensuring the efficiency, reliability, and scalability of machine learning implementations over time.
-
-The Rise of Machine Learning Platform
--------------------------------------
-
-The paradigm shifts of DevOps, MLOps and Platform Thinking led to the emergence of Machine Learning platforms. ML platforms are the application of MLOps concepts and workflows and provide a curated developer experience for Machine Learning developers throughout the entire ML lifecycle. These platforms address the challenges of cognitive load, technical debt, quality and developer velocity and increase efficiency, collaboration, and sustainability. As the ML team grows, the benefits amplify, creating a multiplier effect that allows organizations to scale whilst maintaining quality.
 
 ### Benefits to the Organization
 
