@@ -30,12 +30,11 @@ The idea behind technical debt is to highlight the consequences of prioritizing 
 Originally a software engineering concept, Technical debt is also relevant to Machine Learning Systems infact the landmark google paper suggest that ML systems have the propensity to easily gain this technical debt.
 
 > Machine learning offers a fantastically powerful toolkit for building useful complex prediction systems quickly. This paper argues it is dangerous to think of these quick wins as coming for free. Using the software engineering framework of technical debt , we ﬁnd it is common to incur massive ongoing maintenance costs in real-world ML systems
-> /todo fix link
-> [https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
+> [Sculley et al (2021) Hidden Technical Debt in Machine Learning Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
 
 > As the machine learning (ML) community continues to accumulate years of experience with livesystems, a wide-spread and uncomfortable trend has emerged: developing and deploying ML sys-tems is relatively fast and cheap, but maintaining them over time is difﬁcult and expensive
 > 
-> [https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
+> [Sculley et al (2021) Hidden Technical Debt in Machine Learning Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
 
 Technical debt is important to consider especially when trying to move fast. Moving fast is easy, moving fast without acquiring technical debt is alot more complicated.
 
@@ -65,7 +64,7 @@ This shift to DevOps and teams teams owning the entire development lifecycle int
 
 > The total amount of mental effort a team uses to understand, operate and maintain their designated systems or tasks.
 > 
-> — [](https://teamtopologies.com/book "https://teamtopologies.com/book")[https://teamtopologies.com/book](https://teamtopologies.com/book)
+> [Skelton & Pais (2019) Team Topologies](https://teamtopologies.com/book)
 
 As teams grapple with the mental effort required by adopting DevOps of understanding, operating, and maintaining systems, cognitive load becomes a barrier to efficiency. The weight of this additional load can hinder productivity, prompting organizations to seek solutions.
 
@@ -73,11 +72,11 @@ Platforms emerged as a strategic solution, delicately abstracting unnecessary de
 
 > The purpose of a platform team is to enable stream-aligned teams to deliver work with substantial autonomy. The stream-aligned team maintains full ownership of building, running, and fixing their application in production. The platform team provides internal services to reduce the cognitive load that would be required from stream-aligned teams to develop these underlying services.
 > 
-> — [](https://teamtopologies.com/book "https://teamtopologies.com/book")[https://teamtopologies.com/book](https://teamtopologies.com/book)
+> [Skelton & Pais (2019) Team Topologies](https://teamtopologies.com/book)
 
-> _Infrastructure Platform teams enable organisations to scale delivery by solving common product and non-functional requirements with resilient solutions. This allows other teams to focus on building their own things and releasing value for their users_
+> Infrastructure Platform teams enable organisations to scale delivery by solving common product and non-functional requirements with resilient solutions. This allows other teams to focus on building their own things and releasing value for their users
 > 
-> \- [https://martinfowler.com/articles/building-infrastructure-platform.html](https://martinfowler.com/articles/building-infrastructure-platform.html)
+> [Rowse & Shepherd (2022) Building Infrastructure Platforms](https://martinfowler.com/articles/building-infrastructure-platform.html)
 
 ### ML Ops -- Reducing technical debt of machine learning
 
@@ -87,65 +86,39 @@ MLOps is a methodology that provides a collection of concepts and workflows desi
 The Rise of Machine Learning Platform
 -------------------------------------
 
-The paradigm shifts of DevOps, MLOps and Platform Thinking led to the emergence of Machine Learning platforms. ML platforms are the application of MLOps concepts and workflows and provide a curated developer experience for Machine Learning developers throughout the entire ML lifecycle. These platforms address the challenges of cognitive load, technical debt, quality and developer velocity and increase efficiency, collaboration, and sustainability. As the ML team grows, the benefits amplify, creating a multiplier effect that allows organizations to scale whilst maintaining quality.
+The paradigm shifts of DevOps, MLOps and Platform Thinking led to the emergence of Machine Learning platforms. ML platforms are the application of MLOps concepts and workflows and provide a curated developer experience for Machine Learning developers throughout the entire ML lifecycle. As the ML team grows, the benefits of a platform amplify, creating a multiplier effect that allows organizations to scale whilst maintaining quality and not getting bogged down with technical debt.
+
 
 ### Scribd's ML Platform -- MLOps in Action
-/todo
-Some examples of concepts of DevOps applied to ML (aka ML Ops) are:
+At Scribd we have applied concepts from DevOps to our ML Operations in the following ways
 
 1.  **Automation:**
-    
-    1.  Automation can be applied to many parts of the machine learning lifecycle. The incorporation of automation not only streamlines processes but also addresses technical debt through the establishment of consistency and a standardized and reproducible approach.
-        
-    2.  Model deployments which can be automated by the implementation of DevOps CI/CD strategies.
-        
-    3.  Automation can also be applied to retraining of machine learning models
+            
+    *  Applying CI/CD strategies to model deployments through the use of Jenkins pipelines which deploy models from the Model Registry to AWS based endpoints.
+    *  Automating Model training throug the use of Airflow DAGS and allowing these DAGS to trigger the deployment pipelines to deploy a model once re-training has occured.
         
 2.  **Continuous** **Testing:**
     
-    *   Continuous testing can be applied as part of a model deployment pipeline, removing the need for manual testing (increasing development velocity) and removing technical debt by ensuring tests are performed consistently
-        
-    *   Model validation can be automated using tooling providing consistency between training iterations.
+    *   Applying continuous testing as part of a model deployment pipeline, removing the need for manual testing.
+    *   Increased tooling to support model validation testing.
         
 3.  **Monitoring:**
-    
-    *   Monitoring provides key insights and a steps towards creating vital feedback loops.
         
-    *   Monitoring can be applied to real time inference infrastructure revealing performance concerns similar to dev ops.
-        
-    *   Monitoring can be applied to Model performance and monitor for model drift in realtime, providing realtime insight and analysis to model performance and when it may need to be retrained.
+    *   Monitoring real time inference endpoints
+    *   Monitoring training DAGS
         
 4.  **Collaboration and Communication:**
+   
+    *   Feature Store which provides feature discovery and re-use
+    *   Model Database which provides model collaboration
+        
+6.  **Version Control:**
     
-    *   Utilize collaboration tools for effective communication and information sharing among team members.
+    *   Applyied version control to experiments, machine learning models and features
         
-    *   Feature Store's provides a platform for discovering, re using and collaborating on ML features
-        
-    *   Model Database's provide a platform for discovering, re using and collaborating on ML Models
-        
-5.  **Version Control:**
-    
-    *   Applying version control to experiments, machine learning models and features provides better change management and auditing of these ML artifacts
-        
-
-### Benefits to the Organization
-
-The adoption of a Machine Learning Platform unfolds a spectrum of benefits:
-
-**Increasing Flow of Change (aka developer velocity):** A swift pace in model development and deployment, enhancing overall efficiency.
-
-**Fostering Collaboration Amongst Teams:** Breaking down silos and promoting cross-functional collaboration. The platform becomes the silent foundation for collaboration, facilitating a harmonious working environment.
-
-**Enforcing Best Practices:** Standardizing and ensuring adherence to best practices across ML projects.
-
-**Reducing/Limiting Technical Debt:** Strategically mitigating the risk of accumulating technical debt, ensuring long-term sustainability.
-
-**Multiplier Effect:** As the ML team grows, these benefits of the platform amplify—a dividend that multiplies with organizational growth.
 
 References
 ----------
-
-[https://www.youtube.com/watch?v=Bfhl8kcSaEI&embeds\_referring\_euri=https%3A%2F%2Fplatformengineering.org%2F&feature=emb\_imp\_woyt](https://www.youtube.com/watch?v=Bfhl8kcSaEI&embeds_referring_euri=https%3A%2F%2Fplatformengineering.org%2F&feature=emb_imp_woyt)
 
 [https://www.atlassian.com/devops/frameworks/team-topologies](https://www.atlassian.com/devops/frameworks/team-topologies)
 
