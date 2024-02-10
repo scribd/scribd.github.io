@@ -17,7 +17,7 @@ Technical Debt and development velocity defined
 
 ### Development Velocity
 
-Machine learning development velocity refers to the speed and efficiency at which machine learning (ML) projects progress from the initial concept to deployment and maintenance. It encompasses the entire lifecycle of a machine learning project, from data collection and preprocessing to model training, evaluation, deployment, and ongoing optimization. In platform engineering this is often referred to as rate of change.
+Machine learning development velocity refers to the speed and efficiency at which machine learning (ML) projects progress from the initial concept to deployment in a production environment. It encompasses the entire lifecycle of a machine learning project, from data collection and preprocessing to model training, evaluation, validation deployment and testing for new models or for re-training, validation and deployment of existing models.
 
 ### Technical Debt
 
@@ -44,7 +44,7 @@ The Evolution Of ML Platforms
 
 ### DevOps -- The paradigm shift that led the way
 
-DevOps is a methodology in software development which advocates for teams owning the entire software development lifecycle. This paradigm shift from fragmented teams to end-to-end ownership enhances collaboration and accelerates delivery. Dev ops has become standard practice in modern software development. The adoption of DevOps has been widespread across various industries, with many organizations considering it an essential part of their software development and delivery processes. Some of the principles of DevOps are:
+DevOps is a methodology in software development which advocates for teams owning the entire software development lifecycle. This paradigm shift from fragmented teams to end-to-end ownership enhances collaboration and accelerates delivery. Dev ops has become standard practice in modern software development and the adoption of DevOps has been widespread, with many organizations considering it an essential part of their software development and delivery processes. Some of the principles of DevOps are:
 
 1.  **Automation**
     
@@ -67,7 +67,7 @@ This shift to DevOps and teams teams owning the entire development lifecycle int
 > 
 > [Skelton & Pais (2019) Team Topologies](https://teamtopologies.com/book)
 
-As teams grapple with the mental effort required by adopting DevOps of understanding, operating, and maintaining systems, cognitive load becomes a barrier to efficiency. The weight of this additional load can hinder productivity, prompting organizations to seek solutions.
+The weight of the additional load introduced in DevOps of teams owning the entire software development lifecycle can hinder productivity, prompting organizations to seek solutions.
 
 Platforms emerged as a strategic solution, delicately abstracting unnecessary details of the development lifecycle. This abstraction allows engineers to focus on critical tasks, mitigating cognitive load and fostering a more streamlined workflow.
 
@@ -81,17 +81,12 @@ Platforms emerged as a strategic solution, delicately abstracting unnecessary de
 
 ### ML Ops -- Reducing technical debt of machine learning
 
-The ability of ML systems to rapidly accumulate technical debt has given rise to the concept of MLOps, a methodology that takes inspiration from and incorporates best practices of the DevOps , tailoring them to address the distinctive challenges and workflows inherent in machine learning in an effort to control technical debt. MLOps applies the established principles of DevOps to machine learning, recognizing that merely a fraction of real-world ML systems comprises the actual ML code. Serving as a crucial bridge between development and the ongoing intricacies of maintaining ML systems.
-MLOps is a methodology that provides a collection of concepts and workflows designed to promote efficiency, collaboration, and sustainability of the ML Lifecycle. Correctly applied MLOps can play a pivotal role in ensuring the efficiency, reliability, and scalability of machine learning implementations over time.
+The ability of ML systems to rapidly accumulate technical debt has given rise to the concept of MLOps. MLOps is a methodology that takes inspiration from and incorporates best practices of the DevOps, tailoring them to address the distinctive challenges inherent in machine learning. MLOps applies the established principles of DevOps to machine learning, recognizing that merely a fraction of real-world ML systems comprises the actual ML code. Serving as a crucial bridge between development and the ongoing intricacies of maintaining ML systems.
+MLOps is a methodology that provides a collection of concepts and workflows designed to promote efficiency, collaboration, and sustainability of the ML Lifecycle. Correctly applied MLOps can play a pivotal role controlling technical debt and ensuring the efficiency, reliability, and scalability of the machine learning lifecycle over time.
 
-The Rise of Machine Learning Platform
+Scribd's ML Platform -- MLOps and Platforms in Action
 -------------------------------------
-
-The paradigm shifts of DevOps, MLOps and Platform Thinking led to the emergence of Machine Learning platforms. ML platforms are the application of MLOps concepts and workflows and provide a curated developer experience for Machine Learning developers throughout the entire ML lifecycle. As the ML team grows, the benefits of a platform amplify, creating a multiplier effect that allows organizations to scale whilst maintaining quality and not getting bogged down with technical debt.
-
-
-### Scribd's ML Platform -- MLOps in Action
-At Scribd we have applied concepts from DevOps to our ML Operations in the following ways
+At Scribd we have developed a machine learning platform which provides a curated developer experience for machine learning developers and applies the concepts of DevOps in the following ways
 
 1.  **Automation:**
             
