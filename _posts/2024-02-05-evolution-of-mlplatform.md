@@ -30,6 +30,7 @@ The idea behind technical debt is to highlight the consequences of prioritizing 
 Originally a software engineering concept, Technical debt is also relevant to Machine Learning Systems infact the landmark google paper suggest that ML systems have the propensity to easily gain this technical debt.
 
 > Machine learning offers a fantastically powerful toolkit for building useful complex prediction systems quickly. This paper argues it is dangerous to think of these quick wins as coming for free. Using the software engineering framework of technical debt , we ﬁnd it is common to incur massive ongoing maintenance costs in real-world ML systems
+> 
 > [Sculley et al (2021) Hidden Technical Debt in Machine Learning Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
 
 > As the machine learning (ML) community continues to accumulate years of experience with livesystems, a wide-spread and uncomfortable trend has emerged: developing and deploying ML sys-tems is relatively fast and cheap, but maintaining them over time is difﬁcult and expensive
@@ -120,22 +121,22 @@ At Scribd we have applied concepts from DevOps to our ML Operations in the follo
 References
 ----------
 
-[https://www.atlassian.com/devops/frameworks/team-topologies](https://www.atlassian.com/devops/frameworks/team-topologies)
+[Bottcher (2018, March 05). What I Talk About When I Talk About Platforms. https://martinfowler.com/articles/talk-about-platforms.html](https://martinfowler.com/articles/talk-about-platforms.html)
 
-[https://platformengineering.org/blog/what-is-platform-engineering](https://platformengineering.org/blog/what-is-platform-engineering)
+[D. Sculley, Gary Holt, Daniel Golovin, Eugene Davydov, Todd Phillips, Dietmar Ebner, Vinay Chaudhary, Michael Young, Jean-Franc¸ois Crespo, Dan Dennison (2021) Hidden Technical Debt in Machine Learning Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
 
-[https://www.thoughtworks.com/insights/blog/platforms/art-platform-thinking](https://www.thoughtworks.com/insights/blog/platforms/art-platform-thinking)
+[Fowler (2022, October 20).Conway's Law. https://martinfowler.com/bliki/ConwaysLaw.html](https://martinfowler.com/bliki/ConwaysLaw.html)
 
-[https://www.scribd.com/document/611845499/Whitepaper-State-of-Platform-Engineering-Report](https://www.scribd.com/document/611845499/Whitepaper-State-of-Platform-Engineering-Report)
+[Galante, what is platform engineering. https://platformengineering.org/blog/what-is-platform-engineering](https://platformengineering.org/blog/what-is-platform-engineering)
 
-[https://martinfowler.com/bliki/ConwaysLaw.html](https://martinfowler.com/bliki/ConwaysLaw.html)
+[Humanitect, State of Platform Engineering Report](https://www.scribd.com/document/611845499/Whitepaper-State-of-Platform-Engineering-Report)
 
-[https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems](https://www.scribd.com/document/428241724/Hidden-Technical-Debt-in-Machine-Learning-Systems)
+[Hodgson (2023, July 19).How platform teams get stuff done. https://martinfowler.com/articles/platform-teams-stuff-done.html](https://martinfowler.com/articles/platform-teams-stuff-done.html)
 
-[https://martinfowler.com/articles/building-infrastructure-platform.html](https://martinfowler.com/articles/building-infrastructure-platform.html)
+[Murray (2017, April 27. The Art of Platform Thinking. https://www.thoughtworks.com/insights/blog/platforms/art-platform-thinking)](https://www.thoughtworks.com/insights/blog/platforms/art-platform-thinking)
 
-[https://martinfowler.com/articles/platform-teams-stuff-done.html](https://martinfowler.com/articles/platform-teams-stuff-done.html)
+[Rouse (2017, March 20). Technical Debt. https://www.techopedia.com/definition/27913/technical-debt](https://www.techopedia.com/definition/27913/technical-debt)
 
-[https://martinfowler.com/articles/talk-about-platforms.html](https://martinfowler.com/articles/talk-about-platforms.html)
+[Rowse & Shepherd (2022).Building Infrastructure Platforms. https://martinfowler.com/articles/building-infrastructure-platform.html](https://martinfowler.com/articles/building-infrastructure-platform.html)
 
-[https://www.techopedia.com/definition/27913/technical-debt](https://www.techopedia.com/definition/27913/technical-debt)
+[Skelton & Pais (2019) Team Topologies](https://teamtopologies.com/book)
