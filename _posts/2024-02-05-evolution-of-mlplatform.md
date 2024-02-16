@@ -86,31 +86,27 @@ MLOps is a methodology that provides a collection of concepts and workflows desi
 
 Scribd's ML Platform -- MLOps and Platforms in Action
 -------------------------------------
-At Scribd we have developed a machine learning platform which provides a curated developer experience for machine learning developers and applies the concepts of DevOps in the following ways
+At Scribd we have developed a machine learning platform which provides a curated developer experience for machine learning developers. This platform has been built with MLOps in mind which can be seen through its use of common DevOps principles.
 
-1.  **Automation:**
-            
+1.  **Automation:**    
     *  Applying CI/CD strategies to model deployments through the use of Jenkins pipelines which deploy models from the Model Registry to AWS based endpoints.
     *  Automating Model training throug the use of Airflow DAGS and allowing these DAGS to trigger the deployment pipelines to deploy a model once re-training has occured.
         
 2.  **Continuous** **Testing:**
-    
     *   Applying continuous testing as part of a model deployment pipeline, removing the need for manual testing.
     *   Increased tooling to support model validation testing.
         
 3.  **Monitoring:**
-        
     *   Monitoring real time inference endpoints
     *   Monitoring training DAGS
+    *   Monitoring batch jobs
         
 4.  **Collaboration and Communication:**
-   
     *   Feature Store which provides feature discovery and re-use
     *   Model Database which provides model collaboration
         
 6.  **Version Control:**
-    
-    *   Applyied version control to experiments, machine learning models and features
+    *   Applying version control to experiments, machine learning models and features
         
 
 References
