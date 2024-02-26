@@ -3,6 +3,13 @@
 # description, etc
 ---
 
+bshaw:
+  name: Ben Shaw
+  github: benshaw
+  twitter: ben_a_shaw
+  about: |
+    Ben leads the ML Platform group, helping scale production Machine Learning at scribd. Other times you will find him outside playing in the mountains.
+
 alexjb:
   name: Alex Bernardin
   github: alexofmanytrades
