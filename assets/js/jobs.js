@@ -5,7 +5,7 @@
  *
  * With that disclaimer out of the way...
  *
- * This file handles the fetching of jobs from Lever such that they can be
+ * This file handles the fetching of jobs from Lever^WAshby such that they can be
  * dynamically inserted into different parts of the tech blog
  */
 
@@ -13,7 +13,7 @@
  * This API will return an list of departments which must then be filtered
  * through to find the .postings under each
  */
-const API_URL = 'https://api.lever.co/v0/postings/scribd?group=department&mode=json'
+const API_URL = 'https://api.ashbyhq.com/posting-api/job-board/scribd?includeCompensation=true'
 
 
 /*
@@ -37,21 +37,20 @@ function fetchJobs() {
 
   return fetch(API_URL)
     .then(async (response) => {
-      const departments = await response.json();
+      const board = await response.json();
       /*
        * Since this is the tech blog, we're only pulling a couple of
        * departments
        */
-      departments
-        .filter(d => ['Engineering', 'Data Science', 'Design', 'Business Analytics', 'Product'].includes(d.title))
-        .forEach((department) => {
-          department.postings.forEach((posting) => {
-            const team = posting.categories.team;
+      board.jobs
+        .filter(j => ['Engineering', 'Product, Design, & Analytics', 'Product'].includes(j.department))
+        .filter(j => !j.title.toLowerCase().includes('marketing'))
+        .forEach((job) => {
+            const team = job.team;
             if (!window.jobsCache[team]) {
               window.jobsCache[team] = [];
             }
-            window.jobsCache[team].push(posting);
-          });
+            window.jobsCache[team].push(job);
         });
       window.jobsFetched = true;
       return window.jobsCache;
@@ -98,9 +97,9 @@ function renderJobs(elem, team, randomLimit) {
       li.innerHTML = `
       <div class="card__body">
           <h5 class="mt-0 mb-1 clamp-2">
-              <a href="${job.hostedUrl}" target="_blank" class="stretched-link link-text-color">${job.text}</a>
+              <a href="${job.jobUrl}" target="_blank" class="stretched-link link-text-color">${job.title}</a>
           </h5>
-          <p class="m-0 fs-md monospace text-truncate">${job.categories.location || ''}</p>
+          <p class="m-0 fs-md monospace text-truncate">${job.location || ''}</p>
       </div>
 `;
       elem.appendChild(li);
