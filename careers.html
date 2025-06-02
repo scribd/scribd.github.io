@@ -159,14 +159,14 @@ hero:
                     li.innerHTML = `
                     <div class="action-cell__body">
                         <h5 class="mb-1">
-                            <a href="${job.hostedUrl}" target="_blank" class="action-cell__link">
-                            ${job.text}
+                            <a href="${job.jobUrl}" target="_blank" class="action-cell__link">
+                            ${job.title}
                                 <svg class="hidden-md-up fs-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
                             </a>
                         </h5>
-                        <p class="mb-0 fs-md text-truncate text-muted monospace">${job.categories.location || ''}</p>
+                        <p class="mb-0 fs-md text-truncate text-muted monospace">${job.location || ''}</p>
                     </div>
-                    <a href="${job.hostedUrl}" target="_blank" class="hidden-md-down btn btn-primary btn-icon-external" tabindex="-1" aria-hidden="true">View Job
+                    <a href="${job.jobUrl}" target="_blank" class="hidden-md-down btn btn-primary btn-icon-external" tabindex="-1" aria-hidden="true">View Job
                         <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
                     </a>
                     `;
