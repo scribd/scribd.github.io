@@ -33,7 +33,7 @@ This approach ensures reliability, efficiency, and safety: backups scale seamles
 
 - Run monthly backups across all databases
 - Scale from small jobs to massive datasets
-- Handle incremental changes instead of full copiesg
+- Handle incremental changes instead of full copies
 - Safely clean up old data without risk of data loss
 
 ---
