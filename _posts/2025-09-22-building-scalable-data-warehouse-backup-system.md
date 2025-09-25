@@ -16,7 +16,7 @@ At its core, the pipeline performs incremental backups — copying only new or c
 To avoid data loss and reduce storage costs, we also implemented a safe deletion workflow. Files older than 90 days, successfully backed up, and no longer present in the source are tagged for lifecycle-based cleanup instead of being deleted immediately.
 This approach ensures reliability, efficiency, and safety: backups scale seamlessly from small to massive datasets, compute resources are right-sized, and storage is continuously optimized.
 
-![Open Data Warehouse Backup System diagram](..//files/backup_system_diagram.png)
+![Open Data Warehouse Backup System diagram](/files/backup_system_diagram.png)
 
 ---
 
