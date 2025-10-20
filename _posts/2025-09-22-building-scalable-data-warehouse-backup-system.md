@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "Building a Scalable Data Warehouse Backup System with AWS"
+title: "Building a Scalable Data Lake Backup System with AWS"
 tags:
-  - Data-warehouse
-  - Terraform
-  - AWS
-  - Deltalake
-  - Backup
+  - terraform
+  - aws
+  - deltalake
+  - featured
 team: Core Infrastructure
 author: Oleh Motrunych
 ---
