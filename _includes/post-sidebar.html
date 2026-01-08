@@ -16,14 +16,6 @@
         {% assign site_url =  site.url | url_encode %}
         {% assign page_url =  page.url | url_encode %}
 
-        <!-- Twitter -->
-        <li>
-            <a class="post-sidebar__action-link" href="https://twitter.com/intent/tweet?text={{ title }}&url={{ site_url }}{{ page_url }}&via={{site.twitter_username}}" rel="noopener" target="_blank">
-                <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#twitter' | relative_url }}"></use></svg>
-                <span class="visually-hidden">Share on Twitter</span>
-            </a>
-        </li>
-
         <!-- LinkedIn -->
         <li>
             <a class="post-sidebar__action-link" href="https://www.linkedin.com/shareArticle?mini=true&url={{ site_url }}{{ page_url }}&title={{ title }}&source={{site.url}}" rel="noopener" target="_blank">
