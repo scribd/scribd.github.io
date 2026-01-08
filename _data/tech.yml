@@ -8,7 +8,7 @@
   description: From data science to web services, Python has is used across the stack for Scribd, Slideshare, and Fable.
 
 - name: Rust
-  logo: "/assets/images/icons/rust.png"
+  logo: "/assets/images/icons/rust.svg"
   description: Our high performance data services and infrastructure has been built in Rust since 2020!
 
 - name: Terraform

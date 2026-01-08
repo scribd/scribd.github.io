@@ -85,7 +85,7 @@ hero:
         <ul class="icon-grid mt-5">
             {% for item in site.data.tech %}
                 <li class="icon-grid__item">
-                    <img class="mb-2" src="{{ item.logo }}" role="presentation" alt="">
+                        <img class="mb-2" style="height: 80px;" src="{{ item.logo }}" role="presentation" alt="{{item.name}}">
                     <h5>{{ item.name }}</h5>
                     <p class="mb-0 fs-md text-muted monospace">{{ item.description }}</p>
                 </li>
