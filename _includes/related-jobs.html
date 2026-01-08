@@ -1,4 +1,3 @@
-{%- if page.team and site.data.teams[page.team] -%}
 <section>
 
     <h5 class="mb-3">Related Jobs
@@ -12,11 +11,13 @@
     <script type="text/javascript">
     <!--
         window.onload = () =>{
-            renderJobs(document.getElementById('jobs'), "{{ site.data.teams[page.team].lever }}", 4);
+        {% for team in page.team %}
+                // Find jobs for {{team}}
+                renderJobs(document.getElementById('jobs'), "{{ site.data.teams[team].lever }}", 4);
+        {% endfor %}
             // Always include some Engineering jobs if we have any general ones
             renderJobs(document.getElementById('jobs'), "{{ site.data.teams['Engineering'].lever }}", 2);
         };
     -->
     </script>
 </section>
-{%- endif -%}

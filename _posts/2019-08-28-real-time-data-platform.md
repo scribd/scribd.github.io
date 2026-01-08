@@ -7,7 +7,9 @@ tags:
 - aws
 - data
 - real-time
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 > **Editors note:** *This is a cross-post from Tyler's [personal blog](https://brokenco.de/2019/08/28/real-time-data-platform.html)*

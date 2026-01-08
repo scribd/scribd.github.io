@@ -6,7 +6,9 @@ tags:
 - swift
 - live-collections
 - lc-series
-team: iOS
+team:
+- iOS
+- Mobile
 ---
 
 A collection of books on Scribd

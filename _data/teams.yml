@@ -3,10 +3,10 @@
 # plumbing jobs into team's blog posts
 ---
 iOS:
-  lever: 'Mobile'
+  lever: 'Mobile iOS'
 
 Android:
-  lever: 'Mobile'
+  lever: 'Mobile Android'
 
 Applied Research:
   lever: 'Data Science'
@@ -19,6 +19,9 @@ Core Platform:
 
 Data Engineering:
   lever: 'Data Engineering'
+
+Data Platform:
+  lever: 'Data Platform'
 
 Core Infrastructure:
   lever: 'Core Infrastructure'

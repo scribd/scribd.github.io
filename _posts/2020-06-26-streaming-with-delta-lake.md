@@ -6,8 +6,10 @@ tags:
 - real-time
 - kafka
 - featured
-team: Core Platform
 author: rtyler
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 

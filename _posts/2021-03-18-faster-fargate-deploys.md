@@ -6,7 +6,9 @@ tags:
 - aws
 - deploys
 - featured
-team: Internal Tools
+team:
+- Developer Platform
+- Internal Tools
 ---
 
 Scribd moved its monolith to AWS in April 2020 and as part of the migration, we had to design and implement a deployment pipeline for our new (and *shiny*) [ECS Fargate](https://aws.amazon.com/fargate/) infrastructure. In this post, we'll share how we improved our deployment speeds from ~40 minutes to less than 20 minutes.

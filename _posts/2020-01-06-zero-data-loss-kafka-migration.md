@@ -7,7 +7,9 @@ tags:
 - msk
 - featured
 - msk-series
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Migrating streams from one Kafka cluster to another can be challenging, even

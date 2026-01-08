@@ -7,7 +7,9 @@ tags:
 - deltalake
 - python
 author: rtyler
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 

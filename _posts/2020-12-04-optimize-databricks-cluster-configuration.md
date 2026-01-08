@@ -7,7 +7,9 @@ tags:
 - databricks
 - airflow
 - aws
-team: Data Engineering
+team:
+- Data Platform
+- Data Engineering
 ---
 
 Scribd recently changed the way we run thousands of data-processing tasks in order to save 10-20% _more_ on our cloud compute costs.  Scribd’s data platform is built on top of [Databricks on AWS](https://databricks.com/customers/scribd) and runs 1500+ Apache Spark batch and streaming applications. To help orchestrate all the batch workloads we also use [Apache Airflow](https://airflow.apache.org/). By default, Databricks provides a rich set of [cluster configuration](https://docs.databricks.com/clusters/configure.html) options. We can use different EC2 instance types, AWS Availability Zones (AZ), spot or on-demand instances, autoscaling, etc. By examining the needs of our workloads, we were able to optimize the way we leverage Databricks and AWS to gain more reliability and 10-20% more cost savings in our data platform.

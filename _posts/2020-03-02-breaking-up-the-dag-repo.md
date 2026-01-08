@@ -7,7 +7,9 @@ tags:
 - featured
 - airflow-series
 - datapipe
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 

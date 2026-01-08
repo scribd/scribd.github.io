@@ -6,8 +6,10 @@ tags:
 - airflow
 - airflow-series
 - datapipe
-team: Core Platform
 author: qphou
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 This summer I was able to present at [Airflow

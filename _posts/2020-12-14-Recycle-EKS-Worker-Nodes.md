@@ -9,7 +9,9 @@ tags:
 - step function
 - terraform
 - featured
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 A few months ago, we came across a problem we need to upgrade our Kubernetes

@@ -18,9 +18,9 @@
     The Recommendations team’s mission is to inspire users to read more and
     discover new content and topics.
 
-- team: Content Engineering
+- team: ML Data Engineering
   description: |
-    The Content Engineering team’s mission is to build and maintain the pipeline
+    The ML Data Engineering (MLDE) team’s mission is to build and maintain the pipeline
     of all content metadata and cost management with high accuracy, quality,
     and performance. The team provides to other teams a base layer of knowledge
     about titles in our library by analyzing content and user behavior and
@@ -31,7 +31,7 @@
     The Applied Research team drives decisions by creating insights into the product
     and improve the user experience with machine learning.
 
-- team: Core Platform
+- team: Infrastructure Engineering
   description: |
     The Platform team’s mission is to build robust, foundational software to
     increase operational excellence and speed up product development. The team
@@ -39,19 +39,12 @@
     other teams rely on. It thinks strategically to enable the engineering org
     to operate efficiently and reliably at an increasing scale.
 
-- team: Internal Tools
+- team: Developer Platform
   description: |
-    The Internal Tools team is dedicated to improving the quality and productivity
+    The Developer Platform team is dedicated to improving the quality and productivity
     of engineering at Scribd. The team provides engineers with excellent tooling
     and automation to make building, releasing, and running systems a great
     experience and empower engineers to own their production systems.
-
-- team: Core Services
-  description: |
-    The Core Services team’s mission is to reliably operate and develop services
-    that power Scribd’s core product features. The team defines and tracks
-    progress based on metrics, such as, reliability, latency (e.g., “p95 time
-    to first byte on doc page”), efficiency (cost).
 
 - team: Core Infrastructure
   description: |
@@ -67,32 +60,13 @@
     lead incident response, and partners with the wider Engineering organization
     to promote a security culture at Scribd.
 
-- team: Android
+- team: Mobile 
   description: |
-    The Android team's mission is to deliver a performant, stable and feature-rich
-    Android application.
+    The Mobile team's mission is to deliver a performant, stable and feature-rich
+    Android and iOS application.
 
-- team: iOS
-  description: |
-    The iOS team's mission is to deliver a performant, stable and feature-rich
-    iOS application.
-
-- team: Web Development
-  description: |
-    The Web Development team's mission is to deliver a fast, reliable and
-    feature-rich website; optimized for search engines and users.
-
-- team: Mobile QA
+- team: Quality Engineering
   description: |
     The Mobile QA team strives for a defect-free Scribd mobile application
     known for its reliability.
 
-- team: Web QA
-  description: |
-    The Web QA team strives for a defect-free Scribd website known for
-    its reliability.
-
-- team: Service Foundations
-  description: |
-    The Service Foudations team provides reliable, high-quality, scalable service foundations 
-    that teams can leverage to easily build, deploy and monitor self-owned, distributed services.

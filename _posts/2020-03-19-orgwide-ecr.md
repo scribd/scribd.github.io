@@ -7,8 +7,10 @@ tags:
 - ecr
 - iam
 - docker
-team: Core Platform
 author: rtyler
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 IAM is a **very** powerful tool. It can also be very complex, and difficult to

@@ -7,7 +7,9 @@ tags:
 - monitoring
 - oncall
 - incident response
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 

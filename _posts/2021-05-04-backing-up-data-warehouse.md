@@ -8,7 +8,9 @@ tags:
 - data-warehouse
 - backup
 - featured
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 

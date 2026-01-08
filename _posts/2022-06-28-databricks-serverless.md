@@ -5,8 +5,10 @@ tags:
 - looker
 - databricks
 - featured
-team: Core Platform
 author: hamiltonh
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 We recently migrated Looker to a Databricks SQL Serverless, improving our

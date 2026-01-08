@@ -7,7 +7,9 @@ tags:
 - databricks
 - datadog
 - datapipe
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Batch and streaming Spark jobs are an integral part of our data platform and

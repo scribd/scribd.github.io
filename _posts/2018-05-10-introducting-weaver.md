@@ -6,7 +6,9 @@ tags:
 - swift
 - weaver
 - dependency injection
-team: iOS
+team:
+- iOS
+- Mobile
 ---
 
 A few months ago, I started developing a framework named [Weaver](https://github.com/scribd/Weaver) with one idea in mind; improve how we do Dependency Injection in our iOS application at [Scribd](https://www.scribd.com).

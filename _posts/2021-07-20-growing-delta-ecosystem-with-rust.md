@@ -7,7 +7,9 @@ tags:
 - featured
 - rust
 author: rtyler
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Delta Lake is integral to our data platform which is why we have invested

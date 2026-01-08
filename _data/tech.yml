@@ -1,7 +1,19 @@
 
 - name: Ruby
   logo: "/assets/images/icons/ruby-icon.png"
-  description: We deploy one of internet's most popular Rails application daily.
+  description: We deploy some of internet's most popular Rails applications multiple times a day.
+
+- name: Python
+  logo: "/assets/images/icons/python.png"
+  description: From data science to web services, Python has is used across the stack for Scribd, Slideshare, and Fable.
+
+- name: Rust
+  logo: "/assets/images/icons/rust.png"
+  description: Our high performance data services and infrastructure has been built in Rust since 2020!
+
+- name: Terraform
+  logo: "/assets/images/icons/terraform-icon.svg"
+  description: Our cloud infrastructure is automatically provisioned with Terraform.
 
 - name: Golang
   logo: "/assets/images/icons/go-icon.svg"
@@ -15,17 +27,9 @@
   logo: "/assets/images/icons/kotlin-icon.svg"
   description: The best reading experience on Android is powered by more and more Kotlin.
 
-- name: Terraform
-  logo: "/assets/images/icons/terraform-icon.svg"
-  description: Our cloud infrastructure is automatically provisioned with Terraform.
-
 - name: React
   logo: "/assets/images/icons/react-icon.svg"
   description: We're building newer and faster user experiences for the web with React.
-
-- name: Docker
-  logo: "/assets/images/icons/docker-icon.svg"
-  description: Stateless services are packaged and deployed with containers.
 
 - name: Spark
   logo: "/assets/images/icons/spark-icon.svg"
@@ -33,8 +37,4 @@
 
 - name: AWS
   logo: "/assets/images/icons/aws-icon.svg"
-  description: We're growing into AWS with more and more auto-scaled and elastic workloads.
-
-- name: Chef
-  logo: "/assets/images/icons/chef-icon.svg"
-  description: Stateful servers are kept in line with Chef.
+  description: AWS provides the foundation for every team at Scribd!

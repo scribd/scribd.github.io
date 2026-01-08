@@ -7,7 +7,9 @@ tags:
 - deltalake
 - kafka
 author: christianw
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Streaming data from Apache Kafka into Delta Lake is an integral part of

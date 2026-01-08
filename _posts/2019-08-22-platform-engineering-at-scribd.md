@@ -6,7 +6,9 @@ tags:
 - scribd
 - dataeng
 - data
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 > **Editors note:** *This is a cross-post from Tyler's [personal blog](https://brokenco.de/2019/08/22/platform-engineering-at-scribd.html)*

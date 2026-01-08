@@ -6,8 +6,10 @@ tags:
 - syslog
 - hotdog
 - featured
-team: Core Platform
 author: rtyler
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 When we set our goals at the beginning of the year "deploy Rust to production"

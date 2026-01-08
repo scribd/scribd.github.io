@@ -7,7 +7,9 @@ tags:
 - weaver
 - dependency injection
 - di-series
-team: iOS
+team:
+- iOS
+- Mobile
 ---
 
 

@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "Automating Databricks with Terraform"
-team: Core Platform
 author: rtyler
 tags:
 - databricks
 - terraform
 - featured
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 The long term success of our data platform relies on putting tools into the

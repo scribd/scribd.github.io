@@ -50,7 +50,9 @@ function fetchJobs() {
             if (!window.jobsCache[team]) {
               window.jobsCache[team] = [];
             }
-            window.jobsCache[team].push(job);
+            if (!window.jobsCache[team].includes(job)) {
+                window.jobsCache[team].push(job);
+            }
         });
       window.jobsFetched = true;
       return window.jobsCache;
@@ -95,17 +97,17 @@ function renderJobs(elem, team, randomLimit) {
       const li = document.createElement('li');
       li.className = 'card m-0 theme-midnight';
       li.innerHTML = `
-      <div class="card__body">
+      <div id="${job.id}" class="card__body">
           <h5 class="mt-0 mb-1 clamp-2">
               <a href="${job.jobUrl}" target="_blank" class="stretched-link link-text-color">${job.title}</a>
           </h5>
           <p class="m-0 fs-md monospace text-truncate">${job.location || ''}</p>
       </div>
 `;
-      elem.appendChild(li);
+      if (!document.getElementById(job.id)) {
+        elem.appendChild(li);
+      }
     });
-
-
   });
 }
 

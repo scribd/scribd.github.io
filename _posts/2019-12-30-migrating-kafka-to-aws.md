@@ -7,7 +7,9 @@ tags:
 - msk
 - featured
 - msk-series
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 [Apache Kafka](https://kafka.apache.org) has been part of Scribd's backend

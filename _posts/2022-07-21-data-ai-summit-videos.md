@@ -1,13 +1,15 @@
 ---
 layout: post
 title: "Data and AI Summit Wrap-up"
-team: Core Platform
 author: rtyler
 tags:
 - databricks
 - kafka
 - deltalake
 - featured
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 We brought a whole team to San Francisco to present and attend this year's Data and

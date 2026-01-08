@@ -1,13 +1,15 @@
 ---
 layout: post
 title: "Let's save tons of money with cloud-native data ingestion!"
-team: Core Platform
 author: rtyler
 tags:
 - databricks
 - aws
 - deltalake
 - featured
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Delta Lake is a fantastic technology for quickly querying massive data sets,

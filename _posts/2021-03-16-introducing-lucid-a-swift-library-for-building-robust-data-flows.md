@@ -7,7 +7,9 @@ tags:
 - architecture
 - codegen
 - featured
-team: iOS
+team:
+- iOS
+- Mobile
 ---
 
 Lucid is a Swift library which provides a series of convenient tools for building robust data layers for applications.

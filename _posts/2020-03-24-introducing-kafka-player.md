@@ -6,7 +6,9 @@ tags:
 - featured
 - kafka
 - msk-series
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 We are using

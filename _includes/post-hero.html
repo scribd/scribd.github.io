@@ -75,7 +75,7 @@
                 <!-- Team Info -->
                 <li class="hero__meta-item category">
                     <strong>Team</strong><br>
-                    <span>{{ page.team }}</span>
+                    <span>{{ page.team | join: ', '}}</span>
                 </li>
                 {%- endif -%}
 

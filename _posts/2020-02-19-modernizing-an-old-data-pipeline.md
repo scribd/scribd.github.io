@@ -8,7 +8,9 @@ tags:
 - featured
 - airflow-series
 - datapipe
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Our massive data pipeline has helped us process enormous amounts of information

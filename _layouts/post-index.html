@@ -25,15 +25,18 @@ layout: default
 
             <!-- Catagory loop -->
             {% for category in site.category %}
-            {% assign class = nil %}
-            {% if page.url contains category.url or page.url contains category.title or page.url == "/blog/index.html" %}
-                {% assign class = 'active' %}
-            {% endif %}
+                {% if category.hidden != true %}
+                {% assign class = nil %}
+                {% if page.url contains category.url or page.url contains category.title or page.url == "/blog/index.html" %}
+                        {% assign class = 'active' %}
+                {% endif %}
 
-            <li class="post-index__nav-list-item {{ class }}">
-                <a class="post-index__nav-link" href="{{ category.url }}{{ site.post-id }}">{{ category.team }}</a>
-            </li>
+                <li class="post-index__nav-list-item {{ class }}">
+                        <a class="post-index__nav-link" href="{{ category.url }}{{ site.post-id }}">{{ category.team }}</a>
+                </li>
+            {% endif %}
             {% endfor %}
+
         </ul>
 
     </nav>

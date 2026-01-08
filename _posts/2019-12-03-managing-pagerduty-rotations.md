@@ -7,7 +7,9 @@ tags:
 - pagerduty
 - monitoring
 - incident response
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Nobody likes to be woken up in the middle of the night, but if you've got to do

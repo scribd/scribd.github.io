@@ -6,7 +6,9 @@ tags:
 - swift
 - live-collections
 - lc-series
-team: iOS
+team:
+- iOS
+- Mobile
 ---
 
 I’m glad you made it this far, because frankly this is where most of the behind the scenes magic happens (and validates hours of mind numbing number crunching).

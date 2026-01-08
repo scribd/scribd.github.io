@@ -6,7 +6,9 @@ tags:
 - swift
 - live-collections
 - lc-series
-team: iOS
+team:
+- iOS
+- Mobile
 ---
 
 Ok, let’s dive into actually using this thing.

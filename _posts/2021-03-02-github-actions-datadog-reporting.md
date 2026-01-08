@@ -6,7 +6,9 @@ tags:
 - monitoring
 - datadog
 - featured
-team: Internal Tools
+team:
+- Developer Platform
+- Internal Tools
 ---
 
 At Scribd we have a wide variety of projects and repositories that our developers work on everyday. The Internal Tools team is dedicated to creating tooling and automation that empowers developers to deliver code as swiftly as possible. A standardized and unified method to report metrics around developer velocity and CI/CD is therefore key to being able to identify areas for improvement and measure success in improving developer workflows.

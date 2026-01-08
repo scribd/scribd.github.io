@@ -6,7 +6,9 @@ tags:
 - okta
 - airflow
 - featured
-team: Core Platform
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 

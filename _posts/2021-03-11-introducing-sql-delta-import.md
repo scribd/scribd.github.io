@@ -7,7 +7,9 @@ tags:
 - spark
 - deltalake
 - featured
-team: Data Engineering
+team:
+- Data Platform
+- Data Engineering
 ---
 
 OLTP databases are a common data source for Data Lake based warehouses which use Big Data tools to run

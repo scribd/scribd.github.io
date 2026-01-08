@@ -7,7 +7,9 @@ tags:
 - sidekiq
 - monitoring
 - featured
-team: Internal Tools
+team:
+- Developer Platform
+- Internal Tools
 ---
 
 Scribd currently serves hundreds of Sidekiq jobs per second and has served 25 billion jobs since its adoption 2 years ago. Getting to this scale wasn’t easy. In this post, I’ll walk you through one of our first ever [Sidekiq](https://sidekiq.org/) incidents and how we improved our Sidekiq implementation as a result of this incident.

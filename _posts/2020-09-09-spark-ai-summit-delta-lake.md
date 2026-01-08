@@ -6,8 +6,10 @@ tags:
 - databricks
 - spark
 - deltalake
-team: Core Platform
 author: rtyler
+team:
+- Infrastructure Engineering
+- Core Platform
 ---
 
 Earlier this summer I was able to present at Spark and AI Summit about some of

@@ -7,7 +7,9 @@ tags:
 - weaver
 - dependency injection
 - di-series
-team: iOS
+team:
+- iOS
+- Mobile
 ---
 
 In this tutorial you’re going to explore how Dependency Injection (DI) and DI Containers can be used to develop robust iOS applications. To do so, I’ll explain step by step how [Weaver’s sample](https://github.com/trupin/WeaverTutorial/tree/part1) application was written and why.
