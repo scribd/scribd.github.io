@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 
 #gem "jekyll", "~> 4.0"
+gem 'base64'
+gem 'bigdecimal'
+gem 'csv'
 gem 'kramdown'
 gem 'rouge'
 
