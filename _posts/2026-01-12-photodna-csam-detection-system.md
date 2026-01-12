@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deploying a Cost-Effective, Scalable PhotoDNA System for CSAM Detection at Scribd"
+title: "Deploying a Cost-Effective, Scalable PhotoDNA System for CSAM Detection"
 tags:
 - architecture
 - aws
@@ -11,8 +11,6 @@ team: Machine Learning Data Engineering
 author: anishk123
 ---
 
-## Deploying a Cost-Effective, Scalable PhotoDNA System for CSAM Detection at Scribd
-
 Child safety is a non‑negotiable responsibility for any platform that hosts user‑generated content. Over the last year, we designed and deployed a production system that detects known Child Sexual Abuse Material (CSAM) using PhotoDNA perceptual hashes, integrates with the National Center for Missing and Exploted Children’s (NCMEC) reporting system, and scales efficiently across our ingestion surfaces. This post explains the problem we set out to solve, how PhotoDNA hashing works, the online child-protection ecosystem (NCMEC, Tech Coalition, Project Lantern), our architecture and operational model, cost considerations, and key learnings.
 
 Note: This article discusses safety technology at a high level. We intentionally omit sensitive operational details to protect the effectiveness of these defenses.
@@ -21,11 +19,11 @@ Note: This article discusses safety technology at a high level. We intentionally
 
 We needed to:
 
-- **Accurately detect known CSAM at upload and in historical backfills.**
-- **Minimize false positives while keeping latency low on critical paths.**
-- **Meet obligations for reporting to NCMEC and preserve chain‑of‑custody evidence.**
-- **Fit within pragmatic cost envelopes and scale elastically with traffic.**
-- **Integrate into Scribd’s existing ML and batch compute ecosystem for observability, auditability, and maintainability.**
+- Accurately detect known CSAM at upload and in historical backfills.
+- Minimize false positives while keeping latency low on critical paths.
+- Meet obligations for reporting to NCMEC and preserve chain‑of‑custody evidence.
+- Fit within pragmatic cost envelopes and scale elastically with traffic.
+- Integrate into Scribd’s existing ML and batch compute ecosystem for observability, auditability, and maintainability.
 
 ### The ecosystem: Tech Coalition, Project Lantern, PhotoDNA, and NCMEC
 
@@ -35,10 +33,10 @@ We needed to:
 
 ### How PhotoDNA CSAM detection works (at a glance)
 
-- **An image is normalized (e.g., resized, converted to a canonical colorspace). For PDFs, we first extract images.**
-- **A perceptual transformation produces a PhotoDNA hash vector.**
-- **We compare that hash to vetted hash sets using a distance threshold tuned to minimize both false positives and false negatives.**
-- **A match triggers automated containment (quarantine/blocks), evidence preservation, safety review, and NCMEC reporting workflows.**
+1. An image is normalized (e.g., resized, converted to a canonical colorspace). For PDFs, we first extract images.
+2. A perceptual transformation produces a PhotoDNA hash vector.
+3. We compare that hash to vetted hash sets using a distance threshold tuned to minimize both false positives and false negatives.
+4. A match triggers automated containment (quarantine/blocks), evidence preservation, safety review, and NCMEC reporting workflows.
 
 ### Architecture
 
@@ -46,9 +44,9 @@ At a high level, we separate event driven and highly parallel PhotoDNA hash gene
 
 Key properties:
 
-- **The deterministic matching path is GPU‑parallel, horizontally scalable, and isolated from image transform and hash generation.**
-- **Hash set updates are versioned and rolled atomically; match records include hash‑set version.**
-- **Matches are logged and reviewed.**
+- The deterministic matching path is GPU‑parallel, horizontally scalable, and isolated from image transform and hash generation.
+- Hash set updates are versioned and rolled atomically; match records include hash‑set version.
+- Matches are logged and reviewed.
 
 ![PhotoDNA CSAM Detection System diagram](/post-images/2026-content-trust/photodna_csam_detection_system.png)
 
@@ -56,88 +54,88 @@ The diagram above shows the high-level architecture of our PhotoDNA CSAM Detecti
 
 ### Hasher and matcher details
 
-**Hasher: event driven and highly parallel**
+#### Hasher: event driven and highly parallel**
 
-- **Image sources: raw images and images extracted from PDFs (embedded image extraction are deterministic and versioned).**
-- **Parallelism: Each PDF document is processed in parallel by evented and isolated compute (AWS Lambda).**
-- **Storage: PhotoDNA hashes are versioned and storage for every extracted image.**
-- **Observability: structured metrics (throughput, error codes, backlog depth) and end‑to‑end lineage identifiers provide for auditability.**
+- Image sources: raw images and images extracted from PDFs (embedded image extraction are deterministic and versioned).
+- Parallelism: Each PDF document is processed in parallel by evented and isolated compute (AWS Lambda).
+- Storage: PhotoDNA hashes are versioned and storage for every extracted image.
+- Observability: structured metrics (throughput, error codes, backlog depth) and end‑to‑end lineage identifiers provide for auditability.
 
-**Matcher: high‑throughput batch**
+#### Matcher: high‑throughput batch**
 
-- **Vetted hash sets are loaded for matching; where feasible, keep structures memory‑resident to maximize throughput.**
-- **Batched distance computations with conservative thresholds minimize false positives; thresholds and policies are versioned.**
-- **Aggregation: combine duplicate or near‑duplicate image evidence into per‑asset decisions and preserve the strongest evidence for review.**
-- **Events and evidence: emit match events to quarantine/review flows and include hash‑set version and metadata for audit.**
+- Vetted hash sets are loaded for matching; where feasible, keep structures memory‑resident to maximize throughput.
+- Batched distance computations with conservative thresholds minimize false positives; thresholds and policies are versioned.
+- Aggregation: combine duplicate or near‑duplicate image evidence into per‑asset decisions and preserve the strongest evidence for review.
+- Events and evidence: emit match events to quarantine/review flows and include hash‑set version and metadata for audit.
 
 ### Lessons Learned & Best Practices
 
-**Which NCMEC hash set to use?**
+#### Which NCMEC hash set to use?**
 
 We prioritize vetted, legally curated sources:
 
-- **Primary: NCMEC‑provided hash sets for known CSAM.**
-- **Supplementary: Industry‑shared signals via Tech Coalition initiatives (e.g., Project Lantern) where applicable and approved.**
+- Primary: NCMEC‑provided hash sets for known CSAM.
+- Supplementary: Industry‑shared signals via Tech Coalition initiatives (e.g., Project Lantern) where applicable and approved.
 
 Operationally, we version, verify, and roll out hash updates.
 
-**Where do GPUs come in?**
+#### Where do GPUs come in?**
 
 In our final design and implementation, graphical processing units (GPUs) materially improved throughput and unit cost for PhotoDNA hashing when run as SageMaker Batch workloads. We containerized the PhotoDNA pipeline and executed it on GPU‑backed instances to accelerate matching, enabling us to meet tight batch Service-level objectives (SLOs) and backfill schedules with fewer nodes.
 
-- **Batched matching on GPU nodes via SageMaker Batch/Processing reduced runtimes significantly.**
-- **GPU‑accelerated transforms improved end‑to‑end throughput.**
-- **Higher throughput per node reduced cost at scale.**
+- Batched matching on GPU nodes via SageMaker Batch/Processing reduced runtimes significantly.
+- GPU‑accelerated transforms improved end‑to‑end throughput.
+- Higher throughput per node reduced cost at scale.
 
-**Learnings from Microsoft’s PhotoDNA guidance**
+#### Learnings from Microsoft’s PhotoDNA guidance
 
-- **Preprocessing matters: adhere to canonical normalization steps (grayscale, downsample strategy) or use the vetted cloud service where appropriate.**
-- **Treat thresholds conservatively; don’t repurpose perceptual distances beyond vetted safety use cases.**
-- **Keep auditable logs of match context and system versions; separate operational telemetry from sensitive evidence artifacts.**
+- Preprocessing matters: adhere to canonical normalization steps (grayscale, downsample strategy) or use the vetted cloud service where appropriate.
+- Treat thresholds conservatively; don’t repurpose perceptual distances beyond vetted safety use cases.
+- Keep auditable logs of match context and system versions; separate operational telemetry from sensitive evidence artifacts.
 
 ### Machine learning (ML) deployment at Scribd: Observability and operational rigor
 
 Although PhotoDNA isn’t “a model” we train, we run complementary ML components and rigorous observability:
 
-- **Weights & Biases (W&B): Host the versioned model in the W&B Model Registry, lineage, and provenance for audit. SageMaker Batch jobs resolve the model to ensure reproducibility.**
-- **AWS SageMaker Batch Inference: Host batch inference jobs using standardized containers, consistent IAM boundaries, and autoscaling.**
+- **Weights & Biases (W&B)**: Host the versioned model in the W&B Model Registry, lineage, and provenance for audit. SageMaker Batch jobs resolve the model to ensure reproducibility.
+- **AWS SageMaker Batch Inference**: Host batch inference jobs using standardized containers, consistent IAM boundaries, and autoscaling.
 
 ### Cost model
 
 We sized for steady‑state uploads and periodic backfills:
 
-- **Compute: GPU‑backed SageMaker Batch for PhotoDNA hashing improved throughput/SLOs and, when saturated, delivered better $/throughput than equivalently provisioned CPU fleets.**
-- **Storage: Keep only what is necessary for safety review and legal retention. Use lifecycle policies and tiering for aging artifacts.**
-- **Queueing and elasticity: Amazon Simple Queue Service (SQS) buffers absorb bursts; autoscaling workers maintain SLOs without overprovisioning.**
-- **Hash set operations: Updates are small; cost is dominated by compute and storage around matches and evidence.**
+- **Compute**: GPU‑backed SageMaker Batch for PhotoDNA hashing improved throughput/SLOs and, when saturated, delivered better $/throughput than equivalently provisioned CPU fleets.
+- **Storage**: Keep only what is necessary for safety review and legal retention. Use lifecycle policies and tiering for aging artifacts.
+- **Queueing and elasticity**: Amazon Simple Queue Service (SQS) buffers absorb bursts; autoscaling workers maintain SLOs without overprovisioning.
+- **Hash set operations**: Updates are small; cost is dominated by compute and storage around matches and evidence.
 
 In practice, the unit economics are driven by: input volume, match rate (rare but higher cost per event), retention windows, and backfill cadence.
 
 ### Wins
 
-- **Safety‑first by design: Deterministic matching path is simple, fast, and auditable.**
-- **Operational clarity: Clear blast‑radius boundaries between hashing, matching, enrichment, and reporting.**
-- **Scalable and cost‑effective: GPU‑accelerated hashing on SageMaker Batch achieved high throughput and favorable unit economics at scale.**
-- **Stronger together: Collaboration with the ecosystem improves coverage and response speed.**
+- **Safety‑first by design**: Deterministic matching path is simple, fast, and auditable.
+- **Operational clarity**: Clear blast‑radius boundaries between hashing, matching, enrichment, and reporting.
+- **Scalable and cost‑effective**: GPU‑accelerated hashing on SageMaker Batch achieved high throughput and favorable unit economics at scale.
+- **Stronger together**: Collaboration with the ecosystem improves coverage and response speed.
 
 ### Operational guardrails and compliance
 
-- **Strict identity and access management (IAM) boundaries; least‑privilege for all safety components.**
-- **Immutable logging with retention; separate telemetry from sensitive evidence.**
-- **Privacy and data minimization: collect only what’s necessary for safety and compliance.**
+- Strict identity and access management (IAM) boundaries; least‑privilege for all safety components.
+- Immutable logging with retention; separate telemetry from sensitive evidence.
+- Privacy and data minimization: collect only what’s necessary for safety and compliance.
 
 ### Acknowledgments
 
 This was truly a cross‑functional effort. Thank you:
 
-- **Machine Learning and Data Engineering team**
-- **Product Managers**
-- **Infrastructure**
-- **Legal**
-- **Partners at NCMEC and Microsoft**
-- **[Industry peers via Tech Coalition](https://technologycoalition.org/) initiatives, including [Project Lantern](https://technologycoalition.org/programs/lantern/)**
+- Machine Learning and Data Engineering team
+- Product Managers
+- Infrastructure
+- Legal
+- Partners at NCMEC and Microsoft
+- [Industry peers via Tech Coalition](https://technologycoalition.org/) initiatives, including [Project Lantern](https://technologycoalition.org/programs/lantern/)
 
-**Collaboration highlights**
+### Collaboration highlights
 
 - **Ongoing alignment with NCMEC reporting workflows (evidence packaging, retention, and audit trails).**
 - **Incorporating best practices from Microsoft’s PhotoDNA guidance for normalization and thresholding.**
@@ -145,6 +143,6 @@ This was truly a cross‑functional effort. Thank you:
 
 ### Appendix: FAQs
 
-- **Does PhotoDNA require GPUs? No. However, in our SageMaker Batch implementation, GPUs significantly improved throughput and cost for large‑scale hashing, so we run hashing on GPU for batch workloads.**
-- **How are false positives handled? Conservative thresholds plus human‑in‑the‑loop review on any flagged item before reporting or account actions.**
+- **Does PhotoDNA require GPUs?** No. However, in our SageMaker Batch implementation, GPUs significantly improved throughput and cost for large‑scale hashing, so we run hashing on GPU for batch workloads.
+- **How are false positives handled?** Conservative thresholds plus human‑in‑the‑loop review on any flagged item before reporting or account actions.
 
