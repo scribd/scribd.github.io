@@ -48,7 +48,7 @@ Key properties:
 - Hash set updates are versioned and rolled atomically; match records include hash‑set version.
 - Matches are logged and reviewed.
 
-![PhotoDNA CSAM Detection System diagram](/post-images/2026-content-trust/photodna_csam_detection_system.png)
+![PhotoDNA CSAM Detection System diagram](/post-images/2026-content-trust/photodna-csam-detection-system.png)
 
 The diagram above shows the high-level architecture of our PhotoDNA CSAM Detection System. The system is designed to be cost-effective, scalable, and efficient. 
 
