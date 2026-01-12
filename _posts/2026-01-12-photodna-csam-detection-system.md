@@ -54,14 +54,14 @@ The diagram above shows the high-level architecture of our PhotoDNA CSAM Detecti
 
 ### Hasher and matcher details
 
-#### Hasher: event driven and highly parallel**
+#### Hasher: event driven and highly parallel
 
 - Image sources: raw images and images extracted from PDFs (embedded image extraction are deterministic and versioned).
 - Parallelism: Each PDF document is processed in parallel by evented and isolated compute (AWS Lambda).
 - Storage: PhotoDNA hashes are versioned and storage for every extracted image.
 - Observability: structured metrics (throughput, error codes, backlog depth) and end‑to‑end lineage identifiers provide for auditability.
 
-#### Matcher: high‑throughput batch**
+#### Matcher: high‑throughput batch
 
 - Vetted hash sets are loaded for matching; where feasible, keep structures memory‑resident to maximize throughput.
 - Batched distance computations with conservative thresholds minimize false positives; thresholds and policies are versioned.
@@ -70,7 +70,7 @@ The diagram above shows the high-level architecture of our PhotoDNA CSAM Detecti
 
 ### Lessons Learned & Best Practices
 
-#### Which NCMEC hash set to use?**
+#### Which NCMEC hash set to use?
 
 We prioritize vetted, legally curated sources:
 
@@ -79,7 +79,7 @@ We prioritize vetted, legally curated sources:
 
 Operationally, we version, verify, and roll out hash updates.
 
-#### Where do GPUs come in?**
+#### Where do GPUs come in?
 
 In our final design and implementation, graphical processing units (GPUs) materially improved throughput and unit cost for PhotoDNA hashing when run as SageMaker Batch workloads. We containerized the PhotoDNA pipeline and executed it on GPU‑backed instances to accelerate matching, enabling us to meet tight batch Service-level objectives (SLOs) and backfill schedules with fewer nodes.
 
@@ -137,9 +137,9 @@ This was truly a cross‑functional effort. Thank you:
 
 ### Collaboration highlights
 
-- **Ongoing alignment with NCMEC reporting workflows (evidence packaging, retention, and audit trails).**
-- **Incorporating best practices from Microsoft’s PhotoDNA guidance for normalization and thresholding.**
-- **Participation with industry groups (e.g., Tech Coalition/Project Lantern) to improve cross‑platform defenses.**
+- Ongoing alignment with NCMEC reporting workflows (evidence packaging, retention, and audit trails).
+- Incorporating best practices from Microsoft’s PhotoDNA guidance for normalization and thresholding.
+- Participation with industry groups (e.g., Tech Coalition/Project Lantern) to improve cross‑platform defenses.
 
 ### Appendix: FAQs
 
