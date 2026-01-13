@@ -6,7 +6,6 @@ tags:
 - aws
 - lambda
 - databricks
-- featured
 team: Machine Learning Data Engineering
 author: anishk123
 ---
