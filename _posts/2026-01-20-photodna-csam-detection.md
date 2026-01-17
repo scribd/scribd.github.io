@@ -2,11 +2,11 @@
 layout: post
 title: "Deploying a Cost-Effective, Scalable PhotoDNA System for CSAM Detection"
 tags:
-- architecture
+- featured
 - aws
 - lambda
 - databricks
-team: Machine Learning Data Engineering
+team: ML Data Engineering
 author: anishk123
 ---
 
