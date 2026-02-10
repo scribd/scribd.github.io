@@ -27,4 +27,4 @@ out._
 You can also listen
 [On Everand](https://www.everand.com/podcast/980476250/Engineering-Around-Extreme-S3-Scale-with-R-Tyler-Croy)
 or watch via the 
-[Last Week in AWS YouTube channel](https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/engineering-around-extreme-s3-scale-with-r-tyler-croy/)
+[Last Week in AWS YouTube channel](https://www.youtube.com/watch?v=TZj38Bm1DC4)
