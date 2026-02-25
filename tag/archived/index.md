@@ -1,6 +1,6 @@
 ---
 layout: tag_page
-title: "Tag: Terraform"
-tag: Terraform
+title: "Tag: archived"
+tag: archived
 robots: noindex
 ---
