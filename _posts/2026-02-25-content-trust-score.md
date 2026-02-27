@@ -47,7 +47,7 @@ We leveraged annotated data at Scribd, which includes human-assigned trust label
 .figure-table thead th { background: #f5f5f5; }
 </style>
 <figure class="figure-table">
-  <figcaption><strong>Table 1. Document distribution across Trust Pillars.</strong> This table details the percentage of labelled documents within the training and testing datasets. Note that the <em>Clean</em> documents are included separately as the baseline.</figcaption>
+  <figcaption><strong>Table 1. Document distribution across Trust Pillars.</strong> This table details the percentage of labeled documents within the training and testing datasets. Note that the <em>Clean</em> documents are included separately as the baseline.</figcaption>
   <table>
     <thead>
       <tr>
@@ -58,14 +58,14 @@ We leveraged annotated data at Scribd, which includes human-assigned trust label
     </thead>
     <tbody>
       <tr>
-        <td>Explicit</td>
-        <td>0.39%</td>
-        <td>0.41%</td>
-      </tr>
-      <tr>
         <td>Illegal</td>
         <td>1.49%</td>
         <td>1.56%</td>
+      </tr>
+      <tr>
+        <td>Explicit</td>
+        <td>0.39%</td>
+        <td>0.41%</td>
       </tr>
       <tr>
         <td>PII/Privacy</td>
@@ -107,7 +107,7 @@ This concept is visualized in Figure 2, where each "Pillar" represents a distinc
 
 <figure>
     <img width="662" alt="Figure 2. Conceptual visualization of Trust Pillar embeddings and document similarity." src="/post-images/2026-content-trust/content-trust-score-Figure-2.png">
-  <figcaption><strong>Figure 2. Conceptual visualization of Trust Pillar embeddings and document similarity in a high-dimensional space.</strong> Each coloured dot represents a single document.</figcaption>
+  <figcaption><strong>Figure 2. Conceptual visualization of Trust Pillar embeddings and document similarity in a high-dimensional space.</strong> Each colored dot represents a single document.</figcaption>
 </figure>
 
 ### Enhancing Semantics with Description Embeddings
@@ -134,14 +134,14 @@ For each trust pillar, we compared the distribution of the content trust scores 
 
 For the majority of Trust Pillars, the **content-based scores demonstrated strong discrimination:** they were higher for documents truly violating a given pillar (True Positives) than for documents violating other trust pillars or clean documents. Conversely, for these same pillars, the GenAI-description-based scores were indistinguishable from those of other documents, or showed significantly less separation compared to the content-based counterparts. This suggests that while **content-based embeddings offer a superior representation for general trust identification**, the descriptive embeddings provided little added value for these pillars.
 
-This performance pattern is **reversed for Low Quality documents**. Specifically, the content-based scores for Low Quality documents were ineffective, proving to be indistinguishable from those violating other trust pillars or those labelled as clean. The GenAI-based approach, however, showed a distinct advantage: the **GenAI-description-based scores were significantly higher for Low Quality documents** compared to all others. This result indicates that the **descriptive summary is crucial for accurately identifying this specific type of document**.
+This performance pattern is **reversed for Low Quality documents**. Specifically, the content-based scores for Low Quality documents were ineffective, proving to be indistinguishable from those violating other trust pillars or those labeled as clean. The GenAI-based approach, however, showed a distinct advantage: the **GenAI-description-based scores were significantly higher for Low Quality documents** compared to all others. This result indicates that the **descriptive summary is crucial for accurately identifying this specific type of document**.
 
 <figure>
     <img width="662" alt="Figure 5. Trust Score Distribution Comparison of Content vs. GenAI-Description Trust Scores." src="/post-images/2026-content-trust/content-trust-score-Figure-5.jpg">
   <figcaption><strong>Figure 5. Trust Score Distribution Comparison of Content vs. GenAI-Description Trust Scores.</strong> Violin plots showing the distribution of trust scores for documents belonging to a specific violation pillar (blue) compared to all other documents (red; other pillars in scope or clean documents).</figcaption>
 </figure>
 
-For completeness and to verify that our results were not skewed by the presence of other violating documents, we conducted a final comparative analysis by isolating the scores of labelled documents **against only the clean, non-violating documents**. As evident in Figure 6, the core patterns persist: The **content-based scores** consistently yield **superior separation** between violating content (blue) and clean content (green) for the **Illegal, Explicit, and PII/Privacy** pillars (Figure 6a-c). In sharp contrast, the GenAI-description-based scores for these same three pillars exhibit significantly greater distribution overlap. Conversely, for the **Low Quality pillar** (Figure 6d), the **GenAI-description method** again established a **much clearer boundary** from the clean documents than the content-based method, further validating our hybrid scoring approach.
+For completeness and to verify that our results were not skewed by the presence of other violating documents, we conducted a final comparative analysis by isolating the scores of labeled documents **against only the clean, non-violating documents**. As evident in Figure 6, the core patterns persist: The **content-based scores** consistently yield **superior separation** between violating content (blue) and clean content (green) for the **Illegal, Explicit, and PII/Privacy** pillars (Figure 6a-c). In sharp contrast, the GenAI-description-based scores for these same three pillars exhibit significantly greater distribution overlap. Conversely, for the **Low Quality pillar** (Figure 6d), the **GenAI-description method** again established a **much clearer boundary** from the clean documents than the content-based method, further validating our hybrid scoring approach.
 
 <figure>
     <img width="662" alt="Figure 6. Trust Score Distribution Comparing Pillars Exclusively to Clean Documents." src="/post-images/2026-content-trust/content-trust-score-Figure-6.jpg">
@@ -176,16 +176,16 @@ For each of the four in-scope trust pillars, we calculated classification metric
     </thead>
     <tbody>
       <tr>
-        <td>Explicit</td>
-        <td>0.80</td>
-        <td>10.22%</td>
-        <td>1.07%</td>
-      </tr>
-      <tr>
         <td>Illegal</td>
         <td>0.80</td>
         <td>71.83%</td>
         <td>0.79%</td>
+      </tr>
+      <tr>
+        <td>Explicit</td>
+        <td>0.80</td>
+        <td>10.22%</td>
+        <td>1.07%</td>
       </tr>
       <tr>
         <td>PII/Privacy</td>
@@ -221,3 +221,13 @@ Our work demonstrates a straightforward and flexible content moderation system b
 ### Potential Applications
 The Content Trust Score and the underlying classification system created in this project open the door to various critical applications at Scribd:
 * **Content Safety in Discovery:** Serving as a primary filter to ensure safe content appears prominently in search results and recommendation feeds. Our N-way testing experiments revealed that filtering unsafe content from search results **significantly increases core business metrics** (e.g., signup) and user engagement (e.g., read time).
+
+## Further Reading
+This project was recently presented at TrustCon 2025. For those interested in a visual walkthrough of the dual-embedding approach, you can view the [full presentation slides on Slideshare](https://www.slideshare.net/slideshow/enhancing-content-moderation-with-dual-embedding-trust-scoring-using-llm-summarization/286257301?utm_source=clipboard_share_button&utm_campaign=slideshare_make_sharing_viral_v2&utm_variation=control&utm_medium=share).
+
+## Acknowledgments
+This work was a collaborative effort, and we are incredibly grateful to the following individuals and teams for their invaluable contributions:
+* **[Rafael Lacerda](https://www.linkedin.com/in/raflac/)**, **[Monique Alves Cruz](https://www.linkedin.com/in/moniquealvescruz/)**, and **[Seyoon Kim](https://www.linkedin.com/in/seyoonkim/)** for their strategic guidance and steadfast support throughout the project.
+* **[John Strenio](https://www.linkedin.com/in/johnstrenio/)** for his foundational research and exploratory work that paved the way for this initiative.
+* **[Kara Killough](https://www.linkedin.com/in/kara-killough/)** for her diligent efforts in building the high-quality annotated datasets that powered our models.
+* The **Search and Recommendation Teams** for their partnership and agility in integrating the trust scores, directly driving the measurable improvements in our user experience and business metrics.
