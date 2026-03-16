@@ -16,7 +16,7 @@ team:
 
 One of the harder parts about building new platform infrastructure at a company
 which has been around a while is figuring out exactly _where_ to
-begin. At [Scribd](https://www.scribd.com/about/engineering) the company has
+begin. At [Scribd](https://www.scribd.com/careers) the company has
 built a good product and curated a large corpus of written content, but
 where next? As I alluded to in [my previous
 post](/blog/2019/platform-engineering-at-scribd.html) about the Platform
@@ -40,7 +40,7 @@ admit this, but much of our direction was heavily influenced by two
 conversations, both of which took less than an hour.
 
 The first was with [Kevin Perko](https://www.linkedin.com/in/kperko) (KP), the head
-of our [Data Science team](https://www.scribd.com/about/data_science). His team
+of our [Data Science team](https://www.scribd.com/careers). His team
 interacts the most with our current data platform (HDFS, Spark, Hive, etc); in
 essence Data Science would be considered one of our customers. I asked some
 variant of "what's wrong with the data infrastructure?" and KP unloaded what

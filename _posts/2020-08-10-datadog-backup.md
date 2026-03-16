@@ -89,4 +89,4 @@ Core Infrastructure team is up to by [reading more of our
 posts](https://tech.scribd.com/blog/category/core-infrastructure#posts).
 If shipping metrics and managing cloudy things is up your alley, you just might
 be the kind of person who'd love to work here, so [click
-here](https://www.scribd.com/about/engineering) to review our open positions!
+here](https://www.scribd.com/careers) to review our open positions!
