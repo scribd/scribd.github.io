@@ -104,4 +104,4 @@ In conclusion, we modeled the dependency of seq2seq on data as a function of inp
 
 We found that the relationship to be roughly linear. (It’s possible that at some point the relationship becomes no longer linear, but we didn’t encounter that within the parameters of this experiment.)
 
-This result can give you a very rough idea of how much data you will need for your seq2seq project. At Scribd, we use or have explored using seq2seq for a variety of projects, including query parsing, query tagging, and spelling correction. If working on one of these projects is something you think you might be interested in, go ahead and give us a holler at [https://www.scribd.com/about/data_science](https://www.scribd.com/about/data_science)
+This result can give you a very rough idea of how much data you will need for your seq2seq project. At Scribd, we use or have explored using seq2seq for a variety of projects, including query parsing, query tagging, and spelling correction. If working on one of these projects is something you think you might be interested in, go ahead and give us a holler at [https://www.scribd.com/careers](https://www.scribd.com/careers)
