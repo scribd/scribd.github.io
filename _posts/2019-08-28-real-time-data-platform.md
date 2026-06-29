@@ -12,7 +12,7 @@ team:
 - Core Platform
 ---
 
-> **Editors note:** *This is a cross-post from Tyler's [personal blog](https://brokenco.de/2019/08/28/real-time-data-platform.html)*
+> **Editor's note:** *This is a cross-post from Tyler's [personal blog](https://brokenco.de/2019/08/28/real-time-data-platform.html)*
 
 One of the harder parts about building new platform infrastructure at a company
 which has been around a while is figuring out exactly _where_ to
@@ -132,7 +132,7 @@ to that negative feedback, understand what lies beneath the frustrations.
 Finally, have a vision for the future, but build and deliver incrementally.
 When I first sketched this out, I was forthcoming in stating "this is a 2020
 project." I made sure to clarify that this did not mean we wouldn't deliver anything
-to the business for 18 months. Instead, I made made sure to explain that to
+to the business for 18 months. Instead, I made sure to explain that to
 execute on this overall vision would be a long journey with milestones along
 the way.
 

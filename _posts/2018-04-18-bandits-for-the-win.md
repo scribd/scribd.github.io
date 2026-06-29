@@ -17,13 +17,13 @@ We’ll cover how we optimized our home page, transitioned from hard-coded rules
 
 ### Guessing which recommendation rows people like is probably a bad idea
 
-Users have diverse tastes. This bears repeating. Users have diverse tastes. I cannot understate the complexity of user preferences in a system that includes books, audiobooks, magazines and user-generated content. We need a system that automatically optimizes which rows to show various groups of users. And while we had a good idea of how well each row performed before implementing the multi-armed bandit, the row position biased the row type’s performance. Position bias, both horizontal and vertical, makes evaluating a recommendation system’s effectiveness challenging, since it’s one of the biggest determinants of interaction.
+Users have diverse tastes. This bears repeating. Users have diverse tastes. I cannot overstate the complexity of user preferences in a system that includes books, audiobooks, magazines and user-generated content. We need a system that automatically optimizes which rows to show various groups of users. And while we had a good idea of how well each row performed before implementing the multi-armed bandit, the row position biased the row type’s performance. Position bias, both horizontal and vertical, makes evaluating a recommendation system’s effectiveness challenging, since it’s one of the biggest determinants of interaction.
 
 ### There are too many combinations of rows to AB test
 
 The home page has 42 possible row types, which we can display in 10 row positions, resulting in 5*10¹⁵ potential combinations = 42! / (42 -10)! To give you some context, this is more stars than the entire Milky Way galaxy has!
 
-### The diversity of rows are important
+### The diversity of rows is important
 
 If diversity weren’t a factor, one reasonable solution would be to randomly display every row type until there was enough unbiased data to rank the rows. But given that the diversity and order of rows are essential, we needed a more sophisticated method.
 > The scale of the product opportunity

@@ -28,7 +28,7 @@ source daemon I have written to make it possible.
 
 ## Delivering DAGs
 
-Every Airflow component expects the DAGs to present in a local DAG folder,
+Every Airflow component expects the DAGs to be present in a local DAG folder,
 accessed through a filesystem interface. There are 3 common approaches to meet
 this requirement:
 
@@ -116,7 +116,7 @@ For daemon Airflow components like web server and scheduler, we run
 S3 to local filesystem every 5 seconds. This is implemented using the sidecar
 container pattern. The DAG folder is mounted as a shared volume between the
 Airflow web/scheduler container and objinsync container. The sidecar
-objinsync container is setup to run the following command:
+objinsync container is set up to run the following command:
 
 ```
 /bin/objinsync pull s3://<S3_DAG_BUCKET>/airflow_home/dags <YOUR_AIRFLOW_HOME>/dags
@@ -125,7 +125,7 @@ objinsync container is setup to run the following command:
 For other components like task instance pod that runs to completion, we run
 `objinsync`in pull once mode where it only pulls the required DAG from S3 once
 before the Airflow component starts. This is implemented using Airflow K8S
-executor’s builtin git sync container feature. We are effectively replacing git
+executor’s built-in git sync container feature. We are effectively replacing git
 invocation with `objinsync` in this case.
 
 **Environment variables for Airflow scheduler:**

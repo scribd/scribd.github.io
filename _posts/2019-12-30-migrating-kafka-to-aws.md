@@ -28,7 +28,7 @@ existed, stemmed from the operational difficulties of _just_ running the thing.
 It was almost like we were afraid to touch Kafka for fear it might fall over.
 Another part of that avoidance grew out of the functionality not matching
 developers' expectations.  When we first adopted Kafka,
-ours was an on-premise deloyment of version **0.10**. Developers used it for a
+ours was an on-premise deployment of version **0.10**. Developers used it for a
 few projects, unexpected things occasionally happened that were difficult to
 "fix" and we started avoiding it for new projects.
 

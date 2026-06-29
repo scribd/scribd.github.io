@@ -39,7 +39,7 @@ yaml formatting of [JSON schema](https://json-schema.org/) to formalize our
 shared schema definitions, giving us the necessary API contract to enforce
 between producer and consumer.
 
-The snippet below shows a general version of what one of these message schemas look like in yaml.
+The snippet below shows a general version of what one of these message schemas looks like in yaml.
 This comes from one of our real schemas but with all of the interesting fields removed.
 
 ```yaml

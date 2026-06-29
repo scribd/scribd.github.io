@@ -42,7 +42,7 @@ agent with the following init script on the driver node:
 echo "Running on the driver? $DB_IS_DRIVER"
 
 if [[ $DB_IS_DRIVER = "TRUE" ]]; then
-  echo "Setting up metrics for spark applicatin: ${APP_NAME}"
+  echo "Setting up metrics for spark application: ${APP_NAME}"
   echo "Driver ip: $DB_DRIVER_IP"
 
   cat << EOF >> /home/ubuntu/databricks/spark/conf/metrics.properties
@@ -149,7 +149,7 @@ class Datadog(val appName: String)(implicit spark: SparkSession) extends Seriali
 }
 ```
 
-To initializing the helper class takes two lines of code:
+To initialize the helper class takes two lines of code:
 
 ```scala
 implicit val spark = SparkSession.builder().getOrCreate()
@@ -157,7 +157,7 @@ val datadog = new Datadog(AppName)
 ```
 
 Then you can use `datadog.statsdcli()` to create statsd clients from within
-both **driver** and **executors** to emit custom emtrics:
+both **driver** and **executors** to emit custom metrics:
 
 
 ```scala
