@@ -6,3 +6,4 @@ vendor
 *.sw*
 .idea/
 .bundle/
+.DS_Store

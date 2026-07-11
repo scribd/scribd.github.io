@@ -1,6 +1,6 @@
 ---
 layout: tag_page
-title: "Tag: Terraform"
-tag: Terraform
+title: "Tag: looker"
+tag: looker
 robots: noindex
 ---
