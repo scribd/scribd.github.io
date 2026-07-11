@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" role="img" aria-label="A funnel: the fast model labels the full corpus, a 1% validation slice checks generalization, a judge model reviews a 0.1% sample, and SMEs review only the disagreements.">
+  <rect x="0" y="0" width="1200" height="600" rx="20" fill="#F8F9FD"/>
+
+  <text x="40" y="58" font-size="36" font-weight="700" fill="#1C263D">Breadth first, then concentrate human time</text>
+  <text x="40" y="94" font-size="20" fill="#57617A">The fast model labels everything; the judge and SMEs only ever touch a sample.</text>
+
+  <!-- connectors -->
+  <g stroke="#CCD4E8" stroke-width="2">
+    <line x1="695" y1="176" x2="792" y2="176"/>
+    <line x1="625" y1="280" x2="792" y2="280"/>
+    <line x1="565" y1="384" x2="792" y2="384"/>
+    <line x1="520" y1="488" x2="792" y2="488"/>
+  </g>
+
+  <!-- funnel layers -->
+  <polygon points="30,130 730,130 660,222 100,222" fill="#509BA8"/>
+  <text x="380" y="172" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">Full corpus &#183; 100%</text>
+  <text x="380" y="198" font-size="16" fill="#EAF3F5" text-anchor="middle">fast model labels every document</text>
+
+  <polygon points="100,234 660,234 590,326 170,326" fill="#1E7B85"/>
+  <text x="380" y="276" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">Validation &#183; 1%</text>
+  <text x="380" y="302" font-size="16" fill="#D3E7EA" text-anchor="middle">sanity-check generalization</text>
+
+  <polygon points="170,338 590,338 540,430 220,430" fill="#0D6069"/>
+  <text x="380" y="380" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle">Judge &#183; 0.1%</text>
+  <text x="380" y="406" font-size="16" fill="#CFE3E6" text-anchor="middle">stronger model agrees / disagrees</text>
+
+  <polygon points="220,442 540,442 500,534 260,534" fill="#A9085E"/>
+  <text x="380" y="484" font-size="23" font-weight="700" fill="#FFFFFF" text-anchor="middle">SME review</text>
+  <text x="380" y="509" font-size="15" fill="#F3D3E3" text-anchor="middle">review the disagreements</text>
+
+  <!-- annotations -->
+  <g text-anchor="start">
+    <text x="800" y="171" font-size="18" font-weight="700" fill="#1C263D">One cheap batch pass</text>
+    <text x="800" y="193" font-size="15" fill="#57617A">~400M docs (Scribd), ~25M slideshows</text>
+
+    <text x="800" y="275" font-size="18" font-weight="700" fill="#1C263D">Beyond the golden set</text>
+    <text x="800" y="297" font-size="15" fill="#57617A">catches drift &amp; long-tail edge cases</text>
+
+    <text x="800" y="379" font-size="18" font-weight="700" fill="#1C263D">Quality signal at scale</text>
+    <text x="800" y="401" font-size="15" fill="#57617A">measurable disagreement rate</text>
+
+    <text x="800" y="483" font-size="18" font-weight="700" fill="#1C263D">Highest-leverage human time</text>
+    <text x="800" y="505" font-size="15" fill="#57617A">review disagreements, not everything</text>
+  </g>
+</svg>

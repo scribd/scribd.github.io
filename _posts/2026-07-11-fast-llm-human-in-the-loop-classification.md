@@ -12,7 +12,7 @@ team: ML Data Engineering
 author: anishk123
 ---
 
-*A repeatable "Fast Model → Judge → SME → Iterate" workflow using familiar tools.*
+*A repeatable "Fast Model → Judge → SME → Iterate" workflow using familiar tools*
 
 ## TL;DR — Key Learnings
 
@@ -32,6 +32,8 @@ Repeatable mantra (we used it constantly):
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
+---
+
 ## What We Achieved (With a Small Team)
 
 This process enabled projects that normally require far more people and time:
@@ -41,9 +43,13 @@ This process enabled projects that normally require far more people and time:
 
 The specific labels and thresholds vary by project and policy requirements. The important part is that the **process** was portable across both efforts.
 
+---
+
 ## The Core Point
 
 LLM models, prompt quality, and cost will change over time. The durable asset is not a single prompt or model — it's a **repeatable human-in-the-loop process**.
+
+![Humans stay in the loop: the model proposes labels at scale, humans have the final say on the disagreements, and corrections grow a versioned golden set that feeds back into the model.](/post-images/2026-fast-llm-hitl/human-in-the-loop.svg)
 
 That process is:
 
@@ -55,9 +61,13 @@ That process is:
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
+---
+
 ## Workflow Overview
 
 Here's the end-to-end loop we repeated:
+
+![The repeatable loop: a fast model labels for breadth, a judge model checks a sample, SMEs make the final call, corrections grow the golden set, and the prompt is iterated — then the loop repeats.](/post-images/2026-fast-llm-hitl/repeatable-loop.svg)
 
 1. **Source documents in Databricks**
 2. **Standardize a document PDF** and metadata
@@ -71,6 +81,8 @@ Here's the end-to-end loop we repeated:
 10. **Improve prompts** and repeat the loop
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
+
+---
 
 ## Step-by-Step
 
@@ -177,7 +189,11 @@ SMEs reviewed the sheet and made edits. This is where human-in-the-loop scales: 
 
 Then we ingested the SME edits back into Databricks and versioned the golden dataset.
 
+---
+
 ## Sampling Strategy: 1% Validation + 0.1% Judge Sample
+
+![Breadth first, then concentrate human time: the fast model labels the full corpus, a 1% slice validates generalization, a judge model re-checks a 0.1% sample, and SMEs review only the disagreements.](/post-images/2026-fast-llm-hitl/sampling-funnel.svg)
 
 Why not just rely on the small golden dataset? Because small golden datasets tend to be:
 
@@ -203,6 +219,8 @@ If random sampling isn't enough, stratify by patterns visible in the rationale a
 - document length
 - language
 
+---
+
 ## Prompt Engineering: Make It Iterative, Not Fragile
 
 A scalable, repeatable pattern:
@@ -223,6 +241,8 @@ You should see:
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
+---
+
 ## Metrics That Matter (Simple but Effective)
 
 You do not need an overly complex evaluation harness to start. Track:
@@ -234,6 +254,8 @@ You do not need an overly complex evaluation harness to start. Track:
 
 The point is not "perfect metrics." The point is to make iteration measurable.
 
+---
+
 ## Common Failure Modes (And How We Handled Them)
 
 1. **Overconfident wrong answers**
@@ -242,6 +264,8 @@ The point is not "perfect metrics." The point is to make iteration measurable.
    Fix: keep the sheet schema strict; export smaller batches; parallelize review across multiple sheets.
 3. **Batch retries / partial failures**
    Fix: keep batch requests idempotent; retry only failed batches; store intermediate results per batch.
+
+---
 
 ## What To Copy If You Want to Replicate This
 
@@ -257,6 +281,8 @@ Repeatable mantra (again):
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
+---
+
 ## Summary
 
 LLM models, prompt quality, and cost will change over time. That's why we built a repeatable process — not a one-off prompt — and validated it across two large real-world projects.
@@ -264,6 +290,8 @@ LLM models, prompt quality, and cost will change over time. That's why we built 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
 That repeatability is what made it possible for a small cross-functional team to classify ~25M slideshows and ~400M documents in ~2 months — and it's the process we hope others can reuse and adapt as models and pricing evolve.
+
+---
 
 ## Appendix
 
@@ -276,13 +304,13 @@ That repeatability is what made it possible for a small cross-functional team to
 
 ```mermaid
 flowchart LR
-  A[1) Source data in Databricks] --> B[2) Standardize doc snippets + metadata]
-  B --> C[3) Build JSONL batches (idempotent)]
-  C --> D[4) Batch inference: fast model]
-  D --> E[5) Store candidate label + rationale]
-  E --> F[6) Validate 1% slice; judge 0.1% sample]
-  F --> G[7) SME reviews disagreements in Sheets]
-  G --> H[8) Ingest edits → grow golden set → iterate]
+  A["1) Source data in Databricks"] --> B["2) Standardize doc snippets + metadata"]
+  B --> C["3) Build JSONL batches (idempotent)"]
+  C --> D["4) Batch inference: fast model"]
+  D --> E["5) Store candidate label + rationale"]
+  E --> F["6) Validate 1% slice; judge 0.1% sample"]
+  F --> G["7) SME reviews disagreements in Sheets"]
+  G --> H["8) Ingest edits → grow golden set → iterate"]
   H --> C
 ```
 
