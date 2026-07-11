@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" role="img" aria-label="The model proposes labels at scale, humans have the final say on disagreements, and corrections grow a versioned golden set that feeds back into the model.">
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57617A"/>
+    </marker>
+    <marker id="arr2Y" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#E47B01"/>
+    </marker>
+    <filter id="sh2" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1C263D" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="560" rx="20" fill="#F8F9FD"/>
+
+  <text x="40" y="58" font-size="36" font-weight="700" fill="#1C263D">Humans stay in the loop</text>
+  <text x="40" y="94" font-size="19" fill="#57617A">The model proposes labels at scale; humans have the final say; corrections grow a versioned golden set.</text>
+
+  <!-- inter-column arrows -->
+  <g stroke="#57617A" stroke-width="3.5" marker-end="url(#arr2)">
+    <line x1="366" y1="300" x2="434" y2="300"/>
+    <line x1="766" y1="300" x2="834" y2="300"/>
+  </g>
+
+  <!-- feedback loop -->
+  <path d="M1000,440 C1000,502 200,502 200,440" fill="none" stroke="#ED8F02" stroke-width="3.5" marker-end="url(#arr2Y)"/>
+  <text x="600" y="530" font-size="18" font-weight="600" fill="#B35F00" text-anchor="middle">the golden set &amp; improved prompts feed back into the model</text>
+
+  <!-- Column A: Model proposes -->
+  <rect x="40" y="136" width="320" height="52" rx="12" fill="#1E7B85"/>
+  <text x="200" y="170" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">Model proposes</text>
+  <g filter="url(#sh2)"><rect x="40" y="220" width="320" height="96" rx="14" fill="#FFFFFF" stroke="#1E7B85" stroke-width="2.5"/></g>
+  <text x="200" y="258" font-size="20" font-weight="700" fill="#1C263D" text-anchor="middle">Fast model</text>
+  <text x="200" y="286" font-size="15" fill="#57617A" text-anchor="middle">candidate label + rationale, at scale</text>
+  <g filter="url(#sh2)"><rect x="40" y="340" width="320" height="96" rx="14" fill="#FFFFFF" stroke="#1E7B85" stroke-width="2.5"/></g>
+  <text x="200" y="378" font-size="20" font-weight="700" fill="#1C263D" text-anchor="middle">Judge model</text>
+  <text x="200" y="406" font-size="15" fill="#57617A" text-anchor="middle">flags disagreements on a sample</text>
+
+  <!-- Column B: Humans decide -->
+  <rect x="440" y="136" width="320" height="52" rx="12" fill="#A9085E"/>
+  <text x="600" y="170" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">Humans decide</text>
+  <g filter="url(#sh2)"><rect x="440" y="220" width="320" height="96" rx="14" fill="#FFFFFF" stroke="#A9085E" stroke-width="2.5"/></g>
+  <text x="600" y="258" font-size="20" font-weight="700" fill="#1C263D" text-anchor="middle">SME review</text>
+  <text x="600" y="286" font-size="15" fill="#57617A" text-anchor="middle">the final say on the label</text>
+  <g filter="url(#sh2)"><rect x="440" y="340" width="320" height="96" rx="14" fill="#FFFFFF" stroke="#A9085E" stroke-width="2.5"/></g>
+  <text x="600" y="378" font-size="20" font-weight="700" fill="#1C263D" text-anchor="middle">Focus on disagreements</text>
+  <text x="600" y="406" font-size="15" fill="#57617A" text-anchor="middle">not every document</text>
+
+  <!-- Column C: Ingest & iterate -->
+  <rect x="840" y="136" width="320" height="52" rx="12" fill="#02A793"/>
+  <text x="1000" y="170" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle">Ingest &amp; iterate</text>
+  <g filter="url(#sh2)"><rect x="840" y="220" width="320" height="96" rx="14" fill="#FFFFFF" stroke="#02A793" stroke-width="2.5"/></g>
+  <text x="1000" y="258" font-size="20" font-weight="700" fill="#1C263D" text-anchor="middle">Golden set</text>
+  <text x="1000" y="286" font-size="15" fill="#57617A" text-anchor="middle">corrections captured, versioned</text>
+  <g filter="url(#sh2)"><rect x="840" y="340" width="320" height="96" rx="14" fill="#FFFFFF" stroke="#02A793" stroke-width="2.5"/></g>
+  <text x="1000" y="378" font-size="20" font-weight="700" fill="#1C263D" text-anchor="middle">Measurable</text>
+  <text x="1000" y="406" font-size="15" fill="#57617A" text-anchor="middle">disagreement &amp; correction rates</text>
+</svg>
