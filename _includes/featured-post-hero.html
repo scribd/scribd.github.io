@@ -71,7 +71,7 @@
                 <h3 class="section-heading mb-0 text-plum">Featured Series</h3>
                 <ul class="post-list text-length-sm">
                     <!-- Pick a series to features using its unique tag - i.e. di-series -->
-                    {% assign featured-series = site.tags[site.featured_series] | sort: 'date' %}
+                    {% assign featured-series = site.tags[site.featured_series] | sort: 'date' | reverse %}
                     {% for post in featured-series limit: 2 %}
                         <!-- Post item template -->
                         {% include post-list-item.html %}
