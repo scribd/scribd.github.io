@@ -18,10 +18,6 @@ LLM models change. Prompt quality changes. Cost changes. We assumed that from da
 
 So instead of building a one-off system tied to a specific model or a single "perfect prompt," we focused on a **repeatable process** that we successfully applied to two large-scale projects (Slideshare and Scribd). That repeatable process is what we're sharing.
 
-Repeatable mantra (we used it constantly):
-
-> **Fast Model → Judge Model → SME Review → Ingest → Iterate**
-
 ---
 
 ## What We Achieved (With a Small Team)
@@ -35,7 +31,7 @@ The specific labels and thresholds vary by project and policy requirements. The 
 
 ---
 
-## The Core Point
+## Hypothesis
 
 LLM models, prompt quality, and cost will change over time. The durable asset is not a single prompt or model — it's a **repeatable human-in-the-loop process**.
 
@@ -48,27 +44,6 @@ That process is:
 3. Focus SME review only on the highest-value slices
 4. Ingest SME corrections as a growing golden dataset
 5. Iterate prompts and re-run only what you need (slices / disagreements)
-
-> **Fast Model → Judge Model → SME Review → Ingest → Iterate**
-
----
-
-## Workflow Overview
-
-Here's the end-to-end loop we repeated:
-
-![The repeatable loop: a fast model labels for breadth, a judge model checks a sample, SMEs make the final call, corrections grow the golden set, and the prompt is iterated — then the loop repeats.](/post-images/2026-fast-llm-hitl/repeatable-loop.svg)
-
-1. **Source documents in Databricks**
-2. **Standardize a document PDF** and metadata
-3. **Build JSONL batches** for LLM inference
-4. **Run batch inference** with a fast model (candidate label + short rationale + context)
-5. **Store outputs** with prompt/model versioning
-6. **Validate** on 1% of the corpus; run judge on 0.1% random sample
-7. **Export disagreements** (and a small sample of agreements) to Google Sheets
-8. **SMEs review and correct labels** quickly
-9. **Ingest corrections back into Databricks** as the next golden dataset version
-10. **Improve prompts** and repeat the loop
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
@@ -280,6 +255,27 @@ Repeatable mantra (again):
 3. **"Fast model → Judge model" creates a scalable quality loop.** Use a higher-capability model as a judge to agree/disagree with the fast model's output. Use disagreements (and a small sample of agreements) as the highest-leverage items for SME review and prompt iteration.
 4. **Validate beyond your small golden set.** Engineer prompts on a small golden dataset, then check generalization using 1% of the corpus, and run judge review on a 0.1% random sample (plus targeted slices when needed).
 5. **Use familiar tools to keep a small team moving fast.** Databricks for data sourcing and orchestration → batch LLM calls → Google Sheets for SME validation → ingest back into Databricks → repeat.
+
+---
+
+## Workflow Overview
+
+Here's the end-to-end loop we repeated:
+
+![The repeatable loop: a fast model labels for breadth, a judge model checks a sample, SMEs make the final call, corrections grow the golden set, and the prompt is iterated — then the loop repeats.](/post-images/2026-fast-llm-hitl/repeatable-loop.svg)
+
+1. **Source documents in Databricks**
+2. **Standardize a document PDF** and metadata
+3. **Build JSONL batches** for LLM inference
+4. **Run batch inference** with a fast model (candidate label + short rationale + context)
+5. **Store outputs** with prompt/model versioning
+6. **Validate** on 1% of the corpus; run judge on 0.1% random sample
+7. **Export disagreements** (and a small sample of agreements) to Google Sheets
+8. **SMEs review and correct labels** quickly
+9. **Ingest corrections back into Databricks** as the next golden dataset version
+10. **Improve prompts** and repeat the loop
+
+> **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
 ---
 
