@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How a Three-Person Team Used Cheap, Fast LLMs + Human-in-the-Loop to Classify Hundreds of Millions of Documents in ~2 Months"
+title: "Stop Building Models. Start Building Systems."
 tags:
 - featured
 - content-trust-series
