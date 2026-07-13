@@ -14,19 +14,9 @@ author: anishk123
 
 *A repeatable "Fast Model → Judge → SME → Iterate" workflow using familiar tools*
 
-## TL;DR — Key Learnings
-
 LLM models change. Prompt quality changes. Cost changes. We assumed that from day one.
 
 So instead of building a one-off system tied to a specific model or a single "perfect prompt," we focused on a **repeatable process** that we successfully applied to two large-scale projects (Slideshare and Scribd). That repeatable process is what we're sharing.
-
-**Key learnings:**
-
-1. **Fast models give you breadth.** A simple prompt on a fast, low-cost model can label tens of thousands of documents quickly. The results won't be perfect — and that's okay. It turns Subject Matter Expert (SME) work from "label everything from scratch" into "review, correct, and curate."
-2. **Batch inference makes scaling simpler.** For large backfills and corpus-scale labeling, asynchronous batch inference is usually both operationally simpler than building realtime request pipelines and meaningfully cheaper.
-3. **"Fast model → Judge model" creates a scalable quality loop.** Use a higher-capability model as a judge to agree/disagree with the fast model's output. Use disagreements (and a small sample of agreements) as the highest-leverage items for SME review and prompt iteration.
-4. **Validate beyond your small golden set.** Engineer prompts on a small golden dataset, then check generalization using 1% of the corpus, and run judge review on a 0.1% random sample (plus targeted slices when needed).
-5. **Use familiar tools to keep a small team moving fast.** Databricks for data sourcing and orchestration → batch LLM calls → Google Sheets for SME validation → ingest back into Databricks → repeat.
 
 Repeatable mantra (we used it constantly):
 
@@ -280,6 +270,16 @@ The point is not "perfect metrics." The point is to make iteration measurable.
 Repeatable mantra (again):
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
+
+---
+
+## Key Learnings
+
+1. **Fast models give you breadth.** A simple prompt on a fast, low-cost model can label tens of thousands of documents quickly. The results won't be perfect — and that's okay. It turns Subject Matter Expert (SME) work from "label everything from scratch" into "review, correct, and curate."
+2. **Batch inference makes scaling simpler.** For large backfills and corpus-scale labeling, asynchronous batch inference is usually both operationally simpler than building realtime request pipelines and meaningfully cheaper.
+3. **"Fast model → Judge model" creates a scalable quality loop.** Use a higher-capability model as a judge to agree/disagree with the fast model's output. Use disagreements (and a small sample of agreements) as the highest-leverage items for SME review and prompt iteration.
+4. **Validate beyond your small golden set.** Engineer prompts on a small golden dataset, then check generalization using 1% of the corpus, and run judge review on a 0.1% random sample (plus targeted slices when needed).
+5. **Use familiar tools to keep a small team moving fast.** Databricks for data sourcing and orchestration → batch LLM calls → Google Sheets for SME validation → ingest back into Databricks → repeat.
 
 ---
 
