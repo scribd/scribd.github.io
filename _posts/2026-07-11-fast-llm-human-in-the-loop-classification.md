@@ -12,15 +12,13 @@ team: ML Data Engineering
 author: anishk123
 ---
 
-*A repeatable "Fast Model → Judge → SME → Iterate" workflow using familiar tools*
-
 LLM models change. Prompt quality changes. Cost changes. We assumed that from day one.
 
 So instead of building a one-off system tied to a specific model or a single "perfect prompt," we focused on a **repeatable process** that we successfully applied to two large-scale projects (Slideshare and Scribd). That repeatable process is what we're sharing.
 
 ---
 
-## What We Achieved (With a Small Team)
+## What We Achieved
 
 This process enabled projects that normally require far more people and time:
 
@@ -37,7 +35,7 @@ LLM models, prompt quality, and cost will change over time. The durable asset is
 
 ![Humans stay in the loop: the model proposes labels at scale, humans have the final say on the disagreements, and corrections grow a versioned golden set that feeds back into the model.](/post-images/2026-fast-llm-hitl/human-in-the-loop.svg)
 
-That process is:
+This idea is:
 
 1. Use a fast model to generate candidate labels and short rationales at scale
 2. Use a judge model to flag disagreements and ambiguous cases
@@ -49,7 +47,7 @@ That process is:
 
 ---
 
-## Step-by-Step
+## How the loop works
 
 ### Step 1 — Standardize Inputs (Before You Touch Prompts)
 
@@ -141,8 +139,6 @@ The judge is not a replacement for SMEs — it's a way to:
 - surface failure patterns faster
 - create measurable disagreement signals for iteration
 
-> **Fast Model → Judge Model → SME Review → Ingest → Iterate**
-
 ### Step 6 — SME Loop via Google Sheets (Focused Human Time)
 
 We exported:
@@ -204,8 +200,6 @@ You should see:
 - SME correction rate drop over time
 - fewer surprise failures on the 1% validation slice
 
-> **Fast Model → Judge Model → SME Review → Ingest → Iterate**
-
 ---
 
 ## Metrics That Matter (Simple but Effective)
@@ -242,10 +236,6 @@ The point is not "perfect metrics." The point is to make iteration measurable.
 6. Ingest edits as a versioned golden dataset
 7. Iterate prompts, validate on 1%, then scale up
 
-Repeatable mantra (again):
-
-> **Fast Model → Judge Model → SME Review → Ingest → Iterate**
-
 ---
 
 ## Key Learnings
@@ -258,7 +248,7 @@ Repeatable mantra (again):
 
 ---
 
-## Workflow Overview
+## The workflow, end to end
 
 Here's the end-to-end loop we repeated:
 
@@ -274,8 +264,6 @@ Here's the end-to-end loop we repeated:
 8. **SMEs review and correct labels** quickly
 9. **Ingest corrections back into Databricks** as the next golden dataset version
 10. **Improve prompts** and repeat the loop
-
-> **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
 ---
 
