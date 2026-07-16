@@ -273,7 +273,7 @@ LLM models, prompt quality, and cost will change over time. That's why we built 
 
 > **Fast Model → Judge Model → SME Review → Ingest → Iterate**
 
-That repeatability is what made it possible for a small cross-functional team to classify ~25M slideshows and ~400M documents in ~2 months — and it's the process we hope others can reuse and adapt as models and pricing evolve.
+That repeatability is what made it possible for a small cross-functional team to classify ~25M slideshows and ~350M documents in ~2 months — and it's the process we hope others can reuse and adapt as models and pricing evolve.
 
 ---
 
