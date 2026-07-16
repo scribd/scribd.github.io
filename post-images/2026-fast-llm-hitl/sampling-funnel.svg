@@ -32,7 +32,7 @@
   <!-- annotations -->
   <g text-anchor="start">
     <text x="800" y="171" font-size="18" font-weight="700" fill="#1C263D">One cheap batch pass</text>
-    <text x="800" y="193" font-size="15" fill="#57617A">~400M docs (Scribd), ~25M slideshows</text>
+    <text x="800" y="193" font-size="15" fill="#57617A">~350M docs (Scribd), ~25M slideshows</text>
 
     <text x="800" y="275" font-size="18" font-weight="700" fill="#1C263D">Beyond the golden set</text>
     <text x="800" y="297" font-size="15" fill="#57617A">catches drift &amp; long-tail edge cases</text>
