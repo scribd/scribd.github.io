@@ -114,6 +114,22 @@
     flex: 1;
 }
 
+.series-card {
+    background: $bg-card;
+    border: 1px solid $border-solid;
+    border-radius: 16px;
+    padding: 32px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &:hover {
+        border-color: #201d19;
+    }
+}
+
 .series-item-title {
     font-size: 1rem;
     font-weight: 500;

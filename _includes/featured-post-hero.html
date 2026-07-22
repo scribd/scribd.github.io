@@ -40,7 +40,7 @@
                 <div class="eyebrow"><span class="eyebrow-dot"></span>Recent Posts</div>
                 <div class="series-col-cards">
                     {% for post in site.posts offset:1 limit:2 %}
-                    <a href="{{ post.url | relative_url }}" class="featured-card" style="text-decoration:none;">
+                    <a href="{{ post.url | relative_url }}" class="series-card">
                         <div class="series-item-title">{{ post.title | escape }}</div>
                         <div class="series-item-sub">
                             {%- if site.data.authors[post.author] -%}
