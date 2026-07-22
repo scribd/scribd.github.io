@@ -4,53 +4,55 @@ title: Careers
 permalink: /careers/
 ---
 
-<section class="pt-0 section-container container-offset">
-
-    <div class="text-length-md body-lg">
-            <h2 class="mt-3">Join our team to <em>advance human understanding</em>.</h2>
-        <p>We support a culture where our employees can be real and be bold; where we debate and commit as we embrace plot twists; and where every employee is empowered to take action as we prioritize the customer.</p>
-        <p>Learn more about <a href="https://www.scribdinc.com" target="_blank">working at Scribd, Inc.</a>
-        <p>
-
-        <a href="https://jobs.ashbyhq.com/ScribdInc" target="_blank" class="btn btn-secondary btn-icon-external">
-            Open Positions
-            <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-        </a>
-        </p>
+<!-- Hero -->
+<section class="page-headline">
+    <div class="container">
+        <div class="headline-inner">
+            <h1>Join our team to <span class="text-accent">advance<br>human understanding.</span></h1>
+            <p class="headline-lead">We support a culture where our employees can be real and be bold &mdash; where we debate and commit as we embrace plot twists, and where every employee is empowered to take action as we prioritize the customer.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
+                <a href="https://www.scribdinc.com/careers" target="_blank" rel="noopener" class="btn btn-primary btn-lg">View Open Positions &rarr;</a>
+                <a href="https://www.linkedin.com/company/scribd" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Follow us</a>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="bg-slate-100">
-    <div class="section-container text-center">
-        <hgroup class="m-auto text-length-lg">
-            <h2 id="codebase" class="section-heading text-muted">Multi-Faceted Codebase</h2>
-            <h3 class="h2">Work with a variety of languages and libraries.</h3>
-        </hgroup>
-        <p class="m-auto text-length-md body-lg">We continuously deploy code to a wide range of devices and servers. Here are a few of the languages and libraries we use to build Scribd.</p>
-
-        <ul class="icon-grid mt-5">
+<!-- Tech Stack -->
+<section class="section">
+    <div class="container">
+        <div class="section-header" style="flex-direction:column;align-items:flex-start;">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Multi-Faceted Codebase</div>
+            <h2 style="margin-bottom:10px;">Work with a variety of languages and libraries.</h2>
+            <p style="font-size:1rem;color:var(--text-secondary,#4a4540);font-weight:300;line-height:1.65;max-width:540px;">We continuously deploy code to a wide range of devices and servers. Here are a few of the languages and libraries we use to build Scribd.</p>
+        </div>
+        <div class="tech-grid">
             {% for item in site.data.tech %}
-                <li class="icon-grid__item">
-                        <img class="mb-2" style="height: 80px;" src="{{ item.logo }}" role="presentation" alt="{{item.name}}">
-                    <h5>{{ item.name }}</h5>
-                    <p class="mb-0 fs-md text-muted monospace">{{ item.description }}</p>
-                </li>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <img src="{{ item.logo }}" alt="{{ item.name }}" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <div>
+                    <div class="tech-name">{{ item.name }}</div>
+                    <div class="tech-desc">{{ item.description }}</div>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 </section>
 
-<section class="bg-slate-100">
-    <div id="open-positions" class="section-container">
-        <hgroup class="m-auto text-length-lg text-center">
-            <h2 class="section-heading text-plum">Open Positions</h2>
-            <h3 class="h2 mb-4">We’re actively hiring for these roles.</h3>
-        </hgroup>
+<!-- Open Positions -->
+<section class="section" id="open-positions">
+    <div class="container">
+        <div class="section-header" style="flex-direction:column;align-items:flex-start;">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Open Positions</div>
+            <h2>We're actively hiring for these roles.</h2>
+        </div>
 
         <noscript>
-            <div class="text-center monospace fs-md text-muted">
+            <div style="text-align:center;color:var(--text-muted,#8a8178);">
                 <p>We normally display jobs here with JavaScript.</p>
-                <p>We think it's cool that you have disabled JavaScript to view this page, but you might be missing out :)</p>
             </div>
         </noscript>
     </div>
@@ -58,55 +60,42 @@ permalink: /careers/
 
 <script type="text/javascript">
 <!--
-    /*
-        * Only attempt to load the jobs after the page has loaded and
-        * our external script is present
-        */
     window.onload = () => {
         const elem = document.getElementById('open-positions');
-        fetchJobs().then((jobs) => {
-            Object.keys(jobs).filter(t => jobs[t]).sort().forEach((team) => {
-                const positions = jobs[team];
+        if (typeof fetchJobs === 'function') {
+            fetchJobs().then((jobs) => {
+                Object.keys(jobs).filter(t => jobs[t]).sort().forEach((team) => {
+                    const positions = jobs[team];
+                    const positionsCount = positions.length > 1 ? `${positions.length} Positions` : `${positions.length} Position`;
 
-                const positionsCount = positions.length > 1 ? `${positions.length} Positions` : `${positions.length} Position`;
+                    const teamDiv = document.createElement('div');
+                    teamDiv.className = 'container';
+                    teamDiv.style.marginBottom = '48px';
 
-                const teamDiv = document.createElement('div');
-                teamDiv.className = 'm-auto text-length-xl pb-6';
+                    teamDiv.innerHTML = `<h3 style="margin-bottom:16px;">${team} <span style="font-size:0.85rem;font-weight:400;color:#8a8178;float:right;">${positionsCount}</span></h3>`;
 
-                teamDiv.innerHTML = `
-                    <h3 class="mb-3">${team}
-                        <span class="hidden-sm-down mt-1 fs-md fw-normal float-right text-muted monospace">${positionsCount}</span>
-                    </h3>
-                `;
+                    const ul = document.createElement('ul');
+                    ul.className = 'posts-list';
 
-                const ul = document.createElement('ul');
-                ul.className = 'action-list';
+                    positions.forEach((job) => {
+                        const li = document.createElement('li');
+                        li.className = 'post-item-wrap';
+                        li.innerHTML = `
+                        <a href="${job.jobUrl}" target="_blank" class="post-item" style="text-decoration:none;">
+                            <div>
+                                <div class="post-item-title">${job.title}</div>
+                                <div class="post-item-byline">${job.location || ''}</div>
+                            </div>
+                            <div class="post-item-date">Apply &rarr;</div>
+                        </a>`;
+                        ul.appendChild(li);
+                    });
 
-                positions.forEach((job) => {
-                    const li = document.createElement('li');
-                    li.className = 'action-cell'
-                    li.innerHTML = `
-                    <div class="action-cell__body">
-                        <h5 class="mb-1">
-                            <a href="${job.jobUrl}" target="_blank" class="action-cell__link">
-                            ${job.title}
-                                <svg class="hidden-md-up fs-md svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                            </a>
-                        </h5>
-                        <p class="mb-0 fs-md text-truncate text-muted monospace">${job.location || ''}</p>
-                    </div>
-                    <a href="${job.jobUrl}" target="_blank" class="hidden-md-down btn btn-primary btn-icon-external" tabindex="-1" aria-hidden="true">View Job
-                        <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-external' | relative_url }}"></use></svg>
-                    </a>
-                    `;
-                    ul.appendChild(li);
+                    teamDiv.appendChild(ul);
+                    elem.querySelector('.container').appendChild(teamDiv);
                 });
-
-                teamDiv.appendChild(ul);
-                elem.appendChild(teamDiv);
-
             });
-        });
+        }
     }
 -->
 </script>

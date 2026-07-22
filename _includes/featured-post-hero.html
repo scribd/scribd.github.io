@@ -1,93 +1,62 @@
- {% assign hero = page.hero %}
-<div class="feat-post theme-white">
+<!-- Hero: Featured Post + Recent Posts -->
+<section class="hero">
     <div class="container">
-        <div class="feat-post__container">
+        <div class="hero-columns">
 
-            <section class="feat-post__primary relative">
-                <h1 class="section-heading text-teal">Featured Post</h1>
-
+            <!-- Featured Post — large dark card -->
+            <div class="hero-col">
+                <div class="eyebrow"><span class="eyebrow-dot"></span>Featured Post</div>
                 {% assign featured = site.tags.featured | sort: 'date' | reverse %}
                 {% for post in featured limit: 1 %}
-                <h2 class="hero__title">
-                    <a href="{{ post.url | relative_url }}" class="link-text-color">
-                        {{ post.title | escape }}
-                    </a>
-                </h2>
-
-                <ul class="hero__meta">
-
-                    <!-- Post Author -->
-                    {%- if post.author -%}
-                    <li class="hero__meta-item author media">
-
-                        <!-- Author Avatar -->
-                        {%- if site.data.authors[post.author].github -%}
-                            <img class="hero__meta-avatar"
-                                srcset="https://github.com/{{ site.data.authors[post.author].github}}.png?size=48,
-                                        https://github.com/{{ site.data.authors[post.author].github}}.png?size=96 2x"
-                                src="https://github.com/{{ site.data.authors[post.author].github}}.png?size=48" role="presentation" alt="">
-                        {%- endif -%}
-
-                        <div class="media-body">
-                            <strong>Author</strong><br>
-                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                <span itemprop="name">
-                                    {%- if site.data.authors[post.author] -%}
-                                        {{ site.data.authors[post.author].name}}
-                                    {%- else -%}
-                                        {{ post.author }}
-                                    {%- endif -%}
-                                </span>
-                            </span>
-                        </div>
-                    </li>
-                    {%- endif -%}
-
-                    <!-- Post Date -->
-                    {%- if post.date -%}
-                    <li class="hero__meta-item published">
-                        <strong>Published</strong><br>
-                        <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+                <div class="featured-card featured-card--dark">
+                    {% if post.team %}
+                    <div class="featured-post-category">
+                        <a href="{{ '/blog/' | relative_url }}">{{ post.team }}</a>
+                    </div>
+                    {% endif %}
+                    <div class="featured-post-bottom">
+                        <h2>
+                            <a href="{{ post.url | relative_url }}">
+                                {{ post.title | escape }}
+                            </a>
+                        </h2>
+                        <div class="featured-post-byline">
+                            {%- if site.data.authors[post.author] -%}
+                                {{ site.data.authors[post.author].name }}
+                            {%- else -%}
+                                {{ post.author }}
+                            {%- endif -%}
+                            &nbsp;&middot;&nbsp;
                             {%- assign date_format = site.date_format -%}
                             {{ post.date | date: date_format }}
-                        </time>
-                    </li>
-                    {%- endif -%}
-
-                    {%- if post.team -%}
-                    <!-- Team Info -->
-                    <li class="hero__meta-item category">
-                        <strong>Category</strong><br>
-                        <span>{{ post.team }}</span>
-                    </li>
-                    {%- endif -%}
-                </ul>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
+            </div>
 
-                <div class="feat-post__separator"></div>
-            </section>
-
-            <section class="feat-post__secondary">
-                <h3 class="section-heading mb-0 text-plum">Featured Series</h3>
-                <ul class="post-list text-length-sm">
-                    <!-- Pick a series to features using its unique tag - i.e. di-series -->
-                    {% assign featured-series = site.tags[site.featured_series] | sort: 'date' | reverse %}
-                    {% for post in featured-series limit: 2 %}
-                        <!-- Post item template -->
-                        {% include post-list-item.html %}
+            <!-- Recent Posts — stacked cards on right -->
+            <div class="hero-col">
+                <div class="eyebrow"><span class="eyebrow-dot"></span>Recent Posts</div>
+                <div class="series-col-cards">
+                    {% for post in site.posts offset:1 limit:2 %}
+                    <a href="{{ post.url | relative_url }}" class="featured-card" style="text-decoration:none;">
+                        <div class="series-item-title">{{ post.title | escape }}</div>
+                        <div class="series-item-sub">
+                            {%- if site.data.authors[post.author] -%}
+                                {{ site.data.authors[post.author].name }}
+                            {%- else -%}
+                                {{ post.author }}
+                            {%- endif -%}
+                            &middot;
+                            {{ post.date | date: date_format }}
+                        </div>
+                    </a>
                     {% endfor %}
-                </ul>
-
-                <!-- All posts button (if not on a blog page already) -->
-                {% unless page.url contains "blog" %}
-                <a href="{% link blog/index.html %}{{ site.post-id }}" class="mt-4 btn btn-primary btn-icon-right">
-                    All Posts
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#arrow-right' | relative_url }}"></use></svg>
-                </a>
-                {% endunless %}
-            </section>
+                    <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline" style="width:fit-content;margin-top:4px;">All Posts &rarr;</a>
+                </div>
+            </div>
 
         </div>
     </div>
-    {% include logo-texture-solid.html %}
-</div>
+</section>

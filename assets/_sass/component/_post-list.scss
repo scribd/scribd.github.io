@@ -1,18 +1,69 @@
 ////////////////////
-// Post List
+// Post List (rows)
+////////////////////
+
+.posts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid $border-color;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.post-item-wrap:first-child .post-item {
+    border-top: 1px solid $border-color;
+}
+
+.post-item-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    color: $text-primary;
+    margin-bottom: 4px;
+    transition: color 0.15s;
+}
+
+.post-item:hover .post-item-title {
+    color: $accent;
+}
+
+.post-item-byline {
+    font-size: 0.8rem;
+    color: $text-muted;
+    font-weight: 400;
+}
+
+.post-item-date {
+    font-size: 0.78rem;
+    color: $text-muted;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: right;
+}
+
+////////////////////
+// Legacy post-list classes
 ////////////////////
 
 .post-list {
-    @extend .list--plain;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .post-list__item {
     padding: rem-calc(15px) 0;
     border-bottom: 1px solid $border-color;
-
-    @media (min-width: $bp-md) {
-        padding: rem-calc(20px 40px 20px 0);
-    }
 }
 
 .post-list__heading {
@@ -21,24 +72,17 @@
 
 .post-list__date,
 .post-list__author {
-    font-size: rem-calc(13px);
-    line-height: 1;
-    @extend .monospace;
-    @extend .text-muted;
-
-    @media (min-width: $bp-md) {
-        font-size: rem-calc(14px);
-    }
+    font-size: 0.8rem;
+    color: $text-muted;
 }
 
-// Bullet before post date
 .post-list__date::before {
     content: '';
     display: inline-block;
     margin: 0 .4em;
     width: 4px;
     height: 4px;
-    background-color: $slate-300;
+    background-color: $border-solid;
     border-radius: 100%;
     vertical-align: middle;
 }

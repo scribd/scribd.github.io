@@ -1,45 +1,58 @@
 ////////////////////
-// Primary Palette
+// New Brand Palette
 ////////////////////
 
-$cabernet-dark: #5A1D41;
-$cabernet: #6A244D;
-$cabernet-light: #7F1652;
+$bg: #f6f2ec;
+$bg-card: #f6f2ec;
+$bg-dark: #0d0a07;
 
-$midnight-dark: #001927;
-$midnight: #00293F;
-$midnight-light: #003451;
+$text-primary: #0d0a07;
+$text-secondary: #4a4540;
+$text-muted: #8a8178;
 
-$teal-dark: #0D6069;
-$teal: #1E7B85;
-$teal-light: #509BA8;
+$accent: #fd571c;
+$accent-hover: #ff6e38;
 
-////////////////////
-// Secondary Palette
-////////////////////
-
-$seafoam-dark: #017F70;
-$seafoam: #02A793;
-$seafoam-light: #02B7A1;
-
-$plum-dark: #87064B;
-$plum: #A9085E;
-$plum-light: #C20067;
-
-$yellow-dark: #E47B01;
-$yellow: #ED8F02;
-$yellow-light: #F0A534;
+$border-color: rgba(13,10,7,0.10);
+$border-solid: #cfcecd;
 
 ////////////////////
-// Grayscale
+// Legacy Aliases
 ////////////////////
 
-$slate-800: #000514;
-$slate-700: #1C263D;
-$slate-600: #57617A;
-$slate-300: #CCD4E8;
-$slate-200: #E9EDF8;
-$slate-100: #F8F9FD;
+// These map old variable names to the new palette
+// so existing component styles don't break
+
+$cabernet-dark: $bg-dark;
+$cabernet: $accent;
+$cabernet-light: $accent-hover;
+
+$midnight-dark: $bg-dark;
+$midnight: $bg-dark;
+$midnight-light: $text-secondary;
+
+$teal-dark: $accent;
+$teal: $accent;
+$teal-light: $accent-hover;
+
+$seafoam-dark: $accent;
+$seafoam: $accent;
+$seafoam-light: $accent-hover;
+
+$plum-dark: $accent;
+$plum: $accent;
+$plum-light: $accent-hover;
+
+$yellow-dark: $accent;
+$yellow: $accent;
+$yellow-light: $accent-hover;
+
+$slate-800: $text-primary;
+$slate-700: $text-secondary;
+$slate-600: $text-muted;
+$slate-300: $border-solid;
+$slate-200: #ece8e1;
+$slate-100: $bg;
 $white: #fff;
 $white-faded: rgba(#fff, .6);
 
@@ -47,78 +60,27 @@ $white-faded: rgba(#fff, .6);
 // Color Themes
 ////////////////////
 
-// Brand Themes
+// All themes now use the unified brand palette
 
 .theme-white {
-    --theme-primary-color: #{$white};
+    --theme-primary-color: #{$bg-card};
     --theme-secondary-color: var(--theme-primary-color);
-    --theme-border-color: #{$slate-200};
-    --theme-accent-color: #{$teal};
-    --theme-text-color: #{$slate-800};
+    --theme-border-color: #{$border-solid};
+    --theme-accent-color: #{$accent};
+    --theme-text-color: #{$text-primary};
 }
 
-.theme-teal {
-    --theme-primary-color: #{$teal};
-    --theme-secondary-color: #{$teal-dark};
-    --theme-border-color: #{$teal};
-    --theme-accent-color: #{$white-faded};
-    --theme-text-color: #{$white};
-}
-
-.theme-yellow {
-    --theme-primary-color: #{$yellow-light};
-    --theme-secondary-color: #{$yellow};
-    --theme-border-color: #{$yellow-dark};
-    --theme-accent-color: #{$slate-800};
-    --theme-text-color: #{$slate-800};
-}
-
-.theme-cabernet {
-    --theme-primary-color: #{$cabernet-light};
-    --theme-secondary-color: #{$cabernet-dark};
-    --theme-border-color: #{$cabernet-light};
-    --theme-accent-color: #{$white-faded};
-    --theme-text-color: #{$white};
-}
-
-.theme-midnight {
-    --theme-primary-color: #{$midnight-light};
-    --theme-secondary-color: #{$midnight-dark};
-    --theme-border-color: #{$midnight-light};
-    --theme-accent-color: #{$white-faded};
-    --theme-text-color: #{$white};
-}
-
-.theme-slate {
-    --theme-primary-color: #{$slate-700};
-    --theme-secondary-color: #{$slate-800};
-    --theme-border-color: #{$slate-700};
-    --theme-accent-color: #{$white-faded};
-    --theme-text-color: #{$white};
-}
-
-// Custom Themes
-
-.theme-rust {
-    --theme-primary-color: hsl(18, 84%, 28%);
-    --theme-secondary-color: hsl(18, 84%, 22%);
-    --theme-border-color: var(--theme-primary-color);
-    --theme-accent-color: #{$white-faded};
-    --theme-text-color: #{$white};
-}
-
-.theme-royal {
-    --theme-primary-color: hsl(254, 100%, 28%);
-    --theme-secondary-color: hsl(254, 100%, 22%);
-    --theme-border-color: var(--theme-primary-color);
-    --theme-accent-color: #{$white-faded};
-    --theme-text-color: #{$white};
-}
-
+.theme-teal,
+.theme-yellow,
+.theme-cabernet,
+.theme-midnight,
+.theme-slate,
+.theme-rust,
+.theme-royal,
 .theme-grass {
-    --theme-primary-color: hsl(161, 100%, 20%);
-    --theme-secondary-color: hsl(161, 100%, 16%);
-    --theme-border-color: var(--theme-primary-color);
+    --theme-primary-color: #{$bg-dark};
+    --theme-secondary-color: #{$bg-dark};
+    --theme-border-color: #{$bg-dark};
     --theme-accent-color: #{$white-faded};
     --theme-text-color: #{$white};
 }
@@ -128,5 +90,5 @@ $white-faded: rgba(#fff, .6);
 ////////////////////
 
 .bg-slate-100 {
-    background-color: $slate-100;
+    background-color: $bg;
 }

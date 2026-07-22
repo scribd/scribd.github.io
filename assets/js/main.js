@@ -1,10 +1,27 @@
 // Mobile Menu Toggle
-var menuBtn = document.querySelector(".nav__menu-trigger");
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+var siteNav = document.querySelector('.site-nav');
 
-menuBtn.onclick = function () {
-    menuBtn.classList.toggle("active");
-    document.body.classList.toggle("menu-active");
-};
+function closeMenu() {
+    mobileMenu.classList.remove('is-open');
+    hamburger.classList.remove('is-open');
+    siteNav.classList.remove('menu-open');
+    hamburger.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', function() {
+    var isOpen = mobileMenu.classList.toggle('is-open');
+    hamburger.classList.toggle('is-open', isOpen);
+    siteNav.classList.toggle('menu-open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+});
 
 // Accordion JS
 // Credit https://github.com/scottaohara/a11y_accordions

@@ -7,11 +7,14 @@
     <body>
         {%- include header.html -%}
 
-        <main id="main-content" aria-label="Content">
-            {{ content }}
-        </main>
+        <div class="page-wrapper">
+            <main id="main-content" aria-label="Content">
+                {{ content }}
+            </main>
 
-        {%- include footer.html -%}
+            {%- include footer.html -%}
+        </div>
+
         {% include js.html %}
         {% include google-analytics.html %}
     </body>

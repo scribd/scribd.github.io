@@ -10,7 +10,7 @@ $cp-offset-lg: 12%;
 $cp-offset-xl: rem-calc(175px);
 
 // Max site width
-$max-width: 1440px;
+$max-width: 1100px;
 
 // Breakpoints
 $bp-sm: 600px;
@@ -26,18 +26,8 @@ $bp-xl: $max-width;
     width: 100%;
     max-width: $max-width;
     margin: auto;
-    padding-left: $cp-sm;
-    padding-right: $cp-sm;
-
-    @media (min-width: $bp-md) {
-        padding-left: $cp-md;
-        padding-right: $cp-md;
-    }
-
-    @media (min-width: $bp-xl) {
-        padding-left: $cp-lg;
-        padding-right: $cp-lg;
-    }
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 ////////////////////

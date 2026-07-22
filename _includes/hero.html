@@ -1,21 +1,14 @@
- {% assign hero = page.hero %}
-<section class="hero theme-{{ hero.theme | default: "white" }}">
-    <div class="hero__container container container-offset">
-
-        <header class="hero__header">
-            {% if hero.label %}
-                <h1 class="hero__section-heading">{{ hero.label }}</h1>
-            {% endif %}
-
+{% assign hero = page.hero %}
+<section class="page-headline">
+    <div class="container">
+        <div class="headline-inner">
             {% if hero.title %}
-                <h2 class="hero__title">{{ hero.title }}</h2>
+                <h1>{{ hero.title }}</h1>
             {% endif %}
 
             {% if hero.body %}
-                <p class="m-0 body-lg text-length-md">{{ hero.body }}</p>
+                <p class="headline-lead">{{ hero.body }}</p>
             {% endif %}
-        </header>
-
+        </div>
     </div>
-    {% include logo-texture.html %}
 </section>

@@ -17,24 +17,26 @@
 
 .btn {
     @extend .btn-reset;
-    display: inline-block;
-    padding: .75em 1.5em;
-    text-align: center;
-    font-family: $monospace;
-    font-size: rem-calc(14px);
-    line-height: 1;
-    color: $white;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: $sans-serif;
+    border-radius: 80px;
     text-decoration: none;
-    border-radius: 1.5em;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s;
+    border: 1px solid transparent;
 }
 
 .btn-sm {
-   font-size: rem-calc(12px);
+    font-size: rem-calc(12px);
 }
 
 .btn-lg {
-   font-size: rem-calc(16px);
+    font-size: 1rem;
+    padding: 12px 24px;
 }
 
 ////////////////////
@@ -42,20 +44,38 @@
 ////////////////////
 
 .btn-primary {
-    background-color: $teal;
+    background-color: $accent;
+    color: $white;
+    border-color: $accent;
 
     &:hover,
     &:focus {
-        background-color: $teal-dark;
+        background-color: $bg-dark;
+        color: $white;
+        border-color: $bg-dark;
+    }
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: $border-solid;
+    color: $text-secondary;
+
+    &:hover,
+    &:focus {
+        background: $bg-dark;
+        color: $white;
+        border-color: $bg-dark;
     }
 }
 
 .btn-secondary {
-    background-color: $slate-700;
+    background-color: $text-secondary;
+    color: $white;
 
     &:hover,
     &:focus {
-        background-color: $slate-800;
+        background-color: $text-primary;
     }
 }
 

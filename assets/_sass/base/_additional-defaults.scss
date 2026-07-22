@@ -9,6 +9,7 @@ html:not(.no-smooth-scroll) {
 
 body {
     overflow-x: hidden; // for animation transforms
+    background-color: $bg;
 }
 
 img {

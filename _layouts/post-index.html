@@ -7,58 +7,47 @@ layout: default
     {% include featured-post-hero.html %}
 {% endunless %}
 
-<div class="post-index" id="{{ site.post-id | remove: "#" }}">
+<section class="section" id="{{ site.post-id | remove: '#' }}">
+    <div class="container">
+        <div class="posts-layout">
 
-    <!-- Post catagory nav -->
-    <nav class="post-index__nav text-white" aria-label="Blog Categories">
+            <!-- Left: eyebrow + category dropdown -->
+            <aside class="posts-sidebar">
+                <div class="eyebrow"><span class="eyebrow-dot"></span>All posts</div>
+                <div class="category-dropdown-wrap" aria-label="Post categories">
+                    <div class="category-dropdown-btn" role="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="dropdown-label">
+                            {% if page.team %}{{ page.team }}{% else %}Latest posts{% endif %}
+                        </span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 7L9 11.5L13.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="category-dropdown-menu" role="listbox">
+                        <div class="dropdown-panel">
+                            <a href="{% link blog/index.html %}#{{ site.post-id | remove: '#' }}" {% unless page.url contains "category" %}class="active"{% endunless %}>Latest posts</a>
+                            {% for category in site.category %}
+                                {% if category.hidden != true %}
+                                {% assign class = nil %}
+                                {% if page.url contains category.url %}
+                                    {% assign class = 'active' %}
+                                {% endif %}
+                                <a class="{{ class }}" href="{{ category.url }}#{{ site.post-id | remove: '#' }}">{{ category.team }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </aside>
 
-        <ul class="post-index__nav-list list--plain">
+            <!-- Right: post list -->
+            <div class="posts-main">
+                {{ content }}
 
-            {% unless page.url contains "category" %}
-                {% assign class = 'active' %}
-            {% endunless %}
+                <!-- Pagination -->
+                {% include pagination.html %}
+            </div>
 
-            <!-- Blog home -->
-            <li class="post-index__nav-list-item {{ class }}">
-                <a class="post-index__nav-link" href="{% link blog/index.html %}{{ site.post-id }}">Latest</a>
-            </li>
-
-            <!-- Catagory loop -->
-            {% for category in site.category %}
-                {% if category.hidden != true %}
-                {% assign class = nil %}
-                {% if page.url contains category.url or page.url contains category.title or page.url == "/blog/index.html" %}
-                        {% assign class = 'active' %}
-                {% endif %}
-
-                <li class="post-index__nav-list-item {{ class }}">
-                        <a class="post-index__nav-link" href="{{ category.url }}{{ site.post-id }}">{{ category.team }}</a>
-                </li>
-            {% endif %}
-            {% endfor %}
-
-        </ul>
-
-    </nav>
-
-    <section class="post-index__body">
-
-        <!-- Post catagory title -->
-        <div class="pb-2 border-bottom text-length-lg">
-            {% assign catagory-title = 'Latest' %}
-            {% if page.team %}
-                {% assign catagory-title = page.team %}
-            {% endif %}
-            <h1 class="section-heading text-teal">{{catagory-title}} Posts</h1>
         </div>
-
-        <!-- Content -->
-        <div class="text-length-lg">
-            {{ content }}
-        </div>
-
-        <!-- Pagination -->
-        {% include pagination.html %}
-    </section>
-
-</div>
+    </div>
+</section>
