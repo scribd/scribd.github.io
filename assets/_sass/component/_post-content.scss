@@ -1,70 +1,166 @@
 ////////////////////
-// Post Typography
+// Article Layout
 ////////////////////
 
-// Bump of base font size for a comfortable reading experience
-.post-content {
-    // actually 17.875px
-    font-size: rem-calc(22px);
-    // make sure really long words and links wrap
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+.article-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
 
-    @media (min-width: $bp-lg) {
-        line-height: 1.6;
+.article-hero {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid $border-color;
+}
+
+.article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: $text-muted;
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $accent;
     }
 }
 
+.article-cat {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+    background: rgba(13,10,7,0.05);
+    border: 1px solid $border-color;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $text-primary;
+}
+
+.article-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: $text-primary;
+    text-wrap: balance;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    font-size: 0.95rem;
+    color: $text-secondary;
+
+    .author {
+        font-weight: 500;
+        color: $text-primary;
+    }
+
+    .dot {
+        color: $text-muted;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid $border-color;
+        margin-right: 2px;
+    }
+}
+
+.article-body {
+    padding: 48px 0 80px;
+}
+
+////////////////////
+// Post Typography
+////////////////////
+
+.post-content {
+    font-size: 1.075rem;
+    line-height: 1.7;
+    color: $text-secondary;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 // Headings
-// Add extra margin to all headings
 .post-content h1,
 .post-content h2,
 .post-content h3,
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-    margin: 1.75em 0 .75em 0;
+    color: $text-primary;
+}
+
+.post-content h2 {
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 48px 0 16px;
+}
+
+.post-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 32px 0 12px;
 }
 
 // Body
-// Add extra margin to body text
-p,
-ul,
-ol {
-    margin: 0 0 1.25em 0;
-    font-style: normal;
+.post-content p {
+    margin-bottom: 24px;
+}
+
+.post-content strong {
+    font-weight: 600;
+    color: $text-primary;
+}
+
+.post-content em {
+    font-style: italic;
 }
 
 // Links
-// Make sure all links have visible underlines
 .post-content a {
-    @extend.link-inline;
+    color: $accent;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(253,87,28,0.35);
+
+    &:hover {
+        border-bottom-color: $accent;
+    }
 }
 
-// Unordered list
+// Lists
 .post-content ul,
 .post-content ol {
-    padding-left: 1.5em;
+    margin: 0 0 24px 22px;
 
     li {
-        margin-bottom: .5em;
-    }
-
-    li p:last-child {
-        margin-bottom: 0;
+        margin-bottom: 8px;
     }
 }
 
 // Blockquote
 .post-content blockquote {
-    margin: 0 0 2em 0;
-    padding: 1.25em;
-    font-size: .85em;
-    line-height: 1.7;
-    border: 1px solid $border-color;
-    @extend .monospace;
-    @extend .rounded;
-    @extend .shadow;
+    margin: 32px 0;
+    padding: 4px 0 4px 24px;
+    border-left: 3px solid $accent;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: $text-primary;
+    font-weight: 500;
 
     p:last-child {
         margin-bottom: 0;
@@ -77,10 +173,10 @@ ol {
 
 .post-content img {
     display: block;
-    margin: 1.5em auto;
+    width: 100%;
+    margin: 36px 0;
     border: 1px solid $border-color;
-    @extend .shadow;
-    @extend .rounded;
+    border-radius: 12px;
 }
 
 ////////////////////
@@ -89,28 +185,34 @@ ol {
 
 // Inline code
 .post-content code.highlighter-rouge {
-    display: inline-block;
-    margin: 0 .25em;
-    padding: 0 .5em;
-    font-size: .75em;
-    border: 1px solid $border-color;
-    border-radius: $border-radius-sm;
-    @extend .monospace;
-    @extend .shadow-sm;
+    display: inline;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background: rgba(13,10,7,0.06);
+    padding: 2px 6px;
+    border-radius: 5px;
 }
 
 // Full width code boxes
 .post-content div.highlight {
-    margin-bottom: 1.5em;
-    padding: 1em;
-    font-size: .75em;
-    line-height: 1.5;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch; // for iOS momentum scrolling
-    @extend .rounded;
+    background: $bg-dark;
+    color: $bg;
+    border-radius: 12px;
+    padding: 22px 24px;
+    overflow-x: auto;
+    margin: 0 0 28px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
 
     pre {
         margin: 0;
+    }
+
+    code {
+        background: none;
+        padding: 0;
+        color: inherit;
     }
 }
 
@@ -119,5 +221,7 @@ ol {
 ////////////////////
 
 .post-content hr {
-    @extend .fancy-line;
+    border: none;
+    border-top: 1px solid $border-color;
+    margin: 48px 0;
 }

@@ -6,22 +6,13 @@ layout: default
     <!-- Post hero -->
     {% include post-hero.html %}
 
-    <div class="post-grid section-container container-offset">
-
-        <!-- Post sidebar -->
-        {% include post-sidebar.html %}
-
-        <div class="post-grid__body" itemprop="articleBody">
+    <div class="article-wrap">
+        <div class="article-body">
 
             <!-- Post content  -->
-            <div class="post-content">
+            <div class="post-content" itemprop="articleBody">
                 {{ content }}
-                <!-- Post separator line -->
-                <hr>
             </div>
-
-            <!-- Related jobs -->
-            {% include related-jobs.html %}
 
         </div>
     </div>

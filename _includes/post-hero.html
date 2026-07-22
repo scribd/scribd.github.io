@@ -1,83 +1,56 @@
-<section class="hero theme-midnight">
-    <div class="hero__container container container-offset">
+<section class="article-hero">
+    <div class="article-wrap">
+        <a href="{{ '/blog/' | relative_url }}" class="article-back">&larr; All posts</a>
 
-        <header class="hero__header">
+        {% if page.team %}
+        <div><span class="article-cat">{{ page.team | join: ', ' }}</span></div>
+        {% endif %}
 
-            <!-- Post Title -->
-            <h1 class="hero__title" itemprop="name headline">{{ page.title | escape }}</h1>
+        <h1 class="article-title" itemprop="name headline">{{ page.title | escape }}</h1>
 
-            <!-- Post Metadata -->
-            <ul class="hero__meta">
+        <div class="article-meta">
+            {%- if page.author -%}
+                {%- if site.data.authors[page.author].github -%}
+                    <img class="avatar"
+                        src="https://github.com/{{ site.data.authors[page.author].github }}.png?size=72"
+                        alt="{{ site.data.authors[page.author].name | default: page.author }}" />
+                {%- endif -%}
+                <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                    <span itemprop="name">
+                        {%- if site.data.authors[page.author] -%}
+                            {{ site.data.authors[page.author].name }}
+                        {%- else -%}
+                            {{ page.author }}
+                        {%- endif -%}
+                    </span>
+                </span>
+            {%- endif -%}
 
-                <!-- Post Author -->
-                {%- if page.author -%}
-                <li class="hero__meta-item author media">
-
-                    <!-- Author Avatar -->
-                    {%- if site.data.authors[page.author].github -%}
-                        <img class="hero__meta-avatar"
-                            srcset="https://github.com/{{ site.data.authors[page.author].github}}.png?size=48,
-                                    https://github.com/{{ site.data.authors[page.author].github}}.png?size=96 2x"
-                            src="https://github.com/{{ site.data.authors[page.author].github}}.png?size=48" role="presentation" alt="">
+            {%- if page.authors -%}
+                <span class="author" itemprop="author">
+                {%- for author in page.authors -%}
+                    {%- if site.data.authors[author] -%}
+                        {{ site.data.authors[author].name }}
+                    {%- else -%}
+                        {{ author }}
                     {%- endif -%}
+                    {% unless forloop.last %}, {% endunless %}
+                {%- endfor -%}
+                </span>
+            {%- endif -%}
 
-                    <div class="media-body">
-                        <strong>Author</strong><br>
-                        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <span itemprop="name">
-                                {%- if site.data.authors[page.author] -%}
-                                    {{ site.data.authors[page.author].name}}
-                                {%- else -%}
-                                    {{ page.author }}
-                                {%- endif -%}
-                            </span>
-                        </span>
-                    </div>
-                </li>
-                {%- endif -%}
+            {%- if page.date -%}
+            <span class="dot">&middot;</span>
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {%- assign date_format = site.date_format -%}
+                {{ page.date | date: date_format }}
+            </time>
+            {%- endif -%}
 
-                {%- if page.authors -%}
-                <li class="hero__meta-item author media">
-                    <div class="media-body">
-                          <strong>Author</strong><br>
-                    {%- for author in page.authors -%}
-                          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                              <span itemprop="name">
-                                  {%- if site.data.authors[author] -%}
-                                      {{ site.data.authors[author].name}}
-                                  {%- else -%}
-                                      {{ author }}
-                                  {%- endif -%}
-                                  {% if forloop.last %}{% else %},{% endif %}
-                              </span>
-                          </span>
-                    {%- endfor -%}
-                    </div>
-                </li>
-                {%- endif -%}
-
-                <!-- Post Date -->
-                {%- if page.date -%}
-                <li class="hero__meta-item published">
-                    <strong>Published</strong><br>
-                    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                        {%- assign date_format = site.date_format -%}
-                        {{ page.date | date: date_format }}
-                    </time>
-                </li>
-                {%- endif -%}
-
-                {%- if page.team -%}
-                <!-- Team Info -->
-                <li class="hero__meta-item category">
-                    <strong>Team</strong><br>
-                    <span>{{ page.team | join: ', '}}</span>
-                </li>
-                {%- endif -%}
-
-            </ul>
-        </header>
-
+            {%- if page.team -%}
+            <span class="dot">&middot;</span>
+            <span>{{ page.team | join: ', ' }}</span>
+            {%- endif -%}
+        </div>
     </div>
-    {% include logo-texture.html %}
 </section>
