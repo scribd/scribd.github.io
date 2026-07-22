@@ -1,0 +1,83 @@
+- name: go-sdk
+  url: https://github.com/scribd/go-sdk
+  description: "Go SDK — a toolkit for working with Scribd's internal services and infrastructure."
+  language: Go
+  lang_key: go
+  license: MIT
+
+- name: terraform-aws-app-secrets
+  url: https://github.com/scribd/terraform-aws-app-secrets
+  description: "A Terraform module to create application secrets stored in AWS Secrets Manager."
+  language: HCL
+  lang_key: hcl
+  license: MIT
+
+- name: job-notification
+  url: https://github.com/scribd/job-notification
+  description: "A GitHub Action for sending job notifications to your team's preferred channels."
+  language:
+  lang_key:
+  license: MIT
+
+- name: brutus
+  url: https://github.com/scribd/brutus
+  description: "Brute-force in-memory vector search."
+  language: Rust
+  lang_key: rust
+  license: MIT
+
+- name: datadog_backup
+  url: https://github.com/scribd/datadog_backup
+  description: "Backup your Datadog account."
+  language: Ruby
+  lang_key: ruby
+  license: MIT
+
+- name: objinsync
+  url: https://github.com/scribd/objinsync
+  description: "Continuously synchronize directories from remote object store to local filesystem."
+  language: Go
+  lang_key: go
+  license: MIT
+
+- name: Weaver
+  url: https://github.com/scribd/Weaver
+  description: "Dependency Injection framework for Swift (iOS/macOS/Linux)."
+  language: Swift
+  lang_key: swift
+  license: MIT
+
+- name: check-commit-status-action
+  url: https://github.com/scribd/check-commit-status-action
+  description: "GitHub Action to confirm commit statuses are their expected values."
+  language: JavaScript
+  lang_key: javascript
+  license: MIT
+
+- name: armadillo
+  url: https://github.com/scribd/armadillo
+  description: "A delightful audio player for Android."
+  language: Kotlin
+  lang_key: kotlin
+  license: MIT
+
+- name: delta-lambdas
+  url: https://github.com/scribd/delta-lambdas
+  description: "Collection of useful Lambda utilities for interacting with Delta Lake tables."
+  language: Rust
+  lang_key: rust
+  license: MIT
+
+- name: terraform-oidc-module
+  url: https://github.com/scribd/terraform-oidc-module
+  description: "OIDC Terraform module — federated identity for GitHub Actions and AWS."
+  language: HCL
+  lang_key: hcl
+  license: MIT
+
+- name: Lucid
+  url: https://github.com/scribd/Lucid
+  description: "A Swift library for building robust data layers for applications."
+  language: Swift
+  lang_key: swift
+  license: MIT

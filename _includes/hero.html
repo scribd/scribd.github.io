@@ -1,14 +1,37 @@
 {% assign hero = page.hero %}
-<section class="page-headline">
+<section class="page-hero">
     <div class="container">
-        <div class="headline-inner">
-            {% if hero.title %}
-                <h1>{{ hero.title }}</h1>
-            {% endif %}
-
-            {% if hero.body %}
-                <p class="headline-lead">{{ hero.body }}</p>
-            {% endif %}
+        <div class="hero-inner">
+            <div class="hero-left">
+                {% if hero.label %}
+                    <div class="eyebrow"><span class="eyebrow-dot"></span>{{ hero.label }}</div>
+                {% endif %}
+                {% if hero.title %}
+                    <h1>{{ hero.title }}</h1>
+                {% endif %}
+            </div>
+            <div class="hero-right">
+                {% if hero.body %}
+                    <p class="hero-lead">{{ hero.body }}</p>
+                {% endif %}
+                {% if hero.stats or hero.cta_url %}
+                <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                    {% if hero.stats %}
+                    <div class="hero-stats">
+                        {% for stat in hero.stats %}
+                        <div class="stat-item">
+                            <div class="stat-num">{{ stat.value }}</div>
+                            <div class="stat-label">{{ stat.label }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if hero.cta_url %}
+                    <a href="{{ hero.cta_url }}" class="btn btn-outline" target="_blank" rel="noopener" style="margin-left:8px;">{{ hero.cta_text | default: "Learn more" }} &rarr;</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </section>

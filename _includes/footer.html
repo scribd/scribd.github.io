@@ -14,6 +14,7 @@
                 {% for link in links %}
                 <li><a href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a></li>
                 {% endfor %}
+                <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
             </ul>
 
             <!-- Social icons -->

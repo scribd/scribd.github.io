@@ -10,94 +10,94 @@ $nav-zindex: 200;
 ////////////////////
 
 .site-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: $nav-zindex;
-    background: $bg;
-    padding: 24px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $nav-zindex;
+  background: $bg;
+  padding: 24px 0;
 }
 
 // Push page content below fixed nav
 .page-wrapper {
-    padding-top: $nav-height;
+  padding-top: $nav-height;
 }
 
 .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .nav-logo {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    flex-shrink: 0;
-    line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 .logo-wordmark {
-    height: 22px;
-    width: auto;
-    display: block;
+  height: 38.4px;
+  width: auto;
+  display: block;
 }
 
 .wm-dark {
-    fill: $text-primary;
-    transition: fill 0.2s;
+  fill: $text-primary;
+  transition: fill 0.2s;
 }
 
 .wm-orange {
-    fill: $accent;
+  fill: $accent;
 }
 
 // Invert logo when mobile menu is open
 .site-nav.menu-open {
-    background: $bg-dark;
+  background: $bg-dark;
 
-    .wm-dark {
-        fill: #ffffff;
-    }
+  .wm-dark {
+    fill: #ffffff;
+  }
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    a {
-        display: inline-block;
-        color: $text-primary;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: -0.32px;
-        line-height: 130%;
-        padding: 10px 20px;
-        border-radius: 150px;
-        border: 1px solid rgba(18,18,18,0.40);
-        background: $bg;
-        transition: background 0.2s, color 0.2s, border-color 0.2s;
+  a {
+    display: inline-block;
+    color: $text-primary;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 130%;
+    padding: 10px 20px;
+    border-radius: 150px;
+    border: 1px solid rgba(18, 18, 18, 0.4);
+    background: $bg;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
 
-        &:hover,
-        &.active {
-            background: $bg-dark;
-            color: $bg;
-            border-color: $bg-dark;
-        }
+    &:hover,
+    &.active {
+      background: $bg-dark;
+      color: $bg;
+      border-color: $bg-dark;
     }
+  }
 }
 
 @media (max-width: 700px) {
-    .nav-inner .nav-links {
-        display: none;
-    }
+  .nav-inner .nav-links {
+    display: none;
+  }
 }
 
 ////////////////////
@@ -105,53 +105,53 @@ $nav-zindex: 200;
 ////////////////////
 
 .nav-mobile-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: $bg-dark;
-    z-index: $nav-zindex - 1;
-    padding: 24px;
-    padding-top: calc(#{$nav-height} + 24px);
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: $bg-dark;
+  z-index: $nav-zindex - 1;
+  padding: 24px;
+  padding-top: calc(#{$nav-height} + 24px);
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+
+  &.is-open {
+    display: flex;
+  }
+
+  .nav-links {
     flex-direction: column;
-    justify-content: flex-start;
-    overflow-y: auto;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid rgba(246, 242, 236, 0.15);
 
-    &.is-open {
-        display: flex;
+    li {
+      width: 100%;
+      border-bottom: 1px solid rgba(246, 242, 236, 0.15);
     }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        width: 100%;
-        border-top: 1px solid rgba(246,242,236,0.15);
+    a {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      color: $bg;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 22px 0;
+      width: 100%;
+      letter-spacing: -0.4px;
+      line-height: 130%;
 
-        li {
-            width: 100%;
-            border-bottom: 1px solid rgba(246,242,236,0.15);
-        }
-
-        a {
-            display: block;
-            font-size: 28px;
-            font-weight: 700;
-            color: $bg;
-            background: transparent;
-            border: none;
-            border-radius: 0;
-            padding: 22px 0;
-            width: 100%;
-            letter-spacing: -0.4px;
-            line-height: 130%;
-
-            &:hover {
-                color: $accent;
-                background: transparent;
-                border: none;
-            }
-        }
+      &:hover {
+        color: $accent;
+        background: transparent;
+        border: none;
+      }
     }
+  }
 }
 
 ////////////////////
@@ -159,18 +159,18 @@ $nav-zindex: 200;
 ////////////////////
 
 .skip-link {
-    position: absolute;
-    top: -$nav-height;
-    padding: 1rem;
-    font-size: 1rem;
-    line-height: 1;
-    color: $white;
-    text-decoration: none;
-    background: $bg-dark;
-    transition: top .2s ease-in-out;
-    z-index: $nav-zindex + 1;
+  position: absolute;
+  top: -$nav-height;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: $white;
+  text-decoration: none;
+  background: $bg-dark;
+  transition: top 0.2s ease-in-out;
+  z-index: $nav-zindex + 1;
 
-    &:focus {
-        top: 0;
-    }
+  &:focus {
+    top: 0;
+  }
 }
