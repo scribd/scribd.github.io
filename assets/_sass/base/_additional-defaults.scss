@@ -1,7 +1,10 @@
 // Smooth anchor scrolling unless .no-smooth-scroll is present
+html {
+    scroll-padding-top: 100px;
+}
+
 html:not(.no-smooth-scroll) {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
 
     @media (prefers-reduced-motion: reduce) {
         scroll-behavior: auto; // turn off if user prefers reduced motion
