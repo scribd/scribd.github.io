@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% if page.url contains "/category" or page.url contains "/page" or page.url == "/blog/" %}
+{% if page.url contains "/category" or page.url contains "/page" %}
     {% assign class = 'no-smooth-scroll' %}
 {% endif %}
 <html class="{{ class }}" lang="{{ page.lang | default: site.lang | default: "en" }}">

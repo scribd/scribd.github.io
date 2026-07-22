@@ -150,7 +150,7 @@
 .hero-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 48px;
   align-items: stretch;
 
   @media (max-width: 700px) {

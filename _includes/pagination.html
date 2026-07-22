@@ -3,7 +3,7 @@
 
     {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
-        <span>{{ page }}</span>
+        <span class="current">{{ page }}</span>
     {% elsif page == 1 %}
         <a href="{{ paginator.previous_page_path | relative_url }}{{ site.post-id }}">{{ page }}</a>
     {% else %}
