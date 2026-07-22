@@ -96,3 +96,203 @@ $card-padding-lg: rem-calc(20px);
         text-decoration: none;
     }
 }
+
+////////////////////
+// Projects Layout
+////////////////////
+
+.projects-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: start;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+.projects-sidebar {
+    position: sticky;
+    top: 108px;
+
+    .eyebrow {
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 700px) {
+        position: sticky;
+        top: 88px;
+        z-index: 40;
+        background: $bg;
+        padding: 14px 0;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+
+        .eyebrow {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Language dropdown (mirrors blog category dropdown)
+.lang-dropdown-wrap {
+    position: relative;
+}
+
+.lang-dropdown-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $sans-serif;
+    letter-spacing: -0.32px;
+    line-height: 124%;
+    color: $text-primary;
+    background: transparent;
+    border: 1px solid rgba(13,10,7,0.40);
+    border-radius: 160px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+
+    &:hover {
+        background: $bg-dark;
+        color: $bg;
+        border-color: $bg-dark;
+    }
+}
+
+.lang-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 50;
+    padding-top: 16px;
+}
+
+.lang-dropdown-wrap:hover .lang-dropdown-menu {
+    display: block;
+}
+
+.lang-dropdown-wrap:hover .lang-dropdown-btn {
+    background: $bg-dark;
+    color: $bg;
+    border-color: $bg-dark;
+}
+
+.lang-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 0;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 130%;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.4s, transform 0.4s;
+
+    &:hover {
+        color: $accent;
+        transform: translateX(5px);
+    }
+
+    &.active {
+        color: #fff;
+        font-weight: 500;
+    }
+}
+
+////////////////////
+// Project Cards
+////////////////////
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+}
+
+.project-card {
+    background: $bg-card;
+    border: 1px solid $border-solid;
+    border-radius: 16px;
+    padding: 24px 24px 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s;
+
+    &:hover {
+        border-color: #201d19;
+    }
+}
+
+.project-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.project-desc {
+    font-size: 0.825rem;
+    color: $text-secondary;
+    line-height: 1.55;
+    flex: 1;
+    font-weight: 300;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.project-langs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: $text-muted;
+}
+
+.lang-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+// Language dot colors
+.lang-go     { background: #00ADD8; }
+.lang-js,
+.lang-javascript { background: #F7DF1E; }
+.lang-hcl    { background: #844FBA; }
+.lang-ruby   { background: #CC342D; }
+.lang-rust   { background: #DEA584; }
+.lang-swift  { background: #F05138; }
+.lang-kotlin { background: #7F52FF; }
+.lang-python { background: #3572A5; }
