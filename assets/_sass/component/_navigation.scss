@@ -13,8 +13,8 @@ $nav-zindex: 10;
 .nav {
     position: relative;
     width: 100%;
-    background-color: $white;
-    border-bottom: 1px solid $slate-300;
+    background-color: $brand-cream;
+    border-bottom: 1px solid transparent;
     z-index: $nav-zindex;
 }
 
@@ -24,7 +24,7 @@ $nav-zindex: 10;
     align-items: center;
     justify-content: space-between;
     height: $nav-height-sm;
-    background-color: $white;
+    background-color: $brand-cream;
 
     @media (min-width: $bp-md) {
         height: $nav-height-lg;
@@ -61,7 +61,7 @@ $nav-zindex: 10;
     bottom: 0;
     left: 0;
     padding: $nav-height-sm $cp-sm rem-calc(20px);
-    background-color: $teal;
+    background-color: $brand-cream;
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -82,7 +82,7 @@ $nav-zindex: 10;
 
 .nav-list__item {
     display: inline;
-    border-bottom: 1px solid $teal-dark;
+    border-bottom: 1px solid $slate-300;
 
     @media (min-width: $bp-md) {
         border-bottom: none;
@@ -91,29 +91,37 @@ $nav-zindex: 10;
     &:not(:first-of-type) {
 
         @media (min-width: $bp-md) {
-            margin-left: rem-calc(20px);
-        }
-
-        @media (min-width: $bp-lg) {
-            margin-left: rem-calc(40px);
+            margin-left: rem-calc(8px);
         }
     }
 }
 
+// Desktop nav items are outlined pills, matching scribdinc.com.
+// Active item is a filled black pill.
 .nav-list__link {
     display: block;
     padding: rem-calc(20px 10px);
-    color: $white;
+    color: $slate-800;
+    font-size: rem-calc(16px);
 
     @media (min-width: $bp-md) {
-        display: inline;
-        padding: rem-calc(10px 0);
-        color: $slate-600;
+        display: inline-block;
+        padding: rem-calc(10px 20px);
+        color: $slate-800;
+        border: 1px solid $slate-800;
+        border-radius: 999px;
+        line-height: 1.2;
+        transition: background-color .2s ease-in-out, color .2s ease-in-out;
 
         &:hover,
-        &:focus,
+        &:focus {
+            background-color: $brand-hover;
+        }
+
         &.active {
-            color: $link-color;
+            background-color: $brand-ink;
+            border-color: $brand-ink;
+            color: $white;
         }
     }
 }
@@ -122,19 +130,24 @@ $nav-zindex: 10;
 .nav-social-list {
     margin-top: auto;
     margin-bottom: rem-calc(15px);
-    border-bottom: 1px solid $teal-dark;
+    border-bottom: 1px solid $slate-300;
 }
 
 .nav-social-list__item {
     display: inline-block;
     padding: rem-calc(20px 8px 20px 0);
+    color: $slate-800 !important;
 }
 
 // Mobile github links
 .nav-github-link:not(:last-child) {
     margin-right: rem-calc(12px);
     padding-right: rem-calc(12px);
-    border-right: 1px solid $teal-dark;
+    border-right: 1px solid $slate-300;
+}
+
+.nav-github-link {
+    color: $slate-800 !important;
 }
 
 ////////////////////
