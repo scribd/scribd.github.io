@@ -16,7 +16,8 @@ main { flex: 1; }
 ////////////////////
 
 .footer {
-    background-color: $slate-700;
+    background-color: $brand-ink;
+    color: $white;
 }
 
 .footer__container {
@@ -69,7 +70,7 @@ main { flex: 1; }
 }
 
 .footer-link {
-    color: $slate-300;
+    color: rgba($white, .8);
 
     &.active,
     &:hover,
@@ -91,7 +92,8 @@ main { flex: 1; }
 // Secondary Footer
 .footer-secondary {
     padding: rem-calc(20px 0);
-    background-color: $slate-800;
+    background-color: $brand-ink;
+    border-top: 1px solid rgba($white, .15);
 }
 
 .footer-secondary__container {
@@ -112,7 +114,7 @@ main { flex: 1; }
 .open-source-nav__item:not(:last-child) {
     margin-right: 1em;
     padding-right: 1em;
-    border-right: 1px solid $seafoam-light;
+    border-right: 1px solid rgba($white, .3);
 }
 
 .footer-license {

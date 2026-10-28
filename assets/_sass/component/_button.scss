@@ -20,42 +20,50 @@
     display: inline-block;
     padding: .75em 1.5em;
     text-align: center;
-    font-family: $monospace;
-    font-size: rem-calc(14px);
-    line-height: 1;
+    font-family: $sans-serif;
+    font-size: rem-calc(16px);
+    font-weight: 500;
+    line-height: 1.2;
     color: $white;
     text-decoration: none;
-    border-radius: 1.5em;
+    border: 1px solid transparent;
+    border-radius: 999px;
     transition: all 0.2s ease-in-out;
 }
 
 .btn-sm {
-   font-size: rem-calc(12px);
+   font-size: rem-calc(14px);
 }
 
 .btn-lg {
-   font-size: rem-calc(16px);
+   font-size: rem-calc(18px);
 }
 
 ////////////////////
 // Colors
 ////////////////////
 
+// Primary: orange pill (scribdinc.com "Contact" CTA)
 .btn-primary {
-    background-color: $teal;
+    background-color: $brand-orange;
+    color: $white;
 
     &:hover,
     &:focus {
-        background-color: $teal-dark;
+        background-color: darken($brand-orange, 8%);
     }
 }
 
+// Secondary: outlined black pill (scribdinc.com nav links)
 .btn-secondary {
-    background-color: $slate-700;
+    background-color: transparent;
+    border-color: $brand-ink;
+    color: $brand-ink;
 
     &:hover,
     &:focus {
-        background-color: $slate-800;
+        background-color: $brand-ink;
+        color: $white;
     }
 }
 
