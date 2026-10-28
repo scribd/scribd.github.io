@@ -51,3 +51,7 @@ defaults:
       type: category
     values:
       layout: "category"
+
+# Review-only assets for PR screenshots; keep them out of the published site
+exclude:
+  - pr-assets
