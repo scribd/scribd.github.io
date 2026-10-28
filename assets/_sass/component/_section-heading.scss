@@ -13,7 +13,10 @@ $border-width: 2px;
     margin: 0 0 1em 0;
     @extend .monospace;
     font-size: rem-calc(14px);
+    font-weight: 500;
     line-height: 1;
+    color: $brand-orange;
+    letter-spacing: .02em;
 
     &:before {
         content: '';

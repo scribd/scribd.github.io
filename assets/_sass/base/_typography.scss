@@ -78,15 +78,17 @@ h6 {
 h1,
 .h1 {
     font-size: rem-calc(28px);
-    @media (min-width: $bp-md) { font-size: rem-calc(34px);}
-    @media (min-width: $bp-lg) { font-size: rem-calc(36px);}
+    letter-spacing: -0.02em;
+    @media (min-width: $bp-md) { font-size: rem-calc(40px);}
+    @media (min-width: $bp-lg) { font-size: rem-calc(52px);}
 }
 
 h2,
 .h2 {
-    font-size: rem-calc(22px);
-    @media (min-width: $bp-md) { font-size: rem-calc(24px);}
-    @media (min-width: $bp-lg) { font-size: rem-calc(30px);}
+    font-size: rem-calc(24px);
+    letter-spacing: -0.015em;
+    @media (min-width: $bp-md) { font-size: rem-calc(32px);}
+    @media (min-width: $bp-lg) { font-size: rem-calc(40px);}
 }
 
 h3,
