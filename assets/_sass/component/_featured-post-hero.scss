@@ -53,19 +53,12 @@
     }
 }
 
-// Stretched link: makes the whole card clickable via the title <a>
-.featured-card--dark h2 a::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-}
 
 .featured-post-category {
     position: absolute;
     top: 28px;
     left: 28px;
-    z-index: 3;
+    z-index: 1;
 
     a {
         display: inline-block;

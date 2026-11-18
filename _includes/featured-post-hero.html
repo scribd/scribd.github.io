@@ -63,3 +63,16 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.featured-card--dark').forEach(function(card) {
+        var link = card.querySelector('h2 a');
+        if (!link) return;
+        card.addEventListener('click', function(e) {
+            if (e.target.closest('a')) return;
+            window.location.href = link.href;
+        });
+    });
+});
+</script>

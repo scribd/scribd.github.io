@@ -223,7 +223,9 @@ $dark-muted: rgba($brand-cream, .72);
     }
 
     .category-dropdown-wrap:hover .category-dropdown-btn,
-    .lang-dropdown-wrap:hover .lang-dropdown-btn {
+    .category-dropdown-wrap.is-open .category-dropdown-btn,
+    .lang-dropdown-wrap:hover .lang-dropdown-btn,
+    .lang-dropdown-wrap.is-open .lang-dropdown-btn {
         background: $dark-text;
         color: $brand-ink;
         border-color: $dark-text;
@@ -308,6 +310,26 @@ $dark-muted: rgba($brand-cream, .72);
     // Lists, borders, and rules
     ////////////////////
 
+    // Page-level dividers
+    .page-headline,
+    .page-hero {
+        border-bottom-color: $dark-border;
+    }
+
+    .section {
+        border-top-color: $dark-border;
+    }
+
+    // Blog post rows
+    .post-item {
+        border-bottom-color: $dark-border;
+    }
+
+    .post-item-wrap:first-child .post-item {
+        border-top-color: $dark-border;
+    }
+
+    // Legacy post-list items
     .post-list__item,
     .action-cell,
     .text-block-grid__item,
