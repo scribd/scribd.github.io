@@ -178,11 +178,13 @@ $card-padding-lg: rem-calc(20px);
     padding-top: 16px;
 }
 
-.lang-dropdown-wrap:hover .lang-dropdown-menu {
+.lang-dropdown-wrap:hover .lang-dropdown-menu,
+.lang-dropdown-wrap.is-open .lang-dropdown-menu {
     display: block;
 }
 
-.lang-dropdown-wrap:hover .lang-dropdown-btn {
+.lang-dropdown-wrap:hover .lang-dropdown-btn,
+.lang-dropdown-wrap.is-open .lang-dropdown-btn {
     background: $bg-dark;
     color: $bg;
     border-color: $bg-dark;

@@ -61,12 +61,28 @@ hero:
     var options = menu.querySelectorAll('a');
     var cards = document.querySelectorAll('.project-card');
 
+    // Toggle open/close on click (touch support)
+    btn.addEventListener('click', function() {
+        var isOpen = wrap.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) {
+            wrap.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
     options.forEach(function(option) {
         option.addEventListener('click', function(e) {
             e.preventDefault();
             options.forEach(function(o) { o.classList.remove('active'); });
             this.classList.add('active');
             label.textContent = this.textContent.trim();
+            wrap.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
 
             var lang = this.dataset.lang || null;
             cards.forEach(function(card) {

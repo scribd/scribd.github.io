@@ -83,11 +83,13 @@
     padding-top: 16px;
 }
 
-.category-dropdown-wrap:hover .category-dropdown-menu {
+.category-dropdown-wrap:hover .category-dropdown-menu,
+.category-dropdown-wrap.is-open .category-dropdown-menu {
     display: block;
 }
 
-.category-dropdown-wrap:hover .category-dropdown-btn {
+.category-dropdown-wrap:hover .category-dropdown-btn,
+.category-dropdown-wrap.is-open .category-dropdown-btn {
     background: $bg-dark;
     color: $bg;
     border-color: $bg-dark;

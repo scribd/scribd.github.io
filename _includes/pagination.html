@@ -5,7 +5,7 @@
     {% if page == paginator.page %}
         <span class="current">{{ page }}</span>
     {% elsif page == 1 %}
-        <a href="{{ paginator.previous_page_path | relative_url }}{{ site.post-id }}">{{ page }}</a>
+        <a href="{{ '/blog/' | relative_url }}{{ site.post-id }}">{{ page }}</a>
     {% else %}
         <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}{{ site.post-id }}">{{ page }}</a>
     {% endif %}

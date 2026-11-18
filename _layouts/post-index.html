@@ -7,6 +7,26 @@ layout: default
     {% include featured-post-hero.html %}
 {% endunless %}
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var wrap = document.querySelector('.category-dropdown-wrap');
+    if (!wrap) return;
+    var btn = wrap.querySelector('.category-dropdown-btn');
+
+    btn.addEventListener('click', function() {
+        var isOpen = wrap.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) {
+            wrap.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+</script>
+
 <section class="section" id="{{ site.post-id | remove: '#' }}">
     <div class="container">
         <div class="posts-layout">
