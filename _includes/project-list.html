@@ -8,7 +8,7 @@
         <!-- See include below for logic and color.scss for available themes -->
         {% include project-color-logic.html %}
 
-        <li class="card theme-{{ theme | default: "midnight" }}">
+        <li class="card project-card theme-{{ theme | default: "midnight" }}" {% if repository.language %}data-lang="{{ repository.language | downcase }}"{% endif %}>
             <header class="card__header">
 
                 <!-- Project title -->
