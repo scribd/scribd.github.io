@@ -45,6 +45,9 @@ We leveraged annotated data at Scribd, which includes human-assigned trust label
 .figure-table th,
 .figure-table td { border: 1px solid #ccc; padding: 0.5rem 0.75rem; text-align: center; box-sizing: border-box; }
 .figure-table thead th { background: #f5f5f5; }
+@media (prefers-color-scheme: dark) {
+  .figure-table thead th { background: transparent; }
+}
 </style>
 <figure class="figure-table">
   <figcaption><strong>Table 1. Document distribution across Trust Pillars.</strong> This table details the percentage of labeled documents within the training and testing datasets. Note that the <em>Clean</em> documents are included separately as the baseline.</figcaption>

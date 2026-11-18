@@ -23,6 +23,9 @@ $border-solid: #cfcecd;
 // These map old variable names to the new palette
 // so existing component styles don't break
 
+$brand-orange: $accent;
+$brand-cream: $bg;
+$brand-ink: $bg-dark;
 $cabernet-dark: $bg-dark;
 $cabernet: $accent;
 $cabernet-light: $accent-hover;

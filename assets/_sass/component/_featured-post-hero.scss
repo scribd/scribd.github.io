@@ -28,9 +28,10 @@
     justify-content: flex-start;
     flex: 1;
     position: relative;
+    cursor: pointer;
 
     &:hover {
-        border-color: #2a2520;
+        border-color: rgba(255,255,255,0.2);
     }
 
     &::before {
@@ -44,14 +45,27 @@
         opacity: 1;
         pointer-events: none;
         z-index: 0;
+        transition: opacity 0.2s;
     }
+
+    &:hover::before {
+        opacity: 0.85;
+    }
+}
+
+// Stretched link: makes the whole card clickable via the title <a>
+.featured-card--dark h2 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
 }
 
 .featured-post-category {
     position: absolute;
     top: 28px;
     left: 28px;
-    z-index: 1;
+    z-index: 3;
 
     a {
         display: inline-block;

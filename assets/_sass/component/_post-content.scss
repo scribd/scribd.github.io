@@ -136,6 +136,7 @@
     color: $accent;
     text-decoration: none;
     border-bottom: 1px solid rgba(253,87,28,0.35);
+    transition: color 0.2s, border-bottom-color 0.2s;
 
     &:hover {
         border-bottom-color: $accent;
@@ -214,6 +215,34 @@
         padding: 0;
         color: inherit;
     }
+}
+
+////////////////////
+// Tables
+////////////////////
+
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 28px;
+    font-size: 0.95rem;
+}
+
+.post-content th,
+.post-content td {
+    padding: 10px 16px;
+    text-align: left;
+    border: 1px solid $border-solid;
+}
+
+.post-content thead th {
+    background: rgba(13,10,7,0.06);
+    font-weight: 600;
+    color: $text-primary;
+}
+
+.post-content tbody tr:nth-child(even) {
+    background: rgba(13,10,7,0.03);
 }
 
 ////////////////////
