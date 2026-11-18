@@ -79,7 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = link.href;
             }
         });
-        // Middle-click support
+        // Middle-click support: prevent autoscroll so auxclick fires
+        card.addEventListener('mousedown', function(e) {
+            if (e.button === 1 && !e.target.closest('a')) e.preventDefault();
+        });
         card.addEventListener('auxclick', function(e) {
             if (e.button !== 1 || e.target.closest('a')) return;
             window.open(link.href, '_blank');
