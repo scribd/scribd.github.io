@@ -252,7 +252,7 @@ The point is not "perfect metrics." The point is to make iteration measurable.
 
 Here's the end-to-end loop we repeated:
 
-![The repeatable loop: a fast model labels for breadth, a judge model checks a sample, SMEs make the final call, corrections grow the golden set, and the prompt is iterated — then the loop repeats.](/post-images/2026-fast-llm-hitl/repeatable-loop.svg)
+![The repeatable loop: 1) source documents in Databricks, 2) standardize the document PDF and metadata, 3) build JSONL batches, 4) batch inference with a fast model, 5) store outputs with versioning, 6) validate 1% and judge 0.1%, 7) export disagreements to Google Sheets, 8) SMEs review and correct labels, 9) ingest corrections as the next golden dataset, 10) improve prompts and repeat the loop.](/post-images/2026-fast-llm-hitl/workflow-loop.svg)
 
 1. **Source documents in Databricks**
 2. **Standardize a document PDF** and metadata
@@ -281,24 +281,19 @@ That repeatability is what made it possible for a small cross-functional team to
 
 ### A) Suggested Google Sheets Columns for SME Review
 
-| doc_id | snippet | fast_label | fast_rationale | judge_agree | judge_label | judge_rationale | sme_label | sme_notes | reviewer | review_ts |
-|--------|---------|------------|----------------|-------------|-------------|-----------------|-----------|-----------|----------|-----------|
+- `doc_id`
+- `snippet`
+- `fast_label`
+- `fast_rationale`
+- `judge_agree`
+- `judge_label`
+- `judge_rationale`
+- `sme_label`
+- `sme_notes`
+- `reviewer`
+- `review_ts`
 
-### B) Mermaid Diagram
-
-```mermaid
-flowchart LR
-  A["1) Source data in Databricks"] --> B["2) Standardize doc snippets + metadata"]
-  B --> C["3) Build JSONL batches (idempotent)"]
-  C --> D["4) Batch inference: fast model"]
-  D --> E["5) Store candidate label + rationale"]
-  E --> F["6) Validate 1% slice; judge 0.1% sample"]
-  F --> G["7) SME reviews disagreements in Sheets"]
-  G --> H["8) Ingest edits → grow golden set → iterate"]
-  H --> C
-```
-
-### C) One-Page Checklist
+### B) One-Page Checklist
 
 - Standardized doc snippet schema
 - JSONL batch builder

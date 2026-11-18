@@ -1,0 +1,333 @@
+////////////////////
+// Dark Mode
+//
+// Applied when the browser or OS requests a dark color scheme. Light-mode
+// values are compile-time Sass variables, so each color-bearing selector gets
+// an explicit dark override here. This partial is imported last in main.scss
+// so these rules win at equal specificity.
+//
+// Palette: scribdinc.com ink (#0d0a07) is the page background, cream
+// (#f6f2ec) is the text color, and orange (#fd571c) is the accent. Surfaces
+// are a lifted ink (#1a1612) so cards and bands stay distinct from the page.
+////////////////////
+
+$dark-surface: #1a1612;
+$dark-surface-hover: #241f1a;
+$dark-border: #3a342d;
+$dark-text: $brand-cream;
+$dark-muted: rgba($brand-cream, .72);
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        color-scheme: dark;
+    }
+
+    body {
+        color: $dark-text;
+        background-color: $brand-ink;
+    }
+
+    a {
+        color: $dark-text;
+    }
+
+    ////////////////////
+    // Navigation
+    ////////////////////
+
+    .nav,
+    .nav__container {
+        background-color: $brand-ink;
+    }
+
+    .nav-list__link {
+        color: $dark-text;
+
+        @media (min-width: $bp-md) {
+            color: $dark-text;
+            border-color: $dark-text;
+
+            &:hover,
+            &:focus {
+                background-color: $dark-surface-hover;
+            }
+
+            &.active {
+                background-color: $brand-cream;
+                border-color: $brand-cream;
+                color: $brand-ink;
+            }
+        }
+    }
+
+    .nav-list {
+        @media (max-width: $bp-md - 1px) {
+            background-color: $brand-ink;
+        }
+    }
+
+    .nav-list__item {
+        border-bottom-color: $dark-border;
+    }
+
+    .nav-social-list {
+        border-bottom-color: $dark-border;
+    }
+
+    .nav-social-list__item,
+    .nav-github-link {
+        color: $dark-text !important;
+    }
+
+    .nav-github-link:not(:last-child) {
+        border-right-color: $dark-border;
+    }
+
+    // Header logo: orange mark, cream wordmark
+    .logo__icon {
+        fill: $brand-orange;
+    }
+
+    .logo__wordmark {
+        fill: $dark-text;
+    }
+
+    .logo__subhead {
+        fill: $dark-muted;
+    }
+
+    .hamburger__inner,
+    .hamburger:before,
+    .hamburger:after {
+        background-color: $dark-text;
+    }
+
+    ////////////////////
+    // Buttons
+    ////////////////////
+
+    // Orange CTA keeps dark text: ink on orange has higher contrast than white
+    .btn-primary {
+        color: $brand-ink;
+    }
+
+    .btn-secondary {
+        border-color: $dark-text;
+        color: $dark-text;
+
+        &:hover,
+        &:focus {
+            background-color: $dark-text;
+            color: $brand-ink;
+        }
+    }
+
+    ////////////////////
+    // Surfaces
+    ////////////////////
+
+    .hero {
+        border-bottom-color: $dark-border;
+    }
+
+    .feat-post {
+        background-color: $brand-ink;
+        background-image: linear-gradient(180deg, $brand-ink 0%, $dark-surface 100%);
+        border-bottom-color: $dark-border;
+    }
+
+    .feat-post .logo-texture-solid path {
+        fill: $dark-surface-hover;
+    }
+
+    .card {
+        background-color: $dark-surface;
+        border-color: $dark-border;
+
+        &:hover {
+            border-color: $dark-text;
+        }
+    }
+
+    .post-index {
+        background-image: linear-gradient(180deg, $dark-surface 0px, $brand-ink 800px);
+    }
+
+    .post-index__body {
+        background-color: $brand-ink;
+    }
+
+    .post-index__nav {
+        background-image: linear-gradient(180deg, $dark-surface 0%, $brand-ink 100%);
+    }
+
+    .post-index__nav-list {
+        color: $dark-muted;
+    }
+
+    .post-index__nav-list .active {
+        color: $dark-text;
+    }
+
+    .post-index__nav-link {
+        &:hover,
+        &:focus {
+            color: $dark-text;
+        }
+    }
+
+    .footer,
+    .footer-secondary {
+        background-color: $dark-surface;
+    }
+
+    .footer-secondary {
+        border-top-color: $dark-border;
+    }
+
+    .footer-link {
+        color: $dark-muted;
+
+        &.active,
+        &:hover,
+        &:focus {
+            color: $dark-text;
+        }
+    }
+
+    .open-source-nav__item:not(:last-child) {
+        border-right-color: $dark-border;
+    }
+
+    .footer-license {
+        color: $dark-muted;
+    }
+
+    ////////////////////
+    // Lists, borders, and rules
+    ////////////////////
+
+    .post-list__item,
+    .action-cell,
+    .text-block-grid__item,
+    .related-posts .post-list__item {
+        border-color: $dark-border;
+    }
+
+    .post-list__item {
+        border-bottom-color: $dark-border;
+    }
+
+    // Utility borders used on section headers and the home page band
+    .border-top,
+    .border-bottom,
+    .post-index__body .border-bottom {
+        border-color: $dark-border;
+    }
+
+    .bg-slate-100 {
+        background-color: $brand-ink;
+    }
+
+    .post-sidebar {
+        border-bottom-color: $dark-border;
+    }
+
+    .post-sidebar__action-link:hover,
+    .post-sidebar__action-link:focus {
+        color: $brand-orange;
+    }
+
+    .related-posts__arrow {
+        color: $dark-border;
+    }
+
+    .fancy-line:before {
+        background-color: $dark-border;
+    }
+
+    .fancy-line:after {
+        background-color: $brand-ink;
+        border-color: $dark-border;
+        box-shadow: 0 0 0 2px $brand-ink;
+    }
+
+    ////////////////////
+    // Pagination
+    ////////////////////
+
+    .pagination__link {
+        background-color: $dark-surface;
+        color: $dark-muted;
+
+        &:hover,
+        &:focus,
+        &.current {
+            border-color: $brand-orange;
+        }
+
+        &.current {
+            border-color: $dark-border;
+            color: $dark-text;
+        }
+    }
+
+    ////////////////////
+    // Article content
+    ////////////////////
+
+    .post-content {
+        color: $dark-text;
+    }
+
+    .post-content blockquote {
+        background-color: $dark-surface;
+        border-color: $dark-border;
+    }
+
+    .post-content hr {
+        border-top-color: $dark-border;
+    }
+
+    .post-content a {
+        color: $brand-orange;
+    }
+
+    ////////////////////
+    // Accordion
+    ////////////////////
+
+    .accordion__trigger {
+        color: $dark-text;
+    }
+
+    .accordion > li,
+    .accordion__heading {
+        border-color: $dark-border;
+    }
+
+    ////////////////////
+    // Shadows
+    ////////////////////
+
+    .shadow-sm {
+        box-shadow: .15em .15em 0 $dark-border;
+    }
+
+    .shadow {
+        box-shadow: .5em .5em 0 $dark-border;
+    }
+
+    ////////////////////
+    // Text utilities
+    ////////////////////
+
+    .text-muted {
+        color: $dark-muted;
+    }
+
+    .text-slate-700 {
+        color: $dark-text;
+    }
+}

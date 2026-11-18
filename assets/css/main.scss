@@ -13,6 +13,7 @@
 @import "base/normalize";
 @import "base/additional-defaults";
 @import "base/layout";
+@import "base/brand-fonts";
 @import "base/typography";
 
 @import "utilities/borders";
@@ -47,6 +48,10 @@
 @import "component/pagination";
 @import "component/related-posts";
 @import "component/accordion";
+
+// Dark mode overrides (prefers-color-scheme: dark). Keep this import last so
+// its rules win over the light defaults above.
+@import "base/dark-mode";
 
 // Import the syntax highlighting theme, see:
 // https://richleland.github.io/pygments-css/

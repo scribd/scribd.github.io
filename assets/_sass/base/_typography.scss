@@ -60,9 +60,16 @@ $monospace: 'Source Code Pro', monospace;
 // SemiBold: 600
 // Bold: 700
 
-// Source Code Pro
+// Source Code Pro (code blocks only)
 // Regular: 400
 // Bold: 700
+
+code,
+pre,
+kbd,
+samp {
+    font-family: $code !important;
+}
 
 .sans-serif {
     font-family: $sans-serif !important;
