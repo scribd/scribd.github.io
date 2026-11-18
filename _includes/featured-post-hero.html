@@ -71,7 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!link) return;
         card.addEventListener('click', function(e) {
             if (e.target.closest('a')) return;
-            window.location.href = link.href;
+            if (e.metaKey || e.ctrlKey) {
+                window.open(link.href, '_blank');
+            } else if (e.shiftKey) {
+                window.open(link.href, '_blank', 'noopener');
+            } else {
+                window.location.href = link.href;
+            }
+        });
+        // Middle-click support
+        card.addEventListener('auxclick', function(e) {
+            if (e.button !== 1 || e.target.closest('a')) return;
+            window.open(link.href, '_blank');
         });
     });
 });
