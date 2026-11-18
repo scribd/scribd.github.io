@@ -39,7 +39,9 @@
             <div class="hero-col">
                 <div class="eyebrow"><span class="eyebrow-dot"></span>Recent Posts</div>
                 <div class="series-col-cards">
-                    {% for post in site.posts offset:1 limit:2 %}
+                    {% assign featured_post = site.tags.featured | sort: 'date' | reverse | first %}
+                    {% assign recent_posts = site.posts | where_exp: 'post', 'post.url != featured_post.url' %}
+                    {% for post in recent_posts limit:2 %}
                     <a href="{{ post.url | relative_url }}" class="series-card">
                         <div class="series-item-title">{{ post.title | escape }}</div>
                         <div class="series-item-sub">
@@ -49,11 +51,12 @@
                                 {{ post.author }}
                             {%- endif -%}
                             &middot;
+                            {%- assign date_format = site.date_format -%}
                             {{ post.date | date: date_format }}
                         </div>
                     </a>
                     {% endfor %}
-                    <a href="#posts" class="btn btn-outline" style="width:fit-content;margin-top:4px;">All Posts &rarr;</a>
+                    <a href="{{ '/blog/' | relative_url }}#posts" class="btn btn-outline all-posts-btn">All Posts &rarr;</a>
                 </div>
             </div>
 
