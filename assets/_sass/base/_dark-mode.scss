@@ -275,7 +275,9 @@ $dark-muted: rgba($brand-cream, .72);
         }
     }
 
-    .project-name {
+    .project-name,
+    .card__header-title,
+    .card__header-link {
         color: $dark-text;
     }
 
