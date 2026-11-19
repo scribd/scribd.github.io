@@ -4,13 +4,14 @@
 
 // Grayscale
 .text-white { color: $white }
-.text-muted { color: darken($slate-600, 5%) }
-.text-slate-700 { color: $slate-700 }
+.text-muted { color: $text-muted }
+.text-slate-700 { color: $text-secondary }
 
 // Brand
-.text-teal { color: $teal }
-.text-cabernet { color: $cabernet }
-.text-plum { color: $plum }
+.text-teal { color: $accent }
+.text-cabernet { color: $accent }
+.text-plum { color: $accent }
+.text-accent { color: $accent }
 
 ////////////////////
 // Font Size

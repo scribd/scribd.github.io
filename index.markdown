@@ -1,6 +1,5 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
+title: Scribd, Inc. Technology
+description: Scribd, Inc. Technology builds and delivers one of the world's largest collections of content to help people move from information access to real understanding and application.
 ---

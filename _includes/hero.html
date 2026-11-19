@@ -1,21 +1,37 @@
- {% assign hero = page.hero %}
-<section class="hero theme-{{ hero.theme | default: "white" }}">
-    <div class="hero__container container container-offset">
-
-        <header class="hero__header">
-            {% if hero.label %}
-                <h1 class="hero__section-heading">{{ hero.label }}</h1>
-            {% endif %}
-
-            {% if hero.title %}
-                <h2 class="hero__title">{{ hero.title }}</h2>
-            {% endif %}
-
-            {% if hero.body %}
-                <p class="m-0 body-lg text-length-md">{{ hero.body }}</p>
-            {% endif %}
-        </header>
-
+{% assign hero = page.hero %}
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-left">
+                {% if hero.label %}
+                    <div class="eyebrow"><span class="eyebrow-dot"></span>{{ hero.label }}</div>
+                {% endif %}
+                {% if hero.title %}
+                    <h1>{{ hero.title }}</h1>
+                {% endif %}
+            </div>
+            <div class="hero-right">
+                {% if hero.body %}
+                    <p class="hero-lead">{{ hero.body }}</p>
+                {% endif %}
+                {% if hero.stats or hero.cta_url %}
+                <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                    {% if hero.stats %}
+                    <div class="hero-stats">
+                        {% for stat in hero.stats %}
+                        <div class="stat-item">
+                            <div class="stat-num">{{ stat.value }}</div>
+                            <div class="stat-label">{{ stat.label }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if hero.cta_url %}
+                    <a href="{{ hero.cta_url }}" class="btn btn-outline" target="_blank" rel="noopener" style="margin-left:8px;">{{ hero.cta_text | default: "Learn more" }} &rarr;</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    {% include logo-texture.html %}
 </section>

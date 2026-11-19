@@ -3,43 +3,25 @@
 ////////////////////
 
 :root {
-    --card-min-width: 325px;
+    --card-min-width: 300px;
 }
 
 $card-padding-sm: rem-calc(15px);
 $card-padding-lg: rem-calc(20px);
 
 ////////////////////
-// Card Grid
+// Card Grid (Projects)
 ////////////////////
 
-// Auto fit cards in columns bassed off card-min-width
 .card-grid {
     display: grid;
-    grid-gap: $card-padding-sm;
-    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
     padding: 0 !important;
-    @extend .list--plain;
-
-    @media (min-width: $bp-sm) {
-        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
-    }
-
-    @media (min-width: 1200px) {
-        grid-gap: $card-padding-lg;
-    }
+    list-style: none;
+    margin: 0;
 }
 
-// Add top margin if grids are nested
-.card-grid + .card-grid {
-    margin-top: $card-padding-sm;
-}
-
-////////////////////
-// Modifers
-////////////////////
-
-// smaller card min-width
 .card-grid-sm {
     --card-min-width: 275px;
 }
@@ -50,90 +32,269 @@ $card-padding-lg: rem-calc(20px);
 
 .card {
     position: relative;
-    min-width: 0; // needed for text truncation
-    background-color: $white;
-    border: 1px solid $slate-300;
-    @extend .rounded;
-    transition: all .2s ease;
-    transition-property: border-color, box-shadow;
+    min-width: 0;
+    background-color: $bg-card;
+    border: 1px solid $border-solid;
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
     &:hover,
     &:focus {
-        border-color: var(--theme-border-color);
-        box-shadow: 10px 10px 0 $slate-200;
+        border-color: #201d19;
     }
-}
-
-.card__header,
-.card__body {
-    padding: $card-padding-sm;
-
-    @media (min-width: $bp-md) {
-        padding: $card-padding-sm;
-    }
-}
-
-.card__body {
-    border-color: var(--theme-border-color);
 }
 
 .card__header {
-    margin: -1px; // offset card border
-    background-color: var(--theme-primary-color);
-    border: 1px solid var(--theme-border-color);
-    @extend .rounded-top;
-
-    @media (min-width: $bp-lg) {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        min-height: 6.7em; // accommodate two lines titles while being equal height
-    }
+    padding: 0;
 }
 
-.card__header,
-.card__header-link {
-    color: var(--theme-text-color);
-}
-
-.card__external-indicator {
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    width: 1.75em;
-    text-align: center;
-    background-color: var(--theme-secondary-color);
-    border-radius: 0 $border-radius 0 $border-radius;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .2s ease;
-}
-
-.card:hover .card__external-indicator {
-    visibility: visible;
-    opacity: 1;
+.card__body {
+    padding: 0;
 }
 
 .card__header-title {
     margin-bottom: .1em;
-    font-size: rem-calc(18px);
+    font-size: 1rem;
+    font-weight: 600;
     line-height: 1.2;
+    color: $text-primary;
+}
 
-    @media (min-width: $bp-lg) {
-        font-size: rem-calc(22px);
+.card__header-link {
+    color: $text-primary;
+    text-decoration: none;
+}
+
+.card__header-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: inline;
+    }
+
+    .svg-icon {
+        margin-right: 4px;
+        opacity: .6;
     }
 }
 
-.card__header-list .svg-icon {
-    margin-right: rem-calc(4px);
-    opacity: .6;
+.card__external-indicator {
+    display: none;
 }
 
 .card a {
-    text-decoration-color: transparent;
+    text-decoration: none;
 
     &:hover,
     &:focus {
-        text-decoration-color: currentColor;
+        text-decoration: none;
     }
 }
+
+////////////////////
+// Projects Layout
+////////////////////
+
+.projects-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: start;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+.projects-sidebar {
+    position: sticky;
+    top: 108px;
+
+    .eyebrow {
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 700px) {
+        position: sticky;
+        top: 88px;
+        z-index: 40;
+        background: $bg;
+        padding: 14px 0;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+
+        .eyebrow {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Language dropdown (mirrors blog category dropdown)
+.lang-dropdown-wrap {
+    position: relative;
+}
+
+.lang-dropdown-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $sans-serif;
+    letter-spacing: -0.32px;
+    line-height: 124%;
+    color: $text-primary;
+    background: transparent;
+    border: 1px solid rgba(13,10,7,0.40);
+    border-radius: 160px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+
+    &:hover {
+        background: $bg-dark;
+        color: $bg;
+        border-color: $bg-dark;
+    }
+}
+
+.lang-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 50;
+    padding-top: 16px;
+}
+
+.lang-dropdown-wrap:hover .lang-dropdown-menu,
+.lang-dropdown-wrap.is-open .lang-dropdown-menu {
+    display: block;
+}
+
+.lang-dropdown-wrap:hover .lang-dropdown-btn,
+.lang-dropdown-wrap.is-open .lang-dropdown-btn {
+    background: $bg-dark;
+    color: $bg;
+    border-color: $bg-dark;
+}
+
+.lang-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 0;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 130%;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.4s, transform 0.4s;
+
+    &:hover {
+        color: $accent;
+        transform: translateX(5px);
+    }
+
+    &.active {
+        color: #fff;
+        font-weight: 500;
+    }
+}
+
+////////////////////
+// Project Cards
+////////////////////
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+}
+
+.project-card {
+    background: $bg-card;
+    border: 1px solid $border-solid;
+    border-radius: 16px;
+    padding: 24px 24px 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s;
+
+    &:hover {
+        border-color: #201d19;
+    }
+}
+
+.project-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.project-desc {
+    font-size: 0.825rem;
+    color: $text-secondary;
+    line-height: 1.55;
+    flex: 1;
+    font-weight: 300;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.project-langs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: $text-muted;
+}
+
+.lang-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+// Language dot colors
+.lang-go     { background: #00ADD8; }
+.lang-js,
+.lang-javascript { background: #F7DF1E; }
+.lang-hcl    { background: #844FBA; }
+.lang-ruby   { background: #CC342D; }
+.lang-rust   { background: #DEA584; }
+.lang-swift  { background: #F05138; }
+.lang-kotlin { background: #7F52FF; }
+.lang-python { background: #3572A5; }

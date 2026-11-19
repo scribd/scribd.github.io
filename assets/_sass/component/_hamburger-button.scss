@@ -1,55 +1,47 @@
 ////////////////////
-// Variables
-////////////////////
-
-$width: rem-calc(20px);
-$height: rem-calc(2px);
-
-////////////////////
 // Hamburger Button
 ////////////////////
 
-.hamburger {
-    position: relative;
-    width: $width;
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+
+    span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: $text-primary;
+        border-radius: 2px;
+        transition: all 0.25s;
+        transform-origin: center;
+    }
+
+    &.is-open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+        background: $bg;
+    }
+
+    &.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    &.is-open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+        background: $bg;
+    }
 }
 
-.hamburger:before,
-.hamburger:after,
-.hamburger__inner {
-    content: '';
-    position: absolute;
-    display: block;
-    right: 0;
-    width: $width - rem-calc(3px);
-    height: $height;
-    background-color: $teal;
-    border-radius: $height;
-    transition: all 0.2s ease-in-out;
-}
-
-.hamburger:before,
-.hamburger:after {
-    width: 100%;
-    transform-origin: left;
-}
-
-.hamburger:before {
-    top: rem-calc(-7px);
-}
-
-.hamburger:after {
-    top: rem-calc(7px);
-}
-
-.active .hamburger:before {
-    transform: translateX(rem-calc(3px)) rotate(45deg);
-}
-
-.active .hamburger__inner {
-    opacity: 0;
-}
-
-.active .hamburger:after {
-    transform: translateX(rem-calc(3px)) rotate(-45deg);
+@media (max-width: 700px) {
+    .nav-hamburger {
+        display: flex;
+    }
 }

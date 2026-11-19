@@ -6,10 +6,94 @@ permalink: /projects/
 hero:
   label: Our Projects
   title: We work openly.
-  body: "We believe a rising tide lifts all boats. If we build something others can benefit from, we open source it. Knowledge isn't meant to be contained; it's meant to be shared."
+  body: "We believe a rising tide lifts all boats. If we build something others can benefit from, we open source it. Knowledge isn't meant to be contained — it's meant to be shared."
+  stats:
+    - value: 36
+      label: Repositories
+    - value: 8
+      label: Languages
+  cta_url: "https://github.com/scribd"
+  cta_text: "View on GitHub"
 ---
 
-<div class="section-container">
-    <h2 class="mb-3">Open Source Projects</h2>
-    {% include project-list.html %}
-</div>
+<section class="section" id="projects">
+    <div class="container">
+        <div class="projects-layout">
+
+            <!-- Sidebar: language filter -->
+            <aside class="projects-sidebar">
+                <div class="eyebrow" style="align-items:flex-start;"><span class="eyebrow-dot" style="margin-top:2px;"></span>Open Source Projects</div>
+                <div class="lang-dropdown-wrap">
+                    <div class="lang-dropdown-btn" role="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="lang-label">All languages</span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 7L9 11.5L13.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="lang-dropdown-menu" role="listbox">
+                        <div class="dropdown-panel">
+                            <a href="#projects" class="active" data-lang="">All languages</a>
+                            <a href="#projects" data-lang="go">Go</a>
+                            <a href="#projects" data-lang="hcl">HCL</a>
+                            <a href="#projects" data-lang="javascript">JavaScript</a>
+                            <a href="#projects" data-lang="kotlin">Kotlin</a>
+                            <a href="#projects" data-lang="ruby">Ruby</a>
+                            <a href="#projects" data-lang="rust">Rust</a>
+                            <a href="#projects" data-lang="swift">Swift</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Projects grid -->
+            <div class="projects-main">
+                {% include project-list.html %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    var wrap = document.querySelector('.lang-dropdown-wrap');
+    var btn = wrap.querySelector('.lang-dropdown-btn');
+    var menu = wrap.querySelector('.lang-dropdown-menu');
+    var label = wrap.querySelector('.lang-label');
+    var options = menu.querySelectorAll('a');
+    var cards = document.querySelectorAll('.project-card');
+
+    // Toggle open/close on click (touch support)
+    btn.addEventListener('click', function() {
+        var isOpen = wrap.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) {
+            wrap.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    options.forEach(function(option) {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            options.forEach(function(o) { o.classList.remove('active'); });
+            this.classList.add('active');
+            label.textContent = this.textContent.trim();
+            wrap.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+
+            var lang = this.dataset.lang || null;
+            cards.forEach(function(card) {
+                if (!lang) {
+                    card.style.display = '';
+                } else {
+                    var cardLangs = (card.dataset.lang || '').split(' ');
+                    card.style.display = cardLangs.indexOf(lang) !== -1 ? '' : 'none';
+                }
+            });
+        });
+    });
+})();
+</script>

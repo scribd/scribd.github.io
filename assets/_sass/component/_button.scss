@@ -17,26 +17,26 @@
 
 .btn {
     @extend .btn-reset;
-    display: inline-block;
-    padding: .75em 1.5em;
-    text-align: center;
-    font-family: $sans-serif;
-    font-size: rem-calc(16px);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    font-size: 0.875rem;
     font-weight: 500;
-    line-height: 1.2;
-    color: $white;
+    font-family: $sans-serif;
+    border-radius: 80px;
     text-decoration: none;
+    transition: all 0.2s;
     border: 1px solid transparent;
-    border-radius: 999px;
-    transition: all 0.2s ease-in-out;
 }
 
 .btn-sm {
-   font-size: rem-calc(14px);
+    font-size: rem-calc(12px);
 }
 
 .btn-lg {
-   font-size: rem-calc(18px);
+    font-size: 1rem;
+    padding: 12px 24px;
 }
 
 ////////////////////
@@ -45,25 +45,39 @@
 
 // Primary: orange pill (scribdinc.com "Contact" CTA)
 .btn-primary {
-    background-color: $brand-orange;
+    background-color: $accent;
     color: $white;
+    border-color: $accent;
 
     &:hover,
     &:focus {
-        background-color: darken($brand-orange, 8%);
+        background-color: $bg-dark;
+        color: $white;
+        border-color: $bg-dark;
+    }
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: $border-solid;
+    color: $text-secondary;
+
+    &:hover,
+    &:focus {
+        background: $bg-dark;
+        color: $white;
+        border-color: $bg-dark;
     }
 }
 
 // Secondary: outlined black pill (scribdinc.com nav links)
 .btn-secondary {
-    background-color: transparent;
-    border-color: $brand-ink;
-    color: $brand-ink;
+    background-color: $text-secondary;
+    color: $white;
 
     &:hover,
     &:focus {
-        background-color: $brand-ink;
-        color: $white;
+        background-color: $text-primary;
     }
 }
 

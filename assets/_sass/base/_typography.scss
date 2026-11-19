@@ -2,21 +2,63 @@
 // Font Imports
 ////////////////////
 
-// Neue Campton (scribdinc.com brand face) is loaded in _brand-fonts.scss.
-// Source Code Pro is kept for code blocks only.
+// Neuecampton (brand font)
+@font-face {
+    font-family: Neuecampton;
+    src: url(https://cdn.prod.website-files.com/6966ac99f846f9e44e0594ea/69825cb141ad0e838461465e_NeueCampton-Light.woff2) format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Neuecampton;
+    src: url(https://cdn.prod.website-files.com/6966ac99f846f9e44e0594ea/69825cb1108d877d8a3669fc_NeueCampton-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Neuecampton;
+    src: url(https://cdn.prod.website-files.com/6966ac99f846f9e44e0594ea/69825cb112a0be6989d8c648_NeueCampton-Medium.woff2) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Neuecampton;
+    src: url(https://cdn.prod.website-files.com/6966ac99f846f9e44e0594ea/69825cb16f493f5f4d814795_NeueCampton-SemiBold.woff2) format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Neuecampton;
+    src: url(https://cdn.prod.website-files.com/6966ac99f846f9e44e0594ea/69825cb1cff1c6110b2d785d_NeueCampton-Bold.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Source Code Pro (kept for code blocks)
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap');
 
-$sans-serif: 'Neue Campton', Arial, sans-serif;
-// The .monospace utility is still used for UI labels in templates. On the brand
-// site those are sans-serif, so the utility maps to the brand face.
-$monospace: 'Neue Campton', Arial, sans-serif;
-$code: 'Source Code Pro', monospace;
+$sans-serif: Neuecampton, Arial, sans-serif;
+$monospace: 'Source Code Pro', monospace;
 
 ////////////////////
 // Available Weights
 ////////////////////
 
-// Neue Campton: 300, 400, 500, 700, 900
+// Neuecampton
+// Light: 300
+// Regular: 400
+// Medium: 500
+// SemiBold: 600
+// Bold: 700
 
 // Source Code Pro (code blocks only)
 // Regular: 400
@@ -26,7 +68,7 @@ code,
 pre,
 kbd,
 samp {
-    font-family: $code !important;
+    font-family: $monospace !important;
 }
 
 .sans-serif {
@@ -43,11 +85,11 @@ samp {
 
 body {
     @extend .sans-serif;
-    font-size: 100%;
-    font-weight: 400;
-    line-height: 1.5;
-    color: $slate-800;
-    background-color: $brand-cream;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 130%;
+    letter-spacing: -0.4px;
+    color: $text-primary;
 }
 
 // body text reset
@@ -70,25 +112,20 @@ h4,
 h5,
 h6 {
     font-weight: 700;
-    line-height: 1.25em;
+    line-height: 1.15;
     margin: 0 0 .5em 0;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.04em;
 }
 
 h1,
 .h1 {
-    font-size: rem-calc(28px);
-    letter-spacing: -0.02em;
-    @media (min-width: $bp-md) { font-size: rem-calc(40px);}
-    @media (min-width: $bp-lg) { font-size: rem-calc(52px);}
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    line-height: 1.08;
 }
 
 h2,
 .h2 {
-    font-size: rem-calc(24px);
-    letter-spacing: -0.015em;
-    @media (min-width: $bp-md) { font-size: rem-calc(32px);}
-    @media (min-width: $bp-lg) { font-size: rem-calc(40px);}
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
 }
 
 h3,
@@ -118,7 +155,7 @@ h6,
 // Links
 ////////////////////
 
-$link-color: $teal;
+$link-color: $accent;
 
 a {
     color: $link-color;

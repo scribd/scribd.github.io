@@ -1,4 +1,8 @@
 // Smooth anchor scrolling unless .no-smooth-scroll is present
+html {
+    scroll-padding-top: 100px;
+}
+
 html:not(.no-smooth-scroll) {
     scroll-behavior: smooth;
 
@@ -9,6 +13,7 @@ html:not(.no-smooth-scroll) {
 
 body {
     overflow-x: hidden; // for animation transforms
+    background-color: $bg;
 }
 
 img {

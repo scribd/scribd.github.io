@@ -2,11 +2,16 @@
 // Sticky Footer
 ////////////////////
 
-// Make the footer stick to the bottom of pages
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 main { flex: 1; }
@@ -15,131 +20,108 @@ main { flex: 1; }
 // Footer
 ////////////////////
 
-.footer {
-    background-color: $brand-ink;
-    color: $white;
+.site-footer {
+    border-top: 1px solid $border-color;
+    padding: 40px 0 32px;
 }
 
-.footer__container {
-    padding-top: rem-calc(25px);
-    padding-bottom: rem-calc(25px);
-    text-align: center;
-
-    @media(min-width: $bp-md) {
-        display: grid;
-        align-items: center;
-        grid-template-columns: 25% 1fr 25%;
-        padding-top: rem-calc(40px);
-        padding-bottom: rem-calc(40px);
-        text-align: left;
-    }
+.footer-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
 }
 
-.footer .logo {
-    @media (max-width: $bp-md - 1px) {
-        margin-bottom: rem-calc(10px);
-        max-width: rem-calc(110px);
-    }
-}
-
-.footer-nav {
-    margin-bottom: rem-calc(10px);
-    text-align: center;
-    font-size: rem-calc(14px);
-
-    @media(min-width: $bp-md) {
-        margin-bottom: 0;
-    }
-
-    @media(min-width: $bp-md) {
-        font-size: rem-calc(16px);
-    }
-}
-
-.footer-nav__item {
-    display: inline-block;
-    padding: rem-calc(10px);
-
-    &:not(:first-child) {
-
-        @media(min-width: $bp-lg) {
-            margin-left: 4%;
-        }
-    }
-
-}
-
-.footer-link {
-    color: rgba($white, .8);
-
-    &.active,
-    &:hover,
-    &:focus {
-        color: $white;
-    }
-}
-
-.footer-social-list {
-    @media(min-width: $bp-md) {
-        text-align: right;
-    }
-}
-
-.footer-social-list__item:not(:first-child) {
-    margin-left: rem-calc(10px);
-}
-
-// Secondary Footer
-.footer-secondary {
-    padding: rem-calc(20px 0);
-    background-color: $brand-ink;
-    border-top: 1px solid rgba($white, .15);
-}
-
-.footer-secondary__container {
-    text-align: center;
-
-    @media(min-width: $bp-md) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-.open-source-nav {
+.footer-brand {
     display: inline-flex;
     align-items: center;
-}
+    text-decoration: none;
 
-.open-source-nav__item:not(:last-child) {
-    margin-right: 1em;
-    padding-right: 1em;
-    border-right: 1px solid rgba($white, .3);
-}
-
-.footer-license {
-    margin: rem-calc(20px 0 0 0);
-    font-size: rem-calc(12px);
-    color: rgba($white, .5);
-
-    @media(min-width: $bp-md) {
-        display: inline-flex;
-        align-items: center;
-        flex-direction: row-reverse;
-        margin: 0 0 0 rem-calc(10px);
-        max-width: 60%;
-        font-size: rem-calc(14px);
-        text-align: right;
+    .logo-wordmark {
+        height: 28px;
+        width: auto;
     }
 }
 
-.footer-license__img {
-    display: block;
-    margin: 0 auto rem-calc(10px) auto;
+.footer-links {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 
-    @media(min-width: $bp-md) {
-        flex: 0 0 auto;
-        display: inline-block;
-        margin: 0 0 0 rem-calc(15px);
+    a {
+        font-size: 0.8rem;
+        color: $text-muted;
+        text-decoration: none;
+        padding: 4px 6px;
+        transition: color 0.2s;
+
+        &:hover {
+            color: $text-primary;
+        }
+    }
+}
+
+.footer-social {
+    display: flex;
+    gap: 8px;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        color: $text-muted;
+        text-decoration: none;
+        border: 1px solid $border-color;
+        border-radius: 80px;
+        transition: all 0.2s;
+
+        &:hover {
+            color: $white;
+            background: $bg-dark;
+            border-color: $bg-dark;
+        }
+    }
+}
+
+.footer-bottom {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid $border-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-copy {
+    font-size: 0.75rem;
+    color: $text-muted;
+
+    a {
+        color: $text-muted;
+        text-decoration: none;
+
+        &:hover {
+            color: $text-secondary;
+        }
+    }
+}
+
+.cc-badge {
+    img {
+        opacity: 0.5;
+        transition: opacity 0.2s;
+    }
+
+    &:hover img {
+        opacity: 0.8;
     }
 }

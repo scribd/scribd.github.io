@@ -1,59 +1,40 @@
-<header class="nav" role="banner">
+<header class="site-nav" role="banner">
     <!-- Skip to button -->
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <nav class="nav__container container">
-
-        {%- assign default_paths = site.pages | map: "path" -%}
-        {%- assign page_paths = site.header_pages | default: default_paths -%}
+    <div class="container nav-inner">
 
         <!-- Logo -->
-        <a rel="author" href="{{ "/" | relative_url }}">
-            <h1 class="visually-hidden">{{ site.title }}</h1>
-            {% include logo.html %}
+        <a rel="author" href="{{ "/" | relative_url }}" class="nav-logo">
+            <span class="visually-hidden">{{ site.title }}</span>
+            {% include logo-wordmark.html %}
         </a>
 
         <!-- Mobile menu button -->
-        <button class="nav__menu-trigger hidden-md-up" type="button" aria-label="Navigation Menu" aria-expanded="false">
-            <span class="visually-hidden">Menu</span>
-            <span class="hamburger">
-                <span class="hamburger__inner"></span>
-            </span>
+        <button class="nav-hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
         </button>
 
         <!-- Site links -->
         {% assign links = site.data.navigation %}
-        <ul class="nav-list list--plain monospace">
+        <ul class="nav-links">
             {% for link in links %}
             {% assign class = nil %}
             {% if page.url contains link.url or page.url contains link.title %}
                 {% assign class = 'active' %}
             {% endif %}
-            <li class="nav-list__item">
-                <a class="nav-list__link {{ class }}" href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
-            </li>
+            <li><a class="{{ class }}" href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a></li>
             {% endfor %}
-
-            <!-- Social icons (mobile only) -->
-            <li class="nav-social-list hidden-md-up">
-                <a class="nav-social-list__item text-white no-underline" href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}">
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#facebook' | relative_url }}"></use></svg>
-                    <span class="visually-hidden">Scribd on Facebook</span>
-                </a>
-                <a class="nav-social-list__item text-white no-underline" href="https://www.linkedin.com/company/{{ site.linkedin_username| cgi_escape | escape }}">
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#linkedin' | relative_url }}"></use></svg>
-                    <span class="visually-hidden">Scribd on LinkedIn</span>
-                </a>
-                <a class="nav-social-list__item text-white no-underline" href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
-                    <svg class="svg-icon"><use xlink:href="{{ '/assets/images/icons/icon-sprite.svg#github' | relative_url }}"></use></svg>
-                    <span class="visually-hidden">Scribd on Github</span>
-                </a>
-            </li>
-
-            <!-- Github links (mobile only) -->
-            <li class="hidden-md-up monospace fs-md">
-                <a class="nav-github-link text-white" href="{{site.github.repository_url}}/edit/{{ site.branch }}/{{page.path}}">Improve this Page</a><a class="nav-github-link text-white" href="{{site.github.repository_url}}/commits/{{ site.branch }}/{{page.path}}">Page History</a>
-            </li>
         </ul>
-    </nav>
+    </div>
 </header>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile-overlay" id="mobileMenu">
+    {% assign links = site.data.navigation %}
+    <ul class="nav-links">
+        {% for link in links %}
+        <li><a href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

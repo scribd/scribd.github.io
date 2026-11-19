@@ -1,23 +1,20 @@
-<li class="post-list__item">
-
-    <!-- Post title -->
-    <h4 class="post-list__heading">
-        <a href="{{ post.url | relative_url }}" class="link-text-color">
-        {{ post.title | escape }}
-        </a>
-    </h4>
-
-    <!-- Post metadata -->
-    <span class="post-list__author">
-        <span class="visually-hidden">Author:</span>
-        {%- if site.data.authors[post.author] -%}
-            {{ site.data.authors[post.author].name}}
-        {%- else -%}
-            {{ post.author }}
-        {%- endif -%}
-    </span><!--
-    --><time class="post-list__date" datetime="{{ post.date | date_to_xmlschema }}">
-        {%- assign date_format = site.date_format -%}
-        {{ post.date | date: date_format }}</time>
-
+<li class="post-item-wrap" {% if post.team %}data-category="{% if post.team.first %}{{ post.team | first | slugify }}{% else %}{{ post.team | slugify }}{% endif %}"{% endif %}>
+    <a href="{{ post.url | relative_url }}" class="post-item">
+        <div>
+            <div class="post-item-title">{{ post.title | escape }}</div>
+            <div class="post-item-byline">
+                {%- if site.data.authors[post.author] -%}
+                    {{ site.data.authors[post.author].name }}
+                {%- else -%}
+                    {{ post.author }}
+                {%- endif -%}
+            </div>
+        </div>
+        <div class="post-item-date">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+                {%- assign date_format = site.date_format -%}
+                {{ post.date | date: "%b %-d, %Y" }}
+            </time>
+        </div>
+    </a>
 </li>

@@ -36,91 +36,87 @@ $dark-muted: rgba($brand-cream, .72);
     // Navigation
     ////////////////////
 
-    .nav,
-    .nav__container {
+    .site-nav {
         background-color: $brand-ink;
     }
 
-    .nav-list__link {
+    .nav-links a {
         color: $dark-text;
+        background: $brand-ink;
+        border-color: $dark-border;
 
-        @media (min-width: $bp-md) {
+        &:hover,
+        &:focus {
+            background-color: $dark-surface-hover;
             color: $dark-text;
-            border-color: $dark-text;
+            border-color: rgba($brand-cream, 0.4);
+        }
 
-            &:hover,
-            &:focus {
-                background-color: $dark-surface-hover;
-            }
-
-            &.active {
-                background-color: $brand-cream;
-                border-color: $brand-cream;
-                color: $brand-ink;
-            }
+        &.active {
+            background-color: $brand-cream;
+            border-color: $brand-cream;
+            color: $brand-ink;
         }
     }
 
-    .nav-list {
-        @media (max-width: $bp-md - 1px) {
-            background-color: $brand-ink;
-        }
-    }
-
-    .nav-list__item {
-        border-bottom-color: $dark-border;
-    }
-
-    .nav-social-list {
-        border-bottom-color: $dark-border;
-    }
-
-    .nav-social-list__item,
-    .nav-github-link {
-        color: $dark-text !important;
-    }
-
-    .nav-github-link:not(:last-child) {
-        border-right-color: $dark-border;
-    }
-
-    // Header logo: orange mark, cream wordmark
-    .logo__icon {
-        fill: $brand-orange;
-    }
-
-    .logo__wordmark {
-        fill: $dark-text;
-    }
-
-    .logo__subhead {
-        fill: $dark-muted;
-    }
-
-    .hamburger__inner,
-    .hamburger:before,
-    .hamburger:after {
+    .nav-hamburger span {
         background-color: $dark-text;
+    }
+
+    // Logo: make dark paths white in dark mode
+    .site-nav .wm-dark,
+    .site-footer .wm-dark {
+        fill: $dark-text;
     }
 
     ////////////////////
     // Buttons
     ////////////////////
 
-    // Orange CTA keeps dark text: ink on orange has higher contrast than white
     .btn-primary {
-        color: $brand-ink;
+        &:hover,
+        &:focus {
+            background-color: $dark-text;
+            border-color: $dark-text;
+            color: $brand-ink;
+        }
     }
 
+    .btn-outline,
     .btn-secondary {
+        background: transparent;
         border-color: $dark-text;
         color: $dark-text;
 
         &:hover,
         &:focus {
             background-color: $dark-text;
+            border-color: $dark-text;
             color: $brand-ink;
         }
+    }
+
+    ////////////////////
+    // Hero / Headline
+    ////////////////////
+
+    .page-headline h1,
+    .page-hero .hero-inner h1 {
+        color: $dark-text;
+    }
+
+    .headline-lead,
+    .hero-lead,
+    .eyebrow {
+        color: $dark-muted;
+    }
+
+    .stat-num {
+        color: $dark-text;
+    }
+
+    .stat-label {
+        color: $dark-muted;
     }
 
     ////////////////////
@@ -177,30 +173,138 @@ $dark-muted: rgba($brand-cream, .72);
         }
     }
 
-    .footer,
-    .footer-secondary {
+    .site-footer {
         background-color: $dark-surface;
-    }
-
-    .footer-secondary {
         border-top-color: $dark-border;
     }
 
-    .footer-link {
+    .footer-bottom {
+        border-top-color: $dark-border;
+    }
+
+    .footer-links a,
+    .footer-copy a {
         color: $dark-muted;
 
-        &.active,
         &:hover,
         &:focus {
             color: $dark-text;
         }
     }
 
-    .open-source-nav__item:not(:last-child) {
-        border-right-color: $dark-border;
+    .footer-copy {
+        color: $dark-muted;
     }
 
-    .footer-license {
+    ////////////////////
+    // Section titles
+    ////////////////////
+
+    .section-title {
+        color: $dark-text;
+    }
+
+    ////////////////////
+    // Dropdowns (blog category + projects language)
+    ////////////////////
+
+    .category-dropdown-btn,
+    .lang-dropdown-btn {
+        color: $dark-text;
+        border-color: rgba($brand-cream, 0.4);
+        background: transparent;
+
+        &:hover,
+        &.open {
+            background: $dark-text;
+            color: $brand-ink;
+            border-color: $dark-text;
+        }
+    }
+
+    .category-dropdown-wrap:hover .category-dropdown-btn,
+    .category-dropdown-wrap.is-open .category-dropdown-btn,
+    .lang-dropdown-wrap:hover .lang-dropdown-btn,
+    .lang-dropdown-wrap.is-open .lang-dropdown-btn {
+        background: $dark-text;
+        color: $brand-ink;
+        border-color: $dark-text;
+    }
+
+    ////////////////////
+    // Blog post list
+    ////////////////////
+
+    .post-item-title {
+        color: $dark-text;
+    }
+
+    .posts-sidebar {
+        @media (max-width: 700px) {
+            background: $brand-ink;
+        }
+    }
+
+    ////////////////////
+    // Series cards (blog recent posts)
+    ////////////////////
+
+    .series-card {
+        background: transparent;
+        border-color: $dark-border;
+
+        &:hover {
+            border-color: $dark-text;
+        }
+    }
+
+    .series-item-title {
+        color: $dark-text;
+    }
+
+    ////////////////////
+    // Project cards
+    ////////////////////
+
+    .project-card {
+        background: transparent;
+        border-color: $dark-border;
+
+        &:hover {
+            border-color: $dark-text;
+        }
+    }
+
+    .project-name,
+    .card__header-title,
+    .card__header-link {
+        color: $dark-text;
+    }
+
+    .project-desc {
+        color: $dark-muted;
+    }
+
+    .projects-sidebar {
+        @media (max-width: 700px) {
+            background: $brand-ink;
+        }
+    }
+
+    ////////////////////
+    // Tech cards (careers)
+    ////////////////////
+
+    .tech-card {
+        background: transparent;
+        border-color: $dark-border;
+    }
+
+    .tech-name {
+        color: $dark-text;
+    }
+
+    .tech-desc {
         color: $dark-muted;
     }
 
@@ -208,6 +312,26 @@ $dark-muted: rgba($brand-cream, .72);
     // Lists, borders, and rules
     ////////////////////
 
+    // Page-level dividers
+    .page-headline,
+    .page-hero {
+        border-bottom-color: $dark-border;
+    }
+
+    .section {
+        border-top-color: $dark-border;
+    }
+
+    // Blog post rows
+    .post-item {
+        border-bottom-color: $dark-border;
+    }
+
+    .post-item-wrap:first-child .post-item {
+        border-top-color: $dark-border;
+    }
+
+    // Legacy post-list items
     .post-list__item,
     .action-cell,
     .text-block-grid__item,
@@ -274,16 +398,64 @@ $dark-muted: rgba($brand-cream, .72);
     }
 
     ////////////////////
+    // Article hero
+    ////////////////////
+
+    .article-hero {
+        border-bottom-color: $dark-border;
+    }
+
+    .article-title {
+        color: $dark-text;
+    }
+
+    .article-cat {
+        background: rgba($brand-cream, 0.08);
+        border-color: $dark-border;
+        color: $dark-text;
+    }
+
+    .article-meta {
+        color: $dark-muted;
+
+        .author {
+            color: $dark-text;
+        }
+
+        .dot {
+            color: $dark-border;
+        }
+    }
+
+    .article-back {
+        color: $dark-muted;
+    }
+
+    ////////////////////
     // Article content
     ////////////////////
 
     .post-content {
+        color: $dark-muted;
+    }
+
+    .post-content h1,
+    .post-content h2,
+    .post-content h3,
+    .post-content h4,
+    .post-content h5,
+    .post-content h6 {
+        color: $dark-text;
+    }
+
+    .post-content strong {
         color: $dark-text;
     }
 
     .post-content blockquote {
         background-color: $dark-surface;
         border-color: $dark-border;
+        color: $dark-text;
     }
 
     .post-content hr {
@@ -292,6 +464,30 @@ $dark-muted: rgba($brand-cream, .72);
 
     .post-content a {
         color: $brand-orange;
+        border-bottom-color: rgba($brand-orange, 0.35);
+
+        &:hover {
+            border-bottom-color: $brand-orange;
+        }
+    }
+
+    .post-content code.highlighter-rouge {
+        background: rgba($brand-cream, 0.08);
+        color: $dark-text;
+    }
+
+    .post-content thead th {
+        background: transparent;
+        color: $dark-text;
+    }
+
+    .post-content th,
+    .post-content td {
+        border-color: $dark-border;
+    }
+
+    .post-content tbody tr:nth-child(even) {
+        background: rgba($brand-cream, 0.04);
     }
 
     ////////////////////
@@ -327,7 +523,8 @@ $dark-muted: rgba($brand-cream, .72);
         color: $dark-muted;
     }
 
+    .text-secondary,
     .text-slate-700 {
-        color: $dark-text;
+        color: $dark-muted;
     }
 }

@@ -1,95 +1,54 @@
 ////////////////////
-// Related Posts
+// Keep Reading
 ////////////////////
 
-.related-posts {
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+.keep-reading {
+    background: $bg-dark;
+    padding: 64px 0;
 }
 
-.related-posts__wrapper {
-    @media (min-width: $post-bp) {
-        display: grid;
-        grid-template-columns: 320px 1fr 5%;
-    }
+.kr-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 24px;
 }
 
-.related-posts__title {
-    margin-bottom: 0;
-    line-height: 1;
-    @extend .monospace;
+.kr-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 
-    @media (min-width: $bp-md) {
-        font-size: rem-calc(40px);
-    }
-
-    @media (min-width: $post-bp) {
-        font-size: rem-calc(56px);
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
     }
 }
 
-////////////////////
-// Post List Tweaks
-////////////////////
+.kr-card {
+    display: block;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    text-decoration: none;
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.2s, background 0.2s;
 
-.related-posts .post-list {
-    @media (min-width: $bp-md) {
-        display: grid;
-        grid-gap: 0 5%;
-        grid-template-columns: 1fr 1fr;
-        align-self: center;
+    &:hover {
+        border-color: rgba(255,255,255,0.35);
+        background: rgba(255,255,255,0.06);
+    }
+
+    h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.35;
+        color: #ffffff;
+        margin-bottom: 10px;
     }
 }
 
-.related-posts .post-list__item {
-    padding-right: 0;
-
-    @media (max-width: $bp-md) {
-        &:first-of-type {
-            margin-top: rem-calc(15px);
-            border-top: 1px solid $border-color;
-        }
-
-        &:last-of-type {
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-    }
-
-    @media (min-width: $bp-md) {
-        &:nth-of-type(3),
-        &:nth-of-type(4) {
-            border-bottom: none;
-        }
-    }
-}
-
-////////////////////
-// Arrows
-////////////////////
-
-.related-posts__arrow {
-    position: absolute;
-    color: $slate-200;
-    z-index: -1;
-    @extend .hidden-md-down;
-
-    &:nth-of-type(1) {
-        top: -.35em;
-        left: .5em;
-        font-size: 30vmin;
-    }
-
-    &:nth-of-type(2) {
-        bottom: -.35em;
-        left: -.35em;
-        font-size: 34vmin;;
-    }
-
-    &:nth-of-type(3) {
-        bottom: 0;
-        right: -.25em;
-        font-size: 24vmin;;
-    }
+.kr-meta {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
 }

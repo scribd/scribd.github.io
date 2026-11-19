@@ -1,114 +1,150 @@
 ////////////////////
-// Variables
+// Blog Posts Layout
 ////////////////////
 
-$index-nav-gradient-sm: linear-gradient(180deg, $brand-cream 0%, $brand-cream 100%);
-$index-nav-gradient-lg: linear-gradient(180deg, $brand-cream 0px, $brand-cream 800px);
+.posts-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: start;
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+.posts-sidebar {
+    position: sticky;
+    top: 108px;
+
+    .eyebrow {
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 700px) {
+        position: sticky;
+        top: 88px;
+        z-index: 40;
+        background: $bg;
+        padding: 14px 0;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+
+        .eyebrow {
+            margin-bottom: 0;
+        }
+    }
+}
 
 ////////////////////
-// Layout
+// Category Dropdown
+////////////////////
+
+.category-dropdown-wrap {
+    position: relative;
+}
+
+.category-dropdown-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 24px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $sans-serif;
+    letter-spacing: -0.32px;
+    line-height: 124%;
+    color: $text-primary;
+    background: transparent;
+    border: 1px solid rgba(13,10,7,0.40);
+    border-radius: 160px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+
+    &:hover,
+    &.open {
+        background: $bg-dark;
+        color: $bg;
+        border-color: $bg-dark;
+    }
+}
+
+.category-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 50;
+    padding-top: 16px;
+}
+
+.category-dropdown-wrap:hover .category-dropdown-menu,
+.category-dropdown-wrap.is-open .category-dropdown-menu {
+    display: block;
+}
+
+.category-dropdown-wrap:hover .category-dropdown-btn,
+.category-dropdown-wrap.is-open .category-dropdown-btn {
+    background: $bg-dark;
+    color: $bg;
+    border-color: $bg-dark;
+}
+
+.dropdown-panel {
+    background: #101010;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 28px 32px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 7px 0;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: -0.32px;
+        line-height: 130%;
+        color: rgba(255,255,255,0.55);
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: color 0.4s, transform 0.4s;
+
+        &:hover {
+            color: $accent;
+            transform: translateX(5px);
+        }
+
+        &.active {
+            color: #fff;
+            font-weight: 500;
+        }
+    }
+}
+
+////////////////////
+// Legacy post-index classes
 ////////////////////
 
 .post-index {
     @media (min-width: $bp-md) {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-areas:
-        "header body";
-    }
-
-    @media (min-width: $bp-xl) {
-        grid-template-columns: 1fr minmax(auto, ($max-width * .25)) minmax(0, ($max-width * .75)) 1fr;
-        grid-template-areas:
-        ". header body .";
-        // Hack to fake header gradient bleed off the left side
-        background-image: $index-nav-gradient-lg;
-        background-repeat: no-repeat;
-        background-size: 50% 100%;
+        display: block;
     }
 }
 
-.post-index__nav,
-.post-index__body {
-    margin: 0;
-    @extend .section-container;
-}
 .post-index__nav {
-    grid-area: header;
+    display: none;
 }
 
 .post-index__body {
-    grid-area: body;
-    background-color: $white;
-
-    @media (min-width: $bp-md) {
-        min-height: 85vh;
-    }
-}
-
-////////////////////
-// Navigation Styles
-////////////////////
-
-.post-index__nav {
-    background-image: $index-nav-gradient-lg;
-
-    // Mobile only tweaks
-    @media (max-width: $bp-md - 1px) {
-        padding-top: rem-calc(20px);
-        padding-bottom: rem-calc(15px);
-        background-image: $index-nav-gradient-sm;
-    }
-}
-
-.post-index__nav-list {
-    display: grid;
-    grid-gap: 0 rem-calc(10px);
-    grid-template-columns: 1fr 1fr;
-    margin-left: 1em;
-    font-size: rem-calc(14px);
-    color: $slate-600;
-    @extend .monospace;
-
-    @media (min-width: $bp-md) {
-        display: block;
-        margin-left: 0;
-        font-size: rem-calc(18px);
-    }
-}
-
-.post-index__nav-list-item {
-    margin: 0 0 .5em 0;
-}
-
-// Active link styles
-.post-index__nav-list .active {
-    position: relative;
-    color: $slate-800;
-    font-weight: 500;
-
-    // Indicator Dot
-    &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: -.65em;
-        transform: translate(-50%, -50%);
-        width: 5px;
-        height: 5px;
-        background-color: $brand-orange;
-        border-radius: 100%;
-        z-index: 2;
-    }
-}
-
-// Link styles
-.post-index__nav-link {
-    @extend .link-text-color;
-
-    &:hover,
-    &:focus {
-        color: $slate-800;
-    }
+    background-color: $bg;
 }

@@ -2,153 +2,156 @@
 // Variables
 ////////////////////
 
-$nav-height-sm: rem-calc(60px);
-$nav-height-lg: rem-calc(80px);
-$nav-zindex: 10;
+$nav-height: 88px;
+$nav-zindex: 200;
 
 ////////////////////
 // Navigation
 ////////////////////
 
-.nav {
-    position: relative;
-    width: 100%;
-    background-color: $brand-cream;
-    border-bottom: 1px solid transparent;
-    z-index: $nav-zindex;
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $nav-zindex;
+  background: $bg;
+  padding: 24px 0;
 }
 
-.nav__container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    height: $nav-height-sm;
-    background-color: $brand-cream;
-
-    @media (min-width: $bp-md) {
-        height: $nav-height-lg;
-    }
+// Push page content below fixed nav
+.page-wrapper {
+  padding-top: $nav-height;
 }
 
-.nav .logo {
-    @media(max-width: $bp-md - 1px) {
-        max-width: rem-calc(105px);
-    }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.nav__menu-trigger {
-    @extend .btn-reset;
-    width: $nav-height-sm;
-    height: $nav-height-sm;
-    margin-right: -$cp-sm;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
-// Prevent background page from scrolling when menu is active
-.menu-active {
-    overflow: hidden;
+.logo-wordmark {
+  height: 38.4px;
+  width: auto;
+  display: block;
 }
 
-.nav-list {
-    @media (max-width: $bp-md - 1px) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: $nav-height-sm $cp-sm rem-calc(20px);
-    background-color: $brand-cream;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    opacity: 0;
-    visibility: hidden;
-    transition-duration: 0.2s;
-    transition-property: opacity, visibility, transform;
-    transition-timing-function: ease-in-out;
-    z-index: -1;
-    }
+.wm-dark {
+  fill: $text-primary;
+  transition: fill 0.2s;
 }
 
-// Show nav list when .menu-active class is toggled
-.menu-active .nav-list{
-    opacity: 1;
-    visibility: visible;
+.wm-orange {
+  fill: $accent;
 }
 
-.nav-list__item {
-    display: inline;
-    border-bottom: 1px solid $slate-300;
+// Invert logo when mobile menu is open
+.site-nav.menu-open {
+  background: $bg-dark;
 
-    @media (min-width: $bp-md) {
-        border-bottom: none;
-    }
-
-    &:not(:first-of-type) {
-
-        @media (min-width: $bp-md) {
-            margin-left: rem-calc(8px);
-        }
-    }
+  .wm-dark {
+    fill: #ffffff;
+  }
 }
 
-// Desktop nav items are outlined pills, matching scribdinc.com.
-// Active item is a filled black pill.
-.nav-list__link {
-    display: block;
-    padding: rem-calc(20px 10px);
-    color: $slate-800;
-    font-size: rem-calc(16px);
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    @media (min-width: $bp-md) {
-        display: inline-block;
-        padding: rem-calc(10px 20px);
-        color: $slate-800;
-        border: 1px solid $slate-800;
-        border-radius: 999px;
-        line-height: 1.2;
-        transition: background-color .2s ease-in-out, color .2s ease-in-out;
-
-        &:hover,
-        &:focus {
-            background-color: $brand-hover;
-        }
-
-        &.active {
-            background-color: $brand-ink;
-            border-color: $brand-ink;
-            color: $white;
-            text-decoration: none;
-        }
-    }
-}
-
-// Mobile social media icons
-.nav-social-list {
-    margin-top: auto;
-    margin-bottom: rem-calc(15px);
-    border-bottom: 1px solid $slate-300;
-}
-
-.nav-social-list__item {
+  a {
     display: inline-block;
-    padding: rem-calc(20px 8px 20px 0);
-    color: $slate-800 !important;
+    color: $text-primary;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    line-height: 130%;
+    padding: 10px 20px;
+    border-radius: 150px;
+    border: 1px solid rgba(18, 18, 18, 0.4);
+    background: $bg;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+    &:hover,
+    &.active {
+      background: $bg-dark;
+      color: $bg;
+      border-color: $bg-dark;
+    }
+  }
 }
 
-// Mobile github links
-.nav-github-link:not(:last-child) {
-    margin-right: rem-calc(12px);
-    padding-right: rem-calc(12px);
-    border-right: 1px solid $slate-300;
+@media (max-width: 700px) {
+  .nav-inner .nav-links {
+    display: none;
+  }
 }
 
-.nav-github-link {
-    color: $slate-800 !important;
+////////////////////
+// Mobile Nav Overlay
+////////////////////
+
+.nav-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: $bg-dark;
+  z-index: $nav-zindex - 1;
+  padding: 24px;
+  padding-top: calc(#{$nav-height} + 24px);
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+
+  &.is-open {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    border-top: 1px solid rgba(246, 242, 236, 0.15);
+
+    li {
+      width: 100%;
+      border-bottom: 1px solid rgba(246, 242, 236, 0.15);
+    }
+
+    a {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      color: $bg;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 22px 0;
+      width: 100%;
+      letter-spacing: -0.4px;
+      line-height: 130%;
+
+      &:hover {
+        color: $accent;
+        background: transparent;
+        border: none;
+      }
+    }
+  }
 }
 
 ////////////////////
@@ -156,18 +159,18 @@ $nav-zindex: 10;
 ////////////////////
 
 .skip-link {
-    position: absolute;
-    top: -$nav-height-lg;
-    padding: 1rem;
-    font-size: 1rem;
-    line-height: 1;
-    color: $white;
-    text-decoration: none;
-    background: $teal-dark;
-    transition: top .2s ease-in-out;
-    z-index: $nav-zindex + 1;
+  position: absolute;
+  top: -$nav-height;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1;
+  color: $white;
+  text-decoration: none;
+  background: $bg-dark;
+  transition: top 0.2s ease-in-out;
+  z-index: $nav-zindex + 1;
 
-    &:focus {
-        top: 0;
-    }
+  &:focus {
+    top: 0;
+  }
 }

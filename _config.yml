@@ -1,9 +1,7 @@
-title: Scribd Technology
+title: Scribd, Inc. Technology
 email: talent@scribd.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Scribd technology builds and delivers one of the world's largest libraries,
-  bringing the best books, audiobooks, and journalism to millions of people
-  around the world.
+  Scribd, Inc. Technology builds and delivers one of the world's largest collections of content to help people move from information access to real understanding and application.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tech.scribd.com" # the base hostname & protocol for your site, e.g. http://example.com
 google_analytics: 'UA-443684-30'
